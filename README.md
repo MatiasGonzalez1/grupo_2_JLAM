@@ -3,9 +3,17 @@
 # Introducción
 >>*En este Proyecto participaremos en el desarrollo de una e-commerce que pertenece al rubro vitivinícola, simulando así, la distribución y la elaboración de vinos resultantes de uvas estacionadas regionalmente en la provincia de Misiones bajo el nombre de ***“Terra Rossa”***.* 🍇🍷
 
-## Objetivo General:pencil:
+## Objetivo General :dart:
 - Promover, proteger y promocionar la riqueza y la diversidad de los vinos con denominación de origen y fomentar la relación y colaboración con aquellos organismos, asociaciones y entidades cuyos fines sean complementarios y/o concurrentes
 
-## Objetivos Especificos:pencil:
+## Objetivos Especificos :dart:
 - Potenciar la marca "Terra rosa" en el mercado online, de manera que el consumidor pueda llegar a ellos de manera fácil y rápida, las 24 horas del día los 365 días del año.
+
+## Referentes :pencil:
+
+- [Alonzo Guerrero](https://shopalonsoguerrerowines.com/)
+- [Bodega Garzon](https://bodegagarzon.com/)
+- [Zuccardi Wines](https://zuccardiwines.com/)
+- [Bodega Salentin](http://www.bodegasalentein.com/es/home.html/)
+- [Rutini Wines](https://rutiniwines.com/)
 
