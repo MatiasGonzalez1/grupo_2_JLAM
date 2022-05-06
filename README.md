@@ -17,3 +17,11 @@
 - [Bodega Salentin](http://www.bodegasalentein.com/es/home.html/)
 - [Rutini Wines](https://rutiniwines.com/)
 
+## Integrantes  🍷 :trollface:
+
+- [Leandro Ojeda](https://github.com/LeandroOJeda)
+- [Johanna Chamorro](https://github.com/JohannaCh)
+- [Matias Gonzalez](https://github.com/MatiasGonzalez1)
+- [Amalia Ribeiro](https://github.com/AmalitaR)
+
+
