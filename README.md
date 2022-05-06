@@ -8,6 +8,7 @@
 
 ## Objetivos Especificos :dart:
 - Potenciar la marca "Terra rosa" en el mercado online, de manera que el consumidor pueda llegar a ellos de manera fácil y rápida, las 24 horas del día los 365 días del año.
+- 
 
 ## Referentes :pencil:
 
