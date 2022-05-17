@@ -183,7 +183,6 @@
 
         
     }
-
     .footer-col{
 		width: 20%;
 	 }
@@ -195,37 +194,62 @@
 	.philosophy{
 		height: 200px;
 	}
-
 	.circle{
 		display:flex;
 		float: right;
 		margin-right: 200px;
 	}
+    .footer{
+        padding: 40px 0px 20px 0px;
+    }
+    .footer-col{
+		width: 20%;
+        margin-bottom: 10px;
+	 }
+	 .philosophy .text-content{
+		width: 60%;
+		margin: auto;
+	}
+	.philosophy{
+		height: 200px;
+	}
+    .footer-col h4{
+        font-size: 18px;
+    }
+    .footer-col .social-links a{
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        }
+    .text-foo{
+        font-size: 16px;
+    }
+    .copy{
+        font-size:13px;
+    }
+    .footer-col ul li a{
+        font-size: 16px;
+    }
 
 }
 /* Seccion Barra de navegacion laptop */
 @media (min-width: 913px) {
 
-    /* main{
+    main{
         margin-top: 130px;
-    } */
-    
+    }
     .nav-bar{
         height: 130px;
     }
-    
-    
     .logo{
         width: 180px;
         height: 63px;
         padding-left: 7vw;
         width: max-content;
     }
-    
     .nav-hamburguer{
         display: none;
     }
-    
     .nav-menu-list{
         background-color: transparent;
         flex-direction: row;
@@ -236,11 +260,9 @@
         margin-right: 20vw ;
         transition: bottom .70s;
     }
-    
     .nav-bar .icon{
         margin-right: 40px;
     }
-    
     .nav-menu-item{
         margin: 0 15px;
         padding: 0;
@@ -248,16 +270,15 @@
         align-items: center;
     
     }
-    
     .icon{
         margin-right: 7vw;
         width: fit-content;
         height: fit-content;
     }
-    
     #navMenu, #navMenu > span {
         transition: all .4s ease-in-out;
     }
+
     /* Seccion Novedades */
     
     .product-news .item button{
@@ -268,12 +289,10 @@
         color: #fbf2e0;
         margin: 5px 40% 0 0;
     }
-    
     .product-news .item p{
         font-size: 15px;
         margin-top: 30px;
     }
-    
     .slider__text{
         position: absolute;
         width: 35vw;
@@ -939,143 +958,4 @@ main{
     }
 
 }
-
-@media (min-width:1022px){
-
-}
 /************************** FIN FOOTER*************************************/
-/* Seccion Barra de navegacion laptop */
-@media (min-width: 913px) {
-
-main{
-    margin-top: 130px;
-}
-
-.nav-bar{
-    height: 130px;
-}
-
-
-.logo{
-    width: 180px;
-    height: 63px;
-    padding-left: 7vw;
-    width: max-content;
-}
-
-.nav-hamburguer{
-    display: none;
-}
-
-.nav-menu-list{
-    background-color: transparent;
-    flex-direction: row;
-    width: max-content;
-    top: 70px;
-    justify-content: space-around;
-    left: unset;
-    margin-right: 20vw ;
-    transition: bottom .70s;
-}
-
-.nav-bar .icon{
-    margin-right: 40px;
-}
-
-.nav-menu-item{
-    margin: 0 15px;
-    padding: 0;
-    width: fit-content;
-    align-items: center;
-
-}
-
-.icon{
-    margin-right: 7vw;
-    width: fit-content;
-    height: fit-content;
-}
-
-#navMenu, #navMenu > span {
-    transition: all .4s ease-in-out;
-}
-/* Seccion Novedades */
-
-.product-news .item button{
-    width: 50%;
-    height: 30px;
-    background-color: #ff452c;
-    border-color: transparent;
-    color: #fbf2e0;
-    margin: 5px 40% 0 0;
-}
-
-.product-news .item p{
-    font-size: 15px;
-    margin-top: 30px;
-}
-
-.slider__text{
-    position: absolute;
-    width: 35vw;
-    right: 100px;
-    top: 100px;
-    text-align: justify;
-}
-.slider__item h2{
-    font-size: 30px;
-    margin: 0px 0 20px 0 ;
-    font-weight: bold;
-}
-.slider__itemp{
-    padding-bottom: 45px;
-    font-size: 12px;
-}
-.btn--linebrown{
-    width: 100vw;
-    font-size: 15px;
-    text-transform: uppercase;
-    text-decoration: none; 
-    padding: 5px 30px;
-    border: solid 1px black;
-    border-radius: 10px;
-    color: black;
-}
-.btn--linebrown:hover{
-    transition: ease 0.1s;
-    background-color: black;
-    color: aliceblue;
-}
-
-/* Slider 2*/
-.slider02__text{
-    position: absolute;
-    width: 25vw;
-    left: 48px;
-    top: 120px;
-    text-align: left;
-    color: white;
-}
-
-.slider02__item, .slider03__item h2{
-    font-size: 25px;
-}
-.slider02__itemh4, .slider__itemh4{
-    font-size: 18px;
-    font-weight: normal;
-    margin: 0;
-}
-
-/* Slider 3*/
-.slider03__text{
-    position: absolute;
-    width: 30vw;
-    right: 45px;
-    top: 75px;
-    text-align: center;
-}
-
-/*items paginacion*/
-
-
-}
