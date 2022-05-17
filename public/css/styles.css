@@ -1,8 +1,51 @@
 *{
 	margin:0;
-	padding:0;	
+	padding:0;
 	box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
+}
+
+.main{
+	color: #2b2b2b;
+}
+/********PHILOSOPHY*********/
+.philosophy{
+	width: 100%;
+	height: 250px;
+	margin-top: 100px;
+}
+/* .circle{
+	background-image: url(/img/blobanimation.svg);
+	background-repeat: no-repeat;
+	background-size: 200px;
+	background-position:left center;
+} */
+
+.text-content .first-text{
+
+	margin-top: -55px;
+	margin-bottom: 8px;
+	margin-left: 30px;
+}
+
+.text-content .second-text{
+	margin-bottom: 10px;
+	margin-left: 60px;
+}
+
+
+
+.philosophy .text-content {
+	background-color: #333333;
+	width: 100%;
+	color:#fbf2e0;
+	padding: 25px;
+	text-align: justify;
+	height: 100%;
+}
+
+.text-content p, .text-content h3, .text-content .second-text {
+	background-color: #333333;
 }
 
 /*******************FOOTER*******************/
@@ -12,6 +55,7 @@
 	bottom: 0;
 	background-color: #2b2b2b;
     padding: 40px 0;
+	margin-top: 50px;
 }
 .footer .container{
 	width: 90%;
@@ -20,6 +64,7 @@
 .footer .container .row{
 	display: flex;
 	flex-wrap: wrap;
+	justify-content: space-around;
 }
 .footer ul{
 	list-style: none;
@@ -27,8 +72,8 @@
 
 .footer-col{
    width: 100%;
-   padding: 0 15px;
-   margin-bottom: 20px;
+   padding: 0px 15px 10px 15px;
+   margin-bottom: 50px;
 }
 .footer-col h4{
 	font-size: 25px;
@@ -86,15 +131,19 @@
 	color: #fbf2e0;
 	transition: all 0.5s ease;
 }
+
 .footer-col .social-links a:hover{
-	color: #333333;
+	color: #333333; 
 	background-color: #fbf2e0;
 }
 
 .footer-img{
-    width: 200px;
-	margin: 0 auto;
-	padding-bottom: 10px;
+	background-image: url(/img/blobanimation.svg);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position:  right center;
+    width: 400px;
+	height: 400px;
 }
 
 .text-foo{
@@ -102,7 +151,6 @@
     padding: 10px;
 	font-size: 20px;
     width: 100%;
-    margin: auto;
     text-align: center;
     font-weight: bold;
     color: #FBF2E0;
@@ -117,8 +165,28 @@
 
 @media (min-width:768px){
 	.footer-col{
-		width: 25%;
+		width: 20%;
 	 }
+	 .philosophy .text-content{
+		width: 60%;
+		margin: auto;
 	}
 
+	.philosophy{
+		height: 200px;
+	}
 
+	.circle{
+		display:flex;
+		float: right;
+		margin-right: 200px;
+	}
+}
+
+@media (min-width:1022px){
+.circle{
+	width: 120px;
+	height: 120px;
+	margin-right: 150px;
+}
+}
