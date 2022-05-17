@@ -1,18 +1,20 @@
-* {
+
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "Montserrat";
 }
-/* johanna  */
 
 /* Slider */
 .container-slider{
     width: 100vw;
     overflow: hidden;
+    z-index: 0;
 }
 
 .slider{
+    position: relative;
     display: flex;
     width: 300%;
     animation: change 10s infinite none ease-in-out;
@@ -37,29 +39,19 @@
     top: 45px;
     text-align: left;
 }
-.slider__item h4{
+.slider__text h4{
     font-size: 10px;
 
 }
-.slider__item h2{
+.slider__text h2{
     font-size: px;
     margin: 2px 0 5px 0 ;
     font-weight: bold;
 }
-.slider__item p{
+
+.slider__text p{
     font-size: 12px;
     padding-bottom: 20px;
-}
-.btn--linebrown{
-    width: 100vw;
-    font-size: 12px;
-    text-transform: uppercase;
-    text-decoration: none; 
-    padding: 6px 15px;
-    border: solid 1px black;
-    border-radius: 5px;
-    color: black;
-    
 }
 
 /* Slider 2*/
@@ -67,17 +59,21 @@
     position: absolute;
     width: 25vw;
     left: 30px;
-    top: 90px;
+    top: 100px;
     text-align: left;
     color: white;
 }
-.slider02__item, .slider03__item h2{
+.slider02__text h2, .slider03__text h2{
     font-size: 20px;
 
 }
-.slider02__item h4{
+.slider02__text h4{
     font-size: 15px;
     font-weight: normal;
+    padding: 8px 0;
+}
+.slider02__text{
+    font-size: 10px;
 }
 
 /* Slider 3*/
@@ -88,11 +84,24 @@
     top: 20px;
     text-align: center;
 }
+.slider03__text a{
+    position: absolute;
+    width: 20vw;
+    right: 30px;
+    top: 60px;
+    font-size: 10px;
+    text-transform: uppercase;
+    text-decoration: none; 
+    padding: 6px 15px;
+    border: solid 1px black;
+    border-radius: 5px;
+    color: black;
+
+    
+}
 .slider__img{
     width: 100vw;
 }
-
-
 
 /*************MEDIA QUERY**************/
 
@@ -100,49 +109,51 @@
     .slider__text{
         position: absolute;
         width: 35vw;
+        height: auto;
         right: 80px;
-        top: 75px;
+        top: 80px;
         text-align: justify;
     }
-    .slider__item h2{
+    .slider__text h2{
         font-size: 30px;
         margin: 0px 0 20px 0 ;
         font-weight: bold;
+        text-transform: uppercase;
     }
-    .slider__item p{
-        padding-bottom: 45px;
-        font-size: 12px;
+    .slider__text p{
+        padding-bottom: 40px;
+        font-size: 15px;
     }
-    .btn--linebrown{
-        width: 100vw;
+    .slider__text a{
+        position: absolute;
+
+        text-align: center;
+        width: 25vw;
         font-size: 15px;
         text-transform: uppercase;
         text-decoration: none; 
         padding: 5px 30px;
         border: solid 1px black;
-        border-radius: 10px;
+        border-radius: 5px;
         color: black;
-    }
-    .btn--linebrown:hover{
-        transition: ease 0.1s;
-        background-color: black;
-        color: aliceblue;
+
     }
 
     /* Slider 2*/
     .slider02__text{
         position: absolute;
         width: 25vw;
-        left: 48px;
-        top: 100px;
+        left: 45px;
+        top: 180px;
         text-align: left;
         color: white;
     }
     
-    .slider02__item, .slider03__item h2{
+    .slider02__text h2, .slider03__text h2{
         font-size: 20px;
+
     }
-    .slider02__item, .slider__item h4{
+    .slider02__text h4, .slider__text h4{
         font-size: 15px;
         font-weight: normal;
         margin: 0;
@@ -151,10 +162,26 @@
     /* Slider 3*/
     .slider03__text{
         position: absolute;
+        justify-content:start;
         width: 30vw;
         right: 45px;
         top: 75px;
         text-align: center;
+    }
+    .slider03__text a{
+        position: absolute;
+        width: 20vw;
+        right: 30px;
+        top: 50px;
+        font-size: 12px;
+        text-transform: uppercase;
+        text-decoration: none; 
+        padding: 6px 15px;
+        border: solid 1px black;
+        border-radius: 5px;
+        color: black;
+
+        
     }
 
     .footer-col{
@@ -176,30 +203,103 @@
 	}
 
 }
+/* Seccion Barra de navegacion laptop */
+@media (min-width: 913px) {
 
-@media screen and (min-width: 1200px) {
+    /* main{
+        margin-top: 130px;
+    } */
+    
+    .nav-bar{
+        height: 130px;
+    }
+    
+    
+    .logo{
+        width: 180px;
+        height: 63px;
+        padding-left: 7vw;
+        width: max-content;
+    }
+    
+    .nav-hamburguer{
+        display: none;
+    }
+    
+    .nav-menu-list{
+        background-color: transparent;
+        flex-direction: row;
+        width: max-content;
+        top: 70px;
+        justify-content: space-around;
+        left: unset;
+        margin-right: 20vw ;
+        transition: bottom .70s;
+    }
+    
+    .nav-bar .icon{
+        margin-right: 40px;
+    }
+    
+    .nav-menu-item{
+        margin: 0 15px;
+        padding: 0;
+        width: fit-content;
+        align-items: center;
+    
+    }
+    
+    .icon{
+        margin-right: 7vw;
+        width: fit-content;
+        height: fit-content;
+    }
+    
+    #navMenu, #navMenu > span {
+        transition: all .4s ease-in-out;
+    }
+    /* Seccion Novedades */
+    
+    .product-news .item button{
+        width: 50%;
+        height: 30px;
+        background-color: #ff452c;
+        border-color: transparent;
+        color: #fbf2e0;
+        margin: 5px 40% 0 0;
+    }
+    
+    .product-news .item p{
+        font-size: 15px;
+        margin-top: 30px;
+    }
+    
     .slider__text{
         position: absolute;
         width: 35vw;
-        right: 160px;
-        top: 120px;
+        right: 100px;
+        top: 100px;
         text-align: justify;
     }
-    .slider__item h2{
-        font-size: 55px;
-        margin: 0px 0 40px 0 ;
+    .slider__text h2{
+        font-size: 40px;
+        margin: 0px 0 20px 0 ;
         font-weight: bold;
     }
-    .slider__item p{
+    .slider__text h4{
+        font-size: 18px;
+        font-weight: normal;
+    }
+    .slider__text p{
         padding-bottom: 45px;
         font-size: 15px;
     }
     .btn--linebrown{
         width: 100vw;
-        font-size: 20px;
+        font-size: 15px;
         text-transform: uppercase;
         text-decoration: none; 
-        padding: 8px 40px;
+        padding: 5px 30px;
         border: solid 1px black;
         border-radius: 10px;
         color: black;
@@ -209,46 +309,142 @@
         background-color: black;
         color: aliceblue;
     }
+    
+    /* Slider 2*/
+    .slider02__text{
+        position: absolute;
+        width: 25vw;
+        left: 48px;
+        top: 200px;
+        text-align: left;
+        color: white;
+    }
+    
+    .slider02__text h2{
+        font-size: 20px;
+    }
+    .slider02__text h4{
+        font-size: 18px;
+        font-weight: normal;
+        padding: 10px 0;
+    }
+    .slider02__text p{
+        font-size: 12px;
+    }
+    
+    /* Slider 3*/
+    .slider03__text{
+        position: absolute;
+        width: 35vw;
+        right: 35px;
+        top: 75px;
+        text-align: center;
+    }
+    .slider03__text h2{
+        font-size: 25px;
+    }
+    .slider03__text a{
+        position: absolute;
+        width: 20vw;
+        top: 50px;
+        right: 60px;
+    }
+
+
+}
+
+@media screen and (min-width: 1200px) {
+
+    .slider__text{
+        position: absolute;
+        justify-content: center;
+        width: 35vw;
+        height: auto;
+        right: 150px;
+        top: 150px;
+        text-align: justify;
+    }
+    .slider__text h2{
+        font-size: 50px;
+        margin: 2px 0 40px 0 ;
+        font-weight: bold;
+    }
+    .slider__text h4{
+        margin: 0;
+        font-size: 20px;
+        font-weight: normal;
+    }
+    .slider__text p{
+        padding-bottom: 45px;
+        font-size: 15px;
+    }
+    .slider__text a{
+        width: 20vw;
+        font-size: 18px;
+        text-transform: uppercase;
+        text-decoration: none; 
+        padding: 5px 10px;
+        border: solid 1px black;
+        border-radius: 5px;
+        color: black;
+    }
+    .slider__text a:hover{
+        transition: ease 0.1s;
+        background-color: black;
+        color: aliceblue;
+    }
 
     /* Slider 2*/
     .slider02__text{
         position: absolute;
         width: 25vw;
+        height: auto;
         left: 55px;
-        top: 155px;
+        top: 250px;
         text-align: left;
         color: white;
     }
     
-    .slider02__item, .slider03__item h2{
-        font-size: 40px;
+    .slider02__text h2{
+        font-size: 30px;
     }
-    .slider02__itemh4, .slider__itemh4{
+    .slider02__text h4, .slider03__text h4{
         font-size: 20px;
         font-weight: normal;
-        margin: 0;
+        padding: 8px 0;
+    }
+    .slider02__text p{
+        padding-top: 30px;
+        font-size: 15px;
     }
 
     /* Slider 3*/
     .slider03__text{
         position: absolute;
-        width: 30vw;
+        width: 35vw;
         right: 45px;
-        top: 75px;
+        top: 70px;
         text-align: center;
+    }
+    .slider03__text h2{
+        font-size: 35px;
+    }
+    .slider03__text a{
+        position: absolute;
+        font-size: 15px;
+        top: 80px;
+        right: 80px;
     }
 
     /*items paginacion*/
 
     .pagination{
-        z-index: 2;
+        z-index: 1;
         position: absolute;
         width: 100vw;
         bottom: 20px;
-        left: 0%;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
         justify-content: center;
         
     }
@@ -275,7 +471,7 @@
 
 /*animations slider*/
 
- @keyframes change {
+@keyframes change {
     1%{margin-left: 0%;}
     30%{margin-left: 0%;}
 
