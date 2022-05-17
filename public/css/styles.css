@@ -37,16 +37,16 @@
     top: 45px;
     text-align: left;
 }
-.slider__itemh4{
+.slider__item h4{
     font-size: 10px;
 
 }
-.slider__itemh2{
+.slider__item h2{
     font-size: px;
     margin: 2px 0 5px 0 ;
     font-weight: bold;
 }
-.slider__itemp{
+.slider__item p{
     font-size: 12px;
     padding-bottom: 20px;
 }
@@ -71,11 +71,11 @@
     text-align: left;
     color: white;
 }
-.slider02__itemh2, .slider03__itemh2{
+.slider02__item, .slider03__item h2{
     font-size: 20px;
 
 }
-.slider02__itemh4{
+.slider02__item h4{
     font-size: 15px;
     font-weight: normal;
 }
@@ -94,7 +94,7 @@
 
 
 
-
+/*************MEDIA QUERY**************/
 
 @media screen and (min-width: 768px) {
     .slider__text{
@@ -104,12 +104,12 @@
         top: 75px;
         text-align: justify;
     }
-    .slider__itemh2{
+    .slider__item h2{
         font-size: 30px;
         margin: 0px 0 20px 0 ;
         font-weight: bold;
     }
-    .slider__itemp{
+    .slider__item p{
         padding-bottom: 45px;
         font-size: 12px;
     }
@@ -139,10 +139,10 @@
         color: white;
     }
     
-    .slider02__itemh2, .slider03__itemh2{
+    .slider02__item, .slider03__item h2{
         font-size: 20px;
     }
-    .slider02__itemh4, .slider__itemh4{
+    .slider02__item, .slider__item h4{
         font-size: 15px;
         font-weight: normal;
         margin: 0;
@@ -157,74 +157,24 @@
         text-align: center;
     }
 
-    /*detalle producto*/
+    .footer-col{
+		width: 20%;
+	 }
+	 .philosophy .text-content{
+		width: 60%;
+		margin: auto;
+	}
 
-   
-}
-@media screen and (min-width: 900px) {
-    .slider__text{
-        position: absolute;
-        width: 35vw;
-        right: 100px;
-        top: 100px;
-        text-align: justify;
-    }
-    .slider__itemh2{
-        font-size: 30px;
-        margin: 0px 0 20px 0 ;
-        font-weight: bold;
-    }
-    .slider__itemp{
-        padding-bottom: 45px;
-        font-size: 12px;
-    }
-    .btn--linebrown{
-        width: 100vw;
-        font-size: 15px;
-        text-transform: uppercase;
-        text-decoration: none; 
-        padding: 5px 30px;
-        border: solid 1px black;
-        border-radius: 10px;
-        color: black;
-    }
-    .btn--linebrown:hover{
-        transition: ease 0.1s;
-        background-color: black;
-        color: aliceblue;
-    }
+	.philosophy{
+		height: 200px;
+	}
 
-    /* Slider 2*/
-    .slider02__text{
-        position: absolute;
-        width: 25vw;
-        left: 48px;
-        top: 120px;
-        text-align: left;
-        color: white;
-    }
-    
-    .slider02__itemh2, .slider03__itemh2{
-        font-size: 25px;
-    }
-    .slider02__itemh4, .slider__itemh4{
-        font-size: 18px;
-        font-weight: normal;
-        margin: 0;
-    }
+	.circle{
+		display:flex;
+		float: right;
+		margin-right: 200px;
+	}
 
-    /* Slider 3*/
-    .slider03__text{
-        position: absolute;
-        width: 30vw;
-        right: 45px;
-        top: 75px;
-        text-align: center;
-    }
-
-    /*items paginacion*/
-
-   
 }
 
 @media screen and (min-width: 1200px) {
@@ -235,12 +185,12 @@
         top: 120px;
         text-align: justify;
     }
-    .slider__itemh2{
+    .slider__item h2{
         font-size: 55px;
         margin: 0px 0 40px 0 ;
         font-weight: bold;
     }
-    .slider__itemp{
+    .slider__item p{
         padding-bottom: 45px;
         font-size: 15px;
     }
@@ -270,7 +220,7 @@
         color: white;
     }
     
-    .slider02__itemh2, .slider03__itemh2{
+    .slider02__item, .slider03__item h2{
         font-size: 40px;
     }
     .slider02__itemh4, .slider__itemh4{
@@ -315,6 +265,12 @@
         cursor: pointer;
         transition: all 300ms;
     }
+
+    .circle{
+        width: 120px;
+        height: 120px;
+        margin-right: 150px;
+    }
 }
 
 /*animations slider*/
@@ -329,8 +285,7 @@
     70%{margin-left: -200%;}
     95%{margin-left: -200%;}
     
-} 
-/* fin johanna */
+}
 
 .container__section {
     background: #2B2B2B;
@@ -572,8 +527,6 @@ main{
     background-color: #7b7b7b;
 }
 
-
-
 .product-news .item .img{
     width: auto;
     height: auto;
@@ -609,13 +562,6 @@ main{
 	height: 250px;
 	margin-top: 100px;
 }
-/* .circle{
-	background-image: url(/img/blobanimation.svg);
-	background-repeat: no-repeat;
-	background-size: 200px;
-	background-position:left center;
-} */
-
 .text-content .first-text{
 
 	margin-top: -55px;
@@ -674,7 +620,7 @@ main{
 	font-size: 22px;
 	color: #fbf2e0;
 	text-transform: capitalize;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 	font-weight: bold;
 	position: relative;
 	display: inline-block;
@@ -739,6 +685,7 @@ main{
 	background-position:  right center; */
     width: 100px;
 	height: 100px;
+    margin-bottom: 20px;
 }
 
 .text-foo{
@@ -760,7 +707,7 @@ main{
 
 @media (min-width:768px){
 	.footer{
-        padding: 20px 0;
+        padding: 40px 0px 20px 0px;
     }
     .footer-col{
 		width: 20%;
@@ -871,5 +818,68 @@ main{
     font-size: 15px;
     margin-top: 30px;
 }
+
+.slider__text{
+    position: absolute;
+    width: 35vw;
+    right: 100px;
+    top: 100px;
+    text-align: justify;
+}
+.slider__item h2{
+    font-size: 30px;
+    margin: 0px 0 20px 0 ;
+    font-weight: bold;
+}
+.slider__itemp{
+    padding-bottom: 45px;
+    font-size: 12px;
+}
+.btn--linebrown{
+    width: 100vw;
+    font-size: 15px;
+    text-transform: uppercase;
+    text-decoration: none; 
+    padding: 5px 30px;
+    border: solid 1px black;
+    border-radius: 10px;
+    color: black;
+}
+.btn--linebrown:hover{
+    transition: ease 0.1s;
+    background-color: black;
+    color: aliceblue;
+}
+
+/* Slider 2*/
+.slider02__text{
+    position: absolute;
+    width: 25vw;
+    left: 48px;
+    top: 120px;
+    text-align: left;
+    color: white;
+}
+
+.slider02__item, .slider03__item h2{
+    font-size: 25px;
+}
+.slider02__itemh4, .slider__itemh4{
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Slider 3*/
+.slider03__text{
+    position: absolute;
+    width: 30vw;
+    right: 45px;
+    top: 75px;
+    text-align: center;
+}
+
+/*items paginacion*/
+
 
 }
