@@ -1,77 +1,213 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
-<script src="https://kit.fontawesome.com/9caded27f0.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="/css/styles.css">
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/9caded27f0.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Terra Rossa</title>
-</head>
-<body>
-<header>Esta e la cabecera
-</header>
-<main>
-    <section class="philosophy">
-        <div class="circle"></div>
-        <article class="text-content">
-        <h2 class="first-text">Nuestra</h2>
-        <h2 class="second-text">Filosofía</h2>
-            <h3>Titulo</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum provident laboriosam fuga voluptate architecto! Accusamus, voluptatibus amet! Eum, distinctio explicabo! Quos, et velit. Suscipit aspernatur quisquam quod nulla ad repellat.</p> 
-        </article>
-    </section>
-</main>
-<footer class="footer">
-    <section class="container">
-        <div class="row">
-            <article class="footer-col">
-                <h4>Vinos</h4>
-                <ul>
-                    <li><a href="#">Tintos</a></li>
-                    <li><a href="#">Blancos</a></li>
-                    <li><a href="#">Espumantes</a></li>
-                    <li><a href="#">Especiales</a></li>
-                </ul>
-            </article>
-            <article class="footer-col">
-                <h4>Contacto</h4>
-                <ul>
-                    <li><a href="#">Formulario de Registro</a></li>
-                     <li><a href="#">Iniciar Sesión</a></li>
-                </ul>
-            </article>
-            <article class="footer-col">
-                <h4>Ayuda</h4>
-                <ul>
-                    <li><a href="#">Preguntas frecuentes</a></li>
-            <li><a href="#">Términos y condiciones</a></li> 
-                </ul>
-            </article>
-            <!-- <div class="footer-col">
-                <h4>Medios de pago</h4>
-                <ul>
-            <li><a href="#">Icono</a></li>
-            <li><a href="#">Icono</a></li>
-                </ul>
-            </div> -->
-            <article class="footer-col">
-                <h4>Redes</h4>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-                    <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-                    <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                </div> 
-            </article>
-                <img class="footer-img" src="/img/design/logo-w.png" alt="">
+  </head>
+  <body>
+    <!-- seccion barra de navegacion -->
+    <header>
+      <nav class="nav-bar">
+        <a href="/" ><img class="logo" src="img/design/logo-w.png" /></a>
+        <div id="navMenu" class="nav-hamburguer">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <p class="text-foo">BEBER CON MODERACIÓN, PROHIBIDA SU VENTA A MENORES DE 18 AÑOS</p>
-        <p class="copy">Terra Rossa 2022 &copy;, todos los derechos reservados</p>
-    </section> 
-</footer>
-</body>
-</html>
+        <ul class="nav-menu-list">
+          <li class="nav-menu-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-menu-item">
+            <a class="nav-link" href="/catalogo">Catálogo</a>
+          </li>
+          <li class="nav-menu-item">
+            <a class="nav-link" href="/nosotros">Nosotros</a>
+          </li>
+          <li class="nav-menu-item">
+            <a class="nav-link" href="/contactus">Contacto</a>
+          </li>
+          </ul>
+          <ul class="nav-menu-list icon">
+          <li class="nav-menu-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+          </li>
+          <li class="nav-menu-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+          </li>
+          <li class="nav-menu-item">
+            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i></a>
+          </li>
+          </li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+
+      <!-- contenedor banner principal -->
+    <div class="container-slider">
+      <div class="slider">
+
+          <div class="pagination">
+              <div class="pagination__item" ></div>
+              <div class="pagination__item" ></div>
+              <div class="pagination__item" ></div>
+          </div>
+          <div class="slider__section">
+              <div class="slider__text">
+                  <h4 class="slider__itemh4">Espumante</h4>
+                  <h2 class="slider__itemh2">brut nature</h2>
+                  <p class="slider__itemp">repellat fugiat commodi delectus molestiae. repellat fugiat commodi.</p>
+                  <a  href="#" class="btn btn--linebrown">ver producto</a>
+              </div>
+              <img src="img/design/home-cr-01.png" alt="vino espumante" class="slider__img">
+          </div> 
+          <div class="slider__section">
+              <div class="slider02__text">
+                  <h2 class="slider02__itemh2">lorem ipsum</h2>
+                  <h4 class="slider02__itemh4">lorem ipsum</h4>
+                  <p class="slider__itemp">repellat fugiat commodi. repellat fugiat commodi.</p>
+              </div>
+              <img src="img/design/home-cr-02.png" alt="foto de bodega" class="slider__img">
+          </div> 
+          <div class="slider__section">
+              <div class="slider03__text">
+                  <h2 class="slider03__itemh2">lorem ipsum commodi</h2>
+                  <a  href="#" class="btn btn--linebrown">ver catálogo</a>
+              </div>
+              <img src="img/design/home-cr-03.png" alt="vinos tintos" class="slider__img">
+          </div>
+          
+      </div>
+      
+  </div>
+  <!-- fin contenedor banner principal -->
+
+      <section class="container__section">
+        <div><h1 class="title"><strong>SELECCION TERRA ROSSA</strong></h1></div>
+      <div class="container__block"><article class="block">
+          <p class="title2" > Terra Rossa</p>
+          <p class="title3" > Cabernet Sauvignon</p>
+          <p class="title4" > COSECHA 2018</p>
+          <img class="product" src="/img/design/malbec.png" alt="Aqui va la imagen">
+          <a  class="botom" href="http://terrarossa.com" target="">VER PRODUCTO</a>
+      </article>
+      <article class="block">
+        <p class="title2" >Terra Rossa</p>
+          <p class="title3" > Cabernet Sauvignon</p>
+          <p class="title4" > COSECHA 2018</p>
+        <img class="product" src="/img/design/merlot.png" alt="Aqui va la imagen">
+        <a  class="botom" href="http://terrarossa.com" target="ver.productoDetail">VER PRODUCTO</a>
+    </article>
+    <article class="block">
+        <p class="title2" >Terra Rossa</p>
+          <p class="title3" > Cabernet Sauvignon</p>
+          <p class="title4" > COSECHA 2018</p>
+        <img class="product" src="/img/design/pinot-noir.png" alt="Aqui va la imagen">
+        <a class="botom" href="http://terrarossa.com" target="ver.productoDetail">VER PRODUCTO</a>
+    </article>
+    <article class="block">
+        <p class="title2" >Terra Rossa</p>
+          <p class="title3" > Cabernet Sauvignon</p>
+          <p class="title4" > COSECHA 2018</p>
+        <img class="product" src="/img/design/chardonay-bottle.png" alt="Aqui va la imagen"> 
+        <a class="botom" href="http://terrarossa.com" target="ver.productoDetail">VER PRODUCTO</a>
+    </article>
+    </div>
+    </section>
+      <!-- Seccion de novedades -->
+    <section class="news">
+      <article ><h2 class="subtitle">Novedades:</h2></article>
+      <article >
+        <ul class="product-news">
+          <li class="item">
+            <img class="img" src="/img/design/rose-bottle.png">
+            <p><h2>Nulla felis enim</h2></p>
+            <button>LEER MAS</button>
+          </li>
+          <li class="item">
+            <img class="img" src="/img/design/chardonay-bottle.png">
+            <p><h2>Nulla felis enim</h2></p>
+            <button>LEER MAS</button>
+          </li>
+          <li class="item">
+            <a><img class="img" src="/img/design/pinot-noir.png"></a>
+            <p><h2>Nulla felis enim</h2></p>
+            <button>LEER MAS</button>
+          </li>
+        </ul>
+      </article>
+    </section>
+    
+    </main>
+    <footer class="footer">
+      <section class="container">
+          <div class="row">
+              <article class="footer-col">
+                  <h4>Vinos</h4>
+                  <ul>
+                      <li><a href="#">Tintos</a></li>
+                      <li><a href="#">Blancos</a></li>
+                      <li><a href="#">Espumantes</a></li>
+                      <li><a href="#">Especiales</a></li>
+                  </ul>
+              </article>
+              <article class="footer-col">
+                  <h4>Contacto</h4>
+                  <ul>
+                      <li><a href="#">Formulario de Registro</a></li>
+                       <li><a href="#">Iniciar Sesión</a></li>
+                  </ul>
+              </article>
+              <article class="footer-col">
+                  <h4>Ayuda</h4>
+                  <ul>
+                      <li><a href="#">Preguntas frecuentes</a></li>
+              <li><a href="#">Términos y condiciones</a></li> 
+                  </ul>
+              </article>
+              <!-- <div class="footer-col">
+                  <h4>Medios de pago</h4>
+                  <ul>
+              <li><a href="#">Icono</a></li>
+              <li><a href="#">Icono</a></li>
+                  </ul>
+              </div> -->
+              <article class="footer-col">
+                  <h4>Redes</h4>
+                  <div class="social-links">
+                      <a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                      <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                      <a href="https://instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                      <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                  </div> 
+              </article>
+                  <img class="footer-img" src="/img/design/logo-w.png" alt="">
+          </div>
+          <p class="text-foo">BEBER CON MODERACIÓN, PROHIBIDA SU VENTA A MENORES DE 18 AÑOS</p>
+          <p class="copy">Terra Rossa 2022 &copy;, todos los derechos reservados</p>
+      </section> 
+  </footer>
+    <script>
+      const navMenu = document.querySelector("#navMenu");
+      const navToggle = document.querySelector(".nav-menu-list");
+
+      navMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+      navMenu.addEventListener("click", () => {
+        navToggle.classList.toggle("nav-menu_visible");
+      });
+    </script>
+  </body>
+  </html>
