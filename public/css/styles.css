@@ -1,0 +1,262 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat";
+}
+
+main{
+    margin-top: 100px;
+}
+
+
+/* Seccion barra de navegacion Mobile */
+
+
+
+.nav-bar{
+    background-color: #333333;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 80px;
+    padding: 10px 30px;
+    position: fixed;
+    top: 0;
+}
+
+.logo{
+    width: 125px;
+    height: 40px;
+    padding-left: 120px;
+    margin: 0;
+    box-sizing: content-box;
+}
+
+.nav-menu-list{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 30vw;
+    background-color: #333333;
+    top: 80px;
+    right: 0;
+    left: 100%;
+    transition: left .70s ease;
+}
+
+.nav-menu-item{
+    font-size: 16px;
+    padding-bottom: 60px;
+}
+
+.nav-link{
+    color: #fbf2e0;
+    text-decoration: none;
+    position: relative;
+    padding: 0 8px;
+}
+
+.nav-menu_visible{
+    left: 70%;
+}
+
+.nav-hamburguer{
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.nav-link:after{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    bottom:0px;
+    left: 0;
+    background-color:#ff452c;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.6s ease-out;
+}
+.nav-link:hover:after{
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+#navMenu > span {
+    display: block;
+    width: 28px;
+    height: 2px;
+    border-radius: 9999px;
+    background-color: #fbf2e0;
+}
+
+#navMenu > span:not(:last-child) {
+    margin-bottom: 7px;
+}
+
+#navMenu, #navMenu > span {
+    transition: all .4s ease-in-out;
+}
+
+#navMenu.active{
+    transition-delay: 0.8s ;
+    transform: rotate(45deg);
+}
+
+#navMenu.active > span:nth-child(2){
+    width: 0;
+}
+
+#navMenu.active > span:nth-child(1),
+#navMenu.active > span:nth-child(3){
+    transition-delay: .4s;
+}
+
+#navMenu.active >span:nth-child(1){
+    transform: translateY(9px);
+}
+
+#navMenu.active > span:nth-child(3){
+    transform: translateY(-9px) rotate(90deg);
+}
+
+/* Seccion Novedades Mobile */
+.news{
+    background-color: #fbf2e0;
+    width: 100vw;
+    height: 700px;
+    padding: 5% 15%;
+
+}
+
+.news .subtitle{
+    margin-bottom: 50px;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.product-news{
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+    justify-content: space-around;
+}
+
+.product-news .item{
+    
+    width: 250px;
+    height: 250px;
+    text-align: center;
+    padding: 20px;
+    background-color: #7b7b7b;
+}
+
+
+
+.product-news .item .img{
+    width: auto;
+    height: auto;
+    max-height: 250px;
+    padding-bottom: 30px;
+    background-color: transparent;
+    transition: transform .2s;
+}
+
+.product-news .item .img:hover{
+    transform: scale(1.5);
+    
+    transition: transform .2s;
+}
+
+.product-news .item button{
+    width: 50%;
+    height: 30px;
+    background-color: #ff452c;
+    border-color: transparent;
+    color: #fbf2e0;
+    margin: 5px 40% 0 0;
+}
+
+.product-news .item p{
+    margin-top: 30px;
+    width: max-content;
+}
+
+
+/* Seccion Barra de navegacion laptop */
+@media (min-width: 913px) {
+
+main{
+    margin-top: 130px;
+}
+
+.nav-bar{
+    height: 130px;
+}
+
+
+.logo{
+    width: 180px;
+    height: 63px;
+    padding-left: 7vw;
+    width: max-content;
+}
+
+.nav-hamburguer{
+    display: none;
+}
+
+.nav-menu-list{
+    background-color: transparent;
+    flex-direction: row;
+    width: max-content;
+    top: 70px;
+    justify-content: space-around;
+    left: unset;
+    margin-right: 20vw ;
+    transition: bottom .70s;
+}
+
+.nav-bar .icon{
+    margin-right: 40px;
+}
+
+.nav-menu-item{
+    margin: 0 15px;
+    padding: 0;
+    width: fit-content;
+    align-items: center;
+
+}
+
+.icon{
+    margin-right: 7vw;
+    width: fit-content;
+    height: fit-content;
+}
+
+#navMenu, #navMenu > span {
+    transition: all .4s ease-in-out;
+}
+/* Seccion Novedades */
+
+.product-news .item button{
+    width: 50%;
+    height: 30px;
+    background-color: #ff452c;
+    border-color: transparent;
+    color: #fbf2e0;
+    margin: 5px 40% 0 0;
+}
+
+.product-news .item p{
+    font-size: 15px;
+    margin-top: 30px;
+}
+
+}

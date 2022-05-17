@@ -20,3 +20,15 @@ app.get('/login', (req, res) => {
 app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, './views/register.html'));
 })
+
+app.get('/catalogo', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/catalogo.html'));
+})
+
+app.get('/nosotros', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/nosotros.html'));
+})
+
+app.get('/contactus', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/contact.html'));
+})
