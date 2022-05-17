@@ -4,6 +4,333 @@
     box-sizing: border-box;
     font-family: "Montserrat";
 }
+/* johanna  */
+
+/* Slider */
+.container-slider{
+    width: 100vw;
+    overflow: hidden;
+}
+
+.slider{
+    display: flex;
+    width: 300%;
+    animation: change 10s infinite none ease-in-out;
+}
+
+/* banners*/
+.slider__section{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    flex-grow: 0;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+/*text sliders*/
+.slider__text{ /* slider01*/
+    position: absolute;
+    width: 35vw;
+    right: 80px;
+    top: 45px;
+    text-align: left;
+}
+.slider__itemh4{
+    font-size: 10px;
+
+}
+.slider__itemh2{
+    font-size: px;
+    margin: 2px 0 5px 0 ;
+    font-weight: bold;
+}
+.slider__itemp{
+    font-size: 12px;
+    padding-bottom: 20px;
+}
+.btn--linebrown{
+    width: 100vw;
+    font-size: 12px;
+    text-transform: uppercase;
+    text-decoration: none; 
+    padding: 6px 15px;
+    border: solid 1px black;
+    border-radius: 5px;
+    color: black;
+    
+}
+
+/* Slider 2*/
+.slider02__text{
+    position: absolute;
+    width: 25vw;
+    left: 30px;
+    top: 90px;
+    text-align: left;
+    color: white;
+}
+.slider02__itemh2, .slider03__itemh2{
+    font-size: 20px;
+
+}
+.slider02__itemh4{
+    font-size: 15px;
+    font-weight: normal;
+}
+
+/* Slider 3*/
+.slider03__text{
+    position: absolute;
+    width: 30vw;
+    right: 20px;
+    top: 20px;
+    text-align: center;
+}
+.slider__img{
+    width: 100vw;
+}
+
+
+
+
+
+@media screen and (min-width: 768px) {
+    .slider__text{
+        position: absolute;
+        width: 35vw;
+        right: 80px;
+        top: 75px;
+        text-align: justify;
+    }
+    .slider__itemh2{
+        font-size: 30px;
+        margin: 0px 0 20px 0 ;
+        font-weight: bold;
+    }
+    .slider__itemp{
+        padding-bottom: 45px;
+        font-size: 12px;
+    }
+    .btn--linebrown{
+        width: 100vw;
+        font-size: 15px;
+        text-transform: uppercase;
+        text-decoration: none; 
+        padding: 5px 30px;
+        border: solid 1px black;
+        border-radius: 10px;
+        color: black;
+    }
+    .btn--linebrown:hover{
+        transition: ease 0.1s;
+        background-color: black;
+        color: aliceblue;
+    }
+
+    /* Slider 2*/
+    .slider02__text{
+        position: absolute;
+        width: 25vw;
+        left: 48px;
+        top: 100px;
+        text-align: left;
+        color: white;
+    }
+    
+    .slider02__itemh2, .slider03__itemh2{
+        font-size: 20px;
+    }
+    .slider02__itemh4, .slider__itemh4{
+        font-size: 15px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    /* Slider 3*/
+    .slider03__text{
+        position: absolute;
+        width: 30vw;
+        right: 45px;
+        top: 75px;
+        text-align: center;
+    }
+
+    /*detalle producto*/
+
+   
+}
+@media screen and (min-width: 900px) {
+    .slider__text{
+        position: absolute;
+        width: 35vw;
+        right: 100px;
+        top: 100px;
+        text-align: justify;
+    }
+    .slider__itemh2{
+        font-size: 30px;
+        margin: 0px 0 20px 0 ;
+        font-weight: bold;
+    }
+    .slider__itemp{
+        padding-bottom: 45px;
+        font-size: 12px;
+    }
+    .btn--linebrown{
+        width: 100vw;
+        font-size: 15px;
+        text-transform: uppercase;
+        text-decoration: none; 
+        padding: 5px 30px;
+        border: solid 1px black;
+        border-radius: 10px;
+        color: black;
+    }
+    .btn--linebrown:hover{
+        transition: ease 0.1s;
+        background-color: black;
+        color: aliceblue;
+    }
+
+    /* Slider 2*/
+    .slider02__text{
+        position: absolute;
+        width: 25vw;
+        left: 48px;
+        top: 120px;
+        text-align: left;
+        color: white;
+    }
+    
+    .slider02__itemh2, .slider03__itemh2{
+        font-size: 25px;
+    }
+    .slider02__itemh4, .slider__itemh4{
+        font-size: 18px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    /* Slider 3*/
+    .slider03__text{
+        position: absolute;
+        width: 30vw;
+        right: 45px;
+        top: 75px;
+        text-align: center;
+    }
+
+    /*items paginacion*/
+
+   
+}
+
+@media screen and (min-width: 1200px) {
+    .slider__text{
+        position: absolute;
+        width: 35vw;
+        right: 160px;
+        top: 120px;
+        text-align: justify;
+    }
+    .slider__itemh2{
+        font-size: 55px;
+        margin: 0px 0 40px 0 ;
+        font-weight: bold;
+    }
+    .slider__itemp{
+        padding-bottom: 45px;
+        font-size: 15px;
+    }
+    .btn--linebrown{
+        width: 100vw;
+        font-size: 20px;
+        text-transform: uppercase;
+        text-decoration: none; 
+        padding: 8px 40px;
+        border: solid 1px black;
+        border-radius: 10px;
+        color: black;
+    }
+    .btn--linebrown:hover{
+        transition: ease 0.1s;
+        background-color: black;
+        color: aliceblue;
+    }
+
+    /* Slider 2*/
+    .slider02__text{
+        position: absolute;
+        width: 25vw;
+        left: 55px;
+        top: 155px;
+        text-align: left;
+        color: white;
+    }
+    
+    .slider02__itemh2, .slider03__itemh2{
+        font-size: 40px;
+    }
+    .slider02__itemh4, .slider__itemh4{
+        font-size: 20px;
+        font-weight: normal;
+        margin: 0;
+    }
+
+    /* Slider 3*/
+    .slider03__text{
+        position: absolute;
+        width: 30vw;
+        right: 45px;
+        top: 75px;
+        text-align: center;
+    }
+
+    /*items paginacion*/
+
+    .pagination{
+        z-index: 2;
+        position: absolute;
+        width: 100vw;
+        bottom: 20px;
+        left: 0%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+        
+    }
+    .pagination__item{
+        background-color: rgba(255, 255, 255, 0.1);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: solid 1px white;
+        border-radius: 2px;
+        width: 25px;
+        height: 10px;
+        margin: 0 4px 0 4px;
+        cursor: pointer;
+        transition: all 300ms;
+    }
+}
+
+/*animations slider*/
+
+ @keyframes change {
+    1%{margin-left: 0%;}
+    30%{margin-left: 0%;}
+
+    34%{margin-left: -100%;}
+    64%{margin-left: -100%;}
+
+    70%{margin-left: -200%;}
+    95%{margin-left: -200%;}
+    
+} 
+/* fin johanna */
 
 .container__section {
     background: #2B2B2B;
