@@ -1,0 +1,23 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.cabecera{
+    background-color: #333333;
+    text-align: center;
+    top: 0;
+}
+
+.cabecera__logo{
+    width: auto;
+    height: auto;
+    max-width: 400px;
+    padding: 40px;
+}
+
+.form-container{
+    background-color: #333333;
+    width: 50vw;
+}
