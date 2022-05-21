@@ -4,7 +4,11 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Login/Register</title>
+	<title>Sign in/Sign up</title>
+	<link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    
 	<link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
@@ -14,43 +18,66 @@
 		</section>
 	</header>
 	<main>
-		<section class="form-container">
-			<article>
-				<H2>REGISTRARSE</H2>
-			</article>
-			<article>
-				<form action="/datos-registro" method="POST">
-					<div>
-						<h4>Nombre</h4>
-						<input type="text" name="nombre" placeholder="Ingrese su nombre">
-					</div>
-					<div>
-						<h4>Email</h4>
-						<input type="email" name="email" placeholder="Ingrese su email">
-					</div>
-					<div>
-						<h4>Fecha de Nacimiento</h4>
-						<input type="date" name="fecha_nac" placeholder="Ingrese su Fecha de Nacimiento">
-					</div>
-					<div>
-						<h4>Contraseña</h4>
-						<input type="password" name="password" placeholder="Ingrese su contraseña">
-					</div>
-					<div>
-						<h4>Comprobacion de Contraseña</h4>
-						<input type="password" name="password" placeholder="Reingrese su contraseña">
-					</div>
-				</form>
-			</article>
+		<section class="form-container register">
+			<div class="welcome">
+				<div class="mensaje">
+					<h2>BIENVENIDO</h2>
+					<p>¿Ya tenes cuenta? iniciar sesión</p>
+					<button class="sign-up-btn">INICIAR SESION</button>
+				</div>
+			</div>
+			<form class="formulario">
+				<h2 class="create-account">REGISTRARSE</h2>
+				<label>Nombre</label>
+				<input type="text">
+				<label>Email</label>
+				<input type="email">
+				<label>Fecha de Nacimiento</label>
+				<input type="date">
+				<label>Contraseña</label>
+				<input type="password">
+				<label>Reingresa tu contraseña</label>
+				<input type="password">
+				<input type="submit" value="REGISTRAR">
+				<a href="#">¿Olvidaste tu contraseña?</a>
+			</form>
 		</section>
-		<section class="form-container">
-
+		<section class="form-container login">
+			<form class="formulario">
+				<h2 class="create-account">INICIAR SESION</h2>
+				<label>Email</label>
+				<input type="email">
+				<label>Contraseña</label>
+				<input type="password">
+				<input type="submit" value="INGRESAR">
+				<a href="#">¿Olvidaste tu contraseña?</a>
+			</form>
+			<div class="welcome">
+				<div class="mensaje">
+					<h2>BIENVENIDO DE NUEVO</h2>
+					<p>¿Aún no tenes cuenta? 
+						Creá una cuenta para iniciar sesión</p>
+					<button class="sign-in-btn">REGISTRARSE</button>
+				</div>
+			</div>
 		</section>
 	</main>
 
 
 
 	<footer></footer>
-	
+	<script>
+		const btnLogin= document.querySelector('.sign-in-btn');
+      	const btnRegister = document.querySelector('.sign-up-btn');  
+      	const register = document.querySelector('.register');
+      	const login  = document.querySelector('.login');
+
+document.addEventListener('click', e => {
+    if (e.target === btnLogin || e.target === btnRegister) {
+        login.classList.toggle('active');
+        register.classList.toggle('active')
+    }
+});
+	</script>
 </body>
 </html>
