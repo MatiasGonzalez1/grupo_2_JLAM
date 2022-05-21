@@ -103,6 +103,140 @@
     width: 100vw;
 }
 
+/* selection terra rossa*/
+
+.container__selection {
+    display: flex;
+    background: #2B2B2B;
+    height: 600px;
+    width: 100vw;
+    padding: 20px;
+    justify-content: center;
+}
+.container__block {
+    display:flex;
+    max-height: 550px;
+    width: 300px;
+    overflow-x:auto; 
+    padding: 20px;
+    position: absolute;
+    align-items:center;
+    margin-top: 90px;
+    z-index: 0;
+
+}
+.container__block::-webkit-scrollbar{
+    display: none;
+}
+
+.container__block p {
+    font-style: italic;
+}
+
+
+main{
+    margin-top: 100px;
+}
+
+.block {
+    background: #333333;
+    /*display: inline-block;*/
+    padding: 15px 10px;
+    text-align: center;
+    margin: 20px 40px ;
+    margin-left: 5px;
+    box-shadow: 0px 0px 10px 0px black;
+    flex-shrink: 0;
+    width: 270px;
+    justify-content:center;
+    height: 380px;
+    border-radius: 3px;
+}
+
+.selection__title {
+    font-family: 'Montserrat', sans-serif;
+    color: #FBF2E0;
+    text-align: center;
+    font-weight: bolder;
+    font-size:40px;
+    padding: 35px;
+    margin-left: auto;
+}
+
+.selection__mark {
+    font-family: 'Montserrat', sans-serif, italic;
+    color: #FBF2E0;
+    text-align:center;
+    font-size:40px;
+    font-weight:200
+}
+
+.selection__type {
+    font-family: 'Montserrat', sans-serif;
+    color: #FBF2E0;
+    text-align:center;
+    font-size:x-small;
+    
+}
+
+.selection__product {
+    width: 45%;
+    display:block;
+    margin:auto;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+ .block:hover {
+     transform: scale(1.1);
+ }
+
+.selection__botomver {
+   font-family: 'Montserrat', sans-serif, italic;
+   text-decoration: none;
+   font-weight:600;
+   color: #FBF2E0;
+   text-align:center;
+   font-size:13px;
+   background: #FF452C;
+   padding: 5px 13px;
+   border-radius: 4px;
+   margin-bottom: 50px;
+  
+}
+
+.selection__nextbuttonLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 60px;
+    font-size: 50px;
+    background-color:#333333;
+    color: white;
+    flex-direction: column;
+    margin-top: 280px;
+    border-radius: 100px;
+    margin-left: 80px;
+    opacity: 0.5;
+}
+.selection__nextbuttonRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 60px;
+    font-size: 50px;
+    background-color:#333333;
+    color: white;
+    flex-direction: column;
+    margin-top: 280px;
+    border-radius: 100%;
+    margin-right: 80px;
+    opacity: 0.5;
+}
 /*************MEDIA QUERY**************/
 
 @media screen and (min-width: 768px) {
@@ -231,6 +365,34 @@
         font-size: 16px;
     }
 
+    /*Seleccion terra rossa*/
+
+    .selection__mark {
+    font-family: 'Montserrat', sans-serif, italic;
+    color: #FBF2E0;
+    text-align:center;
+    font-size: 20px;
+    font-weight:200
+    }
+    .selection__type {
+        font-size: 15px;
+    }
+    .selection__title {
+        font-size:29px;
+        padding: 23px;
+        margin-left: 18px;
+        margin-top: 15px;
+        text-align: center;
+        width: 100%;
+        
+    }
+    .container__selection {
+        overflow-x: auto;
+    }
+    .container__selection::-webkit-scrollbar{
+        width: 0;
+    }
+    
 }
 /* Seccion Barra de navegacion laptop */
 @media (min-width: 913px) {
@@ -368,7 +530,59 @@
         top: 50px;
         right: 60px;
     }
+    /* seleccion terra rossa */
 
+    .container__selection {
+        height: 500px;
+        width: 100vw;
+        padding: 20px;
+        justify-content:center;
+    }
+    
+    .container__block {   
+        max-height: 320px;
+        width: 100%;
+        padding: 20px;
+        justify-content:center;
+        margin-top: 90px;
+        z-index: 0;
+    
+    }
+    .block {  
+        width: 21%;
+        margin: 3px;
+        margin-top: 15px;
+        height: 300px;
+    }
+    .selection__title {
+        font-size:33px;
+        padding: 5px;
+    }
+    .selection__botomver {
+        font-size:11px;
+        padding: 5px 7px;
+    }
+    
+    .selection__mark {
+        font-size: 17px;
+        font-weight:200
+        }
+    .selection__type {
+        font-size: 13px;
+    }
+    .selection__product {
+        width: 50%;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        
+    }
+    .selection__nextbuttonRight {
+        display: none
+    }
+    .selection__nextbuttonLeft {
+        display: none
+    }
 
 }
 
@@ -486,6 +700,52 @@
         height: 120px;
         margin-right: 150px;
     }
+
+    /* seleccion terra rossa */
+
+    .container__selection {
+        height: 550px;
+    }
+    .container__block {
+        max-height: 380px;
+        width: 100%;
+        
+    }
+    .selection__title {
+        font-weight: bolder;
+        font-size:35px;
+        padding: 20px;
+    }
+    .selection__botomver {
+        font-size:13px;
+        padding: 5px 10px;
+    }
+    .block { 
+        width: 20%;
+        margin: 5px;
+        padding: 20px 35px;
+        margin-top: 10px;
+        height: 330px; 
+        
+    }
+    .selection__mark {
+        font-size: 19px;
+        font-weight:200
+        }
+    .selection__type {
+        font-size: 14px;
+    }
+    .selection__product {
+        width: 80px;
+        margin-bottom: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 220px;
+        
+    }
+    .selection__nextbutton {
+        display: none
+    }
 }
 
 /*animations slider*/
@@ -501,102 +761,6 @@
     95%{margin-left: -200%;}
     
 }
-
-.container__section {
-    background: #2B2B2B;
-    height: 500px;
-    width: 100vw;
-}
-.title {
-    font-family: 'Montserrat', sans-serif;
-    color: #FBF2E0;
-    text-align: center;
-    font-weight: bolder;
-    font-size:35px;
-    margin-top: 50px ;
-}
-
-.title2 {
-    font-family: 'Montserrat', sans-serif, italic;
-    color: #FBF2E0;
-    text-align:center;
-    font-weight: 700;
-    font-size: medium;
-}
-
-.title3 {
-    font-family: 'Montserrat', sans-serif;
-    color: #FBF2E0;
-    text-align:center;
-    font-weight: 700;
-    font-size:small
-}
-
-.title4 {
-    font-family: 'Montserrat', sans-serif;
-    color: #FBF2E0;
-    text-align:center;
-    font-size:xx-small;
-    line-height: normal
-}
-
-
-.product {
-    width: 55%;
-    display:block;
-    margin:auto;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
-}
-
-.block {
-    background: #333333;
-    display: inline-block;
-    width: 20%;
-    margin: 3px;
-    padding: 10px 50px;
-    text-align: center;
-    position: center,top;
-    margin-top: 70px;
-    box-shadow: 0px 0px 10px 0px black;
-    
-
-}
- .block:hover {
-     transform: scale(1.1);
- }
-
-.botom {
-   font-family: 'Montserrat', sans-serif, italic;
-   text-decoration: none;
-   font-weight:600;
-   color: #FBF2E0;
-   text-align:center;
-   font-size:12px;
-   background: #FF452C;
-   padding-top:5px;
-   padding-bottom:5px;
-   padding-left:18px;
-   padding-right:18px;
-   border-radius: 5px;
-}
-
-.container__block {
-    display:flex;
-    justify-content:center;
-}
-
-.container__block p {
-    font-style: italic;
-}
-
-
-main{
-    margin-top: 100px;
-}
-
 
 /* Seccion barra de navegacion Mobile */
 
@@ -951,8 +1115,6 @@ main{
         font-size:13px;
     }
     
-
-
     .footer-col ul li a{
         font-size: 16px;
     }
