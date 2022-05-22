@@ -617,11 +617,10 @@ input[type=number]::-webkit-outer-spin-button {
    margin-bottom: 50px;
 }
 .footer-col h4{
-	font-size: 22px;
+	font-size: 20px;
 	color: #fbf2e0;
 	text-transform: capitalize;
 	margin-bottom: 10px;
-	font-weight: bold;
 	position: relative;
 	display: inline-block;
 	cursor: default;
@@ -647,11 +646,10 @@ input[type=number]::-webkit-outer-spin-button {
 	margin-bottom: 5px;
 }
 .footer-col ul li a{  /*comportamiento de la etiqueta a de .footer-col*/
-	font-size: 20px;
+	font-size: 18px;
 	text-transform: capitalize;
 	color: #fbf2e0;
 	text-decoration: none;
-	font-weight: 300;
 	color: #bbbbbb;
 	display: block;
 	transition: all 0.3s ease;
