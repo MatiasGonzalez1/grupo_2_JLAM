@@ -21,14 +21,23 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, './views/register.html'));
 })
 
-app.get('/catalogo', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/catalogo.html'));
+app.get('/catalog', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/catalog.html'));
 })
 
-app.get('/nosotros', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/nosotros.html'));
+app.get('/about-us', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/about-us.html'));
 })
 
-app.get('/contactus', (req, res) => {
+app.get('/contact', (req, res) => {
     res.sendFile(path.join(__dirname, './views/contact.html'));
 })
+
+app.get('/product-detail', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/productDetail.html'));
+})
+
+app.get('/product-cart', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/productCart.html'));
+})
+
