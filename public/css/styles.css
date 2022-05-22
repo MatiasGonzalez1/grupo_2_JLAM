@@ -454,6 +454,251 @@ input[type=number]::-webkit-outer-spin-button {
 }
 /*  fin detalle producto */
 
+/*************************** SECTION PHILOSOPHY*************************************/
+.philosophy{
+	width: 100%;
+	height: auto;
+	padding-top: 130px;
+    padding-bottom: 80px;
+    background-color: #2B2B2B;
+}
+.text-content .title-philosophy{
+	margin-top: -60px;
+	margin-bottom: 40px;
+    width: 200px;
+    height: 55px;
+    margin-left: 5%;
+}
+.text-circle img{
+    display:none;
+}
+.title-philosophy img{
+    width: 200px;
+}
+
+.philosophy .text-content {
+	background-color: #333333;
+	width: 100%;
+	color:#fbf2e0;
+	padding: 25px;
+    margin: auto;
+}
+.text-content h2{
+    font-size:18px;
+}
+.text-content p{
+    width: 100%;
+    text-align: justify;
+    padding-top: 10px;  
+    padding-right: 15px;
+    font-size: 14px;
+}
+
+.text-content p, .text-content h3, .text-content .second-text {
+	background-color: #333333;
+}
+/************************FIN SECTION PHILOSOPHY**********************/
+.container__section {
+    background: #2B2B2B;
+    height: 500px;
+    width: 100vw;
+}
+.title {
+    font-family: 'Montserrat', sans-serif;
+    color: #FBF2E0;
+    text-align: center;
+    font-weight: bolder;
+    font-size:35px;
+    margin-top: 50px ;
+}
+
+.title2 {
+    font-family: 'Montserrat', sans-serif, italic;
+    color: #FBF2E0;
+    text-align:center;
+    font-weight: 700;
+    font-size: medium;
+}
+
+.title3 {
+    font-family: 'Montserrat', sans-serif;
+    color: #FBF2E0;
+    text-align:center;
+    font-weight: 700;
+    font-size:small
+}
+
+.title4 {
+    font-family: 'Montserrat', sans-serif;
+    color: #FBF2E0;
+    text-align:center;
+    font-size:xx-small;
+    line-height: normal
+}
+
+
+.product {
+    width: 55%;
+    display:block;
+    margin:auto;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+.block {
+    background: #333333;
+    display: inline-block;
+    width: 20%;
+    margin: 3px;
+    padding: 10px 50px;
+    text-align: center;
+    position: center,top;
+    margin-top: 70px;
+    box-shadow: 0px 0px 10px 0px black;
+    
+
+}
+ .block:hover {
+     transform: scale(1.1);
+ }
+
+.botom {
+   font-family: 'Montserrat', sans-serif, italic;
+   text-decoration: none;
+   font-weight:600;
+   color: #FBF2E0;
+   text-align:center;
+   font-size:12px;
+   background: #FF452C;
+   padding-top:5px;
+   padding-bottom:5px;
+   padding-left:18px;
+   padding-right:18px;
+   border-radius: 5px;
+}
+
+.container__block {
+    display:flex;
+    justify-content:center;
+}
+
+.container__block p {
+    font-style: italic;
+}
+
+/*************************FOOTER************************/
+.footer{
+	width:100%;
+	position: relative;
+	bottom: 0;
+	background-color: #2b2b2b;
+    padding: 40px 0;
+	margin-top: 50px;
+}
+.footer .container{
+	width: 90%;
+	margin:auto;
+}
+.footer .container .row{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.footer ul{
+	list-style: none;
+    margin-bottom: -40px;
+}
+
+.footer-col{
+   width: 100%;
+   padding: 0px 15px 10px 15px;
+   margin-bottom: 50px;
+}
+.footer-col h4{
+	font-size: 20px;
+	color: #fbf2e0;
+	text-transform: capitalize;
+	margin-bottom: 10px;
+	position: relative;
+	display: inline-block;
+	cursor: default;
+}
+.footer-col h4:after{ /*subrayado a todos los h4 de footer-col*/
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	bottom:0;
+	left: 0;
+	background-color:#ff452c;
+	transform: scaleX(0);
+	transform-origin: bottom right;
+	transition: transform 0.6s ease-out;
+}
+.footer-col h4:hover:after{ /*comportamiento del subrayado*/
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.footer-col ul li:not(:last-child){ /*espaciado entre li*/
+	margin-bottom: 5px;
+}
+.footer-col ul li a{  /*comportamiento de la etiqueta a de .footer-col*/
+	font-size: 18px;
+	text-transform: capitalize;
+	color: #fbf2e0;
+	text-decoration: none;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-color: #333333;
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 50%;
+	color: #fbf2e0;
+	transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover{
+	color: #333333; 
+	background-color: #fbf2e0;
+}
+
+.footer-img{
+    width: 100px;
+	height: 100px;
+    margin-bottom: 20px;
+}
+
+.text-foo{
+    border-top: 3px solid #7B7B7B;
+    padding: 10px ;
+	font-size: 16px;
+    width: 100%;
+    text-align: center;
+    color: #FBF2E0;
+}
+.copy{
+	font-size: 14px;
+    padding-bottom: 5px;
+    text-align: center;
+    color: #FBF2E0;
+}
+
+/************************** FIN FOOTER*************************************/
+
 /*************MEDIA QUERY**************/
 
 @media screen and (min-width: 768px) {
@@ -534,6 +779,38 @@ input[type=number]::-webkit-outer-spin-button {
 
         
     }
+
+    /*Inicio Filosofia*/
+    .philosophy .text-content{
+		width: 80%;
+		margin: auto;
+	}
+    .text-content .title-philosophy{
+        margin-left: 0px;
+    }
+    .text-circle{
+    display: flex;
+    width: 100%;
+    }
+.text-content h2{
+    font-size:18px;
+}
+    .text-circle p{
+    width: 300px;
+    text-align: justify;
+}
+    .text-circle img{
+        display: flex;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin-top: -100px;
+        margin-right: 10%;
+        margin-left: auto;
+    }
+    
+    
+    /*Fin filosofia*/
 
     /* detalle producto */
 
@@ -697,55 +974,34 @@ input[type=number]::-webkit-outer-spin-button {
         margin: 0;
     }
     /*  fin detalle producto */
+/******Inicio footer*****/
+.footer{
+    padding: 40px 0px 20px 0px;
+}
+.footer-col{
+    width: 20%;
+    margin-bottom: 10px;
+ }
 
-    .footer-col{
-		width: 20%;
-	 }
-	 .philosophy .text-content{
-		width: 60%;
-		margin: auto;
-	}
+.footer-col h4{
+    font-size: 18px;
+}
+.footer-col .social-links a{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    }
+.text-foo{
+    font-size: 14px;
+}
+.copy{
+    font-size:12px;
+}
+.footer-col ul li a{
+    font-size: 16px;
+}
 
-	.philosophy{
-		height: 200px;
-	}
-	.circle{
-		display:flex;
-		float: right;
-		margin-right: 200px;
-	}
-    .footer{
-        padding: 40px 0px 20px 0px;
-    }
-    .footer-col{
-		width: 20%;
-        margin-bottom: 10px;
-	 }
-	 .philosophy .text-content{
-		width: 60%;
-		margin: auto;
-	}
-	.philosophy{
-		height: 200px;
-	}
-    .footer-col h4{
-        font-size: 18px;
-    }
-    .footer-col .social-links a{
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        }
-    .text-foo{
-        font-size: 16px;
-    }
-    .copy{
-        font-size:13px;
-    }
-    .footer-col ul li a{
-        font-size: 16px;
-    }
-
+/*Fin footer*/
 }
 /* Seccion Barra de navegacion laptop */
 @media (min-width: 913px) {
@@ -953,6 +1209,19 @@ input[type=number]::-webkit-outer-spin-button {
         top: 50px;
         right: 60px;
     }
+/*Seccion filosofia*/
+
+.text-circle p{
+    width: 300px;
+}
+
+    .text-circle img{
+        display: block;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        margin-top: -100px;
+    }
 
     /* detalle producto */
 
@@ -1110,8 +1379,17 @@ input[type=number]::-webkit-outer-spin-button {
         margin: 0;
     }
     /*  fin detalle producto */
+/*Inicio footer*/
+    .footer ul{
+        margin-bottom: -20px;
+    }
 
+    .text-foo{
+        font-size: 13px;
+    }
+    
 
+/*Fin footer*/
 }
 
 @media screen and (min-width: 1200px) {
@@ -1197,6 +1475,17 @@ input[type=number]::-webkit-outer-spin-button {
         right: 80px;
     }
 
+    /*Inicio filosofia*/
+
+    .text-content h2{
+        padding-top: 10px;
+    }
+        .text-circle p{
+            padding-top:30px;
+            width: 450px;
+        }
+
+        /*fin filosofia*/
     /*items paginacion*/
 
     .pagination{
@@ -1382,11 +1671,10 @@ input[type=number]::-webkit-outer-spin-button {
     }
     /*  fin detalle producto */
 
-    .circle{
-        width: 120px;
-        height: 120px;
-        margin-right: 150px;
-    }
+    /*Inicio footer*/
+.text-foo{margin-top: 10px;}
+    
+
 }
 
 /*animations slider*/
@@ -1403,244 +1691,3 @@ input[type=number]::-webkit-outer-spin-button {
     
 }
 
-.container__section {
-    background: #2B2B2B;
-    height: 500px;
-    width: 100vw;
-}
-.title {
-    font-family: 'Montserrat', sans-serif;
-    color: #FBF2E0;
-    text-align: center;
-    font-weight: bolder;
-    font-size:35px;
-    margin-top: 50px ;
-}
-
-.title2 {
-    font-family: 'Montserrat', sans-serif, italic;
-    color: #FBF2E0;
-    text-align:center;
-    font-weight: 700;
-    font-size: medium;
-}
-
-.title3 {
-    font-family: 'Montserrat', sans-serif;
-    color: #FBF2E0;
-    text-align:center;
-    font-weight: 700;
-    font-size:small
-}
-
-.title4 {
-    font-family: 'Montserrat', sans-serif;
-    color: #FBF2E0;
-    text-align:center;
-    font-size:xx-small;
-    line-height: normal
-}
-
-
-.product {
-    width: 55%;
-    display:block;
-    margin:auto;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
-}
-
-.block {
-    background: #333333;
-    display: inline-block;
-    width: 20%;
-    margin: 3px;
-    padding: 10px 50px;
-    text-align: center;
-    position: center,top;
-    margin-top: 70px;
-    box-shadow: 0px 0px 10px 0px black;
-    
-
-}
- .block:hover {
-     transform: scale(1.1);
- }
-
-.botom {
-   font-family: 'Montserrat', sans-serif, italic;
-   text-decoration: none;
-   font-weight:600;
-   color: #FBF2E0;
-   text-align:center;
-   font-size:12px;
-   background: #FF452C;
-   padding-top:5px;
-   padding-bottom:5px;
-   padding-left:18px;
-   padding-right:18px;
-   border-radius: 5px;
-}
-
-.container__block {
-    display:flex;
-    justify-content:center;
-}
-
-.container__block p {
-    font-style: italic;
-}
-
-
-
-
-/*************************** SECTION PHILOSOPHY*************************************/
-.philosophy{
-	width: 100%;
-	height: 250px;
-	margin-top: 100px;
-}
-.text-content .first-text{
-
-	margin-top: -55px;
-	margin-bottom: 8px;
-	margin-left: 30px;
-}
-
-.text-content .second-text{
-	margin-bottom: 10px;
-	margin-left: 60px;
-}
-
-
-
-.philosophy .text-content {
-	background-color: #333333;
-	width: 100%;
-	color:#fbf2e0;
-	padding: 25px;
-	text-align: justify;
-	height: 100%;
-}
-
-.text-content p, .text-content h3, .text-content .second-text {
-	background-color: #333333;
-}
-/************************FIN SECTION PHILOSOPHY**********************/
-/*************************FOOTER************************/
-.footer{
-	width:100%;
-	position: relative;
-	bottom: 0;
-	background-color: #2b2b2b;
-    padding: 40px 0;
-	margin-top: 50px;
-}
-.footer .container{
-	width: 90%;
-	margin:auto;
-}
-.footer .container .row{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-.footer ul{
-	list-style: none;
-}
-
-.footer-col{
-   width: 100%;
-   padding: 0px 15px 10px 15px;
-   margin-bottom: 50px;
-}
-.footer-col h4{
-	font-size: 22px;
-	color: #fbf2e0;
-	text-transform: capitalize;
-	margin-bottom: 10px;
-	font-weight: bold;
-	position: relative;
-	display: inline-block;
-	cursor: default;
-}
-.footer-col h4:after{ /*subrayado a todos los h4 de footer-col*/
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 3px;
-	bottom:0;
-	left: 0;
-	background-color:#ff452c;
-	transform: scaleX(0);
-	transform-origin: bottom right;
-	transition: transform 0.6s ease-out;
-}
-.footer-col h4:hover:after{ /*comportamiento del subrayado*/
-	transform: scaleX(1);
-	transform-origin: bottom left;
-}
-
-.footer-col ul li:not(:last-child){ /*espaciado entre li*/
-	margin-bottom: 10px;
-}
-.footer-col ul li a{  /*comportamiento de la etiqueta a de .footer-col*/
-	font-size: 20px;
-	text-transform: capitalize;
-	color: #fbf2e0;
-	text-decoration: none;
-	font-weight: 300;
-	color: #bbbbbb;
-	display: block;
-	transition: all 0.3s ease;
-}
-.footer-col ul li a:hover{
-	color: #ffffff;
-	padding-left: 8px;
-}
-.footer-col .social-links a{
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	background-color: #333333;
-	margin:0 10px 10px 0;
-	text-align: center;
-	line-height: 50px;
-	border-radius: 50%;
-	color: #fbf2e0;
-	transition: all 0.5s ease;
-}
-
-.footer-col .social-links a:hover{
-	color: #333333; 
-	background-color: #fbf2e0;
-}
-
-.footer-img{
-	/* background-image: url(/img/blobanimation.svg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position:  right center; */
-    width: 100px;
-	height: 100px;
-    margin-bottom: 20px;
-}
-
-.text-foo{
-    border-top: 3px solid #7B7B7B;
-    padding: 10px;
-	font-size: 20px;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    color: #FBF2E0;
-}
-.copy{
-	font-size: 18px;
-    padding-bottom: 5px;
-    text-align: center;
-    color: #FBF2E0;
-}
-/************************** FIN FOOTER*************************************/
