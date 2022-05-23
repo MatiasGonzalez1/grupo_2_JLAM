@@ -454,6 +454,68 @@ input[type=number]::-webkit-outer-spin-button {
 }
 /*  fin detalle producto */
 
+
+
+/*  CARRITO DE COMPRAS */
+section{
+    background-color: #2B2B2B;
+}
+.cart__container{
+    color: #fbf2e0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px 20px;
+    background-color: #333333;
+    border-radius: 5px;
+
+}
+.cart__section{
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.cart__header{
+    display: none;
+}
+.cart__product{
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    justify-content: center;
+    padding: 15px 0px;
+    border-bottom: 1px solid #7B7B7B;
+
+}
+.cart__product p{
+    font-size: 15px;
+    font-weight: bold;
+}
+.cart__product span{
+    font-size: 12px;
+    font-weight: normal;
+}
+.cart__productdetail{
+    text-align: start;
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    width: 175px;
+    height: auto;
+}
+.cart__product img{
+    width: 15%;
+    height: auto;
+}
+.cart__buttons{
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+/*  FIN CARRITO DE COMPRAS */
+
 /*************************** SECTION PHILOSOPHY*************************************/
 .philosophy{
 	width: 100%;
