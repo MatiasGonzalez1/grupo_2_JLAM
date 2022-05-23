@@ -292,6 +292,458 @@ main{
     width: 100vw;
 }
 
+.pd__info span{
+    font-weight: bold;
+    font-size: 10px;
+}
+.container__pd{
+    width: 100vw;
+    margin-top: 75px;
+    background-color: #2B2B2B;
+    padding: 15px 0px;
+}
+.pd__section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.pd__img{
+    width: 150px;
+    height: 350px;
+}
+.pd__img img{
+    width:200px;
+}
+#zoomC {
+    background: url("../img/espumante.png");
+    background-position:center;
+    background-size: 150px auto;
+    background-repeat: no-repeat;
+}
+.pd__info{
+    width: 200px;
+}
+.pd_center{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+}
+.pd__info h2{
+    font-weight:normal;
+    font-style: italic;
+    font-size: 20px;
+    padding: 12px 0px;
+    color: #fbf2e0;
+    border-bottom: solid 1px #fbf2e0 ;
+}
+.pd__info h3{
+    font-size: 10px;
+    padding-top: 15px;
+    color: #fbf2e0;
+    letter-spacing: 0.5px;
+}
+.pd__info p {
+    font-size:10px;
+    line-height: 18px;
+    padding: 15px 0px;
+    border-bottom: solid 1px #fbf2e0 ;
+    color: #fbf2e0;
+    letter-spacing: 0.5px;
+    text-align: justify;
+}
+
+/* btn */
+
+.pd_buysection {
+    display: flex;
+    flex-direction: column;
+    width: 160px;
+    padding-top: 15px;
+    align-items: center;
+    justify-content: center;
+}
+.pd_buysection p{
+    padding: 10px 0px;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    color: #fbf2e0;
+    padding-bottom: 30px;
+    font-weight: 300;
+    font-style: italic;
+}
+.pd_buysection span{
+    font-weight: bold;
+    font-size: 18px;
+    padding-right: 10px;
+}
+.cart__btn{
+    width: 160px;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    color: #fbf2e0;
+    background-color: #ff452c;
+    padding: 8px 10px;
+    border-radius: 3px;
+    margin-top: 20px;
+}
+.cart__btn a{
+    text-transform: uppercase;
+    font-size: 10px;
+    text-decoration: none;
+    padding-left: 5px;
+    color: #fbf2e0;
+}
+
+/* selector cantidad*/
+.value-button {
+    display: inline-block;
+    margin: 0px;
+    width: 35px;
+    height: 25px;
+    text-align: center;
+    vertical-align: middle;
+    padding: 2px 0;
+    background: white;
+    color: #2B2B2B;
+    font-size: 20px;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+  
+.value-button:hover {
+    cursor: pointer;
+}
+  
+form #decrease {
+    margin-right: -4px;
+}
+  
+form #increase {
+margin-left: -4px;
+}
+
+form #input-wrap {
+margin: 0px;
+padding: 0px;
+}
+
+input#number {
+    text-align: center;
+    border: none;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    margin: 0px;
+    width: 46px;
+    height: 25px;
+    color: white;
+    background-color: #2B2B2B;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+/*  fin detalle producto */
+
+/*************************** SECTION PHILOSOPHY*************************************/
+.philosophy{
+	width: 100%;
+	height: auto;
+	padding-top: 130px;
+    padding-bottom: 80px;
+    background-color: #2B2B2B;
+}
+.text-content .title-philosophy{
+	margin-top: -60px;
+	margin-bottom: 40px;
+    width: 200px;
+    height: 55px;
+    margin-left: 5%;
+}
+.text-circle img{
+    display:none;
+}
+.title-philosophy img{
+    width: 200px;
+}
+
+.philosophy .text-content {
+	background-color: #333333;
+	width: 100%;
+	color:#fbf2e0;
+	padding: 25px;
+    margin: auto;
+}
+.text-content h2{
+    font-size:18px;
+}
+.text-content p{
+    width: 100%;
+    text-align: justify;
+    padding-top: 10px;  
+    padding-right: 15px;
+    font-size: 14px;
+}
+
+.text-content p, .text-content h3, .text-content .second-text {
+	background-color: #333333;
+}
+/************************FIN SECTION PHILOSOPHY**********************/
+/* selection terra rossa*/
+
+.container__selection {
+    display: flex;
+    background: #2B2B2B;
+    height: 600px;
+    width: 100vw;
+    padding: 20px;
+    justify-content: center;
+}
+.container__block {
+    display:flex;
+    max-height: 550px;
+    width: 300px;
+    overflow-x:auto; 
+    padding: 20px;
+    position: absolute;
+    align-items:center;
+    margin-top: 90px;
+    z-index: 0;
+
+}
+.container__block::-webkit-scrollbar{
+    display: none;
+}
+
+.container__block p {
+    font-style: italic;
+}
+
+
+main{
+    margin-top: 100px;
+}
+
+.block {
+    background: #333333;
+    /*display: inline-block;*/
+    padding: 15px 10px;
+    text-align: center;
+    margin: 20px 40px ;
+    margin-left: 5px;
+    box-shadow: 0px 0px 10px 0px black;
+    flex-shrink: 0;
+    width: 270px;
+    justify-content:center;
+    height: 380px;
+    border-radius: 3px;
+}
+
+.selection__title {
+    font-family: 'Montserrat', sans-serif;
+    color: #FBF2E0;
+    text-align: center;
+    font-weight: bolder;
+    font-size:40px;
+    padding: 35px;
+    margin-left: auto;
+}
+
+.selection__mark {
+    font-family: 'Montserrat', sans-serif, italic;
+    color: #FBF2E0;
+    text-align:center;
+    font-size:40px;
+    font-weight:200
+}
+
+.selection__type {
+    font-family: 'Montserrat', sans-serif;
+    color: #FBF2E0;
+    text-align:center;
+    font-size:x-small;
+    
+}
+
+.selection__product {
+    width: 45%;
+    display:block;
+    margin:auto;
+    margin-bottom: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+}
+
+ .block:hover {
+     transform: scale(1.1);
+ }
+
+.selection__botomver {
+   font-family: 'Montserrat', sans-serif, italic;
+   text-decoration: none;
+   font-weight:600;
+   color: #FBF2E0;
+   text-align:center;
+   font-size:13px;
+   background: #FF452C;
+   padding: 5px 13px;
+   border-radius: 4px;
+   margin-bottom: 50px;
+  
+}
+
+.selection__nextbuttonLeft {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 60px;
+    font-size: 50px;
+    background-color:#333333;
+    color: white;
+    flex-direction: column;
+    margin-top: 280px;
+    border-radius: 100px;
+    margin-left: 80px;
+    opacity: 0.5;
+}
+.selection__nextbuttonRight {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 70px;
+    height: 60px;
+    font-size: 50px;
+    background-color:#333333;
+    color: white;
+    flex-direction: column;
+    margin-top: 280px;
+    border-radius: 100%;
+    margin-right: 80px;
+    opacity: 0.5;
+}
+
+/*************************FOOTER************************/
+.footer{
+	width:100%;
+	/*position: relative;
+	bottom: 0;*/
+	background-color: #2b2b2b;
+    padding: 40px 0;
+	/*margin-top: 50px;*/
+}
+.footer .container{
+	width: 90%;
+	margin:auto;
+}
+.footer .container .row{
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+}
+.footer ul{
+	list-style: none;
+    margin-bottom: -40px;
+}
+
+.footer-col{
+   width: 100%;
+   padding: 0px 15px 10px 15px;
+   margin-bottom: 50px;
+}
+.footer-col h4{
+	font-size: 20px;
+	color: #fbf2e0;
+	text-transform: capitalize;
+	margin-bottom: 10px;
+	position: relative;
+	display: inline-block;
+	cursor: default;
+}
+.footer-col h4:after{ /*subrayado a todos los h4 de footer-col*/
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 3px;
+	bottom:0;
+	left: 0;
+	background-color:#ff452c;
+	transform: scaleX(0);
+	transform-origin: bottom right;
+	transition: transform 0.6s ease-out;
+}
+.footer-col h4:hover:after{ /*comportamiento del subrayado*/
+	transform: scaleX(1);
+	transform-origin: bottom left;
+}
+
+.footer-col ul li:not(:last-child){ /*espaciado entre li*/
+	margin-bottom: 5px;
+}
+.footer-col ul li a{  /*comportamiento de la etiqueta a de .footer-col*/
+	font-size: 18px;
+	text-transform: capitalize;
+	color: #fbf2e0;
+	text-decoration: none;
+	color: #bbbbbb;
+	display: block;
+	transition: all 0.3s ease;
+}
+.footer-col ul li a:hover{
+	color: #ffffff;
+	padding-left: 8px;
+}
+.footer-col .social-links a{
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background-color: #333333;
+	margin:0 10px 10px 0;
+	text-align: center;
+	line-height: 50px;
+	border-radius: 50%;
+	color: #fbf2e0;
+	transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover{
+	color: #333333; 
+	background-color: #fbf2e0;
+}
+
+.footer-img{
+    width: 100px;
+	height: 100px;
+    margin-bottom: 20px;
+}
+
+.text-foo{
+    border-top: 3px solid #7B7B7B;
+    padding: 10px ;
+	font-size: 16px;
+    width: 100%;
+    text-align: center;
+    color: #FBF2E0;
+}
+.copy{
+	font-size: 14px;
+    padding-bottom: 5px;
+    text-align: center;
+    color: #FBF2E0;
+}
+
+/************************** FIN FOOTER*************************************/
+
 /*************MEDIA QUERY**************/
 
 @media screen and (min-width: 768px) {
@@ -372,54 +824,256 @@ main{
 
         
     }
-    .footer-col{
-		width: 20%;
-	 }
-	 .philosophy .text-content{
-		width: 60%;
-		margin: auto;
-	}
 
-	.philosophy{
-		height: 200px;
-	}
-	.circle{
-		display:flex;
-		float: right;
-		margin-right: 200px;
-	}
-    .footer{
-        padding: 40px 0px 20px 0px;
-    }
-    .footer-col{
-		width: 20%;
-        margin-bottom: 10px;
-	 }
-	 .philosophy .text-content{
-		width: 60%;
+    /*Inicio Filosofia*/
+    .philosophy .text-content{
+		width: 80%;
 		margin: auto;
 	}
-	.philosophy{
-		height: 200px;
-	}
-    .footer-col h4{
+    .text-content .title-philosophy{
+        margin-left: 0px;
+    }
+    .text-circle{
+    display: flex;
+    width: 100%;
+    }
+.text-content h2{
+    font-size:18px;
+}
+    .text-circle p{
+    width: 300px;
+    text-align: justify;
+}
+    .text-circle img{
+        display: flex;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin-top: -100px;
+        margin-right: 10%;
+        margin-left: auto;
+    }
+    
+    
+    /*Fin filosofia*/
+
+/*Seleccion terra rossa*/
+
+.selection__mark {
+    font-family: 'Montserrat', sans-serif, italic;
+    color: #FBF2E0;
+    text-align:center;
+    font-size: 20px;
+    font-weight:200
+    }
+    .selection__type {
+        font-size: 15px;
+    }
+    .selection__title {
+        font-size:29px;
+        padding: 23px;
+        margin-left: 18px;
+        margin-top: 15px;
+        text-align: center;
+        width: 100%;
+        
+    }
+    .container__selection {
+        overflow-x: auto;
+    }
+    .container__selection::-webkit-scrollbar{
+        width: 0;
+    }
+    /* detalle producto */
+
+    .pd__info span{
+        font-weight: bold;
+        font-size: 10px;
+    }
+    .container__pd{
+        text-align: justify;
+        width: 100vw;
+        margin-top: 75px;
+        background-color: #2B2B2B;
+        padding: 40px 100px;
+    }
+    .pd__section{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .pd__img{
+        width: 320px;
+        height: 500px;
+    }
+    .pd__img img{
+        width:200px;
+    }
+    #zoomC {
+        background: url("../img/espumante.png");
+        background-position:center;
+        background-size: 220px auto;
+        background-repeat: no-repeat;
+    }
+    .pd__info{
+        width: 400px;
+    }
+    .pd_center{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 55px 10px;
+    }
+    .pd__info h2{
+        font-weight:normal;
+        font-style: italic;
+        font-size: 30px;
+        padding: 12px 0px;
+        color: #fbf2e0;
+        border-bottom: solid 1px #fbf2e0 ;
+    }
+    .pd__info h3{
+        font-size: 12px;
+        padding-top: 15px;
+        color: #fbf2e0;
+        letter-spacing: 0.5px;
+    }
+    .pd__info p {
+        font-size:12px;
+        line-height: 18px;
+        padding: 15px 0px;
+        border-bottom: solid 1px #fbf2e0 ;
+        color: #fbf2e0;
+        letter-spacing: 0.5px;
+    }
+    
+    /* btn */
+    
+    .pd_buysection {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        padding-top: 30px;
+        align-items: center;
+        justify-content: center;
+    }
+    .pd_buysection p{
+        padding: 10px 0px;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        color: #fbf2e0;
+        padding-bottom: 30px;
+        font-weight: 300;
+        font-style: italic;
+    }
+    .pd_buysection span{
+        font-weight: bold;
         font-size: 18px;
+        padding-right: 10px;
     }
-    .footer-col .social-links a{
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        }
-    .text-foo{
-        font-size: 16px;
+    .cart__btn{
+        width: 260px;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        color: #fbf2e0;
+        background-color: #ff452c;
+        padding: 8px 15px;
+        border-radius: 3px;
+        margin-top: 35px;
     }
-    .copy{
-        font-size:13px;
-    }
-    .footer-col ul li a{
-        font-size: 16px;
+    .cart__btn a{
+        text-transform: uppercase;
+        font-size: 12px;
+        text-decoration: none;
+        padding-left: 10px;
+        color: #fbf2e0;
     }
 
+    /* selector cantidad*/
+    .value-button {
+        display: inline-block;
+        margin: 0px;
+        width: 35px;
+        height: 25px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 2px 0;
+        background: white;
+        color: #2B2B2B;
+        font-size: 20px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+      
+    .value-button:hover {
+        cursor: pointer;
+    }
+      
+    form #decrease {
+        margin-right: -4px;
+    }
+      
+    form #increase {
+    margin-left: -4px;
+    }
+    
+    form #input-wrap {
+    margin: 0px;
+    padding: 0px;
+    }
+    
+    input#number {
+        text-align: center;
+        border: none;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+        margin: 0px;
+        width: 46px;
+        height: 25px;
+        color: white;
+        background-color: #2B2B2B;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /*  fin detalle producto */
+/******Inicio footer*****/
+.footer{
+    padding: 40px 0px 20px 0px;
+}
+.footer-col{
+    width: 20%;
+    margin-bottom: 10px;
+ }
+
+.footer-col h4{
+    font-size: 18px;
+}
+.footer-col .social-links a{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    }
+.text-foo{
+    font-size: 14px;
+}
+.copy{
+    font-size:12px;
+}
+.footer-col ul li a{
+    font-size: 16px;
+}
+
+/*Fin footer*/
 }
 /* Seccion Barra de navegacion laptop */
 @media (min-width: 913px) {
@@ -470,6 +1124,59 @@ main{
         transition: all .4s ease-in-out;
     }
 
+/* seleccion terra rossa */
+
+    .container__selection {
+        height: 500px;
+        width: 100vw;
+        padding: 20px;
+        justify-content:center;
+    }
+    
+    .container__block {   
+        max-height: 320px;
+        width: 100%;
+        padding: 20px;
+        justify-content:center;
+        margin-top: 90px;
+        z-index: 0;
+    
+    }
+    .block {  
+        width: 21%;
+        margin: 3px;
+        margin-top: 15px;
+        height: 300px;
+    }
+    .selection__title {
+        font-size:33px;
+        padding: 5px;
+    }
+    .selection__botomver {
+        font-size:11px;
+        padding: 5px 7px;
+    }
+    
+    .selection__mark {
+        font-size: 17px;
+        font-weight:200
+        }
+    .selection__type {
+        font-size: 13px;
+    }
+    .selection__product {
+        width: 50%;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        
+    }
+    .selection__nextbuttonRight {
+        display: none
+    }
+    .selection__nextbuttonLeft {
+        display: none
+    }
     /* Seccion Novedades */
     
     .product-news .item button{
@@ -627,8 +1334,187 @@ main{
         top: 50px;
         right: 60px;
     }
+/*Seccion filosofia*/
 
+.text-circle p{
+    width: 300px;
+}
 
+    .text-circle img{
+        display: block;
+        width: 250px;
+        height: 250px;
+        border-radius: 50%;
+        margin-top: -100px;
+    }
+
+    /* detalle producto */
+
+    .pd__info span{
+        font-weight: bold;
+        font-size: 10px;
+    }
+    .container__pd{
+        width: 100vw;
+        margin-top: 100px;
+        background-color: #2B2B2B;
+        padding: 0px 100px;
+    }
+    .pd__section{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .pd__img{
+        width: 320px;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+    }
+    .pd__img img{
+        width:200px;
+    }
+    #zoomC {
+        background: url("../img/espumante.png");
+        background-position:center;
+        background-size: 220px auto;
+        background-repeat: no-repeat;
+    }
+    .pd__info{
+        width: 400px;
+    }
+    .pd_center{
+        padding: 55px 10px;
+    }
+    .pd__info h2{
+        font-weight:normal;
+        font-style: italic;
+        font-size: 30px;
+        padding: 12px 0px;
+        color: #fbf2e0;
+        border-bottom: solid 1px #fbf2e0 ;
+    }
+    .pd__info h3{
+        font-size: 12px;
+        padding-top: 15px;
+        color: #fbf2e0;
+        letter-spacing: 0.5px;
+    }
+    .pd__info p {
+        font-size:12px;
+        line-height: 18px;
+        padding: 15px 0px;
+        border-bottom: solid 1px #fbf2e0 ;
+        color: #fbf2e0;
+        letter-spacing: 0.5px;
+    }
+    
+    /* btn */
+    
+    .pd_buysection {
+        width: 300px;
+        padding-top: 30px;
+        align-items: center;
+    }
+    .pd_buysection p{
+        padding: 10px 0px;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        color: #fbf2e0;
+        padding-bottom: 30px;
+        font-weight: 300;
+        font-style: italic;
+    }
+    .pd_buysection span{
+        font-weight: bold;
+        font-size: 18px;
+        padding-right: 10px;
+    }
+    .cart__btn{
+        width: 260px;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        color: #fbf2e0;
+        background-color: #ff452c;
+        padding: 8px 15px;
+        border-radius: 3px;
+        margin-top: 35px;
+    }
+    .cart__btn a{
+        text-transform: uppercase;
+        font-size: 12px;
+        text-decoration: none;
+        padding-left: 10px;
+        color: #fbf2e0;
+    }
+
+    /* selector cantidad*/
+    .value-button {
+        display: inline-block;
+        margin: 0px;
+        width: 35px;
+        height: 25px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 2px 0;
+        background: white;
+        color: #2B2B2B;
+        font-size: 20px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+      
+    .value-button:hover {
+        cursor: pointer;
+    }
+      
+    form #decrease {
+        margin-right: -4px;
+    }
+      
+    form #increase {
+    margin-left: -4px;
+    }
+    
+    form #input-wrap {
+    margin: 0px;
+    padding: 0px;
+    }
+    
+    input#number {
+        text-align: center;
+        border: none;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+        margin: 0px;
+        width: 46px;
+        height: 25px;
+        color: white;
+        background-color: #2B2B2B;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /*  fin detalle producto */
+/*Inicio footer*/
+    .footer ul{
+        margin-bottom: -20px;
+    }
+
+    .text-foo{
+        font-size: 13px;
+    }
+    
+
+/*Fin footer*/
 }
 
 @media screen and (min-width: 1200px) {
@@ -714,7 +1600,65 @@ main{
         right: 80px;
     }
 
+    /*Inicio filosofia*/
+
+    .text-content h2{
+        padding-top: 10px;
+    }
+        .text-circle p{
+            padding-top:30px;
+            width: 450px;
+        }
+
+        /*fin filosofia*/
     /*items paginacion*/
+
+   /* seleccion terra rossa */
+
+   .container__selection {
+    height: 550px;
+}
+.container__block {
+    max-height: 380px;
+    width: 100%;
+    
+}
+.selection__title {
+    font-weight: bolder;
+    font-size:35px;
+    padding: 20px;
+}
+.selection__botomver {
+    font-size:13px;
+    padding: 5px 10px;
+}
+.block { 
+    width: 20%;
+    margin: 5px;
+    padding: 20px 35px;
+    margin-top: 10px;
+    height: 330px; 
+    
+}
+.selection__mark {
+    font-size: 19px;
+    font-weight:200
+    }
+.selection__type {
+    font-size: 14px;
+}
+.selection__product {
+    width: 80px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    height: 220px;
+    
+}
+.selection__nextbutton {
+    display: none
+}
+/*fin de seleccion terra rossa*/
 
     .pagination{
         z-index: 1;
@@ -740,11 +1684,169 @@ main{
         transition: all 300ms;
     }
 
-    .circle{
-        width: 120px;
-        height: 120px;
-        margin-right: 150px;
+    /* detalle producto */
+
+    .pd__info span{
+        font-weight: bold;
+        font-size: 10px;
     }
+    .container__pd{
+        width: 100vw;
+        margin-top: 100px;
+        background-color: #2B2B2B;
+        padding: 0px 100px;
+    }
+    .pd__section{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    .pd__img{
+        width: 320px;
+        height: 600px;
+        display: flex;
+        justify-content: center;
+    }
+    .pd__img img{
+        width:200px;
+    }
+    #zoomC {
+        background: url("../img/espumante.png");
+        background-position:center;
+        background-size: 220px auto;
+        background-repeat: no-repeat;
+    }
+    .pd__info{
+        width: 500px;
+    }
+    .pd_center{
+        padding: 70px 10px;
+    }
+    .pd__info h2{
+        font-weight:normal;
+        font-style: italic;
+        font-size: 30px;
+        text-align:left;
+        padding: 12px 0px;
+        color: #fbf2e0;
+        border-bottom: solid 1px #fbf2e0 ;
+    }
+    .pd__info h3{
+        font-size: 12px;
+        padding-top: 15px;
+        color: #fbf2e0;
+        letter-spacing: 0.5px;
+        text-align:left;
+    }
+    .pd__info p {
+        font-size:12px;
+        line-height: 18px;
+        padding: 15px 0px;
+        border-bottom: solid 1px #fbf2e0 ;
+        color: #fbf2e0;
+        letter-spacing: 0.5px;
+    }
+    
+    /* btn */
+    
+    .pd_buysection {
+        width: 300px;
+        padding-top: 30px;
+        align-items: center;
+        justify-content: left;
+    }
+    .pd_buysection p{
+        padding: 10px 0px;
+        font-size: 15px;
+        letter-spacing: 0.5px;
+        color: #fbf2e0;
+        padding-bottom: 30px;
+        font-weight: 300;
+        font-style: italic;
+    }
+    .pd_buysection span{
+        font-weight: bold;
+        font-size: 18px;
+        padding-right: 10px;
+    }
+    .cart__btn{
+        width: 260px;
+        display: flex;
+        align-items: center;
+        justify-content:center;
+        color: #fbf2e0;
+        background-color: #ff452c;
+        padding: 8px 15px;
+        border-radius: 3px;
+        margin-top: 35px;
+    }
+    .cart__btn a{
+        text-transform: uppercase;
+        text-decoration: none;
+        padding-left: 10px;
+        color: #fbf2e0;
+    }
+
+    /* selector cantidad*/
+    .value-button {
+        display: inline-block;
+        margin: 0px;
+        width: 35px;
+        height: 25px;
+        text-align: center;
+        vertical-align: middle;
+        padding: 2px 0;
+        background: white;
+        color: #2B2B2B;
+        font-size: 20px;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+      
+    .value-button:hover {
+        cursor: pointer;
+    }
+      
+    form #decrease {
+        margin-right: -4px;
+    }
+      
+    form #increase {
+    margin-left: -4px;
+    }
+    
+    form #input-wrap {
+    margin: 0px;
+    padding: 0px;
+    }
+    
+    input#number {
+        text-align: center;
+        border: none;
+        border-top: 2px solid white;
+        border-bottom: 2px solid white;
+        margin: 0px;
+        width: 46px;
+        height: 25px;
+        color: white;
+        background-color: #2B2B2B;
+    }
+    
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    /*  fin detalle producto */
+
+    /*Inicio footer*/
+.text-foo{margin-top: 10px;}
+    
+
 }
 
 /*animations slider*/
@@ -761,284 +1863,3 @@ main{
     
 }
 
-.container__section {
-    background: #2B2B2B;
-    height: 500px;
-    width: 100vw;
-}
-.title {
-    font-family: 'Montserrat', sans-serif;
-    color: #FBF2E0;
-    text-align: center;
-    font-weight: bolder;
-    font-size:35px;
-    margin-top: 50px ;
-}
-
-.title2 {
-    font-family: 'Montserrat', sans-serif, italic;
-    color: #FBF2E0;
-    text-align:center;
-    font-weight: 700;
-    font-size: medium;
-}
-
-.title3 {
-    font-family: 'Montserrat', sans-serif;
-    color: #FBF2E0;
-    text-align:center;
-    font-weight: 700;
-    font-size:small
-}
-
-.title4 {
-    font-family: 'Montserrat', sans-serif;
-    color: #FBF2E0;
-    text-align:center;
-    font-size:xx-small;
-    line-height: normal
-}
-
-
-.product {
-    width: 55%;
-    display:block;
-    margin:auto;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    
-}
-
-.block {
-    background: #333333;
-    display: inline-block;
-    width: 20%;
-    margin: 3px;
-    padding: 10px 50px;
-    text-align: center;
-    position: center,top;
-    margin-top: 70px;
-    box-shadow: 0px 0px 10px 0px black;
-    
-
-}
- .block:hover {
-     transform: scale(1.1);
- }
-
-.botom {
-   font-family: 'Montserrat', sans-serif, italic;
-   text-decoration: none;
-   font-weight:600;
-   color: #FBF2E0;
-   text-align:center;
-   font-size:12px;
-   background: #FF452C;
-   padding-top:5px;
-   padding-bottom:5px;
-   padding-left:18px;
-   padding-right:18px;
-   border-radius: 5px;
-}
-
-.container__block {
-    display:flex;
-    justify-content:center;
-}
-
-.container__block p {
-    font-style: italic;
-}
-
-
-
-
-/*************************** SECTION PHILOSOPHY*************************************/
-.philosophy{
-	width: 100%;
-	height: 250px;
-	margin-top: 100px;
-}
-.text-content .first-text{
-
-	margin-top: -55px;
-	margin-bottom: 8px;
-	margin-left: 30px;
-}
-
-.text-content .second-text{
-	margin-bottom: 10px;
-	margin-left: 60px;
-}
-
-
-
-.philosophy .text-content {
-	background-color: #333333;
-	width: 100%;
-	color:#fbf2e0;
-	padding: 25px;
-	text-align: justify;
-	height: 100%;
-}
-
-.text-content p, .text-content h3, .text-content .second-text {
-	background-color: #333333;
-}
-/************************FIN SECTION PHILOSOPHY**********************/
-/*************************FOOTER************************/
-.footer{
-	width:100%;
-	position: relative;
-	bottom: 0;
-	background-color: #2b2b2b;
-    padding: 40px 0;
-	margin-top: 50px;
-}
-.footer .container{
-	width: 90%;
-	margin:auto;
-}
-.footer .container .row{
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
-.footer ul{
-	list-style: none;
-}
-
-.footer-col{
-   width: 100%;
-   padding: 0px 15px 10px 15px;
-   margin-bottom: 50px;
-}
-.footer-col h4{
-	font-size: 22px;
-	color: #fbf2e0;
-	text-transform: capitalize;
-	margin-bottom: 10px;
-	font-weight: bold;
-	position: relative;
-	display: inline-block;
-	cursor: default;
-}
-.footer-col h4:after{ /*subrayado a todos los h4 de footer-col*/
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 3px;
-	bottom:0;
-	left: 0;
-	background-color:#ff452c;
-	transform: scaleX(0);
-	transform-origin: bottom right;
-	transition: transform 0.6s ease-out;
-}
-.footer-col h4:hover:after{ /*comportamiento del subrayado*/
-	transform: scaleX(1);
-	transform-origin: bottom left;
-}
-
-.footer-col ul li:not(:last-child){ /*espaciado entre li*/
-	margin-bottom: 10px;
-}
-.footer-col ul li a{  /*comportamiento de la etiqueta a de .footer-col*/
-	font-size: 20px;
-	text-transform: capitalize;
-	color: #fbf2e0;
-	text-decoration: none;
-	font-weight: 300;
-	color: #bbbbbb;
-	display: block;
-	transition: all 0.3s ease;
-}
-.footer-col ul li a:hover{
-	color: #ffffff;
-	padding-left: 8px;
-}
-.footer-col .social-links a{
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	background-color: #333333;
-	margin:0 10px 10px 0;
-	text-align: center;
-	line-height: 50px;
-	border-radius: 50%;
-	color: #fbf2e0;
-	transition: all 0.5s ease;
-}
-
-.footer-col .social-links a:hover{
-	color: #333333; 
-	background-color: #fbf2e0;
-}
-
-.footer-img{
-	/* background-image: url(/img/blobanimation.svg);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-position:  right center; */
-    width: 100px;
-	height: 100px;
-    margin-bottom: 20px;
-}
-
-.text-foo{
-    border-top: 3px solid #7B7B7B;
-    padding: 10px;
-	font-size: 20px;
-    width: 100%;
-    text-align: center;
-    font-weight: bold;
-    color: #FBF2E0;
-}
-.copy{
-	font-size: 18px;
-    padding-bottom: 5px;
-    text-align: center;
-    color: #FBF2E0;
-}
-
-
-@media (min-width:768px){
-	.footer{
-        padding: 40px 0px 20px 0px;
-    }
-    .footer-col{
-		width: 20%;
-        margin-bottom: 10px;
-	 }
-	 .philosophy .text-content{
-		width: 60%;
-		margin: auto;
-	}
-
-	.philosophy{
-		height: 200px;
-	}
-    .footer-col h4{
-        font-size: 18px;
-    }
-    .footer-col .social-links a{
-        width: 30px;
-        height: 30px;
-        line-height: 30px;
-        }
-    .text-foo{
-        font-size: 16px;
-    }
-    .copy{
-        font-size:13px;
-    }
-    
-
-
-    .footer-col ul li a{
-        font-size: 16px;
-    }
-
-}
-/************************** FIN FOOTER*************************************/

@@ -8,9 +8,10 @@
       src="https://kit.fontawesome.com/9caded27f0.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="img/png" href="/img/logo-web-icon.png">
     <link rel="stylesheet" href="/css/styles.css" />
     <title>Terra Rossa</title>
   </head>
@@ -91,39 +92,63 @@
       
   </div>
   <!-- fin contenedor banner principal -->
+<!--Inicio seccion filolosofia-->
+<section class="philosophy">
+  <div class="text-content">
+  <div class="title-philosophy">
+    <img src="img/title-filosofia.png" alt="imagen de título">
+  </div>
+  <h2>Una copa, una historia</h2>
+  <div class="text-circle"><p>En <b>Terra Rossa</b> sabemos que no se puede comprar la felicidad, pero un buen vaso de vino en el momento oportuno vale más que todas las riquezas de la tierra. Por éste motivo nos dedicamos a darte siempre lo mejor, en cada momento y en cada lugar.</p>
+ <img src="img/copa-vino.webp" alt="">
+  </div>
+  </div>
+</section>
+<!--Fin seccion filosofia-->
 
-      <section class="container__section">
-        <div><h1 class="title"><strong>SELECCION TERRA ROSSA</strong></h1></div>
-      <div class="container__block"><article class="block">
-          <p class="title2" > Terra Rossa</p>
-          <p class="title3" > Cabernet Sauvignon</p>
-          <p class="title4" > COSECHA 2018</p>
-          <img class="product" src="/img/malbec.png" alt="Aqui va la imagen">
-          <a  class="botom" href="http://terrarossa.com" target="">VER PRODUCTO</a>
-      </article>
-      <article class="block">
-        <p class="title2" >Terra Rossa</p>
-          <p class="title3" > Cabernet Sauvignon</p>
-          <p class="title4" > COSECHA 2018</p>
-        <img class="product" src="/img/merlot.png" alt="Aqui va la imagen">
-        <a  class="botom" href="http://terrarossa.com" target="ver.productoDetail">VER PRODUCTO</a>
-    </article>
+<!--Inicio seleccion terra rossa-->
+<section class="container__selection">
+  <div class="selection__nextbuttonLeft"> <i class="fa-solid fa-angles-left"></i></div>
+  <div><h1 class="selection__title"><strong>SELECCION TERRA ROSSA</strong></h1></div>
+<div class="container__block">
     <article class="block">
-        <p class="title2" >Terra Rossa</p>
-          <p class="title3" > Cabernet Sauvignon</p>
-          <p class="title4" > COSECHA 2018</p>
-        <img class="product" src="/img/pinot-noir.png" alt="Aqui va la imagen">
-        <a class="botom" href="http://terrarossa.com" target="ver.productoDetail">VER PRODUCTO</a>
-    </article>
-    <article class="block">
-        <p class="title2" >Terra Rossa</p>
-          <p class="title3" > Cabernet Sauvignon</p>
-          <p class="title4" > COSECHA 2018</p>
-        <img class="product" src="/img/chardonay-bottle.png" alt="Aqui va la imagen"> 
-        <a class="botom" href="http://terrarossa.com" target="ver.productoDetail">VER PRODUCTO</a>
-    </article>
-    </div>
-    </section>
+    <p class="selection__mark" > Terra Rossa</p>
+    <p class="selection__type" > Cabernet Sauvignon</p>         
+    <img class="selection__product" src="/img/malbec.png" alt="Aqui va la imagen">
+    <a  class="selection__botomver" href="http://terrarossa.com" target="">VER PRODUCTO</a>
+    
+</article>
+<article class="block">
+  <p class="selection__mark" >Terra Rossa</p>
+    <p class="selection__type" > Cabernet Sauvignon</p> 
+  <img class="selection__product" src="/img/merlot.png" alt="Aqui va la imagen">
+  <a  class="selection__botomver" href="http://terrarossa.com" target="ver.productoDetail">VER PRODUCTO</a>
+  
+</article>
+<article class="block">
+  <p class="selection__mark">Terra Rossa</p>
+    <p class="selection__type" > Cabernet Sauvignon</p>       
+  <img class="selection__product" src="/img/pinot-noir.png" alt="Aqui va la imagen">
+  <a class="selection__botomver" href="http://terrarossa.com" target="ver.productoDetail">VER PRODUCTO</a>
+  
+</article>
+<article class="block">
+  <p class="selection__mark" >Terra Rossa</p>
+    <p class="selection__type" > Cabernet Sauvignon</p>         
+  <img class="selection__product" src="/img/chardonay-bottle.png" alt="Aqui va la imagen"> 
+  <a class="selection__botomver" href="http://terrarossa.com" target="ver.productoDetail">VER PRODUCTO </a>
+</article>
+<!--<script>
+const button = document.getElementById('next');
+
+button.onclick = function (next) {
+document.getElementById('container__block').scrollLeft += 20;
+};
+</script>-->
+</div>
+<div class="selection__nextbuttonRight"> <i class="fa-solid fa-angles-right"></i></div>
+</section>
+
       <!-- Seccion de novedades -->
     <section class="news">
       <article ><h2 class="subtitle">Novedades:</h2></article>
