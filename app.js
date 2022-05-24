@@ -42,6 +42,10 @@ app.get('/product-cart', (req, res) => {
     res.sendFile(path.join(__dirname, './views/productCart.html'));
 })
 
+app.get('/blog', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/blog.html'));
+})
+
 app.post('/datos', (req,res)=>{
     res.send(req.body);
 
