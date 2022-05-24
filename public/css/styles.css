@@ -5,12 +5,12 @@
     box-sizing: border-box;
     font-family: "Montserrat";
 }
-
+body{
+    background-color: #2B2B2B;
+}
 main{
     margin-top: 80px;
 }
-
-
 /* Seccion barra de navegacion Mobile */
 
 .nav-bar{
@@ -457,40 +457,50 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 /*  CARRITO DE COMPRAS */
-section{
-    background-color: #2B2B2B;
+
+/* lista items*/
+.margin__nav{
+    margin-top: 70px;
 }
-.cart__container{
+.cart__title{
+    width: 90%;
+    font-size: 20px;
+    color: #fbf2e0;
+    text-transform: capitalize;
+    padding: 3% 10%;
+}
+.itemlist__container{
     color: #fbf2e0;
     display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     align-items: center;
-    margin: 0px 20px;
+    margin: 3% 10%;
     background-color: #333333;
     border-radius: 5px;
 
 }
-.cart__section{
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.cart__section, .cart__section--media{
+    width: 100%;
+    flex: 0 0 auto;
+    margin-bottom: 15px;
+    padding: 0px 20px;
+    text-align: center;
+}
+.cart__section p{
+    font-size: 13px;
 }
 .cart__header{
     display: none;
 }
 .cart__product{
     display: flex;
-    flex-direction: row;
     column-gap: 20px;
-    justify-content: center;
     padding: 15px 0px;
     border-bottom: 1px solid #7B7B7B;
 
 }
 .cart__product p{
     font-size: 15px;
-    font-weight: bold;
 }
 .cart__product span{
     font-size: 12px;
@@ -505,16 +515,86 @@ section{
     height: auto;
 }
 .cart__product img{
-    width: 15%;
-    height: auto;
+    width: 30px;
+    height:max-content;
 }
 .cart__buttons{
-    width: 150px;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content:space-between;
 }
+.cart__buttons select{
+    width: 100%;
+    border: 1px solid #fbf2e0;
+    color: #fbf2e0;
+    background-color: #333333;
+}
+/* boton descuento */
+.cart__code{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.cart__code input{
+    color: #2B2B2B;
+    background-color: #fbf2e0;
+    padding: 5px 20px;
+    border:none;
+    text-align: center;
+    border-radius: 2px;
+    /* margin-bottom: 10px; */
+}
+.cart__btn--checkout{
+    width: 80%;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    text-align: center;
+    color: #fbf2e0;
+    background-color: #ff452c;
+    padding: 5px 8px;
+    border-radius: 3px;
+    margin: 5px 0px;
+}
+/* carrito total */
+.container__total{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px;
+    background-color: #3f3f3f;
+    border-radius: 3px;
+    margin-top: 10px;
+}
+.cart__minisection p{
+    font-size: 12px;
+    padding-bottom: 10px;
+}
+.total__detail{
+    text-align: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    padding: 5px 0px;
+}
+.total__detail p{
+    font-size: 13px;
+    font-weight: normal;
+    text-transform:capitalize;
+}
+.total__detail span{
+    font-weight: bold;
+    font-size: 15px;
+}
+.total__message p{
+    font-size: 10px;
+    color: #7B7B7B;
+    text-transform:uppercase;
+}
+
 /*  FIN CARRITO DE COMPRAS */
+
 
 /*************************** SECTION PHILOSOPHY*************************************/
 .philosophy{
@@ -919,14 +999,14 @@ main{
     
     /*Fin filosofia*/
 
-/*Seleccion terra rossa*/
+    /*Seleccion terra rossa*/
 
-.selection__mark {
-    font-family: 'Montserrat', sans-serif, italic;
-    color: #FBF2E0;
-    text-align:center;
-    font-size: 20px;
-    font-weight:200
+    .selection__mark {
+        font-family: 'Montserrat', sans-serif, italic;
+        color: #FBF2E0;
+        text-align:center;
+        font-size: 20px;
+        font-weight:200
     }
     .selection__type {
         font-size: 15px;
@@ -1108,32 +1188,120 @@ main{
         margin: 0;
     }
     /*  fin detalle producto */
-/******Inicio footer*****/
-.footer{
-    padding: 40px 0px 20px 0px;
-}
-.footer-col{
-    width: 20%;
-    margin-bottom: 10px;
- }
 
-.footer-col h4{
-    font-size: 18px;
-}
-.footer-col .social-links a{
-    width: 30px;
-    height: 30px;
-    line-height: 30px;
+    /*  CARRITO DE COMPRAS */
+
+    .itemlist__container{
+        color: #fbf2e0;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 1% 8%;
+        padding: 5px 10px;
+        align-items: unset;
+        background-color: #333333;
+        border-radius: 5px;
+    
     }
-.text-foo{
-    font-size: 14px;
-}
-.copy{
-    font-size:12px;
-}
-.footer-col ul li a{
-    font-size: 16px;
-}
+    .cart__section{
+        width: 60%;
+        flex: 0 0 auto;
+    }
+    .cart__section--media{
+        width: 40%;
+        flex: 0 0 auto;
+        padding-top: 15px;
+    }
+    .cart__header{
+        display: grid;
+        grid-template-columns: 52% 25% 22%;
+        padding: 10px 0px;
+        border-bottom: 1px solid #7B7B7B;
+    }
+    .cart__header p{
+        color: #fbf2e0;
+        font-size: 12px;
+        text-transform: capitalize;
+        text-align: left;
+    }
+    .cart__productdetail{
+        width:100%;
+        text-align: start;
+        display: flex;
+        flex-direction: row;
+        row-gap: 10px;
+        justify-content: space-between;
+    }
+    .cart__product p{
+        font-size: 15px;
+    }
+    .cart__product span{
+        font-size: 12px;
+    }
+    .cart__product img{
+        width: 7%;
+        height:max-content;
+    }
+    /* boton descuento */
+    .total__detail p{
+        font-size: 12px;
+    }
+    .total__detail span{
+        font-size: 15px;
+    }
+    .total__message p{
+        font-size: 10px;
+    }
+    .cart__buttons{
+        width: 75%;
+        justify-content:space-between;
+    }
+    .cart__minisection{
+        padding: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+    .cart__minisection p{
+        font-size: 12px;
+        padding-bottom: 10px;
+    }
+    .cart__code input{
+        width: 100%;
+    }
+    .cart__title{
+        width: 90%;
+        font-size: 20px;
+        color: #fbf2e0;
+        text-transform: capitalize;
+        padding: 2% 8%;
+    }
+    /*  FIN CARRITO DE COMPRAS */
+
+    /******Inicio footer*****/
+    .footer{
+        padding: 40px 0px 20px 0px;
+    }
+    .footer-col{
+        width: 20%;
+        margin-bottom: 10px;
+    }
+
+    .footer-col h4{
+        font-size: 18px;
+    }
+    .footer-col .social-links a{
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        }
+    .text-foo{
+        font-size: 14px;
+    }
+    .copy{
+        font-size:12px;
+    }
+    .footer-col ul li a{
+        font-size: 16px;
+    }
 
 /*Fin footer*/
 }
@@ -1566,17 +1734,21 @@ main{
         margin: 0;
     }
     /*  fin detalle producto */
-/*Inicio footer*/
+
+    /*  CARRITO DE COMPRAS */
+    .margin__nav{
+        margin-top: 90px;
+    }
+    /*  FIN CARRITO DE COMPRAS */
+
+    /*Inicio footer*/
     .footer ul{
         margin-bottom: -20px;
     }
-
     .text-foo{
         font-size: 13px;
     }
-    
-
-/*Fin footer*/
+    /*Fin footer*/
 }
 
 @media screen and (min-width: 1200px) {
@@ -1663,64 +1835,60 @@ main{
     }
 
     /*Inicio filosofia*/
-
     .text-content h2{
         padding-top: 10px;
     }
-        .text-circle p{
-            padding-top:30px;
-            width: 450px;
-        }
-
-        /*fin filosofia*/
-    /*items paginacion*/
+    .text-circle p{
+        padding-top:30px;
+        width: 450px;
+    }
+    /*fin filosofia*/
 
    /* seleccion terra rossa */
-
-   .container__selection {
-    height: 550px;
-}
-.container__block {
-    max-height: 380px;
-    width: 100%;
-    
-}
-.selection__title {
-    font-weight: bolder;
-    font-size:35px;
-    padding: 20px;
-}
-.selection__botomver {
-    font-size:13px;
-    padding: 5px 10px;
-}
-.block { 
-    width: 20%;
-    margin: 5px;
-    padding: 20px 35px;
-    margin-top: 10px;
-    height: 330px; 
-    
-}
-.selection__mark {
-    font-size: 19px;
-    font-weight:200
+    .container__selection {
+        height: 550px;
     }
-.selection__type {
-    font-size: 14px;
-}
-.selection__product {
-    width: 80px;
-    margin-bottom: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    height: 220px;
-    
-}
-.selection__nextbutton {
-    display: none
-}
-/*fin de seleccion terra rossa*/
+    .container__block {
+        max-height: 380px;
+        width: 100%;
+        
+    }
+    .selection__title {
+        font-weight: bolder;
+        font-size:35px;
+        padding: 20px;
+    }
+    .selection__botomver {
+        font-size:13px;
+        padding: 5px 10px;
+    }
+    .block { 
+        width: 20%;
+        margin: 5px;
+        padding: 20px 35px;
+        margin-top: 10px;
+        height: 330px; 
+        
+    }
+    .selection__mark {
+        font-size: 19px;
+        font-weight:200
+        }
+    .selection__type {
+        font-size: 14px;
+    }
+    .selection__product {
+        width: 80px;
+        margin-bottom: 10px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        height: 220px;
+        
+    }
+    .selection__nextbutton {
+        display: none
+    }
+    /*fin de seleccion terra rossa*/
 
     .pagination{
         z-index: 1;
@@ -1905,10 +2073,76 @@ main{
     }
     /*  fin detalle producto */
 
-    /*Inicio footer*/
-.text-foo{margin-top: 10px;}
-    
+     /* CARRITO DE COMPRAS */
+    .margin__nav{
+        margin-top: 90px;
+    }
+    .itemlist__container{
+        color: #fbf2e0;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0% 10%;
+        padding: 5px 10px;
+        align-items: unset;
+        background-color: #333333;
+        border-radius: 5px;
+    }
+    .cart__header{
+        display: grid;
+        grid-template-columns: 48% 26% 25%;
+        padding: 10px 0px;
+        border-bottom: 1px solid #7B7B7B;
+    }
+    .cart__buttons{
+        width: 60%;
+        justify-content:space-between;
+    }
+    .cart__title{
+        width: 90%;
+        font-size: 20px;
+        color: #fbf2e0;
+        text-transform: capitalize;
+        padding: 2% 10%;
+    }
+    /* CARRITO DE COMPRAS */
 
+    /*Inicio footer*/
+    .text-foo{
+        margin-top: 10px;
+    }
+}
+
+@media screen and (min-width: 1440px){
+    .itemlist__container{
+        color: #fbf2e0;
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0% 15%;
+        padding: 5px 10px;
+        align-items: unset;
+        background-color: #333333;
+        border-radius: 5px;
+    }
+    .cart__header{
+        display: grid;
+        grid-template-columns: 54% 22% 24%;
+        padding: 10px 0px;
+        border-bottom: 1px solid #7B7B7B;
+    }
+    .cart__productdetail{
+        justify-content: space-between;
+    }
+    .cart__buttons{
+        width:56%;
+        justify-content:space-around;
+    }
+    .cart__title{
+        width: 90%;
+        font-size: 20px;
+        color: #fbf2e0;
+        text-transform: capitalize;
+        padding: 2% 15% 1% 15%;
+    }
 }
 
 /*animations slider*/
