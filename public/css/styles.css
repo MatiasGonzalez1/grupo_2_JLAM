@@ -528,11 +528,6 @@ input[type=number]::-webkit-outer-spin-button {
     font-style: italic;
 }
 
-
-main{
-    margin-top: 100px;
-}
-
 .block {
     background: #333333;
     /*display: inline-block;*/
