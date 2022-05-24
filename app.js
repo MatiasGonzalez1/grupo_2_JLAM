@@ -3,6 +3,7 @@ const path = require('path'); //con este modulo se unifican las rutas para ident
 const app = express();
 
 app.use(express.static('public')); //se tiene la carpeta public como recurso estático para poder consumirlo
+app.use(express.urlencoded({extended:false}));
 
 app.listen(3000, ()=>{
     console.log('Servidor activo en el puerto 3000');
@@ -40,4 +41,9 @@ app.get('/product-detail', (req, res) => {
 app.get('/product-cart', (req, res) => {
     res.sendFile(path.join(__dirname, './views/productCart.html'));
 })
+
+app.post('/datos', (req,res)=>{
+    res.send(req.body);
+
+});
 
