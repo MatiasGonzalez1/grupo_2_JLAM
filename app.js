@@ -22,8 +22,8 @@ app.get('/register', (req, res) => {
     res.sendFile(path.join(__dirname, './views/register.html'));
 })
 
-app.get('/catalog', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/catalog.html'));
+app.get('/catalogue', (req, res) => {
+    res.sendFile(path.join(__dirname, './views/catalogue.html'));
 })
 
 app.get('/about-us', (req, res) => {

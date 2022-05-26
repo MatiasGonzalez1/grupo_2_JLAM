@@ -939,8 +939,123 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     color: #FBF2E0;
 }
-
 /************************** FIN FOOTER*************************************/
+
+/*Comienzo Catalogo*/
+
+.container__filtro {
+    display: none;
+    width: 50%;
+    height: 50px;
+    /*background: #333333;*/
+
+}
+.catalogo {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   height: 50%;
+}
+.catalogo__title {
+    width: 30%;
+    /*padding-top: 10px;*/
+    text-align: center;
+    color: #FBF2E0;
+    font-weight: 900;
+    font-size: 24px;
+    padding-bottom: 10px;
+ }
+ .catalogo__headertitle h2 {
+     font-size: 18px;
+     font-weight: 400;
+ }
+
+.catalogo__headertitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: left;
+    padding-top: 40px;
+    color: #FBF2E0;
+    width: 80%;
+    margin:auto
+
+}
+
+.catalogo__conteiner {
+     display: grid;
+     grid-template-columns: repeat(1, 1fr);
+     gap: 10px 10px;
+     width: 100%;
+     height: 100%;
+     padding-top: 50px;
+    justify-content: center;
+}
+.cata__products {
+    display: block;
+    background: #333333;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;   
+    padding: 15px 10px;
+    box-shadow: 0px 0px 10px 0px black;
+    /*flex-shrink: 0;*/
+    width: 70%;
+    height: 255px;
+    border-radius: 3px;  
+    margin: auto;
+}
+.cataname__product {
+    color: #FBF2E0;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+.cataimg__product {
+    width: 70px;
+    height: 140px;
+    margin-bottom: 12px;
+
+}
+.cataprecio__product {
+    color: #FBF2E0;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+.container__buttons {
+    display:flex;
+    width: 100%;
+    justify-content: space-around;
+    text-align: center;
+}
+.catabutton__agregar {
+    display: inline-block;
+    font-family: 'Montserrat', sans-serif, italic;
+    text-decoration: none;
+    font-weight:200;
+    color: #FBF2E0;
+    text-align:center;
+    font-size:15px;
+    background: #FF452C;
+    padding: 5px 10px;
+    border-radius: 4px;
+    margin: 0px 0px 50px 0px;
+    width: 50%;
+}
+.cata__eye {
+    display:inline-block;
+    background: #FF452C;
+    color: #FBF2E0;
+    padding: 6px; 
+    border-radius: 4px;
+    font-weight:200;
+    font-size: 18px;
+    box-shadow: 15p 15px 20px black;
+    text-align: center;
+    height: 29px;
+    width: 40%;
+}
+
+/*Fin Catalogo*/
 
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
@@ -1405,6 +1520,38 @@ input[type=number]::-webkit-outer-spin-button {
 
 /*Fin footer*/
 }
+
+/*Comienzo Catalogo*/
+.catalogo__headertitle {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 40px;
+    color: #FBF2E0;
+    width: 100%;
+
+}
+.catalogo__title {
+    text-align: left;
+}
+
+.catalogo__conteiner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    padding-top: 50px;
+    }
+.catalogo__queries {
+    margin: auto;
+    width: 80%;
+}
+.cata__products {
+    width: 100%;
+
+}
+/*Fin catalogo*/
+
 /* Seccion Barra de navegacion laptop */
 @media (min-width: 913px) {
 
@@ -1855,7 +2002,45 @@ input[type=number]::-webkit-outer-spin-button {
         font-size: 13px;
     }
     /*Fin footer*/
+
+    /*Comienzo Catalogo*/
+    .catalogo__headertitle {
+        display: block;
+    }
+    .catalogo__headertitle h2 {
+      display: none;
+    }
+    .catalogo__title {
+        text-align:start;
+        padding-left: 70px;
+        padding-top: 30px;
+    }
+    .catalogo__queries {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-around;
+
+    }
+    .container__filtro {
+        display: block;
+        width: 10%;
+        /*background: #333333;*/ 
+        padding-top: 40px; 
+        margin-left: 10px;
+
+    }
+    .cata__products {
+        width: 100%;
+        
+    }
+    .catalogo__conteiner {
+        width: 60%;
+        padding-top: 40px;
+
+    }
 }
+ /*Fin catalogo*/
 
 @media screen and (min-width: 1200px) {
     .slider__text h2{
@@ -2211,6 +2396,21 @@ input[type=number]::-webkit-outer-spin-button {
         margin-top: 10px;
     }
 }
+/*Comienzo catalogo*/
+.catalogo__queries {
+    width: 85%;
+    margin: auto;
+}
+.cata__products {
+    width: 100%;
+    
+}
+.catalogo__conteiner {
+    width: 60%;
+    padding-top: 40px;
+
+}
+/*Fin catalogo*/
 
 @media screen and (min-width: 1440px){
     .itemlist__container{
