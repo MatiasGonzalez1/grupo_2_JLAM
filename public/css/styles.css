@@ -1105,6 +1105,10 @@ width: 50%;
 text-align: center;
 }
 
+.container__filtro .num:focus{
+   border: 1px solid #c93522;
+    }
+
 .container__filtro .li-flex{
     display: flex;
     flex-wrap: wrap;
@@ -1640,10 +1644,10 @@ color: #FBF2E0;
 /*Fin catalogo*/
 
 /*Seccion filtro*/
-.container__filtro {
-    width: 100%;
-}
 
+.container__filtro .num{
+    width: 25%;
+    }
 /****FIN FILTRO*****/
 }
 
@@ -2134,12 +2138,14 @@ color: #FBF2E0;
         display: block;
         width: 30%;
         /*background: #333333;*/ 
-        margin-left: 5%;
-        margin-top: 40px ;
-    }
+        /* margin: 40px 0 0 0; */
+        margin-top: 40px;
+        margin-left: 0;
+        margin-right: 0;
+     }
 
     .container__filtro .num{
-        width: 30%;
+        width: 25%;
         }
         /*******Fin filtro******/
 }
@@ -2504,6 +2510,7 @@ color: #FBF2E0;
     width: 85%;
     margin: auto;
 }
+
 .cata__products {
     width: 100%;
     
