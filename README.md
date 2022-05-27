@@ -32,3 +32,28 @@ con una navegacion ágil, intuitiva y segura las 24 horas del día los 365 días
 - [Amalia Ribeiro](https://github.com/AmalitaR)
 
 
+## Tecnologías:
+
+- [Node.js (entorno de tiempo de ejecución de JavaScript)](https://github.com/nodejs/node)
+- [Express (infraestructura de aplicaciones web Node.js)](https://github.com/expressjs/express)
+- [Nodemon (utilidad que monitorea los cambios en el código fuente que se esta desarrollando y automáticamente re inicia el servidor.)](https://github.com/remy/nodemon)
+
+## Para correr el proyecto:
+
+1. Clonar el repositorio
+```
+https://github.com/MatiasGonzalez1/grupo_2_JLAM.git
+```
+2. Ingresar al directorio del proyecto:
+```
+cd .\grupo_2_JLAM\
+```
+3. Instalar las dependencias:
+```
+npm install
+```
+4. Ejecutar el proyecto:
+```
+npm run dev
+```
+(En caso de no tener nodemon instalado instalarlo con el comando npm i nodemon)
