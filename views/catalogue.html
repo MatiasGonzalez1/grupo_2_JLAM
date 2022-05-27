@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://kit.fontawesome.com/9caded27f0.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css" />
+	<title>Catálogo - Terra Rossa</title>
+</head>
+
+<body>
+  <section class="catalogo">
+    <div class="catalogo__headertitle">
+     <h1 class="catalogo__title"><strong>CATALOGO</strong></h1>
+    </div>
+    <div class="catalogo__queries">
+      <div class="container__filtro">
+        <div class="container__filtro_title"><h2>FILTROS</h2><i class="fa-solid fa-list"></i></div>        
+      <ul class="filter-ul">
+        <li><p>Precio</p></li>
+        <div class="li-flex">
+        <li class="li-not num"><input type="number" placeholder="Desde" min="7000" max="30000" step="1000"></li>
+        <li class="li-not num"><input type="number" placeholder="Hasta" min="7000" max="30000" step="1000"></li>  
+        <li class="li-not submit"><button type="submit">Buscar</button></li>
+      </div>
+      </ul>
+      <ul class="filter-ul">
+          <li><p>Tipo</p></li>
+          <li class="li-not"><input type="checkbox" id="" name="tipo" value=""><p>Tipo</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="tipo" value=""><p>Tipo</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="tipo" value=""><p>Tipo</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="tipo" value=""><p>Tipo</p></li>  
+          <li class="li-not submit"><button >Buscar</button></li>
+      </ul>
+      <ul class="filter-ul">
+        <li><p>Variedad</p></li>
+        <div class="">
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Variedad</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Variedad</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Variedad</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Variedad</p></li>  
+          <li class="li-not submit"><button>Buscar</button></li>
+      </div>
+      </ul>
+      </div>
+      <div class="catalogo__conteiner">
+        <article class="cata__products">
+          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
+          <p class="cataname__product">Nombre del producto</p>
+          <p class="cataprecio__product">$14.000,00</p>
+          <div class="container__buttons">
+            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+          </div>
+        </article>
+
+        <article class="cata__products">
+          <img class="cataimg__product" src="/img/malbec.png" alt="aqui va la foto">
+          <p class="cataname__product">Nombre del producto</p>
+          <p class="cataprecio__product">$14.000,00</p>
+          <div class="container__buttons">
+            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+          </div>
+        </article>
+
+        <article class="cata__products">
+          <img class="cataimg__product" src="/img/merlot.png" alt="aqui va la foto">
+          <p class="cataname__product">Nombre del producto</p>
+          <p class="cataprecio__product">$14.000,00</p>
+          <div class="container__buttons">
+            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+          </div>
+
+        </article>
+        <!--primeros 3 articulos-->
+        <article class="cata__products">
+          <img class="cataimg__product" src="/img/pinot-noir.png" alt="aqui va la foto">
+          <p class="cataname__product">Nombre del producto</p>
+          <p class="cataprecio__product">$14.000,00</p>
+          <div class="container__buttons">
+            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+          </div>
+        </article>
+
+        <article class="cata__products">
+          <img class="cataimg__product" src="/img/rose-bottle.png" alt="aqui va la foto">
+          <p class="cataname__product">Nombre del producto</p>
+          <p class="cataprecio__product">$14.000,00</p>
+          <div class="container__buttons">
+            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+          </div>
+        </article>
+
+        <article class="cata__products">
+          <img class="cataimg__product" src="/img/vin-doux-naturel.png" alt="aqui va la foto">
+          <p class="cataname__product">Nombre del producto</p>
+          <p class="cataprecio__product">$14.000,00</p>
+          <div class="container__buttons">
+            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+          </div>
+        </article>
+
+        <!--primeros 6 articulos-->
+        <article class="cata__products">
+          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
+          <p class="cataname__product">Nombre del producto</p>
+          <p class="cataprecio__product">$14.000,00</p>
+          <div class="container__buttons">
+            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+          </div>
+        </article>
+
+        <article class="cata__products">
+          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
+          <p class="cataname__product">Nombre del producto</p>
+          <p class="cataprecio__product">$14.000,00</p>
+          <div class="container__buttons">
+            <a class="catabutton__agregar"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+          </div>
+        </article>
+
+        <article class="cata__products">
+          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
+          <p class="cataname__product">Nombre del producto</p>
+          <p class="cataprecio__product">$14.000,00</p>
+          <div class="container__buttons">
+            <a class="catabutton__agregar"><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+          </div>
+        </article>
+      </div>
+    </div>
+
+  </section>
+</body>
+
+</html>
