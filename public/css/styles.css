@@ -176,15 +176,14 @@ main{
     width: auto;
     height: auto;
     max-height: 200px;
-    padding: 30px 50px;
     margin-right: 20px;
-    background-color:#7B7B7B;
     transition: transform .2s;
 }
 
 .news-title{
     text-align: left;
     margin: 10px 0;
+    font-size: 15px;
 }
 
 .item .parrafo{
@@ -1763,7 +1762,7 @@ color: #FBF2E0;
         background-color: #fbf2e0;
         width: 100vw;
         height: 700px;
-        padding: 5% 15%;
+        padding: 4% 9%;
     
     }
     
@@ -1778,7 +1777,7 @@ color: #FBF2E0;
         list-style: none;
         max-height: 450px;
         overflow-x: auto;
-        justify-content: center;
+        justify-content: space-evenly;
     
     
     }
@@ -1807,16 +1806,15 @@ color: #FBF2E0;
     .product-news .item .img{
         width: auto;
         height: auto;
-        max-height: 300px;
-        padding: 40px 90px;
+        max-height: 250px;
         margin-right: 20px;
-        background-color: #7B7B7B;
         transition: transform .2s;
     }
 
     
     .news-title{
         text-align: left;
+        font-size: 18px;
     }
     
     .item .parrafo{
