@@ -1,0 +1,300 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat";
+}
+
+.cabecera{
+    background-color: #2b2b2b;
+    text-align: center;
+    top: 0;
+    width: 100vw;
+}
+
+.cabecera__logo{
+    width: auto;
+    height: auto;
+    max-width: 200px;
+    padding-top: 20px;
+}
+
+body{
+    background-color: #2b2b2b;
+}
+
+main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2b2b2b;
+    color: #fff;
+}
+
+.form-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    transition:  all .5s ease-out;
+    align-items: center;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.mensaje {
+    padding: 0 16px;
+}
+
+.mensaje h2 {
+    font-size: 20px;
+    padding: 16px 0;
+    font-weight: 700;
+}
+
+.mensaje button {
+    padding: 10px;
+    font-weight: 400;
+    background-color: #FBF2E0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 12px;
+    margin-top: 30px;
+    transition: all .3s ease-in;
+    color: #2b2b2b;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.mensaje button:hover {
+    background-color: #FF452C;
+}
+
+.formulario {
+    width: 300px;
+    margin: 0 20px;
+    padding: 10px;
+    background-color: #333333;
+    text-align: left;
+    height: fit-content;
+}
+
+.formulario label{
+    margin: 0 0 7px 7px;
+    padding-bottom: 5px;
+    font-size: 12px;
+}
+
+.formulario a{
+    text-decoration: none;
+    color: #FBF2E0;
+    margin: 0;
+    padding: 0;
+    font-size: 10px;
+}
+
+.create-account {
+    padding: 10px;
+    font-size: 16px;
+}
+
+.formulario input {
+    width: 95%;
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: whitesmoke;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 13px;
+    color: #2b2b2b;
+}
+
+.formulario input[type="submit"] {
+    width: 30%;
+    padding: 5px 5px;
+    background-color: #FF452C;
+    font-weight: 400;
+    border-radius: 3px;
+    margin: 10px;
+    display: inline;
+    font-size: 12px;
+    cursor: pointer;
+    color: #FBF2E0;
+}
+
+.formulario input:focus{
+    border: 2px;
+    border-color: #FF452C;
+}
+
+.login {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.login.active {
+    opacity: 1;
+    visibility: visible;
+
+}
+
+.register.active {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+@media(min-width: 1155px){
+
+.cabecera__logo{
+    width: auto;
+    height: auto;
+    max-width: 250px;
+    padding-top: 20px;
+}
+
+
+main {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #2b2b2b;
+    background-position: center;
+    color: #fff;
+}
+
+.form-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    transition:  all .5s ease-out;
+    align-items: center;
+    padding: 0 100px;
+}
+
+.welcome {
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.mensaje {
+    padding: 1rem;
+}
+
+.mensaje h2 {
+    font-size: 1.7rem;
+    padding: 1rem 0;
+    font-weight: 700;
+}
+
+.mensaje button {
+    padding: 1rem;
+    font-weight: 400;
+    background-color: #FBF2E0;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: .9rem;
+    margin-top: 2rem;
+    transition: all .3s ease-in;
+    color: #2b2b2b;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.mensaje button:hover {
+    background-color: #FF452C;
+}
+
+.formulario {
+    width: 450px;
+    padding: 1rem;
+    background-color: #333333;
+    text-align: left;
+    height: fit-content;
+}
+
+.formulario label{
+    margin: 10px;
+    padding-bottom: 5px;
+    font-size: 13px;
+}
+
+.formulario a{
+    text-decoration: none;
+    color: #FBF2E0;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.create-account {
+    padding: 20px;
+    font-size: 1.7rem;
+}
+
+.formulario input {
+    width: 95%;
+    margin: auto;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: whitesmoke;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 13px;
+    color: #2b2b2b;
+}
+
+.formulario input[type="submit"] {
+    width: 30%;
+    padding: 10px 20px;
+    background-color: #FF452C;
+    font-weight: 400;
+    border-radius: 3px;
+    margin: 30px 30px 15px 30px;
+    display: inline;
+    font-size: 14px;
+    cursor: pointer;
+    color: #FBF2E0;
+    transition: all .3s ease-in;
+}
+
+.formulario #submit:hover{
+    background-color: #FBF2E0;
+    color: #333333;
+}
+
+.login {
+    position: absolute;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.login.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.register.active {
+    opacity: 0;
+    visibility: hidden;
+}
+}
