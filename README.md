@@ -38,6 +38,9 @@ con una navegacion ágil, intuitiva y segura las 24 horas del día los 365 días
 - [Express (infraestructura de aplicaciones web Node.js)](https://github.com/expressjs/express)
 - [Nodemon (utilidad que monitorea los cambios en el código fuente que se esta desarrollando y automáticamente re inicia el servidor.)](https://github.com/remy/nodemon)
 
+## Nuestro tablero de [JIRA](https://terrarossa.atlassian.net/jira/software/projects/TR/boards/1)
+
+
 ## Para correr el proyecto:
 
 1. Clonar el repositorio
