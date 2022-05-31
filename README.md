@@ -8,8 +8,7 @@
 
 ## Objetivos Especificos :dart:
 - El objetivo de la tienda es potenciar la marca "Terra rossa" en el mercado online, de manera que el consumidor pueda llegar a ellos de manera fácil y rápida, 
-con una navegacion ágil, intuitiva y segura las 24 horas del día los 365 días del año. 
-- 
+con una navegacion ágil, intuitiva y segura las 24 horas del día los 365 días del año.
 
 ## Referentes :pencil:
 
