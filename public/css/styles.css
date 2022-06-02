@@ -1653,6 +1653,7 @@ color: #FBF2E0;
 /* Seccion Barra de navegacion laptop */
 @media (min-width: 913px) {
 
+
     main{
         margin-top: 100px;
     }
@@ -2146,6 +2147,31 @@ color: #FBF2E0;
         width: 25%;
         }
         /*******Fin filtro******/
+
+    /*  ADMIN AREA  */
+    .admin__main{
+        display: flex;
+        flex-direction: row;
+    }
+    .side__container{
+        width: 15%;
+        padding: 0% 2%;
+    }
+    .data__container{
+        width: 80%;
+        padding: 0% 5%;
+    }
+    .side_logo img{
+        width: 100%;
+        float: inline-start;
+    }
+    a.side__link{
+        text-decoration: none;
+        color: #fbf2e0;
+        font-size: 12px;
+        padding: 10px;
+    }
+    /*  FIN ADMIN AREA  */
 }
  /*Fin catalogo*/
 

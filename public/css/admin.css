@@ -1,0 +1,48 @@
+/*  ADMIN AREA  */
+.admin__main{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+.side__container{
+    width: 100%;
+    padding: 0% 2%;
+}
+.data__container{
+    width: 100%;
+    padding: 0% 5%;
+}
+.side_logo img{
+    display: none;
+}
+.main__group{
+    text-align: end;
+}
+.main__group li{
+    
+}
+a.side__link{
+    text-decoration: none;
+    color: #fbf2e0;
+    font-size: 13px;
+    padding: 10px;
+    text-transform: capitalize;
+}
+a.side__link i{
+    display: none;
+}
+/*  FIN ADMIN AREA  */
+
+
+@media screen and (min-width: 768px) {
+
+}
+
+@media screen and (min-width: 913px) {
+    
+}
+
+@media screen and (min-width: 1200px) {
+    
+}
