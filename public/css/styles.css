@@ -719,6 +719,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .container__selection {
     display: flex;
+    align-items: center;
     background: #2B2B2B;
     height: 450px;
     width: 80%;
@@ -729,7 +730,7 @@ input[type=number]::-webkit-outer-spin-button {
 .container__block {
     display:flex;
     max-height: 550px;
-    width: 235px;
+    width: 200px;
     overflow-x:auto; 
     padding: 20px;
     position: absolute;
@@ -748,13 +749,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .block {
-    /*display: inline-block;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     padding: 15px 10px;
-    text-align: center;
-    margin: 0px 30px ;
+    margin-right:  30px ;
     box-shadow: 0px 0px 10px 0px black;
     flex-shrink: 0;
-    width: 185px;
+    width: 175px;
     height: 300px;
     border-radius: 3px;
 }
@@ -786,7 +788,6 @@ input[type=number]::-webkit-outer-spin-button {
 .selection__product {
     width: 45%;
     display:block;
-    margin:auto;
     margin-bottom: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -795,6 +796,12 @@ input[type=number]::-webkit-outer-spin-button {
 
  .block:hover {
      transform: scale(1.1);
+     z-index: 10;
+    
+     border: 1px solid black;
+ }
+ .block {
+     transition: all 450ms;
  }
 
 .selection__botomver {
@@ -803,12 +810,12 @@ input[type=number]::-webkit-outer-spin-button {
    font-weight:600;
    color: #FBF2E0;
    text-align:center;
-   font-size:13px;
+   font-size:12px;
    background: #FF452C;
    padding: 5px 13px;
    border-radius: 4px;
-   margin-bottom: 50px;
-  
+   margin-bottom: 10px;
+   margin-top: 10px;
 }
 .container__buttonarrow {
     display: flex;
@@ -1274,8 +1281,7 @@ color: #FBF2E0;
         font-weight: 400px;
     }
     .block {    
-        margin-left: 5px;
-        width: 270px;
+        width: 250px;
         height: 380px;
     }
     .container__selection {
@@ -1287,7 +1293,7 @@ color: #FBF2E0;
         width: 0;
     }
     .container__block {
-        width: 300px;
+        width: 290px;
     }
     .container__buttonarrow {
         margin-top: 50px;
@@ -1702,50 +1708,50 @@ color: #FBF2E0;
 
 /* seleccion terra rossa */
 
-    .container__selection {
-        height: 510px;
+.container__selection {
+    height: 510px;
+}
+.container__block { 
+    position: absolute;  
+    max-height: 350px;
+    width: 80%;
+    justify-content:center;
+    margin: 0;
+    z-index: 0;
+    margin-top: 90px;
+}
+.block {  
+    width: 24%;
+    margin: 5px;
+    margin-top: 15px;
+    height: 300px;
+}
+
+.selection__title {
+    font-size:19px;
+}
+.selection__botomver {
+    font-size:11px;
+    padding: 5px 7px;
+}
+.selection__mark {
+    font-size: 17px;
+    font-weight:600
     }
-    .container__block {   
-        max-height: 320px;
-        width: 100%;
-        justify-content:center;
-        margin-top: 75px;
-        z-index: 0;
-    
-    }
-    .block {  
-        width: 21%;
-        margin: 3px;
-        margin-top: 15px;
-        height: 300px;
-    }
-    .selection__title {
-        font-size:19px;
-    }
-    .selection__botomver {
-        font-size:11px;
-        padding: 5px 7px;
-    }
-    .selection__mark {
-        font-size: 17px;
-        font-weight:600
-        }
-    .selection__type {
-        font-size: 13px;
-    }
-    .selection__product {
-        width: 50%;
-        margin-bottom: 10px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        
-    }
-    .selection__nextbuttonRight {
-        display: none
-    }
-    .selection__nextbuttonLeft {
-        display: none
-    }
+.selection__type {
+    font-size: 13px;
+}
+.selection__product {
+   width: 80px;
+   padding-bottom: 0;
+    margin-bottom: 10px;
+}
+.selection__nextbuttonRight {
+    display: none
+}
+.selection__nextbuttonLeft {
+    display: none
+}
     /* Seccion Novedades */
     
     .product-news .item button{
@@ -2254,47 +2260,49 @@ color: #FBF2E0;
     /*fin filosofia*/
 
    /* seleccion terra rossa */
-    .container__selection {
-        height: 550px;
+   .container__selection {
+    height: 550px;
+}
+.container__block {
+    max-height: 380px;  
+    position: absolute;  
+    margin-top: 80px;
+    width: 100%;     
+}
+.selection__title { 
+    font-size:24px;
+}
+.selection__botomver {
+    font-size:13px;
+    padding: 5px 10px;
+}
+.block { 
+    width: 20%;
+    margin: 5px;
+    padding: 20px 35px;
+    margin-top: 10px;
+    height: 330px; 
+    
+}
+.selection__title h1{
+    font-size: 29px;
+}
+.selection__mark {
+    font-size: 19px;
     }
-    .container__block {
-        max-height: 380px;         
-    }
-    .selection__title { 
-        font-size:24px;
-    }
-    .selection__botomver {
-        font-size:13px;
-        padding: 5px 10px;
-    }
-    .block { 
-        width: 20%;
-        margin: 5px;
-        padding: 20px 35px;
-        margin-top: 10px;
-        height: 330px; 
-        
-    }
-    .selection__title h1{
-        font-size: 29px;
-    }
-    .selection__mark {
-        font-size: 19px;
-        }
-    .selection__type {
-        font-size: 14px;
-    }
-    .selection__product {
-        width: 80px;
-        margin-bottom: 10px;
-        padding-top: 20px;
-        padding-bottom: 20px;
-        height: 220px;
-        
-    }
-    .selection__nextbutton {
-        display: none
-    }
+.selection__type {
+    font-size: 14px;
+}
+.selection__product {
+    width: 80px;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    height: 220px;
+    
+}
+.selection__nextbutton {
+    display: none
+}
     /*fin de seleccion terra rossa*/
 
     .pagination{
