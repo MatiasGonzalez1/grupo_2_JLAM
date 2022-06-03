@@ -793,13 +793,6 @@ input[type=number]::-webkit-outer-spin-button {
     padding-bottom: 10px;
     
 }
-
- .block:hover {
-     transform: scale(1.1);
-     z-index: 10;
-    
-     border: 1px solid black;
- }
  .block {
      transition: all 450ms;
  }
@@ -1726,7 +1719,11 @@ color: #FBF2E0;
     margin-top: 15px;
     height: 300px;
 }
-
+.block:hover {
+    transform: scale(1.1);
+    z-index: 10; 
+    border: 1px solid black;
+}
 .selection__title {
     font-size:19px;
 }
