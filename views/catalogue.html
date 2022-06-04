@@ -20,7 +20,8 @@
     </div>
     <div class="catalogo__queries">
       <div class="container__filtro">
-        <div class="container__filtro_title"><h2>FILTROS</h2><i class="fa-solid fa-list"></i></div>        
+        <div class="container__filtro_title" id="filter"><h2>FILTROS</h2><i class="fa-solid fa-list"></i></div>        
+    <div id="show">
       <ul class="filter-ul">
         <li><p>Precio</p></li>
         <div class="li-flex">
@@ -47,6 +48,7 @@
           <li class="li-not submit"><button>Buscar</button></li>
       </div>
       </ul>
+    </div>
       </div>
       <div class="catalogo__conteiner">
         <article class="cata__products">
@@ -144,6 +146,15 @@
     </div>
 
   </section>
+
+  <script>
+const onFil = document.getElementById('filter');
+
+ onFil.addEventListener('click', () => {
+document.getElementById('show').style.display = 'block';
+});
+
+  </script>
 </body>
 
 </html>

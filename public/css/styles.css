@@ -1084,8 +1084,16 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 10px;
     padding-left: 20px;
     color: #FF452C;
-
 }
+.container__filtro #show{
+    display: none;
+}
+
+.filter-on{
+    display: block;
+}
+
+
 
 .container__filtro li{
     border-bottom: 1px solid #FBF2E0;
@@ -1100,8 +1108,20 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container__filtro .num{
-width: 50%;
+width: 40%;
 text-align: center;
+margin: 0 5px;
+}
+
+
+
+.container__filtro .num input{
+    height: 30px;
+    width: 75px;
+}
+
+.container__filtro .num input:focus{
+    outline:solid 3px #c93522;
 }
 
 .container__filtro .num:focus{
@@ -2138,17 +2158,24 @@ color: #FBF2E0;
 
      .container__filtro {
         display: block;
-        width: 30%;
+        width: 22%;
         /*background: #333333;*/ 
         /* margin: 40px 0 0 0; */
         margin-top: 40px;
         margin-left: 0;
-        margin-right: 0;
+        margin-right: -200px;
      }
 
     .container__filtro .num{
-        width: 25%;
+        width: 30%;
+        margin: 0 15px;
         }
+
+        .container__filtro .num input{
+            width: 90px;
+            }
+
+        
         /*******Fin filtro******/
 
     /*  ADMIN AREA  */
