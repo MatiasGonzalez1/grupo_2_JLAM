@@ -150,8 +150,10 @@
   <script>
 const onFil = document.getElementById('filter');
 
- onFil.addEventListener('click', () => {
-document.getElementById('show').style.display = 'block';
+onFil.addEventListener('click', () => {
+let show = document.getElementById('show');
+
+show.style.display === 'none' ? show.style.display = 'block' : show.style.display ='none';
 });
 
   </script>
