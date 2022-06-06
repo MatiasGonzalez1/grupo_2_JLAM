@@ -1059,6 +1059,7 @@ input[type=number]::-webkit-outer-spin-button {
     background: #333333;
     padding: 30px 15px;
     box-shadow: 0px 0px 10px 0px black;
+    transition: all 1s ease-in-out;
 }
 
 .container__filtro_title{
@@ -1084,8 +1085,11 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 10px;
     padding-left: 20px;
     color: #FF452C;
-
 }
+.container__filtro #show{
+    display: none;
+}
+
 
 .container__filtro li{
     border-bottom: 1px solid #FBF2E0;
@@ -1100,8 +1104,20 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container__filtro .num{
-width: 50%;
+width: 40%;
 text-align: center;
+margin: 0 5px;
+}
+
+
+
+.container__filtro .num input{
+    height: 30px;
+    width: 75px;
+}
+
+.container__filtro .num input:focus{
+    outline:solid 3px #c93522;
 }
 
 .container__filtro .num:focus{
@@ -2138,17 +2154,24 @@ color: #FBF2E0;
 
      .container__filtro {
         display: block;
-        width: 30%;
+        width: 22%;
         /*background: #333333;*/ 
         /* margin: 40px 0 0 0; */
         margin-top: 40px;
         margin-left: 0;
-        margin-right: 0;
+        margin-right: -150px;
      }
 
     .container__filtro .num{
-        width: 25%;
+        width: 30%;
+        margin: 0 15px;
         }
+
+        .container__filtro .num input{
+            width: 90px;
+            }
+
+        
         /*******Fin filtro******/
 
     /*  ADMIN AREA  */
@@ -2550,6 +2573,12 @@ color: #FBF2E0;
 
 }
 /*Fin catalogo*/
+
+/*Filtro*/
+
+.container__filtro {
+    margin-right: -170px;
+ }
 }
 
 @media screen and (min-width: 1440px){
@@ -2583,6 +2612,11 @@ color: #FBF2E0;
         text-transform: capitalize;
         padding: 2% 15% 1% 15%;
     }
+
+    /*Section filtro*/
+    .container__filtro {
+        margin-right: -200px;
+     }
 }
 
 /*animations slider*/
