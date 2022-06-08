@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- seccion barra de navegacion -->
-    <!-- <header>
+    <header>
       <nav class="nav-bar">
         <a href="/" ><img class="logo" src="img/logo-w.png" /></a>
         <div id="navMenu" class="nav-hamburguer">
@@ -25,70 +25,222 @@
         </div>
         <ul class="nav-menu-list">
           <li class="nav-menu-item">
-            <a class="nav-link" href="/">Home</a>
+            <a class="nav-link" href="/catalogo">Usuarios</a>
           </li>
           <li class="nav-menu-item">
-            <a class="nav-link" href="/catalogo">Catálogo</a>
+            <a class="nav-link" href="/nosotros">Productos</a>
           </li>
           <li class="nav-menu-item">
-            <a class="nav-link" href="/nosotros">Nosotros</a>
+            <a class="nav-link" href="/contactus">Novedades</a>
           </li>
           <li class="nav-menu-item">
-            <a class="nav-link" href="/contactus">Contacto</a>
+            <a class="nav-link" href="/contactus">Administradores</a>
+          </li>
+          <li class="nav-menu-item">
+            <a class="nav-link" href="/contactus"><i class="fa-solid fa-cart-shopping"></i></a>
           </li>
           </ul>
-          <ul class="nav-menu-list icon">
-          <li class="nav-menu-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i></a>
-          </li>
-          </li>
-        </ul>
       </nav>
-    </header> -->
+    </header>
     <!-- fin seccion barra de navegacion -->
 
     <!-- seccion productos -->
-    <main class="admin__main">
-            <!-- sidebar -->
-        <aside class="side__container"> 
-            <div class="side_logo">
-                <a href="/"><img src="/img/logo-w.png" alt="logotipo terra rossa"></a>
-            </div>
-            <ul class="main__group">
-                <li><a class="side__link" href="#"><i class="fa-solid fa-user"></i>usuarios</a></li>
-                <li><a class="side__link" href="#"><i class="fa-solid fa-user"></i>productos</a>
-                    <ul class="sub__group">
-                        <li><a class="side__link" href="#"><i class="fa-solid fa-user"></i>Nuevo Producto</a></li>
-                        <li><a class="side__link" href="#"><i class="fa-solid fa-user"></i>Cargar Producto</a></li>
+    <main>
+      <div class="admin__main">
+            <%- include('./partials/sidebar')  %> 
+            <section class="data__container">
+                <h4>Panel de administración</h4>
+                <div class="welcome__container">
+                  <div class="welcome__content">
+                    <h2>hola ana!</h2>
+                    <p>Que bueno volver a verte!</p>
+                  </div>
+                  <div class="welcome__content">
+                    <img src="/img/user-profile.png" alt="profile picture">
+                  </div>
+                </div>
+    
+                <div class="filter__container">
+                    <h3>Productos</h3>
+                    <ul class="filter__links">
+                        <li><a href="">Todos los productos</a></li>
+                        <li><a href="">Tintos</a></li>
+                        <li><a href="">Blancos</a></li>
+                        <li><a href="">Espumantes</a></li>
+                        <li><a href="">Especiales</a></li>
                     </ul>
-                </li>
-                <li><a class="side__link" href="#"><i class="fa-solid fa-user"></i>novedades</a></li>
-                <li><a class="side__link" href="#"><i class="fa-solid fa-user"></i>administradores</a></li>
-            </ul>
-        </aside>
-        <!-- fin sidebar -->
-        <section class="data__container">
-            <article>
-                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. A ea sed tenetur saepe, autem quibusdam minus qui incidunt ut vitae asperiores quidem maxime atque inventore magni tempore, voluptates quas id.
-                Dolore, sint a! Provident sit error delectus soluta nisi rerum vitae cum magnam fugiat laboriosam reiciendis iusto aperiam qui ratione deleniti exercitationem facilis voluptatum natus, ipsam laudantium consequatur, asperiores dignissimos.
-                Rerum ipsam dolor esse sapiente porro, rem quis voluptatem provident labore, unde aspernatur eos doloribus, exercitationem non commodi in distinctio beatae pariatur hic! Laboriosam ipsam repellat consequuntur dicta excepturi eligendi?
-                Asperiores pariatur, quaerat quibusdam aspernatur eos, adipisci laudantium culpa qui labore non dignissimos aliquam. Laudantium exercitationem iusto aliquid sapiente. Sapiente alias expedita tempora maxime temporibus explicabo, facilis libero eos architecto?
-                Eveniet, cum ea. Eos sed molestiae tempore quas, repellat, eligendi inventore dolorem exercitationem repudiandae atque cum consectetur voluptatem ad, doloribus excepturi possimus facere beatae velit ea! Distinctio necessitatibus minus fuga.
-                Cupiditate, placeat. Suscipit, deleniti aliquam iste quas veniam ad praesentium laboriosam iure autem accusantium quisquam delectus fugiat molestiae eligendi error harum dolor voluptas perferendis reprehenderit fuga esse omnis doloremque? Molestias.
-                Libero sequi dolores necessitatibus quas quidem aut cupiditate saepe excepturi! Maiores optio officia vel tempora harum nisi voluptatum architecto, quam explicabo quaerat iste dolores, omnis aliquam veritatis fugiat dolore ullam?
-                Aperiam nesciunt quasi necessitatibus quis doloremque aliquid hic, doloribus nam ratione temporibus repudiandae aliquam alias voluptate, magni sit. Debitis voluptatibus ipsa dolores cumque sint itaque porro. Incidunt cum itaque aliquam?
-                Quia amet reiciendis animi voluptatem enim explicabo libero adipisci autem temporibus, voluptate nisi dignissimos, itaque eligendi. Delectus quo sit explicabo minima voluptatum voluptate doloribus aut omnis, eos ad, in repellat.
-                Illo reiciendis consequuntur saepe ex maiores repellendus, explicabo libero nam quod numquam soluta distinctio et debitis. Temporibus enim dolor dicta, atque quibusdam placeat, rem cupiditate consectetur veniam quam iusto necessitatibus?</p>
-            </article>
-        </section>
+                </div>
+                <div class="article__scroll">
+                  <article class="productsdash__container">
+                      <div class="productdash_block">
+                          <img src="/img/espumante.png" alt="imagen del producto">
+                          <p>Terra Rossa Brut nature espumante</p>
+                          <p>$ <span>12.000,00</span></p>
+                          <p>18</p>
+                      </div>
+                      <div class="productdash_button">
+                          <a class="delete" href="">eliminar</a>
+                          <a class="update" href="/update-product">actualizar</a>
+                      </div>
+                  </article>
+                  <article class="productsdash__container">
+                    <div class="productdash_block">
+                        <img src="/img/espumante.png" alt="imagen del producto">
+                        <p>Terra Rossa Brut nature espumante</p>
+                        <p>$ <span>12.000,00</span></p>
+                        <p>18</p>
+                    </div>
+                    <div class="productdash_button">
+                        <a class="delete" href="">eliminar</a>
+                        <a class="update" href="/update-product">actualizar</a>
+                    </div>
+                  </article>
+                  <article class="productsdash__container">
+                  <div class="productdash_block">
+                      <img src="/img/espumante.png" alt="imagen del producto">
+                      <p>Terra Rossa Brut nature espumante</p>
+                      <p>$ <span>12.000,00</span></p>
+                      <p>18</p>
+                  </div>
+                  <div class="productdash_button">
+                      <a class="delete" href="">eliminar</a>
+                      <a class="update" href="/update-product">actualizar</a>
+                  </div>
+                  </article>
+                  <article class="productsdash__container">
+                  <div class="productdash_block">
+                      <img src="/img/espumante.png" alt="imagen del producto">
+                      <p>Terra Rossa Brut nature espumante</p>
+                      <p>$ <span>12.000,00</span></p>
+                      <p>18</p>
+                  </div>
+                  <div class="productdash_button">
+                      <a class="delete" href="">eliminar</a>
+                      <a class="update" href="/update-product">actualizar</a>
+                  </div>
+                  </article>
+                  <article class="productsdash__container">
+                    <div class="productdash_block">
+                        <img src="/img/espumante.png" alt="imagen del producto">
+                        <p>Terra Rossa Brut nature espumante</p>
+                        <p>$ <span>12.000,00</span></p>
+                        <p>18</p>
+                    </div>
+                    <div class="productdash_button">
+                        <a class="delete" href="">eliminar</a>
+                        <a class="update" href="/update-product">actualizar</a>
+                    </div>
+                  </article>
+                  <article class="productsdash__container">
+                    <div class="productdash_block">
+                        <img src="/img/espumante.png" alt="imagen del producto">
+                        <p>Terra Rossa Brut nature espumante</p>
+                        <p>$ <span>12.000,00</span></p>
+                        <p>18</p>
+                    </div>
+                    <div class="productdash_button">
+                        <a class="delete" href="">eliminar</a>
+                        <a class="update" href="/update-product">actualizar</a>
+                    </div>
+                </article>
+                <article class="productsdash__container">
+                  <div class="productdash_block">
+                      <img src="/img/espumante.png" alt="imagen del producto">
+                      <p>Terra Rossa Brut nature espumante</p>
+                      <p>$ <span>12.000,00</span></p>
+                      <p>18</p>
+                  </div>
+                  <div class="productdash_button">
+                      <a class="delete" href="">eliminar</a>
+                      <a class="update" href="/update-product">actualizar</a>
+                  </div>
+                </article>
+                <article class="productsdash__container">
+                <div class="productdash_block">
+                    <img src="/img/espumante.png" alt="imagen del producto">
+                    <p>Terra Rossa Brut nature espumante</p>
+                    <p>$ <span>12.000,00</span></p>
+                    <p>18</p>
+                </div>
+                <div class="productdash_button">
+                    <a class="delete" href="">eliminar</a>
+                    <a class="update" href="/update-product">actualizar</a>
+                </div>
+                </article>
+                <article class="productsdash__container">
+                <div class="productdash_block">
+                    <img src="/img/espumante.png" alt="imagen del producto">
+                    <p>Terra Rossa Brut nature espumante</p>
+                    <p>$ <span>12.000,00</span></p>
+                    <p>18</p>
+                </div>
+                <div class="productdash_button">
+                    <a class="delete" href="">eliminar</a>
+                    <a class="update" href="/update-product">actualizar</a>
+                </div>
+                </article>
+                <article class="productsdash__container">
+                  <div class="productdash_block">
+                      <img src="/img/espumante.png" alt="imagen del producto">
+                      <p>Terra Rossa Brut nature espumante</p>
+                      <p>$ <span>12.000,00</span></p>
+                      <p>18</p>
+                  </div>
+                  <div class="productdash_button">
+                      <a class="delete" href="">eliminar</a>
+                      <a class="update" href="/update-product">actualizar</a>
+                  </div>
+                </article>
+                </div>
+            </section>
+      </div>
+      
     </main>
     <!-- fin seccion productos -->
+
+    <footer>
+      <%- include('./partials/adminfooter')  %> 
+    </footer>
+
+    <script>
+      const navMenu = document.querySelector("#navMenu");
+      const navToggle = document.querySelector(".nav-menu-list");
+
+      navMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+      navMenu.addEventListener("click", () => {
+        navToggle.classList.toggle("nav-menu_visible");
+      });
+    </script>
+
+    <script>
+      const sideMenu = document.querySelectorAll(".side__link");
+      const sideToggle = document.querySelectorAll(".side__child");
+      const sideIcon = document.querySelectorAll(".fa-angle-down");
+      
+
+      sideMenu.forEach(element => {
+        element.addEventListener("click", (event) => {
+
+          sideMenu.forEach((el) => {
+            el.classList.remove("side__menu__focus");
+          });
+
+          const sideMenuElement = event.target;
+          sideMenuElement.classList.toggle("side__menu__focus");
+
+          if(sideMenuElement.lastChild){
+            sideMenuElement.lastChild.classList.toggle("rotate");
+          }
+          if(sideMenuElement.nextElementSibling){
+            sideMenuElement.nextElementSibling.classList.toggle("side-menu_drop");
+          }
+
+        });
+      })
+    </script>
+
    
 </body>
 </html>
