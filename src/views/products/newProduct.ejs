@@ -16,38 +16,14 @@
 <body>
     <!-- seccion barra de navegacion -->
     <header>
-      <nav class="nav-bar">
-        <a href="/" ><img class="logo" src="img/logo-w.png" /></a>
-        <div id="navMenu" class="nav-hamburguer">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <ul class="nav-menu-list">
-          <li class="nav-menu-item">
-            <a class="nav-link" href="/catalogo">Usuarios</a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="/nosotros">Productos</a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="/contactus">Novedades</a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="/contactus">Administradores</a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="/contactus"><i class="fa-solid fa-cart-shopping"></i></a>
-          </li>
-          </ul>
-      </nav>
+      <%- include('../partials/navAdmin')%>
     </header>
     <!-- fin seccion barra de navegacion -->
 
     <!-- seccion productos -->
     <main>
       <div class="admin__main">
-             <%- include('./partials/sidebar')  %> 
+             <%- include('../partials/sidebar')  %> 
             <section class="data__container">
                 <h4>Panel de administración</h4>
                 <div class="welcome__container">
@@ -137,7 +113,7 @@
     <!-- fin seccion productos -->
 
     <footer>
-      <%- include('./partials/adminfooter')  %> 
+      <%- include('../partials/adminfooter')  %> 
     </footer>
 
     <script>
