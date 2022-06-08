@@ -15,21 +15,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.use('/', require('./routes/index.routes'));
 
 
-app.get('/login', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/login.html'));
-})
-
-app.get('/about-us', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/about-us.html'));
-})
-
-app.get('/contact', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/contact.html'));
-})
-
-app.get('/blog', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/blog.html'));
-})
 
 app.post('/datos', (req,res)=>{
     res.send(req.body);
