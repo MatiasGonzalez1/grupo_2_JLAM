@@ -9,19 +9,14 @@ app.listen(3000, ()=>{
     console.log('Servidor activo en el puerto 3000');
 })
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+
 app.use('/', require('./routes/index.routes'));
 
 
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, './views/login.html'));
-})
-
-app.get('/register', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/register.html'));
-})
-
-app.get('/catalogue', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/catalogue.html'));
 })
 
 app.get('/about-us', (req, res) => {
@@ -30,14 +25,6 @@ app.get('/about-us', (req, res) => {
 
 app.get('/contact', (req, res) => {
     res.sendFile(path.join(__dirname, './views/contact.html'));
-})
-
-app.get('/product-detail', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/productDetail.html'));
-})
-
-app.get('/product-cart', (req, res) => {
-    res.sendFile(path.join(__dirname, './views/productCart.html'));
 })
 
 app.get('/blog', (req, res) => {
