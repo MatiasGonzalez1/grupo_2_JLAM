@@ -1056,12 +1056,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .container__filtro {
     display: block;
-    width: 70%;
+    width: 250px;
     margin: auto;
     height: auto;
-    background: #333333;
+    /* border: 2px solid #333333; */
+    /* background: #33333385; */
     padding: 30px 15px;
-    box-shadow: 0px 0px 10px 0px black;
+    /* box-shadow: 0px 0px 10px 0px black; */
     transition: all 1s ease-in-out;
 }
 
@@ -1662,10 +1663,6 @@ color: #FBF2E0;
 
 /*Seccion filtro*/
 
-.container__filtro .num{
-    width: 25%;
-    }
-/****FIN FILTRO*****/
 }
 
 /* Seccion Barra de navegacion laptop */
@@ -2157,24 +2154,25 @@ color: #FBF2E0;
 
      .container__filtro {
         display: block;
-        width: 22%;
-        /*background: #333333;*/ 
+        /*background: #333333;*/
         /* margin: 40px 0 0 0; */
         margin-top: 40px;
         margin-left: 0;
-        margin-right: -150px;
+        margin-right: -10%;
      }
 
     .container__filtro .num{
-        width: 30%;
-        margin: 0 15px;
+        width: 40%;
+        margin: 0 5px;
         }
 
-        .container__filtro .num input{
-            width: 90px;
+    .container__filtro .num input{
+            width: 60px;
             }
 
-        
+     .container__filtro #show{
+                display: block;
+            }
         /*******Fin filtro******/
 
     /*  ADMIN AREA  */
@@ -2583,7 +2581,7 @@ color: #FBF2E0;
 /*Filtro*/
 
 .container__filtro {
-    margin-right: -170px;
+    margin-right: -12%;
  }
 }
 
@@ -2642,7 +2640,7 @@ color: #FBF2E0;
     }
     /*Section filtro*/
     .container__filtro {
-        margin-right: -200px;
+        margin-right: -17%;
      }
 }
 
