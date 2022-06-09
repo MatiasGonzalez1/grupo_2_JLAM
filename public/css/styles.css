@@ -969,9 +969,10 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
     justify-content: space-around;
     align-items: left;
-    padding-top: 40px;
+    padding-top: 25px;
+    padding-bottom: 25px;
     color: #FBF2E0;
-    width: 80%;
+    width: 70%;
     margin:auto
 
 }
@@ -1632,7 +1633,7 @@ color: #FBF2E0;
 .catalogo__headertitle {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: flex-start;
     align-items: center;
     padding-top: 40px;
     color: #FBF2E0;
@@ -1640,7 +1641,7 @@ color: #FBF2E0;
 
 }
 .catalogo__title {
-    text-align: left;
+    width: 35%;
 }
 
 .catalogo__conteiner {
@@ -2131,7 +2132,7 @@ color: #FBF2E0;
     }
     .catalogo__title {
         text-align:start;
-        padding-left: 70px;
+        padding-left: 80px;
         padding-top: 30px;
     }
     .catalogo__queries {
@@ -2574,6 +2575,9 @@ color: #FBF2E0;
     padding-top: 40px;
 
 }
+.catalogo__headertitle {
+     width: 84%;
+}
 /*Fin catalogo*/
 
 /*Filtro*/
@@ -2614,7 +2618,11 @@ color: #FBF2E0;
         text-transform: capitalize;
         padding: 2% 15% 1% 15%;
     }
+    /*catalogo*/
 
+    .catalogo__headertitle {
+        width: 82%;
+    }
      /*Footer*/
      .footer ul{
         margin: 0px;
