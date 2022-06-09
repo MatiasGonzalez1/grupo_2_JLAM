@@ -2540,6 +2540,15 @@ color: #FBF2E0;
         text-transform: capitalize;
         padding: 2% 10%;
     }
+    .cart__code input{
+        color: #2B2B2B;
+        background-color: #fbf2e0;
+        padding: 5px 60px;
+        border:none;
+        text-align: center;
+        border-radius: 2px;
+        /* margin-bottom: 10px; */
+    }
     /* CARRITO DE COMPRAS */
 
     /*  BLOG NOTAS */     
