@@ -36,12 +36,22 @@
             </ul>
           </div>
           <div>
-            <a href="#" class="cart__btn--checkout">volver</a>
+            <a href="/" class="cart__btn--checkout">volver</a>
           </div>
         </div>
       </div>
     </section>
     <!-- fin nota blog -->
-   
+    <script>
+      const navMenu = document.querySelector("#navMenu");
+      const navToggle = document.querySelector(".nav-menu-list");
+
+      navMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+      navMenu.addEventListener("click", () => {
+        navToggle.classList.toggle("nav-menu_visible");
+      }); 
+    </script>
 </body>
 </html>
