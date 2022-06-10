@@ -1,62 +1,20 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script
-      src="https://kit.fontawesome.com/9caded27f0.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
-    <link rel="icon" type="img/png" href="/img/logo-web-icon.png">
-    <link rel="stylesheet" href="/css/styles.css" />
+  <head>
+    <%- include('../partials/head.ejs')%>
     <title>Carrito de Compras - Terra Rossa</title>
-</head>
-<body>
+  </head>
+  <body>
     <!-- seccion barra de navegacion -->
     <header>
-      <nav class="nav-bar">
-        <a href="/" ><img class="logo" src="img/logo-w.png" /></a>
-        <div id="navMenu" class="nav-hamburguer">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <ul class="nav-menu-list">
-          <li class="nav-menu-item">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="/catalogo">Catálogo</a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="/nosotros">Nosotros</a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="/contactus">Contacto</a>
-          </li>
-          </ul>
-          <ul class="nav-menu-list icon">
-          <li class="nav-menu-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-cart-shopping"></i></a>
-          </li>
-          <li class="nav-menu-item">
-            <a class="nav-link" href="#"><i class="fa-solid fa-user"></i></a>
-          </li>
-          </li>
-        </ul>
-      </nav>
-    </header> -->
+      <%- include('../partials/nav.ejs')%>
+    </header>
     <!-- fin seccion barra de navegacion -->
 
     <!-- carrito de compras -->
-    <section  class="margin__nav">
+    <section class="margin__nav">
       <h1 class="cart__title">carrito</h1>
-      <div class="itemlist__container ">
+      <div class="itemlist__container">
         <div class="cart__section">
           <div class="cart__header">
             <p>producto</p>
@@ -64,14 +22,14 @@
             <p>cantidad</p>
           </div>
           <div class="cart__product">
-            <img src="/img/pinot-noir.png" alt="imagen preview del producto">
+            <img src="/img/pinot-noir.png" alt="imagen preview del producto" />
             <div class="cart__productdetail">
               <p><span>Terra Rossa Cabernet Sauvignon</span></p>
               <div class="cart__buttons">
                 <p>$2.650,00</p>
                 <form action="">
                   <select>
-                    <option  selected value="1">1</option>
+                    <option selected value="1">1</option>
                     <option value="3">3</option>
                     <option value="6">6</option>
                     <option value="12">12</option>
@@ -84,14 +42,14 @@
             </div>
           </div>
           <div class="cart__product">
-            <img src="/img/pinot-noir.png" alt="imagen preview del producto">
+            <img src="/img/pinot-noir.png" alt="imagen preview del producto" />
             <div class="cart__productdetail">
               <p><span>Terra Rossa Cabernet Sauvignon</span></p>
               <div class="cart__buttons">
                 <p>$2.650,00</p>
                 <form action="">
                   <select>
-                    <option  selected value="1">1</option>
+                    <option selected value="1">1</option>
                     <option value="3">3</option>
                     <option value="6">6</option>
                     <option value="12">12</option>
@@ -104,14 +62,14 @@
             </div>
           </div>
           <div class="cart__product">
-            <img src="/img/pinot-noir.png" alt="imagen preview del producto">
+            <img src="/img/pinot-noir.png" alt="imagen preview del producto" />
             <div class="cart__productdetail">
               <p><span>Terra Rossa Cabernet Sauvignon</span></p>
               <div class="cart__buttons">
                 <p>$2.650,00</p>
                 <form action="">
                   <select>
-                    <option  selected value="1">1</option>
+                    <option selected value="1">1</option>
                     <option value="3">3</option>
                     <option value="6">6</option>
                     <option value="12">12</option>
@@ -129,7 +87,7 @@
             <p>¿Tenés un código de descuento?</p>
             <div class="cart__code">
               <form action="">
-                <input type="text" maxlength="8" value="Ingrese su código">
+                <input type="text" maxlength="8" value="Ingrese su código" />
               </form>
               <a class="cart__btn--checkout" href="">aplicar</a>
             </div>
@@ -137,14 +95,14 @@
           <div class="cart__minisection">
             <div class="container__total">
               <div class="total__detail">
-                <p>subtotal:</p> 
-                <p>$ 15.781,00 </p>
+                <p>subtotal:</p>
+                <p>$ 15.781,00</p>
               </div>
               <div class="total__detail">
-                <p><span>total:</span></p> 
+                <p><span>total:</span></p>
                 <div>
                   <p><span>$ 14.781,00 </span></p>
-                  <div  class="total__message">
+                  <div class="total__message">
                     <p>iva no incluido</p>
                   </div>
                 </div>
@@ -157,6 +115,8 @@
       </div>
     </section>
     <!-- fin carrito de compras -->
-   
-</body>
+    <footer class="footer">
+      <%- include('../partials/footer.ejs')%>
+    </footer>
+  </body>
 </html>

@@ -1,11 +1,11 @@
 {
   "name": "grupo_2_jlam",
   "version": "1.0.0",
-  "description": "![image](https://user-images.githubusercontent.com/94580563/167222122-37ca5da2-5fe1-4e20-ae4d-c5bf2c6f259d.png)",
-  "main": "index.js",
+  "description": "Desarrollo de una e-commerce perteneciente al rubro vitivinícola",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "nodemon ./src/app.js"
   },
   "repository": {
     "type": "git",
@@ -18,6 +18,10 @@
   },
   "homepage": "https://github.com/MatiasGonzalez1/grupo_2_JLAM#readme",
   "dependencies": {
+    "ejs": "^3.1.8",
     "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
   }
 }

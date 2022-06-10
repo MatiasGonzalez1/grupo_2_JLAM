@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/9caded27f0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="icon" type="img/png" href="/img/logo-web-icon.png">
+    <link rel="stylesheet" href="/css/admin.css" />
+    <title>Carrito de Compras - Terra Rossa</title>
+</head>
+<body>
+    <!-- seccion barra de navegacion -->
+    <header>
+      <%- include('../partials/navAdmin')%>
+    </header>
+    <!-- fin seccion barra de navegacion -->
+
+    <!-- seccion productos -->
+    <main>
+      <div class="admin__main">
+            <%- include('../partials/sidebar')  %> 
+            <section class="data__container">
+                <h4>Panel de administración</h4>
+                <div class="welcome__container">
+                  <div class="welcome__content">
+                    <h2>hola ana!</h2>
+                    <p>Que bueno volver a verte!</p>
+                  </div>
+                  <div class="welcome__content">
+                    <img src="/img/user-profile.png" alt="profile picture">
+                  </div>
+                </div>
+    
+                <div class="filter__container">
+                    <h3 class="new__product__tittle">Actualizar producto</h3>
+                </div>
+                <form class="form__scroll">
+                    <div class="new__prod__container">
+                        <div class="new__prod__subgroup">
+                            <div class="new__prod__ind">
+                                <label for="fnombre">Nombre del producto</label>
+                                <input type="text" id="fnombre" placeholder="">
+                            </div>
+                            <div class="new__prod__ind">
+                                <label for="fcategory">Categoría</label>
+                                <input type="text" id="fcategoria" placeholder="">
+                            </div>
+                        </div>
+                        <div class="new__prod__subgroup">
+                            <div class="new__prod__ind">
+                                <label for="fharYear">Año de cosecha</label>
+                                <input type="text" id="fcoseAnio" placeholder="">
+                            </div>
+                            <div class="new__prod__ind">
+                                <label for="fvariety">Variedad</label>
+                                <input type="text" id="fvariedad" placeholder="">
+                            </div>
+                            <div class="new__prod__ind">
+                                <label for="fcrianza">Crianza</label>
+                                <input type="text" id="fcrianza" placeholder="">
+                            </div>
+                            <div class="new__prod__ind">
+                                <label for="fguarda">Potencial de guarda</label>
+                                <input type="text" id="fguarda" placeholder="">
+                            </div>
+                        </div>
+                        <div class="new__prod__subgroup">
+                            <div class="new__prod__ind">
+                                <label for="fnotacata">Nota de cata</label>
+                                <textarea placeholder="" name="fnotacata"  rows="4">  </textarea>
+                            </div>
+                        </div>
+    
+                        <div class="new__prod__subgroup">
+                            <div class="new__prod__ind ">
+                                <img src="/img/espumante.png" alt="">
+                            </div>
+                            <div class="new__prod__ind ">
+                                <label for="fprodfoto">Imagen del producto</label>
+                                <input type="file" id="fprodfoto">
+                            </div>
+                            <div class="new__prod__ind">
+                                <label for="fprecio">Precio</label>
+                                <input type="text" id="fprecio" placeholder="">
+                            </div>
+                            <div class="new__prod__ind">
+                                <label for="fstock">Stock</label>
+                                <input type="text" id="fstock" placeholder="">
+                            </div>
+                        </div>
+                        <div>
+                            <div class="new__prod__ind" id="newbuttons">
+                                <a id="cancel" type="button" href="/users/admin">Cancelar</a>
+                                <input id="delete" type="button" value="Eliminar producto">
+                                <input id="create" type="button" value="Actualizar producto">
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+            </section>
+      </div>
+      
+    </main>
+    <!-- fin seccion productos -->
+
+    <footer>
+      <%- include('../partials/adminfooter')  %> 
+    </footer>
+
+    <script>
+      const navMenu = document.querySelector("#navMenu");
+      const navToggle = document.querySelector(".nav-menu-list");
+
+      navMenu.addEventListener("click", () => {
+        navMenu.classList.toggle("active");
+      });
+      navMenu.addEventListener("click", () => {
+        navToggle.classList.toggle("nav-menu_visible");
+      });
+    </script>
+
+    <!-- Dashboard -->
+    <script>
+      const sideMenu = document.querySelectorAll(".side__link");
+      const sideToggle = document.querySelectorAll(".side__child");
+      const sideIcon = document.querySelectorAll(".fa-angle-down");
+
+      sideMenu.forEach(element => {
+        element.addEventListener("click", (event) => {
+
+          sideMenu.forEach((el) => {
+            el.classList.remove("side__menu__focus");
+          });
+
+          const sideMenuElement = event.target;
+          sideMenuElement.classList.toggle("side__menu__focus");
+
+          if(sideMenuElement.lastChild){
+            sideMenuElement.lastChild.classList.toggle("rotate");
+          }
+          if(sideMenuElement.nextElementSibling){
+            sideMenuElement.nextElementSibling.classList.toggle("side-menu_drop");
+          }
+
+        });
+      })
+    </script>
+
+   
+</body>
+</html>

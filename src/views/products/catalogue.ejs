@@ -2,25 +2,22 @@
 <html lang="es">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://kit.fontawesome.com/9caded27f0.js" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/css/styles.css" />
+  <%- include('../partials/head.ejs')%>
 	<title>Catálogo - Terra Rossa</title>
 </head>
 
 <body>
+  <header>
+    <%- include('../partials/nav.ejs')%>
+  </header>
   <section class="catalogo">
     <div class="catalogo__headertitle">
-     <h1 class="catalogo__title"><strong>CATALOGO</strong></h1>
+     <h1 class="catalogo__title"><strong>Catálogo</strong></h1>
     </div>
     <div class="catalogo__queries">
       <div class="container__filtro">
-        <div class="container__filtro_title"><h2>FILTROS</h2><i class="fa-solid fa-list"></i></div>        
+        <div class="container__filtro_title" id="filter"><h2>FILTROS</h2><i class="fa-solid fa-list"></i></div>        
+    <div id="show">
       <ul class="filter-ul">
         <li><p>Precio</p></li>
         <div class="li-flex">
@@ -47,6 +44,7 @@
           <li class="li-not submit"><button>Buscar</button></li>
       </div>
       </ul>
+    </div>
       </div>
       <div class="catalogo__conteiner">
         <article class="cata__products">
@@ -54,8 +52,8 @@
           <p class="cataname__product">Nombre del producto</p>
           <p class="cataprecio__product">$14.000,00</p>
           <div class="container__buttons">
-            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
         </article>
 
@@ -64,8 +62,8 @@
           <p class="cataname__product">Nombre del producto</p>
           <p class="cataprecio__product">$14.000,00</p>
           <div class="container__buttons">
-            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
         </article>
 
@@ -74,8 +72,8 @@
           <p class="cataname__product">Nombre del producto</p>
           <p class="cataprecio__product">$14.000,00</p>
           <div class="container__buttons">
-            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
 
         </article>
@@ -85,8 +83,8 @@
           <p class="cataname__product">Nombre del producto</p>
           <p class="cataprecio__product">$14.000,00</p>
           <div class="container__buttons">
-            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
         </article>
 
@@ -95,8 +93,8 @@
           <p class="cataname__product">Nombre del producto</p>
           <p class="cataprecio__product">$14.000,00</p>
           <div class="container__buttons">
-            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
         </article>
 
@@ -105,8 +103,8 @@
           <p class="cataname__product">Nombre del producto</p>
           <p class="cataprecio__product">$14.000,00</p>
           <div class="container__buttons">
-            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
         </article>
 
@@ -116,8 +114,8 @@
           <p class="cataname__product">Nombre del producto</p>
           <p class="cataprecio__product">$14.000,00</p>
           <div class="container__buttons">
-            <a class="catabutton__agregar" href="http://terrarossa.com" target=""><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
         </article>
 
@@ -126,8 +124,8 @@
           <p class="cataname__product">Nombre del producto</p>
           <p class="cataprecio__product">$14.000,00</p>
           <div class="container__buttons">
-            <a class="catabutton__agregar"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
         </article>
 
@@ -136,14 +134,29 @@
           <p class="cataname__product">Nombre del producto</p>
           <p class="cataprecio__product">$14.000,00</p>
           <div class="container__buttons">
-            <a class="catabutton__agregar"><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye"><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
+            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
         </article>
       </div>
     </div>
 
   </section>
+  <footer class="footer">
+    <%- include('../partials/footer.ejs')%>
+  </footer>
+
+  <script>
+const onFil = document.getElementById('filter');
+
+onFil.addEventListener('click', () => {
+let show = document.getElementById('show');
+
+show.style.display === 'none' ? show.style.display = 'block' : show.style.display ='none';
+});
+
+  </script>
+
 </body>
 
 </html>
