@@ -9,6 +9,4 @@ routes.use('/content', require('./content.routes'));
 
 
 
-
-
 module.exports = routes
