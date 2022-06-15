@@ -732,7 +732,7 @@ input[type=number]::-webkit-outer-spin-button {
     max-height: 550px;
     width: 200px;
     overflow-x:auto; 
-    padding: 20px;
+    padding: 12px;
     position: absolute;
     align-items:center;
     margin-top: 40px;
@@ -749,6 +749,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .block {
+    justify-content: center;
     display: flex;
     flex-direction: column;
     align-items: center;
