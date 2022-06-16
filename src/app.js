@@ -1,26 +1,38 @@
-const express = require('express');
-const path = require('path'); //con este modulo se unifican las rutas para identificarlas mejor
+// Requerimiento de modulos
+const express = require("express");
+const path = require("path"); //con este modulo se unifican las rutas para identificarlas mejor
+const methodOverride = require('method-override');
+
+
+
+// Determinacion de variable global para ejecucion de express
 const app = express();
 
-app.use(express.static('./public')); //se tiene la carpeta public como recurso estático para poder consumirlo
-app.use(express.urlencoded({extended:false}));
-
-app.listen(3000, ()=>{
-    console.log('Servidor activo en el puerto 3000');
-})
-
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-
-app.use('/', require('./routes/index.routes'));
+// Determiancion de puerto asignable
+const port = process.env.PORT || 3000;
 
 
+// Determinacion de folder 'public' como archivos estaticos
+app.use(express.static("./public")); 
 
-app.post('/datos', (req,res)=>{
-    res.send(req.body);
 
+app.use(express.urlencoded({ extended: false }));
+
+
+// Determinacion del queryString para metodos HTTP
+app.use(methodOverride('_method'));
+
+
+// Requerimiento index de ruteo
+app.use("/", require("./routes/index.routes"));
+
+
+// Determinacion de puerto
+app.listen(port, ()=>{
+    console.log('Servidor funcionando en el puerto ' + port);
 });
 
-app.get('/admin', (req, res)=>{
-    res.sendFile(path.join(__dirname, './views/adminArea.html'));
-})
+// Determinacion de ejs como view engine
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+
