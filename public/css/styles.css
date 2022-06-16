@@ -678,7 +678,7 @@ input[type=number]::-webkit-outer-spin-button {
 .philosophy{
 	width: 100%;
 	height: auto;
-	padding-top: 130px;
+	padding-top: 95px;
     padding-bottom: 80px;
     background-color: #2B2B2B;
 }
@@ -704,14 +704,14 @@ input[type=number]::-webkit-outer-spin-button {
     margin: auto;
 }
 .text-content h2{
-    font-size:18px;
+    font-size:15px;
 }
 .text-content p{
     width: 100%;
     text-align: justify;
     padding-top: 10px;  
     padding-right: 15px;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 .text-content p, .text-content h3, .text-content .second-text {
@@ -869,7 +869,7 @@ input[type=number]::-webkit-outer-spin-button {
    margin-bottom: 50px;
 }
 .footer-col h4{
-	font-size: 20px;
+	font-size: 12px;
 	color: #fbf2e0;
 	text-transform: capitalize;
 	margin-bottom: 10px;
@@ -877,7 +877,8 @@ input[type=number]::-webkit-outer-spin-button {
 	display: inline-block;
 	cursor: default;
 }
-.footer-col h4:after{ /*subrayado a todos los h4 de footer-col*/
+ /*subrayado a todos los h4 de footer-col*/
+/* .footer-col h4:after{
 	content: '';
 	position: absolute;
 	width: 100%;
@@ -888,7 +889,7 @@ input[type=number]::-webkit-outer-spin-button {
 	transform: scaleX(0);
 	transform-origin: bottom right;
 	transition: transform 0.6s ease-out;
-}
+} */
 .footer-col h4:hover:after{ /*comportamiento del subrayado*/
 	transform: scaleX(1);
 	transform-origin: bottom left;
@@ -897,8 +898,13 @@ input[type=number]::-webkit-outer-spin-button {
 .footer-col ul li:not(:last-child){ /*espaciado entre li*/
 	margin-bottom: 5px;
 }
+
+.footer-col:last-of-type{
+    margin-bottom: 5px;
+ }
+
 .footer-col ul li a{  /*comportamiento de la etiqueta a de .footer-col*/
-	font-size: 18px;
+	font-size: 12px;
 	text-transform: capitalize;
 	color: #fbf2e0;
 	text-decoration: none;
@@ -937,13 +943,13 @@ input[type=number]::-webkit-outer-spin-button {
 .text-foo{
     border-top: 3px solid #7B7B7B;
     padding: 10px ;
-	font-size: 16px;
+	font-size: 12px;
     width: 100%;
     text-align: center;
     color: #FBF2E0;
 }
 .copy{
-	font-size: 14px;
+	font-size: 12px;
     padding-bottom: 5px;
     text-align: center;
     color: #FBF2E0;
@@ -1131,7 +1137,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container__filtro .num{
-width: 40%;
+width: 90%;
 text-align: center;
 margin: 0 5px;
 }
@@ -1139,8 +1145,8 @@ margin: 0 5px;
 
 
 .container__filtro .num input{
-    height: 30px;
-    width: 75px;
+    height: 50px;
+    width: 100%;
 }
 
 .container__filtro .num input:focus{
@@ -2611,6 +2617,14 @@ color: #FBF2E0;
 }
 
 @media screen and (min-width: 1440px){
+
+
+ /*Inicio Filosofia*/
+ .philosophy .text-content{
+    width: 60%;
+    margin: auto;
+}
+
     .itemlist__container{
         color: #fbf2e0;
         display: flex;
