@@ -2182,14 +2182,6 @@ color: #FBF2E0;
         margin-right: -10%;
      }
 
-    .container__filtro .num{
-        width: 40%;
-        margin: 0 5px;
-        }
-
-    .container__filtro .num input{
-            width: 60px;
-            }
 
      .container__filtro #show{
                 display: block;
