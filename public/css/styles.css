@@ -1149,13 +1149,9 @@ margin: 0 5px;
     width: 100%;
 }
 
-.container__filtro .num input:focus{
-    outline:solid 3px #c93522;
+li datalist option{
+    color: #fff;
 }
-
-.container__filtro .num:focus{
-   border: 1px solid #c93522;
-    }
 
 .container__filtro .li-flex{
     display: flex;
@@ -2186,14 +2182,6 @@ color: #FBF2E0;
         margin-right: -10%;
      }
 
-    .container__filtro .num{
-        width: 40%;
-        margin: 0 5px;
-        }
-
-    .container__filtro .num input{
-            width: 60px;
-            }
 
      .container__filtro #show{
                 display: block;
