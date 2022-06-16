@@ -1,4 +1,5 @@
 const path = require('path');
+const fs = require('fs');
 
 const productController = {
 
@@ -10,8 +11,17 @@ const productController = {
         res.render(path.join(__dirname, '../views/products/productCart.ejs'))
     },
 
-    detalle: (req, res) =>{
-        res.render(path.join(__dirname, '../views/products/productDetail.ejs'))
+    detalle: (req, res) => {
+        const detalleId = Number(req.params.id); //convierto el id string a un numero para poder hacer la triple comparacion
+    
+        let archivoProductos = fs.readFileSync(path.join(__dirname, '../models/data/products.json'), { encoding: 'utf-8' });
+        let productos = JSON.parse(archivoProductos);
+    
+        let coincidencia = productos.find((producto) => { //filtro mis productos y busco el id
+            return producto.id_producto === detalleId;
+        });
+        console.log(coincidencia);
+        res.render(path.join(__dirname, '../views/products/productDetail.ejs'), { coincidencia: coincidencia });
     },
 
     nuevoProducto: (req, res) =>{
