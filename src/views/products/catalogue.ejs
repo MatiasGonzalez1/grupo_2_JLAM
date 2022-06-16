@@ -21,8 +21,17 @@
       <ul class="filter-ul">
         <li><p>Precio</p></li>
         <div class="li-flex">
-        <li class="li-not num"><input type="number" placeholder="Desde" min="7000" max="30000" step="1000"></li>
-        <li class="li-not num"><input type="number" placeholder="Hasta" min="7000" max="30000" step="1000"></li>  
+        <li class="li-not num"><input type="range" id="precio" list="tickmarks" min="5000" max="30000" step="">
+          <datalist id="tickmarks">
+            <option value="5000">
+            <option value="10000">
+            <option value="15000">
+            <option value="20000">
+            <option value="25000">
+            <option value="30000">
+          </datalist>
+          </li>
+        <!-- <li class="li-not num"><input type="number" placeholder="Hasta" min="7000" max="30000" step="1000"></li>   -->
         <li class="li-not submit"><button type="submit">Buscar</button></li>
       </div>
       </ul>
