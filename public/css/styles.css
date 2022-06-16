@@ -1149,13 +1149,9 @@ margin: 0 5px;
     width: 100%;
 }
 
-.container__filtro .num input:focus{
-    outline:solid 3px #c93522;
+li datalist option{
+    color: #fff;
 }
-
-.container__filtro .num:focus{
-   border: 1px solid #c93522;
-    }
 
 .container__filtro .li-flex{
     display: flex;
