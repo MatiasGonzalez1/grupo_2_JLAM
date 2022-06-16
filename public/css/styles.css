@@ -234,9 +234,9 @@ main{
     text-transform: uppercase;
     text-decoration: none; 
     padding: 6px 6px;
-    border: solid 1px black;
+    border: solid 1px #2B2B2B;
     border-radius: 5px;
-    color: black;
+    color: #2B2B2B;
 }
 .slider__text h4{
     font-size: 10px;
@@ -247,6 +247,7 @@ main{
     font-size: 12px;
     margin: 2px 0 5px 0 ;
     font-weight: bold;
+    color: #2B2B2B;
 }
 
 .slider__text p{
@@ -257,15 +258,16 @@ main{
 /* Slider 2*/
 .slider02__text{
     position: absolute;
-    width: 25vw;
-    left: 15px;
-    top: 15px;
+    left: 20px;
+    top: 20px;
+    width: 40%;
     text-align: left;
-    color: white;
+    color: wheat;
+    align-items: center;
 }
 
 .slider02__text h2{
-    font-size: 10px;
+    font-size: 12px;
     text-transform: uppercase;
     padding-bottom: 20px;
 
@@ -281,19 +283,20 @@ main{
 .slider03__text{
     position: absolute;
     text-transform: uppercase;
-    width: 30vw;
-    right: 20px;
+    width: 40%;
+    right: 15px;
     top: 20px;
     text-align: center;
+    color: #2B2B2B;
 }
 .slider03__text a{
     font-size: 10px;
-    text-transform: uppercase;
+    text-transform: capitalize;
     text-decoration: none; 
     padding: 4px 6px;
-    border: solid 1px black;
+    border: solid 1px #2B2B2B;
     border-radius: 5px;
-    color: black;
+    color: #2B2B2B;
 
     
 }
@@ -1226,15 +1229,15 @@ color: #FBF2E0;
     /* Slider 2*/
     .slider02__text{
         position: absolute;
-        width: 25vw;
+        width: 40%;
         left: 35px;
-        top: 180px;
+        top: 100px;
         text-align: left;
-        color: white;
+        color: #fbf2e0;
     }
     
-    .slider02__text h2, .slider03__text h2{
-        font-size: 15px;
+    .slider02__text h2{
+        font-size: 25px;
         text-transform: uppercase;
 
     }
@@ -1247,9 +1250,11 @@ color: #FBF2E0;
     /* Slider 3*/
     .slider03__text{
         position: absolute;
-        right: 45px;
+        right: 60px;
         top: 75px;
+        width: 30%;
         text-align: center;
+        color: #2B2B2B;
     }
     .slider03__text a{
         position: absolute;
@@ -1257,15 +1262,12 @@ color: #FBF2E0;
         right: 30px;
         top: 50px;
         font-size: 12px;
-        text-transform: uppercase;
-        text-decoration: none; 
         padding: 6px 15px;
-        border: solid 1px black;
-        border-radius: 5px;
-        color: black;
-        
     }
-
+    .slider03__text h2{
+        font-size: 20px;
+        text-transform: uppercase;
+    }
     /*Inicio Filosofia*/
     .philosophy .text-content{
 		width: 80%;
@@ -1906,23 +1908,18 @@ color: #FBF2E0;
     /* Slider 2*/
     .slider02__text{
         position: absolute;
-        width: 25vw;
-        left: 48px;
-        top: 200px;
+        width: 40%;
+        left: 60px;
+        top: 100px;
         text-align: left;
-        color: white;
+        color: #2B2B2B;
     }
     
     .slider02__text h2{
-        font-size: 20px;
-    }
-    .slider02__text h4{
-        font-size: 18px;
-        font-weight: normal;
-        padding: 10px 0;
+        font-size: 30px;
     }
     .slider02__text p{
-        font-size: 12px;
+        font-size: 15px;
     }
     
     /* Slider 3*/
@@ -1930,23 +1927,24 @@ color: #FBF2E0;
         position: absolute;
         right: 35px;
         top: 75px;
+        width: 35%;
         text-align: center;
     }
     .slider03__text h2{
         text-transform: uppercase;
-        font-size: 20px;
+        font-size: 25px;
         margin-bottom: 20px;
     }
     .slider03__text a{
         position: absolute;
         top: 60px;
-        right: 50px;
+        right: 60px;
     }
 /*Seccion filosofia*/
 
-.text-circle p{
-    width: 300px;
-}
+    .text-circle p{
+        width: 300px;
+    }
 
     .text-circle img{
         display: block;
@@ -2250,27 +2248,20 @@ color: #FBF2E0;
     /* Slider 2*/
     .slider02__text{
         position: absolute;
-        width: 25vw;
-        height: auto;
-        left: 55px;
-        top: 250px;
+        width: 40%;
+        left: 100px;
+        top: 100px;
         text-align: left;
-        color: white;
+        color: #fbf2e0;
     }
-    
     .slider02__text h2{
-        font-size: 30px;
-    }
-    .slider02__text h4, .slider03__text h4{
-        font-size: 20px;
-        font-weight: normal;
-        padding: 8px 0;
+        font-size: 35px;
     }
     .slider02__text p{
         padding-top: 30px;
         font-size: 15px;
     }
-
+    
     /* Slider 3*/
     .slider03__text{
         position: absolute;
@@ -2279,6 +2270,11 @@ color: #FBF2E0;
         right: 45px;
         top: 70px;
         text-align: center;
+    }
+    .slider03__text h4{
+        font-size: 20px;
+        font-weight: normal;
+        padding: 8px 0;
     }
     .slider03__text h2{
         font-size: 30px;
@@ -2686,4 +2682,3 @@ color: #FBF2E0;
     95%{margin-left: -200%;}
     
 }
-
