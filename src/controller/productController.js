@@ -1,10 +1,13 @@
 const path = require('path');
 const fs = require('fs');
 
+let archivoProductos = fs.readFileSync(path.join(__dirname, '../models/data/products.json'), { encoding: 'utf-8' });
+let productos = JSON.parse(archivoProductos);
+
 const productController = {
 
     catalogo: (req, res) =>{
-        res.render(path.join(__dirname, '../views/products/catalogue.ejs'))
+        res.render(path.join(__dirname, '../views/products/catalogue.ejs'), { productos: productos })
     },
 
     carrito: (req, res) =>{
@@ -13,9 +16,6 @@ const productController = {
 
     detalle: (req, res) => {
         const detalleId = Number(req.params.id); //convierto el id string a un numero para poder hacer la triple comparacion
-    
-        let archivoProductos = fs.readFileSync(path.join(__dirname, '../models/data/products.json'), { encoding: 'utf-8' });
-        let productos = JSON.parse(archivoProductos);
     
         let coincidencia = productos.find((producto) => { //filtro mis productos y busco el id
             return producto.id_producto === detalleId;
