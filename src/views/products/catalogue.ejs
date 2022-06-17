@@ -57,98 +57,21 @@
       </ul>
     </div>
       </div>
+
       <div class="catalogo__conteiner">
-        <article class="cata__products">
+        <% productos.forEach(producto => { %>
+              <article class="cata__products">
           <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
+          <p class="cataname__product"> <%= producto.nombre_producto %></p>
+          <p class="cataprecio__product"> <%= producto.precio %> </p>
           <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart/<%= producto.id_producto%>" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye" href="/product/product-detail/<%= producto.id_producto%>" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
         </article>
+       <% })   %> 
+        
 
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/malbec.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/merlot.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-
-        </article>
-        <!--primeros 3 articulos-->
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/pinot-noir.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/rose-bottle.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/vin-doux-naturel.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <!--primeros 6 articulos-->
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
       </div>
     </div>
 
