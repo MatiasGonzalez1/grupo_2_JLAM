@@ -8,6 +8,8 @@ routes.get('/product-detail/:id', productController.detalle);
 routes.get('/new-product', productController.nuevoProducto);
 routes.get('/update-product', productController.actualizarProducto);
 
+routes.get('/all-products', productController.cargarProductos); //ruta para cargar productos desde admin
+
 
 
 

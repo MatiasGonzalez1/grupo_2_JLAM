@@ -32,6 +32,12 @@ const productController = {
         res.render(path.join(__dirname, '../views/products/updateProduct.ejs'))
     },
 
+    cargarProductos: (req, res) =>{
+        let archivoProductos = fs.readFileSync(path.join(__dirname, '../models/data/products.json'), { encoding: 'utf-8' });
+        let productos = JSON.parse(archivoProductos);
+        console.log(productos);
+        res.render(path.join(__dirname, '../views/adminArea.ejs'), { productos: productos });
+    },
 
 }
 
