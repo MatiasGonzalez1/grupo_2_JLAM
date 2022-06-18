@@ -21,6 +21,7 @@ app.use(express.urlencoded({ extended: false }));
 
 // Determinacion del queryString para metodos HTTP
 app.use(methodOverride('_method'));
+app.use(express.json());
 
 
 // Requerimiento index de ruteo
