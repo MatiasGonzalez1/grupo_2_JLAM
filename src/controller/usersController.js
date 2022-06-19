@@ -34,8 +34,8 @@ const usersController = {
         let newDataUsers = JSON.stringify(usuarios);
         fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers);
 
-        //Redireccion al home luego del registro
-        res.redirect('/')
+        //Redireccion al login luego del registro
+        res.redirect('/users/login')
     },
 
 

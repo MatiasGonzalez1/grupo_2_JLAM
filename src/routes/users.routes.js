@@ -9,6 +9,8 @@ const storage = multer.diskStorage({
     destination: (req, file, cb) => {
         cb(null, 'public/img/profileImages');
     },
+
+    //criterio de nombramiento de imagen segun email
     filename: (req, file, cb) => {
         cb(null, req.body.email + '_' + Date.now() + path.extname(file.originalname))
     }
