@@ -17,8 +17,9 @@ const usersController = {
     register: (req,res) =>{
 
         //genero una id segun tamaño de array
-        let generadorId = usuarios.length
-
+        let generadorId;
+        usuarios.length === 0? generadorId = usuarios.length : generadorId = (usuarios[(usuarios.length)-1].id)+1
+        
         //Asigno datos del body al objeto a insertar a la base de datos    
         let formDataUser = {
             id: generadorId,
