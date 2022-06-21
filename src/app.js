@@ -27,6 +27,10 @@ app.use(express.json());
 // Requerimiento index de ruteo
 app.use("/", require("./routes/index.routes"));
 
+// Ruta 404 
+app.use((req, res, next)=>{
+    res.status(404).render('not-found')
+});
 
 // Determinacion de puerto
 app.listen(port, ()=>{
