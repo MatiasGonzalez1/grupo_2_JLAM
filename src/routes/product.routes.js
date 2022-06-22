@@ -14,6 +14,8 @@ routes.get('/new-product', productController.nuevoProducto);
 routes.get('/update-product/:id', productController.verActualizarProducto);
 routes.put('/update-product', productController.enviarActualizarProducto);
 
+//eliminar productos
+routes.delete('/all-products/:id', productController.delete);
 
 routes.delete('/product-cart/:id', productController.deleteCart);
 
