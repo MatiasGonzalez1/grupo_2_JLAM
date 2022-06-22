@@ -112,6 +112,18 @@ const productController = {
     cargarProductos: (req, res) =>{
         res.render(path.join(__dirname, '../views/products/all-products.ejs'), { productos: productos });
     },
+
+    delete: (req, res) => {
+        let id = req.params.id;
+        productos = productos.filter((producto) => producto.id_producto != id);
+        
+        fs.writeFileSync(
+            path.join(__dirname, '../models/data/products.json'),
+            JSON.stringify(productos)
+        )
+        res.render(path.join(__dirname,"../views/products/all-products.ejs"), {productos: productos});
+    },
+        
 };
 
 module.exports = productController;
