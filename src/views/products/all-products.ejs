@@ -16,14 +16,14 @@
 <body>
     <!-- seccion barra de navegacion -->
     <header>
-      <%- include('./partials/navAdmin')%>
+      <%- include('../partials/navAdmin')%>
     </header>
     <!-- fin seccion barra de navegacion -->
 
     <!-- seccion productos -->
     <main>
       <div class="admin__main">
-            <%- include('./partials/sidebar')  %> 
+            <%- include('../partials/sidebar')  %> 
             <section class="data__container">
                 <h4>Panel de administración</h4>
                 <div class="welcome__container">
@@ -35,7 +35,33 @@
                     <img src="/img/user-profile.png" alt="profile picture">
                   </div>
                 </div>
-                
+    
+                <div class="filter__container">
+                    <h3>Productos</h3>
+                    <ul class="filter__links">
+                        <li><a href="">Todos los productos</a></li>
+                        <li><a href="">Tintos</a></li>
+                        <li><a href="">Blancos</a></li>
+                        <li><a href="">Espumantes</a></li>
+                        <li><a href="">Especiales</a></li>
+                    </ul>
+                </div>
+                <div class="article__scroll">
+                  <% productos.forEach(producto => { %>
+                    <article class="productsdash__container">
+                        <div class="productdash_block">
+                            <img src="/img/espumante.png" alt="imagen del producto">
+                            <p><%= producto.nombre_producto %></p>
+                            <p>$ <span><%= producto.precio %></span></p>
+                            <p><%= producto.stock %></p>
+                        </div>
+                        <div class="productdash_button">
+                            <a class="delete" href="">eliminar</a>
+                            <a class="update" href="/product/update-product/<%= producto.id_producto %>">actualizar</a>
+                        </div>
+                    </article>
+                  <% }); %>
+                </div>
             </section>
       </div>
       
@@ -43,7 +69,7 @@
     <!-- fin seccion productos -->
 
     <footer>
-      <%- include('./partials/adminfooter')  %> 
+      <%- include('../partials/adminfooter')  %> 
     </footer>
 
     <script>
