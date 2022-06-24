@@ -21,8 +21,8 @@
       <ul class="filter-ul">
         <li><p>Precio</p></li>
         <div class="li-flex">
-        <li class="li-not num"><input type="range" id="precio" min="5000" max="30000" step="5000" value="5000" onchange="document.getElementById('outvol') .value=value" list="tickmarks">
-          <output id="outvol" name="outvol" for="vol">hasta 5000</output>
+        <li class="li-not num"><input type="range" id="precio" min="5000" max="30000" step="5000" value="5000" onchange="document.getElementById('outvol') .value='Hasta ' + value" list="tickmarks">
+          <output id="outvol" name="outvol" for="vol">Hasta 5.000</output> 
         <datalist>
           <option value="5000" class="value"></option>
           <option value="10000" class="value"></option>
@@ -34,7 +34,7 @@
           
         </li>
         <!-- <li class="li-not num"><input type="number" placeholder="Hasta" min="7000" max="30000" step="1000"></li>   -->
-        <li class="li-not submit"><button type="submit">Buscar</button></li>
+        <!-- <li class="li-not submit"><button type="submit">Buscar</button></li> -->
       </div>
       </ul>
       <ul class="filter-ul">
@@ -43,7 +43,7 @@
           <li class="li-not"><input type="checkbox" id="" name="blancos" value=""><p>Blancos</p></li>  
           <li class="li-not"><input type="checkbox" id="" name="especiales" value=""><p>Especiales</p></li>  
           <li class="li-not"><input type="checkbox" id="" name="espumantes" value=""><p>Espumantes</p></li>  
-          <li class="li-not submit"><button >Buscar</button></li>
+          <!-- <li class="li-not submit"><button >Buscar</button></li> -->
       </ul>
       <ul class="filter-ul">
         <li><p>Variedad</p></li>

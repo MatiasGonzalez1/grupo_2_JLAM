@@ -1188,7 +1188,7 @@ input[type='range'] {
   input[type=range]::-webkit-slider-runnable-track {
     background-color: #777;
     height: 3px;
-  }
+      }
   
   input[type=range]:focus::-webkit-slider-runnable-track {
     outline: none;
@@ -1212,6 +1212,10 @@ input[type='range'] {
     background-color: black;
   } 
 
+
+li output{
+    color: #fbf2e0;
+}
 .container__filtro .num input{
     height: 50px;
     width: 100%;
