@@ -19,4 +19,6 @@ routes.delete('/all-products/:id', productController.delete);
 
 routes.delete('/product-cart/:id', productController.deleteCart);
 
+routes.delete('/update-product/:id', productController.eliminarProducto);
+
 module.exports = routes;
