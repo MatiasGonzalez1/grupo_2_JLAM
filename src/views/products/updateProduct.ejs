@@ -97,13 +97,17 @@
                         <div>
                             <div class="new__prod__ind" id="newbuttons">
                                 <a id="cancel" type="button" href="/product/all-products">Cancelar</a> 
-                                <input id="delete" type="button" value="Eliminar producto">
+
+
                                 <input type="submit" id="create" value="Actualizar producto">
                             </div>
                         </div>
                     </div>
 
+                </form>
 
+                <form method="POST" action="/product/update-product/<%=coincidencia.id_producto%>?_method=DELETE"> 
+                  <input id="delete" type="submit" value="Eliminar producto">
                 </form>
             </section>
       </div>
