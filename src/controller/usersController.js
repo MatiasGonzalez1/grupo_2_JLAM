@@ -18,7 +18,7 @@ const usersController = {
 
         //genero una id segun tamaño de array
         let generadorId;
-        usuarios.length === 0? generadorId = usuarios.length : generadorId = (usuarios[(usuarios.length)-1].id)+1
+        usuarios.length === 0? generadorId = usuarios.length : generadorId = (usuarios.at(-1).id)+1
         
         //Asigno datos del body al objeto a insertar a la base de datos    
         let formDataUser = {
@@ -27,7 +27,10 @@ const usersController = {
             email: req.body.email,
             fechaNac: req.body.fechaNacimiento,
             password: req.body.password,
+            profileImg: req.file.filename,
         }
+
+        console.log(formDataUser);
 
         //Isercion de objeto a la base de datos
         usuarios.push(formDataUser);
