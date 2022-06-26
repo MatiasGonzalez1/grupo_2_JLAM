@@ -1426,7 +1426,7 @@ li datalist option {
 .blog-post__date span {
     display: block;
     color: #fbf2e0;
-    font-size: 1.6rem;
+    font-size: 15px;
     font-weight: 300;
 }
 
@@ -1439,7 +1439,7 @@ li datalist option {
 
 .blog-post__text {
     margin-bottom: 2rem;
-    font-size: 12px;
+    font-size: 15px;
     color: #fbf2e0;
 }
 
