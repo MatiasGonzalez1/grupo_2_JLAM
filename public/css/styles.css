@@ -174,10 +174,11 @@ main {
     padding: 6px;
     border-radius: 5px;
     left: 0;
+    cursor: pointer;
 }
 
-.product-news .item .img {
-    width: auto;
+.product-news .item .img{
+    width: 100%;
     height: auto;
     max-height: 200px;
     margin-right: 20px;
@@ -2226,9 +2227,9 @@ li datalist option {
         color: #fbf2e0;
         left: 0;
     }
-
-    .product-news .item .img {
-        width: auto;
+    
+    .product-news .item .img{
+        width: 100%;
         height: auto;
         max-height: 250px;
         margin-right: 20px;
