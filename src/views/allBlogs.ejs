@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('partials/head.ejs')%>
+    <title>Novedades</title>
+  </head>
+  <body>
+    <!-- seccion barra de navegacion -->
+    <header><%- include('partials/nav.ejs')%></header>
+    <!-- fin seccion barra de navegacion -->
+
+    <!-- nota blog -->
+    <div class="blog-post__all">
+      <section class="blog-post__container">
+        <section class="blog-post">
+          <section class="blog-post__img">
+            <img src="/img/full-blog.png" alt="" />
+          </section>
+          <section class="blog-post__info">
+            <article class="blog-post__date">
+              <span>Date</span>
+            </article>
+            <h1 class="blog-post__title">Titulo del blog</h1>
+            <p class="blog-post__text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
+              sint delectus est non sed quae facilis officiis soluta
+              necessitatibus, impedit debitis
+            </p>
+            <a href="#" class="blog-post__more">Read more</a>
+          </section>
+        </section>
+      </section>
+      <section class="blog-post__container">
+        <section class="blog-post">
+          <section class="blog-post__img">
+            <img src="/img/full-blog.png" alt="" />
+          </section>
+          <section class="blog-post__info">
+            <article class="blog-post__date">
+              <span>Date</span>
+            </article>
+            <h1 class="blog-post__title">Titulo del blog</h1>
+            <p class="blog-post__text">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa
+              sint delectus est non sed quae facilis officiis soluta
+              necessitatibus, impedit debitis
+            </p>
+            <a href="#" class="blog-post__more">Read more</a>
+          </section>
+        </section>
+      </section>
+    </div>
+    <!-- fin nota blog -->
+    <footer class="footer"><%- include('partials/footer.ejs')%></footer>
+  </body>
+</html>
