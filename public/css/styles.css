@@ -727,6 +727,7 @@ input[type=number]::-webkit-outer-spin-button {
 .blog__list li {
     margin: 2% 2%;
     color: #ff452c;
+    list-style: none;
 }
 
 .blog__list {
@@ -2229,9 +2230,9 @@ li datalist option {
     }
     
     .product-news .item .img{
-        width: 100%;
+        width: 90%;
         height: auto;
-        max-height: 250px;
+        max-height: 320px;
         margin-right: 20px;
         transition: transform .2s;
     }
@@ -2239,11 +2240,12 @@ li datalist option {
 
     .news-title {
         text-align: left;
-        font-size: 18px;
+        font-size: 17px;
     }
 
     .item .parrafo {
         text-align: left;
+        padding: 0 10px;
     }
 
 

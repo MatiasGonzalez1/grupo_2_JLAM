@@ -10,11 +10,19 @@ let news = JSON.parse(newsjson);
 const mainController = {
 
     index: (req,res) =>{
-        res.render(path.join(__dirname, '../views/index.ejs'))
+        res.render(path.join(__dirname, '../views/index.ejs'),{news:news})
     },
 
     blog: (req,res) =>{
-        res.render(path.join(__dirname, '../views/blog.ejs'))
+
+        const detalleId = Number(req.params.id); //convierto el id string a un numero para poder hacer la triple comparacion
+
+        let newsMatch = news.find((news) => {
+            //filtro mis productos y busco el id
+            return news.id_novedades === detalleId;
+        });
+
+        res.render(path.join(__dirname, '../views/blog_prueba.ejs'),{newsMatch})
     },
 
     contacto: (req,res) =>{
