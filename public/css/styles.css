@@ -54,6 +54,11 @@ main{
     padding-bottom: 60px;
 }
 
+.admin-icon a{
+   color: #ff452cd3;
+   font-size: 23px;
+}
+
 .nav-link{
     color: #fbf2e0;
     text-decoration: none;

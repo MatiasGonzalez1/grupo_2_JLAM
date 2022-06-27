@@ -56,12 +56,10 @@
                             <p><%= producto.stock %></p>
                         </div>
                         <div class="productdash_button">
-
-                          <form method="POST" action="/product/all-products/<%= producto.id_producto%>?_method=DELETE"> 
+                          <form class="form__container" method="POST" action="/product/all-products/<%= producto.id_producto%>?_method=DELETE"> 
                             <button type="submit" class="delete">eliminar</button>
                             </form>
-                            
-                            <a class="update" href="/product/update-product/<%= producto.id_producto %>">actualizar</a>
+                          <a class="update" href="/product/update-product/<%= producto.id_producto %>">actualizar</a>
                         </div>
                     </article>
                   <% }); %>
