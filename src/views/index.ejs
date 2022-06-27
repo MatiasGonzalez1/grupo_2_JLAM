@@ -120,24 +120,14 @@ document.getElementById('container__block').scrollLeft += 20;
       <article ><h2 class="subtitle">Novedades:</h2></article>
       <article >
         <ul class="product-news">
+          <% news.forEach(news => { %>
           <li class="item">
-            <div><img class="img" src="/img/prev-blog-01.png"></div>
-            <div class="parrafo"><p><h2 class="news-title">Nulla felis enim</h2></p>
-            <a href="/content/blog"><button>LEER MAS</button></a>
+            <div><img class="img" src="<%=news.img%>"></div>
+            <div class="parrafo"><p><h2 class="news-title"><%=news.titulo%></h2></p>
+            <a href="/content/blog/<%=news.id_novedades%>"><button>LEER MAS</button></a>
           </div>
           </li>
-          <li class="item">
-            <div><img class="img" src="/img/prev-blog-02.png"></div>
-            <div class="parrafo"><p><h2 class="news-title">Nulla felis enim</h2></p>
-              <a href="/content/blog"><button>LEER MAS</button></a>
-            </div>
-          </li>
-          <li class="item">
-            <div><a><img class="img" src="/img/prev-blog-03.png"></a></div>
-            <div class="parrafo"><p><h2 class="news-title">Nulla felis enim</h2></p>
-              <a href="/content/blog"><button>LEER MAS</button></a>
-            </div>
-          </li>
+          <%})%>
         </ul>
       </article>
     </section>
@@ -146,16 +136,5 @@ document.getElementById('container__block').scrollLeft += 20;
    <footer class="footer">
     <%- include('partials/footer.ejs')%>
    </footer>
-    <script>
-      const navMenu = document.querySelector("#navMenu");
-      const navToggle = document.querySelector(".nav-menu-list");
-
-      navMenu.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-      });
-      navMenu.addEventListener("click", () => {
-        navToggle.classList.toggle("nav-menu_visible");
-      });
-    </script>
   </body>
   </html>
