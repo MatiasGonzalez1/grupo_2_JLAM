@@ -109,6 +109,32 @@ const productController = {
         res.redirect('/product/all-products');
     },
 
+    crearProducto: (req, res) =>{
+
+        let generadorId;
+        productos.length === 0? generadorId = productos.length : generadorId = (productos.at(-1).id_producto)+1;
+
+        let newDataProduct = {
+            id_producto: generadorId,
+            nombre_producto: req.body.fnombre,
+            categoria: req.body.fcategoria,
+            anio_cosecha: req.body.fcoseAnio,
+            variedad: req.body.fvariedad,
+            crianza: req.body.fcrianza,
+            potencial_guarda: req.body.fguarda,
+            nota_cata: req.body.fnotacata,
+            imagen_producto: req.file.filename,
+            precio: Number(req.body.fprecio),
+            stock: Number(req.body.fstock),
+        }
+
+        productos.push(newDataProduct);
+
+        let productosJson = JSON.stringify(productos);
+        fs.writeFileSync(path.join(__dirname,'../models/data/products.json'), productosJson);
+        res.redirect('/product/all-products');
+    },
+
     eliminarProducto: (req,res) => {
         let id = req.params.id;
         let coincidencia = productos.filter((producto) => producto.id_producto != id);
