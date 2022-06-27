@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="icon" type="img/png" href="/img/logo-web-icon.png">
     <link rel="stylesheet" href="/css/admin.css" />
-    <title>Carrito de Compras - Terra Rossa</title>
+    <title>Crear Producto - Terra Rossa</title>
 </head>
 <body>
     <!-- seccion barra de navegacion -->
@@ -39,16 +39,16 @@
                 <div class="filter__container">
                     <h3 class="new__product__tittle">Nuevo producto</h3>
                 </div>
-                <form class="form__scroll">
+                <form class="form__scroll" method="POST" action="/product/new-product" enctype="multipart/form-data">
                     <div class="new__prod__container">
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fnombre">Nombre del producto</label>
-                                <input type="text" id="fnombre" placeholder="">
+                                <input type="text" name="fnombre" placeholder="">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fcategory">Categoría</label>
-                                <select id="fcategoria">
+                                <select name="fcategoria">
                                   <option selected disabled>Seleccione una categoría</option>
                                   <option value="tintos">Tinto</option>
                                   <option value="blancos">Blanco</option>
@@ -60,46 +60,46 @@
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fharYear">Año de cosecha</label>
-                                <input type="numbre" id="fcoseAnio" placeholder="">
+                                <input type="numbre" name="fcoseAnio" placeholder="">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fvariety">Variedad</label>
-                                <input type="text" id="fvariedad" placeholder="">
+                                <input type="text" name="fvariedad" placeholder="">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fcrianza">Crianza</label>
-                                <input type="text" id="fcrianza" placeholder="">
+                                <input type="text" name="fcrianza" placeholder="">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fguarda">Potencial de guarda</label>
-                                <input type="text" id="fguarda" placeholder="">
+                                <input type="text" name="fguarda" placeholder="">
                             </div>
                         </div>
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fnotacata">Nota de cata</label>
-                                <textarea placeholder="" name="fnotacata"  rows="4">  </textarea>
+                                <textarea placeholder="" name="fnotacata"  rows="4"></textarea>
                             </div>
                         </div>
     
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fprodfoto">Imagen del producto</label>
-                                <input type="file" id="fprodfoto">
+                                <input type="file" name="fprodfoto">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fprecio">Precio</label>
-                                <input type="number" id="fprecio" placeholder="">
+                                <input type="number" name="fprecio" placeholder="">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fstock">Stock</label>
-                                <input type="number" id="fstock" placeholder="">
+                                <input type="number" name="fstock" placeholder="">
                             </div>
                         </div>
                         <div>
                             <div class="new__prod__ind" id="newbuttons">
                                 <a id="cancel" type="button" href="/users/admin">Cancelar</a>
-                                <input id="create" type="button" value="Crear producto">
+                                <input id="create" type="submit" value="Crear producto">
                             </div>
                         </div>
                     </div>
