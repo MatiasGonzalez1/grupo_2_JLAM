@@ -10,7 +10,7 @@ routes.get('/product-cart/:id?', productController.carrito);
 routes.get('/product-detail/:id', productController.detalle);
 routes.get('/all-products', productController.cargarProductos);
 
-
+// nuevo producto
 routes.get('/new-product', productController.nuevoProducto);
 routes.post('/new-product', upload.single('fprodfoto'), productController.crearProducto);
 

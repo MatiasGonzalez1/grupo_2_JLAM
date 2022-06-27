@@ -69,7 +69,7 @@
       <div class="catalogo__conteiner">
         <% productos.forEach(producto => { %>
               <article class="cata__products">
-          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
+          <img class="cataimg__product" src="/img/productImg/<%= producto.imagen_producto%>" alt="aqui va la foto">
           <p class="cataname__product"> <%= producto.nombre_producto %></p>
           <p class="cataprecio__product"> <%= producto.precio %> </p>
           <div class="container__buttons">
