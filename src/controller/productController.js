@@ -134,18 +134,7 @@ const productController = {
         fs.writeFileSync(path.join(__dirname,'../models/data/products.json'), productosJson);
         res.redirect('/product/all-products');
     },
-
-    eliminarProducto: (req,res) => {
-        let id = req.params.id;
-        let coincidencia = productos.filter((producto) => producto.id_producto != id);
-        
-        fs.writeFileSync(
-        path.join(__dirname, '../models/data/products.json'),
-        JSON.stringify(coincidencia)
-    )
-    res.render(path.join(__dirname,"../views/products/updateProduct.ejs"), {coincidencia: coincidencia});
-    },
-
+    
     cargarProductos: (req, res) =>{
         res.render(path.join(__dirname, '../views/products/all-products.ejs'), { productos: productos });
     },

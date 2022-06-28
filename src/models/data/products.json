@@ -180,5 +180,70 @@
         "imagen_producto": "brut-nature.png",
         "precio": 11984,
         "stock": 100
+    },
+    {
+        "id_producto": 15,
+        "nombre_producto": "Terra Rossa Extra Brut",
+        "categoria": "Espumantes",
+        "anio_cosecha": 2018,
+        "variedad": "75% Chardonnay, 25% Pinot Noir de Tupungato",
+        "crianza": "18 meses sobre lías",
+        "potencial_guarda": "1 año",
+        "nota_cata": "Dorado ámbar suave y brillante. Burbujas pequeñas y persistentes. Su delicada paleta aromática la forman dejos a fruta blanca y pan tostado. Fresco, atractivo y con buen volumen en boca.",
+        "imagen_producto": "extra-brut.png",
+        "precio": 15422,
+        "stock": 70
+    },
+    {
+        "id_producto": 16,
+        "nombre_producto": "Reliquias Rosé de Malbec",
+        "categoria": "Especiales",
+        "anio_cosecha": 2021,
+        "variedad": "100% Malbec de Gualtallary",
+        "crianza": "El 10% de este vino fue fermentado en barrica por 2 meses con trabajo sobre lías",
+        "potencial_guarda": "3 años",
+        "nota_cata": "Un sutil perfil avainillado enmarca las notas a frutas rojas frescas (cereza, frutilla y grosella) cómo también encontramos elegantes notas florales que lo hacen distinto al resto. Fácil de beber, es amable y sofisticado. Fresco y suave en boca.",
+        "imagen_producto": "reliquias-rose.png",
+        "precio": 6220,
+        "stock": 100
+    },
+    {
+        "id_producto": 17,
+        "nombre_producto": "Reliquias Encabezado de Malbec (dulce)",
+        "categoria": "Especiales",
+        "anio_cosecha": 2015,
+        "variedad": "100% Malbec de Gualtallary",
+        "crianza": "18 meses en barricas de roble francés",
+        "potencial_guarda": "20 años",
+        "nota_cata": "Rubí muy profundo, con matices violáceos y púrpura. Una compleja combinación de aromas gana la nariz: frutas rojas y negras frescas (frutillas, cassis, mora, arándanos), cacao amargo, torrefactos (café), junto al perfume propio del aguardiente utilizado. En la boca, se reiteran los precursores descriptos y también aparecen sabores frutales con­tados (higos). Los taninos se mantienen fi­rmes y medianamente sucrosos. Este vino fue añejado en barricas nuevas de roble francés por 18 meses y podrá continuar su crianza en botella por más de dos décadas.",
+        "imagen_producto": "reliquias-malbec-dulce.png",
+        "precio": 4216,
+        "stock": 100
+    },
+    {
+        "id_producto": 18,
+        "nombre_producto": "Reliquias Doux",
+        "categoria": "Especiales",
+        "anio_cosecha": 2020,
+        "variedad": "85% Gewürztraminer, 15% Riesling de Valle de Uco",
+        "crianza": "15 meses el 50% del corte en Roble Francés",
+        "potencial_guarda": "3 años",
+        "nota_cata": "Amarillo dorado límpido, brillante. Este vino -naturalmente dulce- se obtiene a partir de la sobremaduración de las uvas (cosecha tardía), unida a la acción del hongo Botrytis cinerea. Esta cepa afecta el racimo, deshidratando al extremo cada grano y permitiendo -en simultáneo- el máximo incremento del nivel de azúcar de las uvas. El resultado es un vino de aroma singular (flores, manzana verde, membrillos horneados, miel de abeja), dueño de una complejidad excepcional.",
+        "imagen_producto": "reliquias-doux.png",
+        "precio": 3415,
+        "stock": 100
+    },
+    {
+        "id_producto": 19,
+        "nombre_producto": "Reserve Pinot Noir",
+        "categoria": "Tintos",
+        "anio_cosecha": 2019,
+        "variedad": "100% Pinot Noir de Valle de Uco",
+        "crianza": "12 meses el 30% del corte en roble francés",
+        "potencial_guarda": "5 años",
+        "nota_cata": "Intenso y profundo color rubí. En nariz encontramos delicadas notas florales que nos recuerdan a violetas, y frutas rojas frescas como frambuesas. En la boca, estos aromas se vuelven finamente complejos, con acentos ahumados y un dejo mineral en su largo y persistente final.",
+        "imagen_producto": "reserva-pinot-noir.png",
+        "precio": 8171,
+        "stock": 100
     }
 ]

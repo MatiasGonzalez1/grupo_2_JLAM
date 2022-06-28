@@ -367,7 +367,9 @@ main {
 }
 
 .pd__img img {
-    width: 200px;
+    width: 100%;
+    height: auto;
+
 }
 
 #zoomC {
@@ -1679,21 +1681,14 @@ li datalist option {
     }
 
     .pd__img {
-        width: 320px;
-        height: 500px;
+        width: 200px;
+        height: auto;
     }
 
     .pd__img img {
-        width: 200px;
+        width: 100%;
+        height: auto;
     }
-
-    #zoomC {
-        background: url("../img/espumante.png");
-        background-position: center;
-        background-size: 220px auto;
-        background-repeat: no-repeat;
-    }
-
     .pd__info {
         width: 400px;
     }
@@ -2222,7 +2217,7 @@ li datalist option {
 
     .news .subtitle {
         margin: 0 0 50px 0;
-        font-size: 40px;
+        font-size: 30px;
         font-weight: bold;
     }
 
@@ -2400,16 +2395,9 @@ li datalist option {
     }
 
     .pd__img img {
-        width: 200px;
+        width: 100%;
+        height: auto;
     }
-
-    #zoomC {
-        background: url("../img/espumante.png");
-        background-position: center;
-        background-size: 220px auto;
-        background-repeat: no-repeat;
-    }
-
     .pd__info {
         width: 400px;
     }
