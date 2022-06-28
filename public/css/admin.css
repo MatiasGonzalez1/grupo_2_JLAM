@@ -346,6 +346,9 @@ a#cancel{
 }
 #create{
     background-color: #ff452c;
+    padding: 0% 3%;
+    margin-left: 2%;
+    font-size: 12px;
 }
 #delete{
     background-color: #cc3333;
