@@ -5,12 +5,20 @@ let newsjson = fs.readFileSync(
     path.join(__dirname, "../models/data/newsBlog.json"),
     { encoding: "utf-8" }
 );
+let archivoProductos = fs.readFileSync(
+    path.join(__dirname, "../models/data/products.json"),
+    { encoding: "utf-8" }
+);
+
 let news = JSON.parse(newsjson);
+let productos = JSON.parse(archivoProductos);
 
 const mainController = {
 
     index: (req,res) =>{
-        res.render(path.join(__dirname, '../views/index.ejs'),{news:news})
+        
+        let selecciones = productos.slice(-4);
+        res.render(path.join(__dirname, '../views/index.ejs'),{selecciones:selecciones, news:news})
     },
 
     blog: (req,res) =>{
