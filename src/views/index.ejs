@@ -81,7 +81,7 @@
     <article class="block">
         <p class="selection__type" ><%= seleccion.nombre_producto %></p>       
       <img class="selection__product" src="/img/productImg/<%= seleccion.imagen_producto %>" alt="Aqui va la imagen">
-      <a class="selection__botomver" href="/product/product-detail" target="ver.productoDetail">VER PRODUCTO</a>
+      <a class="selection__botomver" href="/product/product-detail/<%= seleccion.id_producto %>" target="ver.productoDetail">VER PRODUCTO</a>
     </article>
   <% }); %>
 <!--<script>
