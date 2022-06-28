@@ -77,33 +77,13 @@
   <div class="selection__nextbuttonRight"> <i class="fa-solid fa-caret-right"></i></div>
 </div>
 <div class="container__block">
+  <% selecciones.forEach(seleccion => { %>
     <article class="block">
-    <p class="selection__mark" > Terra Rossa</p>
-    <p class="selection__type" > Cabernet Sauvignon</p>         
-    <img class="selection__product" src="/img/malbec.png" alt="Aqui va la imagen">
-    <a  class="selection__botomver" href="/product/product-detail" target="ver.productoDetail">VER PRODUCTO</a>
-    
-</article>
-<article class="block">
-  <p class="selection__mark" >Terra Rossa</p>
-    <p class="selection__type" > Cabernet Sauvignon</p> 
-  <img class="selection__product" src="/img/merlot.png" alt="Aqui va la imagen">
-  <a  class="selection__botomver" href="/product/product-detail" target="ver.productoDetail">VER PRODUCTO</a>
-  
-</article>
-<article class="block">
-  <p class="selection__mark">Terra Rossa</p>
-    <p class="selection__type" > Cabernet Sauvignon</p>       
-  <img class="selection__product" src="/img/pinot-noir.png" alt="Aqui va la imagen">
-  <a class="selection__botomver" href="/product/product-detail" target="ver.productoDetail">VER PRODUCTO</a>
-  
-</article>
-<article class="block">
-  <p class="selection__mark" >Terra Rossa</p>
-    <p class="selection__type" > Cabernet Sauvignon</p>         
-  <img class="selection__product" src="/img/chardonay-bottle.png" alt="Aqui va la imagen"> 
-  <a class="selection__botomver" href="/product/product-detail" target="ver.productoDetail">VER PRODUCTO </a>
-</article>
+        <p class="selection__type" ><%= seleccion.nombre_producto %></p>       
+      <img class="selection__product" src="/img/productImg/<%= seleccion.imagen_producto %>" alt="Aqui va la imagen">
+      <a class="selection__botomver" href="/product/product-detail" target="ver.productoDetail">VER PRODUCTO</a>
+    </article>
+  <% }); %>
 <!--<script>
 const button = document.getElementById('next');
 

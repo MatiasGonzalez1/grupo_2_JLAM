@@ -826,7 +826,8 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .container__block p {
-    font-style: italic;
+    font-size: 14px;
+    font-weight: bold;
 }
 
 .block {
