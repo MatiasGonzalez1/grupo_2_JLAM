@@ -28,7 +28,7 @@
           </div>
           <% productOnCart.forEach(producto => { %>
           <div class="cart__product">
-            <img src="<%producto.imagen_producto%>" alt="imagen preview del producto" />
+            <img src="/img/productImg/<%= producto.imagen_producto%>" alt="imagen preview del producto" />
             <div class="cart__productdetail">
               <p><span><%=producto.nombre_producto%></span></p>
               <div class="cart__buttons">
