@@ -277,7 +277,7 @@ main {
     top: 20px;
     width: 40%;
     text-align: left;
-    color: wheat;
+    color: white;
     align-items: center;
 }
 
@@ -2084,12 +2084,12 @@ li datalist option {
         align-items: center;
         top: unset;
         left: unset;
-        margin-right: 20vw;
+        margin-right: 22vw;
         transition: bottom .70s;
     }
 
     .nav-bar .icon {
-        margin-right: 5vw;
+        margin-right: 2vw; 
         flex-wrap: wrap;
     }
 
@@ -2303,7 +2303,7 @@ li datalist option {
         left: 60px;
         top: 100px;
         text-align: left;
-        color: #2B2B2B;
+        color: white;
     }
 
     .slider02__text h2 {
@@ -2832,7 +2832,9 @@ li datalist option {
     }
 
     .pd__img img {
-        width: 200px;
+        width: 100%;
+        height: auto;
+        padding: 20px;
     }
 
     #zoomC {

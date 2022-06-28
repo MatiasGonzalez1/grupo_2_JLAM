@@ -1,29 +1,29 @@
-[   
+[
     {
-        "id_producto":1,
-        "nombre_producto":"Colección Terra Rossa Malbec",
-        "categoria":"Tintos",
-        "anio_cosecha":2019,
-        "variedad":"100% Malbec",
-        "crianza":"12 meses en roble francés",
-        "potencial_guarda":"6 años",
-        "nota_cata":"Rojo granate intenso y concentrado, con destellos violáceos. La impetuosa nariz típica de la variedad regala además armonías florales (violeta) y notas de frutos rojos y negros frescos (cereza, cassis). En boca, los taninos se encuentran bien presentes, destacándose el cacao amargo y frutas maceradas. Intenso y complejo, es dueño de una muy lograda acidez.",
-        "imagen_producto":"https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
-        "precio":5460,
-        "stock":100
+        "id_producto": 1,
+        "nombre_producto": "Colección Terra Rossa Malbec",
+        "categoria": "Tintos",
+        "anio_cosecha": 2019,
+        "variedad": "100% Malbec",
+        "crianza": "12 meses en roble francés",
+        "potencial_guarda": "6 años",
+        "nota_cata": "Rojo granate intenso y concentrado, con destellos violáceos. La impetuosa nariz típica de la variedad regala además armonías florales (violeta) y notas de frutos rojos y negros frescos (cereza, cassis). En boca, los taninos se encuentran bien presentes, destacándose el cacao amargo y frutas maceradas. Intenso y complejo, es dueño de una muy lograda acidez.",
+        "imagen_producto": "malbec.png",
+        "precio": 5460,
+        "stock": 100
     },
     {
-        "id_producto":2,
-        "nombre_producto":"Colección Terra Rossa Merlot",
-        "categoria":"Tintos",
-        "anio_cosecha":2017,
-        "variedad":"100% Merlot",
-        "crianza":"12 meses en roble francés",
-        "potencial_guarda":"15 años",
-        "nota_cata":"Rubí intenso y brillante. Los acentos de fruta negra (moras) irrumpen en la nariz, junto a otros matices aromáticos (humo, cuero) y al elegante marco vainillado que lo hace tan seductor. En el paladar, los clásicos resabios al “pastel de frutas” (ciruela pasa) forman parte de una entrada suculenta y sabrosa, bien equilibrada con taninos firmes, aunque suaves. Un tinto expresivo bien definido por su lograda tipicidad varietal.",
-        "imagen_producto":"https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
-        "precio":5570,
-        "stock":90
+        "id_producto": 2,
+        "nombre_producto": "Colección Terra Rossa Merlot",
+        "categoria": "Tintos",
+        "anio_cosecha": 2017,
+        "variedad": "100% Merlot",
+        "crianza": "12 meses en roble francés",
+        "potencial_guarda": "15 años",
+        "nota_cata": "Rubí intenso y brillante. Los acentos de fruta negra (moras) irrumpen en la nariz, junto a otros matices aromáticos (humo, cuero) y al elegante marco vainillado que lo hace tan seductor. En el paladar, los clásicos resabios al “pastel de frutas” (ciruela pasa) forman parte de una entrada suculenta y sabrosa, bien equilibrada con taninos firmes, aunque suaves. Un tinto expresivo bien definido por su lograda tipicidad varietal.",
+        "imagen_producto": "merlot.png",
+        "precio": 5570,
+        "stock": 90
     },
     {
         "id_producto": 3,
@@ -34,7 +34,7 @@
         "crianza": "12 meses el 20% del corte en roble francés",
         "potencial_guarda": "8 años",
         "nota_cata": "Púrpura de media intensidad, con matices rojos. Aromas sutiles a frutas rojas frescas (cereza, frutilla, arándanos) unidos a otros más complejos que evocan el bosque, ahumados, cuero y tabaco. En el paladar, deja una sensación aterciopelada, en la que perdura el recuerdo de frutas secas (avellana).",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "pinot-noir.png",
         "precio": 4017,
         "stock": 100
     },
@@ -47,7 +47,7 @@
         "crianza": "14 meses el 20% del corte en roble francés ",
         "potencial_guarda": "10 años",
         "nota_cata": "Rojo rubí brillante. En nariz muy aromático donde resaltan notas a fruta negra y el típico pimiento verde, propio de la variedad.Vigoroso en boca descubre sabores frutados y especiados, finalizando en un postgusto intenso y agradable.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "cabernet.png",
         "precio": 5365,
         "stock": 85
     },
@@ -60,7 +60,7 @@
         "crianza": "12 meses el 20% del corte en roble francés",
         "potencial_guarda": "8 años",
         "nota_cata": "Rojo intenso, con matices azulados. En nariz, se presentan los aromas frutados como la ciruela y los frutos rojos maduros combinados con el anís y la vainilla. En boca se resaltan las notas especiadas. Los taninos, muy presentes pero amables, destacan su personalidad.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "syrah.png",
         "precio": 4976,
         "stock": 100
     },
@@ -73,7 +73,7 @@
         "crianza": "12 meses el 30% del corte en roble francés ",
         "potencial_guarda": "5 años",
         "nota_cata": "Rojo rubí intenso y brillante. Una amplia y fresca paleta aromática domina la nariz (flores, fruta roja, frutos negros maduros). Hay evocación a especias (vainilla) en los sabrosos taninos que aseguran un final de boca atractivo y suculento.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "tempranillo.png",
         "precio": 3206,
         "stock": 100
     },
@@ -86,7 +86,7 @@
         "crianza": "12 meses en roble francés",
         "potencial_guarda": "10 años",
         "nota_cata": "De color dorado intenso con reflejos verdosos. En nariz, ofrece aromas a frutas tropicales acompañadas con notas de vainilla y miel, aportadas por el tiempo de crianza en barrica.En boca, se confirma la paleta aromática de este vino untuoso, complejo y de persistente final.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "chardonnay.png",
         "precio": 7884,
         "stock": 100
     },
@@ -99,7 +99,7 @@
         "crianza": "6 meses el 10% del corte en roble francés",
         "potencial_guarda": "3 años",
         "nota_cata": "Amarillo cristalino, con matices verdosos y dorados. Sus aromas remiten a frutas blancas y citrus, con un fino toque de anís. Fresco y untuoso, su óptima acidez descubre un final de boca franco, de muy buena persistencia.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "grigio.png",
         "precio": 2720,
         "stock": 100
     },
@@ -112,7 +112,7 @@
         "crianza": "6 meses el 10% del corte en roble francés",
         "potencial_guarda": "3 años",
         "nota_cata": "Amarillo verdoso, con reflejos dorados. Las notas florales sobresalen y aparecen amalgamadas junto a frescas frutas de carozo (durazno, damasco) y leves notas tropicales que recuerdan al ananá. En boca, es de gran untuosidad, envolvente y con un final perfumado y persistente.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "viognier.png",
         "precio": 2612,
         "stock": 100
     },
@@ -125,7 +125,7 @@
         "crianza": "12 meses el 30% del corte en roble francés",
         "potencial_guarda": "8 a 10 años",
         "nota_cata": "Es un vino de color amarillo dorado con brillantes reflejos verdosos. En nariz se perciben los aromas exuberantes a melón fresco y durazno blanco, combinados con notas de frutas tropicales, compañía perfecta para las notas cítricas y florales. Su entrada dulce es equilibrada debido a su crianza en roble. Es un vino muy armonioso, elegante y cremoso con gran amplitud en boca, impacta con un toque dulce y una acidez refrescante.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "blend.png",
         "precio": 4499,
         "stock": 90
     },
@@ -138,7 +138,7 @@
         "crianza": "El 10% fue fermentado en barrica 2 meses de trabajo sobre lías",
         "potencial_guarda": "10 años",
         "nota_cata": "De color dorado intenso con reflejos verdosos. En nariz, ofrece aromas a frutas tropicales acompañadas con notas de vainilla y miel, aportadas por el tiempo de crianza en barrica.En boca, se confirma la paleta aromática de este vino untuoso, complejo y de persistente final.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "rose-malbec.png",
         "precio": 6700,
         "stock": 60
     },
@@ -151,7 +151,7 @@
         "crianza": "4 meses el 10% del corte en roble francés",
         "potencial_guarda": "7 años",
         "nota_cata": "Amarillo brillante con tonalidades verdosas sutiles. En nariz revela aromas cítricos y de manzana verde; notas de miel y azahares aparecen al final. En boca la entrada es seca, fresca y aromática. Presenta sabores en consonancia con los aromas percibidos en nariz sumando una fina nota de tilo. La acidez lograda nos hace esperar una longevidad interesante. El final es largo y persistente pero a la vez refrescante.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "riesling.png",
         "precio": 9840,
         "stock": 50
     },
@@ -164,7 +164,7 @@
         "crianza": "15 meses el 50% en roble francés",
         "potencial_guarda": "10 años",
         "nota_cata": "Amarillo dorado límpido, brillante. Este vino -naturalmente dulce- se obtiene a partir de la sobremaduración de las uvas (cosecha tardía), unida a la acción del hongo Botrytis cinerea. Esta cepa afecta el racimo, deshidratando al extremo cada grano y permitiendo -en simultáneo- el máximo incremento del nivel de azúcar de las uvas. El resultado es un vino de aroma singular (flores, manzana verde, membrillos horneados, miel de abeja), dueño de una complejidad excepcional.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "vin-doux-naturel.png",
         "precio": 8624,
         "stock": 100
     },
@@ -177,7 +177,7 @@
         "crianza": "9 meses el 30% en roble francés",
         "potencial_guarda": "4 años",
         "nota_cata": "Dorado ámbar suave y brillante, con reflejos verdosos. Finas y permanentes burbujas aparecen en la copa, mientras se desprenden notas aromáticas de elegante complejidad en las que sobresale la del pan recién horneado. En boca fresco y equilibrado, refleja un balance bien logrado entre acidez y mínimo tenor de azúcar que nos deja un agradable final.",
-        "imagen_producto": "https://robohash.org/nequecupiditateperferendis.png?size=100x100&set=set1",
+        "imagen_producto": "brut-nature.png",
         "precio": 11984,
         "stock": 100
     }
