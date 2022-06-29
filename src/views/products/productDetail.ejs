@@ -10,22 +10,29 @@
       <%- include('../partials/nav.ejs')%>
     </header>
   <!-- fin seccion barra de navegacion -->
-
+  
+  <% 
+  const formatter = new Intl.NumberFormat("es-AR", { 
+    style: "decimal",
+    minimumFractionDigits: 2,
+  }); 
+  %>
    <!-- contenedor detalle de producto -->
    <div class="container__pd">
     <div class="pd__section">
         <div class="pd__img" id="zoomC">
+          <img src="/img/productImg/<%= coincidencia.imagen_producto %>" alt="imagen del producto">
         </div>
         <div class="pd_center">
-            <article class="pd__info">
-                <h2>Terra Rossa Chardonnay</h2> <span></span>
-                <p><span>AÑO COSECHA: </span> 2018, <span> VARIEDAD: </span> 100% Chardonnay, <span> CRIANZA: </span> 10 meses en barrica de roble francés, <span> POTENCIAL DE GUARDA: </span> 5 años.</p>
-                <h3>NOTAS DE CATA</h3>
-                <p>Tablas de quesos blandos y semiblandos,(camembert, brie, gruyere), fiambres, ahumados. Pescados del mar (rosado blanco y rosado, chernia) centolla y langostinos. Aves, risottos y ensaladas mediterráneas.</p>
-            </article>
+          <article class="pd__info">
+            <h2><%= coincidencia.nombre_producto%></h2> <span></span>
+            <p><span>AÑO COSECHA: </span> <%= coincidencia.anio_cosecha%>, <span> VARIEDAD: </span> <%= coincidencia.variedad%>, <span> CRIANZA: </span> <%= coincidencia.crianza%>, <span> POTENCIAL DE GUARDA: </span> <%= coincidencia.potencial_guarda%>.</p>
+            <h3>NOTAS DE CATA</h3>
+            <p><%= coincidencia.nota_cata%></p>
+          </article>
             
             <form class="pd_buysection">
-                <p><span>$12.000,00</span> Ahorro de $2.474,00</p>
+                <p><span>$ <%= formatter.format(coincidencia.precio)%></span></p>
                 <!-- seleccion de producto- incremento y decremento -->
                 <div>
                   <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
@@ -35,7 +42,7 @@
                 <!-- fin seleccion de producto- incremento y decremento -->
                 <div class="cart__btn">
                   <i class="fa-solid fa-cart-shopping"></i>
-                  <a href="#">agregar al carrito</a>
+                  <a href="/product/product-cart/<%= coincidencia.id_producto%>">agregar al carrito</a>
                 </div>
             </form>
         </div>

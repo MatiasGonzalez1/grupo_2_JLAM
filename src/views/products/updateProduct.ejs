@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="icon" type="img/png" href="/img/logo-web-icon.png">
     <link rel="stylesheet" href="/css/admin.css" />
-    <title>Carrito de Compras - Terra Rossa</title>
+    <title>Actualizar Producto - Terra Rossa</title>
 </head>
 <body>
     <!-- seccion barra de navegacion -->
@@ -39,69 +39,70 @@
                 <div class="filter__container">
                     <h3 class="new__product__tittle">Actualizar producto</h3>
                 </div>
-                <form class="form__scroll">
+                <form class="form__scroll" method="POST" action="/product/update-product?_method=PUT">
                     <div class="new__prod__container">
                         <div class="new__prod__subgroup">
+                            <input type="hidden"name="fid" value="<%= coincidencia.id_producto%>">
                             <div class="new__prod__ind">
                                 <label for="fnombre">Nombre del producto</label>
-                                <input type="text" id="fnombre" placeholder="">
+                                <input type="text" name="fnombre" value="<%= coincidencia.nombre_producto%>">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fcategory">Categoría</label>
-                                <input type="text" id="fcategoria" placeholder="">
+                                <input type="text" name="fcategoria" value="<%= coincidencia.categoria%>">
                             </div>
                         </div>
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fharYear">Año de cosecha</label>
-                                <input type="text" id="fcoseAnio" placeholder="">
+                                <input type="text" name="fcoseAnio" value="<%= coincidencia.anio_cosecha%>">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fvariety">Variedad</label>
-                                <input type="text" id="fvariedad" placeholder="">
+                                <input type="text" name="fvariedad"  value="<%= coincidencia.variedad%>">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fcrianza">Crianza</label>
-                                <input type="text" id="fcrianza" placeholder="">
+                                <input type="text" name="fcrianza" value="<%= coincidencia.crianza%>">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fguarda">Potencial de guarda</label>
-                                <input type="text" id="fguarda" placeholder="">
+                                <input type="text" name="fguarda" value="<%= coincidencia.potencial_guarda%>">
                             </div>
                         </div>
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fnotacata">Nota de cata</label>
-                                <textarea placeholder="" name="fnotacata"  rows="4">  </textarea>
+                                <textarea name="fnotacata"  rows="4"><%= coincidencia.nota_cata%>  </textarea>
                             </div>
                         </div>
     
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind ">
-                                <img src="/img/espumante.png" alt="">
+                                <img src="/img/productImg/<%= coincidencia.imagen_producto%>" alt="">
                             </div>
                             <div class="new__prod__ind ">
                                 <label for="fprodfoto">Imagen del producto</label>
-                                <input type="file" id="fprodfoto">
+                                <input type="file" name="fprodfoto">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fprecio">Precio</label>
-                                <input type="text" id="fprecio" placeholder="">
+                                <input type="text" name="fprecio" placeholder="" value="<%= coincidencia.precio%>">
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fstock">Stock</label>
-                                <input type="text" id="fstock" placeholder="">
+                                <input type="text" name="fstock" value="<%= coincidencia.stock%>">
                             </div>
                         </div>
                         <div>
                             <div class="new__prod__ind" id="newbuttons">
-                                <a id="cancel" type="button" href="/users/admin">Cancelar</a>
-                                <input id="delete" type="button" value="Eliminar producto">
-                                <input id="create" type="button" value="Actualizar producto">
+                                <a id="cancel" type="button" href="/product/all-products">Cancelar</a> 
+
+
+                                <input type="submit" id="create" value="Actualizar producto">
                             </div>
                         </div>
                     </div>
-
 
                 </form>
             </section>

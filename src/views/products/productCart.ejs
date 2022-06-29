@@ -10,7 +10,12 @@
       <%- include('../partials/nav.ejs')%>
     </header>
     <!-- fin seccion barra de navegacion -->
-
+    <% 
+  const formatter = new Intl.NumberFormat("es-AR", { 
+    style: "decimal",
+    minimumFractionDigits: 2,
+  }); 
+  %>
     <!-- carrito de compras -->
     <section class="margin__nav">
       <h1 class="cart__title">carrito</h1>
@@ -21,12 +26,13 @@
             <p>precio</p>
             <p>cantidad</p>
           </div>
+          <% productOnCart.forEach(producto => { %>
           <div class="cart__product">
-            <img src="/img/pinot-noir.png" alt="imagen preview del producto" />
+            <img src="/img/productImg/<%= producto.imagen_producto%>" alt="imagen preview del producto" />
             <div class="cart__productdetail">
-              <p><span>Terra Rossa Cabernet Sauvignon</span></p>
+              <p><span><%=producto.nombre_producto%></span></p>
               <div class="cart__buttons">
-                <p>$2.650,00</p>
+                <p>$<%= formatter.format(producto.precio)%></p>
                 <form action="">
                   <select>
                     <option selected value="1">1</option>
@@ -37,50 +43,13 @@
                     <option value="48">48</option>
                   </select>
                 </form>
-                <i class="fa-regular fa-trash-can"></i>
-              </div>
-            </div>
-          </div>
-          <div class="cart__product">
-            <img src="/img/pinot-noir.png" alt="imagen preview del producto" />
-            <div class="cart__productdetail">
-              <p><span>Terra Rossa Cabernet Sauvignon</span></p>
-              <div class="cart__buttons">
-                <p>$2.650,00</p>
-                <form action="">
-                  <select>
-                    <option selected value="1">1</option>
-                    <option value="3">3</option>
-                    <option value="6">6</option>
-                    <option value="12">12</option>
-                    <option value="24">24</option>
-                    <option value="48">48</option>
-                  </select>
+                <form method="POST" action="/product/product-cart/<%=producto.id_producto%>?_method=DELETE">
+                <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
                 </form>
-                <i class="fa-regular fa-trash-can"></i>
               </div>
             </div>
           </div>
-          <div class="cart__product">
-            <img src="/img/pinot-noir.png" alt="imagen preview del producto" />
-            <div class="cart__productdetail">
-              <p><span>Terra Rossa Cabernet Sauvignon</span></p>
-              <div class="cart__buttons">
-                <p>$2.650,00</p>
-                <form action="">
-                  <select>
-                    <option selected value="1">1</option>
-                    <option value="3">3</option>
-                    <option value="6">6</option>
-                    <option value="12">12</option>
-                    <option value="24">24</option>
-                    <option value="48">48</option>
-                  </select>
-                </form>
-                <i class="fa-regular fa-trash-can"></i>
-              </div>
-            </div>
-          </div>
+          <% })   %> 
         </div>
         <div class="cart__section--media">
           <div class="cart__minisection">
@@ -96,12 +65,19 @@
             <div class="container__total">
               <div class="total__detail">
                 <p>subtotal:</p>
-                <p>$ 15.781,00</p>
+                <% for(let i=0; i < productOnCart.length; i++){%>
+                  <p>$ 
+                    <%= formatter.format(productOnCart[i].precio)%></p>
+                <%}%>
               </div>
               <div class="total__detail">
                 <p><span>total:</span></p>
                 <div>
-                  <p><span>$ 14.781,00 </span></p>
+                  <p>$<% let count = 0; for(let i=0; i < productOnCart.length; i++){%>
+                    <% count = count + productOnCart[i].precio%>
+                  <%}%>
+                  <span><%=formatter.format(count)%></span>
+                  </p>
                   <div class="total__message">
                     <p>iva no incluido</p>
                   </div>

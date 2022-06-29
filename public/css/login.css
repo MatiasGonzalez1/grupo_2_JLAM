@@ -22,6 +22,8 @@
     height: auto;
     max-width: 200px;
     padding-top: 20px;
+    position: relative;
+    z-index: 5;
 }
 
 body{
@@ -148,21 +150,21 @@ main {
     border-color: #FF452C;
 }
 
-.login {
+.register {
     position: absolute;
     opacity: 0;
     visibility: hidden;
 }
 
 .login.active {
-    opacity: 1;
-    visibility: visible;
+    opacity: 0;
+    visibility: hidden;
 
 }
 
 .register.active {
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
 }
 
 
@@ -288,21 +290,5 @@ main {
 .formulario #submit:hover{
     background-color: #FBF2E0;
     color: #333333;
-}
-
-.login {
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.login.active {
-    opacity: 1;
-    visibility: visible;
-}
-
-.register.active {
-    opacity: 0;
-    visibility: hidden;
 }
 }

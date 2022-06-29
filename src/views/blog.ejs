@@ -2,7 +2,7 @@
 <html>
 <head>
   <%- include('partials/head.ejs')%>
-    <title>Carrito de Compras - Terra Rossa</title>
+    <title>Blog - Terra Rossa</title>
 </head>
 <body>
     <!-- seccion barra de navegacion -->
@@ -42,16 +42,9 @@
       </div>
     </section>
     <!-- fin nota blog -->
-    <script>
-      const navMenu = document.querySelector("#navMenu");
-      const navToggle = document.querySelector(".nav-menu-list");
-
-      navMenu.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-      });
-      navMenu.addEventListener("click", () => {
-        navToggle.classList.toggle("nav-menu_visible");
-      }); 
-    </script>
+    <footer class="footer">
+      <%- include('partials/footer.ejs')%>
+     </footer>
+     
 </body>
 </html>

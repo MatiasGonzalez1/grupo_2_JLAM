@@ -10,6 +10,12 @@
   <header>
     <%- include('../partials/nav.ejs')%>
   </header>
+  <% 
+  const formatter = new Intl.NumberFormat("es-AR", { 
+    style: "decimal",
+    minimumFractionDigits: 2,
+  }); 
+  %>
   <section class="catalogo">
     <div class="catalogo__headertitle">
      <h1 class="catalogo__title"><strong>Catálogo</strong></h1>
@@ -21,123 +27,65 @@
       <ul class="filter-ul">
         <li><p>Precio</p></li>
         <div class="li-flex">
-        <li class="li-not num"><input type="number" placeholder="Desde" min="7000" max="30000" step="1000"></li>
-        <li class="li-not num"><input type="number" placeholder="Hasta" min="7000" max="30000" step="1000"></li>  
-        <li class="li-not submit"><button type="submit">Buscar</button></li>
+        <li class="li-not num"><input type="range" id="precio" min="5000" max="30000" step="5000" value="5000" onchange="document.getElementById('outvol') .value='Hasta ' + value" list="tickmarks">
+          <output id="outvol" name="outvol" for="vol">Hasta 5.000</output> 
+        <datalist>
+          <option value="5000" class="value"></option>
+          <option value="10000" class="value"></option>
+          <option value="15000" class="value"></option>
+          <option value="20000" class="value"></option>
+          <option value="25000" class="value"></option>
+          <option value="30000" class="value"></option>
+        </datalist>
+          
+        </li>
+        <!-- <li class="li-not num"><input type="number" placeholder="Hasta" min="7000" max="30000" step="1000"></li>   -->
+        <!-- <li class="li-not submit"><button type="submit">Buscar</button></li> -->
       </div>
       </ul>
       <ul class="filter-ul">
           <li><p>Tipo</p></li>
-          <li class="li-not"><input type="checkbox" id="" name="tipo" value=""><p>Tipo</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="tipo" value=""><p>Tipo</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="tipo" value=""><p>Tipo</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="tipo" value=""><p>Tipo</p></li>  
-          <li class="li-not submit"><button >Buscar</button></li>
+          <li class="li-not"><input type="checkbox" id="" name="tintos" value=""><p>Tintos</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="blancos" value=""><p>Blancos</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="especiales" value=""><p>Especiales</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="espumantes" value=""><p>Espumantes</p></li>  
+          <!-- <li class="li-not submit"><button >Buscar</button></li> -->
       </ul>
       <ul class="filter-ul">
         <li><p>Variedad</p></li>
         <div class="">
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Variedad</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Variedad</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Variedad</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Variedad</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Malbec</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Merlot</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Pinot Noir</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Cabernet Sauvignon</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Pinot Noir</p></li>  
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Syrah</p></li> 
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Tempranillo</p></li>
+          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Chardonnay<p></li>  
+
+
+ 
+
           <li class="li-not submit"><button>Buscar</button></li>
       </div>
       </ul>
     </div>
       </div>
+
       <div class="catalogo__conteiner">
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
+        <% productos.forEach(producto => { %>
+              <article class="cata__products">
+          <img class="cataimg__product" src="/img/productImg/<%= producto.imagen_producto%>" alt="aqui va la foto">
+          <p class="cataname__product"> <%= producto.nombre_producto %></p>
+          <p class="cataprecio__product">$ <%= formatter.format(producto.precio)%></p>
           <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
+            <a class="catabutton__agregar" href="/product/product-cart/<%= producto.id_producto%>" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
+            <a class="cata__eye" href="/product/product-detail/<%= producto.id_producto%>" target=""><i class="fa-regular fa-eye"></i></a>
           </div>
         </article>
+       <% })   %> 
+        
 
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/malbec.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/merlot.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-
-        </article>
-        <!--primeros 3 articulos-->
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/pinot-noir.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/rose-bottle.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/vin-doux-naturel.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <!--primeros 6 articulos-->
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
-
-        <article class="cata__products">
-          <img class="cataimg__product" src="/img/chardonay-bottle.png" alt="aqui va la foto">
-          <p class="cataname__product">Nombre del producto</p>
-          <p class="cataprecio__product">$14.000,00</p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart" target=""><i class="fa-solid fa-cart-shopping"></i></a>
-            <a class="cata__eye" href="/product/product-detail" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
-        </article>
       </div>
     </div>
 

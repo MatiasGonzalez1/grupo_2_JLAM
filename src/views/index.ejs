@@ -22,39 +22,37 @@
           <div class="slider__section">
               <div class="slider__text">
                   <div class="slider__hidden">
-                    <h4>Espumante</h4>
-                    <h2>brut nature</h2>
-                    <p>repellat fugiat commodi.</p>
-                    <a  href="#">ver producto</a>
+                    <span></span>
                   </div>
                   <div>
                     <h4>Espumante</h4>
                     <h2>brut nature</h2>
-                    <p>repellat fugiat commodi.</p>
-                    <a  href="#">ver producto</a>
+                    <p>Una sensación refrescante.</p>
+                    <a  href="/product/product-detail">ver producto</a>
                   </div>
                   
               </div>
               <img src="img/home-cr-01.png" alt="vino espumante" class="slider__img">
-          </div>
-          <div class="slider__section">
+          </div> 
+         <div class="slider__section">
               <div class="slider02__text">
                   <h2>Tour Tradicional</h2>
                   <h4>Degustación de 3 copas</h4>
                   <p>Visitá nuestras bodegas y degusta una selección de 3 vinos</p>
               </div>
+              <div>
+                <span></span>
+              </div>
               <img src="img/home-cr-02.png" alt="foto de bodega" class="slider__img">
           </div>
           <div class="slider__section">
               <div class="slider03__text">
-                  <h2>Sorpréndete con estos notables vinos</h2>
-                  <a  href="#">ver catálogo</a>
+                  <h2>Sorpréndete con estos vinos</h2>
+                  <a  href="/product/catalogue">ver catálogo</a>
               </div>
               <img src="img/home-cr-03.png" alt="vinos tintos" class="slider__img">
           </div>
-          
       </div>
-      
   </div>
   <!-- fin contenedor banner principal -->
 <!--Inicio seccion filolosofia-->
@@ -65,7 +63,7 @@
   </div>
   <h2>Una copa, una historia</h2>
   <div class="text-circle"><p>En <b>Terra Rossa</b> sabemos que no se puede comprar la felicidad, pero un buen vaso de vino en el momento oportuno vale más que todas las riquezas de la tierra. Por éste motivo nos dedicamos a darte siempre lo mejor, en cada momento y en cada lugar.</p>
- <img src="img/copa-vino.webp" alt="">
+ <img src="img/side-view-glass-of-red-wine-with-human-hand.jpg" alt="">
   </div>
   </div>
 </section>
@@ -73,39 +71,19 @@
 
 <!--Inicio seleccion terra rossa-->
 <section class="container__selection">
-  <div class="selection__title"><h1>SELECCION TERRA ROSSA</h1></div>
+  <div class="selection__title"><h1>SELECCIÓN TERRA ROSSA</h1></div>
   <div class="container__buttonarrow">
     <div class="selection__nextbuttonLeft"><i class="fa-solid fa-caret-left"></i></div>
   <div class="selection__nextbuttonRight"> <i class="fa-solid fa-caret-right"></i></div>
 </div>
 <div class="container__block">
+  <% selecciones.forEach(seleccion => { %>
     <article class="block">
-    <p class="selection__mark" > Terra Rossa</p>
-    <p class="selection__type" > Cabernet Sauvignon</p>         
-    <img class="selection__product" src="/img/malbec.png" alt="Aqui va la imagen">
-    <a  class="selection__botomver" href="/product/product-detail" target="ver.productoDetail">VER PRODUCTO</a>
-    
-</article>
-<article class="block">
-  <p class="selection__mark" >Terra Rossa</p>
-    <p class="selection__type" > Cabernet Sauvignon</p> 
-  <img class="selection__product" src="/img/merlot.png" alt="Aqui va la imagen">
-  <a  class="selection__botomver" href="/product/product-detail" target="ver.productoDetail">VER PRODUCTO</a>
-  
-</article>
-<article class="block">
-  <p class="selection__mark">Terra Rossa</p>
-    <p class="selection__type" > Cabernet Sauvignon</p>       
-  <img class="selection__product" src="/img/pinot-noir.png" alt="Aqui va la imagen">
-  <a class="selection__botomver" href="/product/product-detail" target="ver.productoDetail">VER PRODUCTO</a>
-  
-</article>
-<article class="block">
-  <p class="selection__mark" >Terra Rossa</p>
-    <p class="selection__type" > Cabernet Sauvignon</p>         
-  <img class="selection__product" src="/img/chardonay-bottle.png" alt="Aqui va la imagen"> 
-  <a class="selection__botomver" href="/product/product-detail" target="ver.productoDetail">VER PRODUCTO </a>
-</article>
+        <p class="selection__type" ><%= seleccion.nombre_producto %></p>       
+      <img class="selection__product" src="/img/productImg/<%= seleccion.imagen_producto %>" alt="Aqui va la imagen">
+      <a class="selection__botomver" href="/product/product-detail/<%= seleccion.id_producto %>" target="ver.productoDetail">VER PRODUCTO</a>
+    </article>
+  <% }); %>
 <!--<script>
 const button = document.getElementById('next');
 
@@ -122,24 +100,14 @@ document.getElementById('container__block').scrollLeft += 20;
       <article ><h2 class="subtitle">Novedades:</h2></article>
       <article >
         <ul class="product-news">
+          <% news.forEach(news => { %>
           <li class="item">
-            <div><img class="img" src="/img/prev-blog-01.png"></div>
-            <div class="parrafo"><p><h2 class="news-title">Nulla felis enim</h2></p>
-            <a href="/content/blog"><button>LEER MAS</button></a>
+            <div><img class="img" src="<%=news.img%>"></div>
+            <div class="parrafo"><p><h2 class="news-title"><%=news.titulo%></h2></p>
+            <a href="/content/blog/<%=news.id_novedades%>"><button>LEER MAS</button></a>
           </div>
           </li>
-          <li class="item">
-            <div><img class="img" src="/img/prev-blog-02.png"></div>
-            <div class="parrafo"><p><h2 class="news-title">Nulla felis enim</h2></p>
-              <a href="/content/blog"><button>LEER MAS</button></a>
-            </div>
-          </li>
-          <li class="item">
-            <div><a><img class="img" src="/img/prev-blog-03.png"></a></div>
-            <div class="parrafo"><p><h2 class="news-title">Nulla felis enim</h2></p>
-              <a href="/content/blog"><button>LEER MAS</button></a>
-            </div>
-          </li>
+          <%})%>
         </ul>
       </article>
     </section>
@@ -148,16 +116,5 @@ document.getElementById('container__block').scrollLeft += 20;
    <footer class="footer">
     <%- include('partials/footer.ejs')%>
    </footer>
-    <script>
-      const navMenu = document.querySelector("#navMenu");
-      const navToggle = document.querySelector(".nav-menu-list");
-
-      navMenu.addEventListener("click", () => {
-        navMenu.classList.toggle("active");
-      });
-      navMenu.addEventListener("click", () => {
-        navToggle.classList.toggle("nav-menu_visible");
-      });
-    </script>
   </body>
   </html>

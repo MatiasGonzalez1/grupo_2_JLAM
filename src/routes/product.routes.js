@@ -1,14 +1,26 @@
 const express = require('express');
 const routes = express.Router();
 const productController = require('../controller/productController');
+const upload = require('../middleware/multerMidProducts')
+
+
 
 routes.get('/catalogue', productController.catalogo);
-routes.get('/product-cart', productController.carrito);
-routes.get('/product-detail', productController.detalle);
+routes.get('/product-cart/:id?', productController.carrito);
+routes.get('/product-detail/:id', productController.detalle);
+routes.get('/all-products', productController.cargarProductos);
+
+// nuevo producto
 routes.get('/new-product', productController.nuevoProducto);
-routes.get('/update-product', productController.actualizarProducto);
+routes.post('/new-product', upload.single('fprodfoto'), productController.crearProducto);
 
+//actualizar productos
+routes.get('/update-product/:id', productController.verActualizarProducto);
+routes.put('/update-product', upload.single('fprodfoto'), productController.enviarActualizarProducto);
 
+//eliminar productos
+routes.delete('/all-products/:id', productController.delete);
 
+routes.delete('/product-cart/:id', productController.deleteCart);
 
 module.exports = routes;

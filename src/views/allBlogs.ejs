@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('partials/head.ejs')%>
+    <title>Novedades</title>
+  </head>
+  <body>
+    <!-- seccion barra de navegacion -->
+    <header><%- include('partials/nav.ejs')%></header>
+    <!-- fin seccion barra de navegacion -->
+
+    <!-- nota blog -->
+    <div class="blog-post__all">
+      <% news.forEach(news => { %>
+      <section class="blog-post__container">
+        <section class="blog-post">
+          <section class="blog-post__img">
+            <img src="<%= news.img %>" alt="" />
+          </section>
+          <section class="blog-post__info">
+            <article class="blog-post__date">
+              <span><%= news.fecha %></span>
+            </article>
+            <h1 class="blog-post__title"><%= news.titulo %></h1>
+            <p class="blog-post__text">
+              <%= news.descripcion %>
+            </p>
+            <a href="/content/blog/<%= news.id_novedades %>" class="blog-post__more">Read more</a>
+          </section>
+        </section>
+      </section>
+      <%})%>
+    </div>
+    <!-- fin nota blog -->
+    <footer class="footer"><%- include('partials/footer.ejs')%></footer>
+  </body>
+</html>

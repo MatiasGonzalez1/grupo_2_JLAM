@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%- include('partials/head.ejs')%>
+    <title>Blog - Terra Rossa</title>
+</head>
+<body>
+    <!-- seccion barra de navegacion -->
+    <header>
+      <%- include('partials/nav.ejs')%>
+    </header>
+    <!-- fin seccion barra de navegacion -->
+
+    <!-- nota blog -->
+    <section  class="margin__blog">
+      <div class="bg__container"></div>
+      <div class="blog__container">
+        <div class="blog__content">
+          <h2 class="blog__tittle"><%=newsMatch.titulo%></h2>
+          <div class="blog__img"><img src="<%=newsMatch.img%>" alt=""></div>
+          <div class="blog__text">
+            <p><%= newsMatch.descripcion %> </p>
+            <ul class="blog__list">
+                <% let texto = newsMatch.texto.split('/') %>
+                <% texto.forEach(texto =>{%>
+              <li>
+                <p><%= texto %></p>
+              </li>
+              <%})%>
+            </ul>
+          </div>
+          <div>
+            <a href="/content/all_blogs" class="cart__btn--checkout">volver</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- fin nota blog -->
+    <footer class="footer">
+      <%- include('partials/footer.ejs')%>
+     </footer>
+     
+</body>
+</html>
