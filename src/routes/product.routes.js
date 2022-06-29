@@ -16,7 +16,7 @@ routes.post('/new-product', upload.single('fprodfoto'), productController.crearP
 
 //actualizar productos
 routes.get('/update-product/:id', productController.verActualizarProducto);
-routes.put('/update-product', productController.enviarActualizarProducto);
+routes.put('/update-product', upload.single('fprodfoto'), productController.enviarActualizarProducto);
 
 //eliminar productos
 routes.delete('/all-products/:id', productController.delete);

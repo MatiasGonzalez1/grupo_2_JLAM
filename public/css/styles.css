@@ -20,7 +20,7 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100vw;
+    width: 100%;
     height: 80px;
     padding: 10px 30px;
     position: fixed;
@@ -728,6 +728,7 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 600;
     text-align: center;
     padding-bottom: 6%;
+    text-transform: uppercase;
 }
 
 .blog__content h3 {
