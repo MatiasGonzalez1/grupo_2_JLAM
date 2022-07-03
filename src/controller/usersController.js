@@ -34,7 +34,7 @@ const usersController = {
 
         //Isercion de objeto a la base de datos
         usuarios.push(formDataUser);
-        let newDataUsers = JSON.stringify(usuarios);
+        let newDataUsers = JSON.stringify(usuarios, null, 4);
         fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers);
 
         //Redireccion al login luego del registro

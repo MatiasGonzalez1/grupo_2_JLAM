@@ -17,3 +17,13 @@
 3. **Mas de:** Durante este sprint nos tomamos un tiempo para poder “testear” todo lo nuevo que implementamos o que nos quedó pendiente del sprint anterior, sin duda es una buena práctica que nos permite llegar más preparados y cumplir con el nivel de expectativa con el que iniciamos.
 4. **Dejar de hacer:** No comunicar inconvenientes que surjan al resto del equipo, ya que es importante que podamos mantener al tanto al resto del equipo, sobre el flujo de las tareas (tiempo que nos toma realizarlas, dificultad, etc).
 5. **Empezar a hacer:** Incrementar la cantidad de daily’s a medida que el proyecto se complejiza, creemos necesario reforzar la comunicación y el trabajo en equipo para así poder precaver cualquier conflicto que pudiera presentarse en nuestro código.
+
+## Retrospectiva sprint 4 ♻️
+
+1. **Seguir haciendo:** Mantenernos comunicados en todo momento, tanto al comenzar una nueva implementación como al terminarla, de esta manera seguimos priorizando la asistencia a nuestros compañeros frente a cualquier dificultad que se pueda presentar.
+2. **Menos de:** No encontramos cualidades negativas que como grupo debamos disminuir, hasta ahora hemos sabido llegar a acuerdos favorables.
+3. **Mas de:** Como el anterior sprint seguimos implementando el test, en todos los métodos que se fueron agregando y modificando en cada parte del proyecto, de esta manera podemos tener seguridad que todo lo implementado funciona correctamente. 
+4. **Dejar de hacer:** Extendernos en las daily's mas tiempo del debido, priorizando los contenidos a debatir previamente.
+5. **Empezar a hacer:** Detallar con mas claridad cada una de las tareas a concretar, para tener despejada toda duda a la hora de comenzar a realizarlas. 
+También vemos importante que cada uno de los integrantes pueda compartir con el grupo la forma que realizó la tarea asignada, 
+ya que consideramos que de esta manera podemos enriquecernos y crecer individualmente y como grupo.
