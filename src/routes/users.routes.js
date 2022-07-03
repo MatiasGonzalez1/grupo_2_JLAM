@@ -5,7 +5,7 @@ const upload = require('../middleware/multerMidUsers')
 
 
 routes.get('/login', usersController.login);
-routes.post('/register', upload.single('profileImage'), usersController.register)
+routes.post('/register', upload, usersController.register)
 routes.get('/admin', usersController.admin);
 
 
