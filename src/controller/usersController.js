@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const bcrypt = require('bcryptjs');
 
 let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
 let users = JSON.parse(usersFile);
@@ -47,11 +48,9 @@ const usersController = {
             nombre: req.body.nombre,
             email: req.body.email,
             fechaNac: req.body.fechaNacimiento,
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10), // Encriptacion de password
             profileImg: req.file.filename,
         }
-
-        console.log(formDataUser);
 
         //Isercion de objeto a la base de datos
         users.push(formDataUser);
@@ -61,6 +60,40 @@ const usersController = {
         //Redireccion al login luego del registro
         res.redirect('/users/login')
     },
+
+    userData: (req, res) =>{
+        const updateId =  Number(req.params.id);
+
+        let coincidencia = users.find((user) => {
+            return user.id === updateId;
+        });
+
+        res.render(path.join(__dirname, '../views/products/' //aca va la vista
+    ), { coincidencia: coincidencia });
+    },
+
+    userEdit: (req, res) =>{
+
+        const userId = Number(req.body.id);
+
+        let userFilter = usuarios.filter((usuario) => {
+            return usuario.id !== userId;
+        });
+
+        let formDataUser = {
+            id: updateId,
+            nombre: req.body.nombre,
+            email: req.body.email,
+            fechaNac: req.body.fechaNacimiento,
+            password: bcrypt.hashSync(req.body.password, 10), // Encriptacion de password
+            profileImg: req.file.filename,
+        }
+
+        userFilter.push(formDataUser);
+
+        let newDataUsers = JSON.stringify(users, null, 4);
+        fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers); 
+    }
 
 
 }
