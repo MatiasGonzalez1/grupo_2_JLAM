@@ -20,10 +20,12 @@ const usersController = {
 
         // si el usuario existe, de lo contrario lo redirecciono con un mensaje de error
         if(userMatch){
-            //Asigno el usuario a la session para poder acceder desde cualquier ruta
+            if (userMatch.permisos == 'admin') {
+                req.session.isAdmin = true;
+            }
             req.session.userLogged = userMatch;
-            res.render(path.join(__dirname, '../views/users/index.ejs'), );
-        }else{
+            res.redirect('/index')
+            }else{
             res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
                 {msg: 'Datos Incorrectos'}
             ]});
@@ -42,6 +44,7 @@ const usersController = {
         //Asigno datos del body al objeto a insertar a la base de datos    
         let formDataUser = {
             id: generadorId,
+            permisos: 'user',
             nombre: req.body.nombre,
             email: req.body.email,
             fechaNac: req.body.fechaNacimiento,

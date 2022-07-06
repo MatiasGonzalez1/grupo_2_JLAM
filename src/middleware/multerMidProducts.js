@@ -13,6 +13,17 @@ const storage = multer.diskStorage({
     }
 })
 
-let upload = multer({storage});
+let maxFileSize = 8388608;
+let upload = multer({
+    storage: UserStorage,
+    limits: { fileSize: maxFileSize}, // criterio de MaxFileSize = 3MB
+    fileFilter: (req, file, cb) => {
+            let type = file.mimetype.startsWith('image/');  // Le digo a multer que el tipo de dato acetado debe ser imagen
+            if (type){
+                cb(null, true)
+            }else{
+                cb(null, false, new Error('No es un archivo permitido'));}
+    }
+}).single('fprodfoto');
 
 module.exports = upload;
