@@ -2,25 +2,29 @@ const express = require('express');
 const routes = express.Router();
 const productController = require('../controller/productController');
 const upload = require('../middleware/multerMidProducts')
-
-
+const adminMid = require('../middleware/adminMiddleware');
+const authMid = require('../middleware/authMiddleware');
 
 routes.get('/catalogue', productController.catalogo);
-routes.get('/product-cart/:id?', productController.carrito);
+routes.get('/product-cart/:id?', authMid,productController.carrito);
 routes.get('/product-detail/:id', productController.detalle);
-routes.get('/all-products', productController.cargarProductos);
+
+//cargar productos
+routes.get('/all-products', adminMid, productController.cargarProductos);
 
 // nuevo producto
-routes.get('/new-product', productController.nuevoProducto);
-routes.post('/new-product', upload.single('fprodfoto'), productController.crearProducto);
+routes.get('/new-product', adminMid, productController.nuevoProducto);
+routes.post('/new-product', [upload, adminMid], productController.crearProducto);
 
 //actualizar productos
-routes.get('/update-product/:id', productController.verActualizarProducto);
-routes.put('/update-product', upload.single('fprodfoto'), productController.enviarActualizarProducto);
+routes.get('/update-product/:id', adminMid, productController.verActualizarProducto);
+routes.put('/update-product', [adminMid, upload], productController.enviarActualizarProducto);
 
 //eliminar productos
-routes.delete('/all-products/:id', productController.delete);
+routes.delete('/all-products/:id', adminMid, productController.delete);
 
+
+//eliminar item de mi carrito de compras
 routes.delete('/product-cart/:id', productController.deleteCart);
 
 module.exports = routes;

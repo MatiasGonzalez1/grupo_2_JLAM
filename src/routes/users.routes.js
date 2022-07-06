@@ -2,14 +2,14 @@ const express = require('express');
 const routes = express.Router();
 const usersController = require('../controller/usersController');
 const upload = require('../middleware/multerMidUsers')
+const adminMid = require('../middleware/adminMiddleware');
+const guestMid = require('../middleware/guestMiddleware');
 
 
-routes.get('/login', usersController.login);
-routes.post('/login', usersController.processLogin);
-routes.post('/register', upload, usersController.register)
-routes.get('/admin', usersController.admin);
-
-
+routes.get('/login', guestMid, usersController.login);
+routes.post('/login', guestMid, usersController.processLogin);
+routes.post('/register', [upload, guestMid], usersController.register)
+routes.get('/admin', adminMid, usersController.admin);
 
 
 
