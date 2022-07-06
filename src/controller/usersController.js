@@ -1,8 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 
-let archivoUsuarios = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
-let usuarios = JSON.parse(archivoUsuarios);
+let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
+let users = JSON.parse(usersFile);
 
 const usersController = {
 
@@ -10,6 +10,24 @@ const usersController = {
         res.render(path.join(__dirname, '../views/users/login.ejs'))
     },
 
+    processLogin: (req, res) =>{
+
+        //comparo el usuario con mi base de datos
+        let userMatch = users.find((user) => { 
+            return user.email === req.body.email && bcrypt.compareSync(req.body.password, user.password);
+        });
+
+        // si el usuario existe, de lo contrario lo redirecciono con un mensaje de error
+        if(userMatch){
+            //Asigno el usuario a la session para poder acceder desde cualquier ruta
+            req.session.userLogged = userMatch;
+            res.render(path.join(__dirname, '../views/users/index.ejs'), );
+        }else{
+            res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
+                {msg: 'Datos Incorrectos'}
+            ]});
+        }
+    },
     admin: (req, res) =>{
         res.render(path.join(__dirname, '../views/adminArea.ejs'))
     },
@@ -18,7 +36,7 @@ const usersController = {
 
         //genero una id segun tamaño de array
         let generadorId;
-        usuarios.length === 0? generadorId = usuarios.length : generadorId = (usuarios.at(-1).id)+1
+        users.length === 0? generadorId = users.length : generadorId = (users.at(-1).id)+1
         
         //Asigno datos del body al objeto a insertar a la base de datos    
         let formDataUser = {
@@ -33,8 +51,8 @@ const usersController = {
         console.log(formDataUser);
 
         //Isercion de objeto a la base de datos
-        usuarios.push(formDataUser);
-        let newDataUsers = JSON.stringify(usuarios, null, 4);
+        users.push(formDataUser);
+        let newDataUsers = JSON.stringify(users, null, 4);
         fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers);
 
         //Redireccion al login luego del registro
