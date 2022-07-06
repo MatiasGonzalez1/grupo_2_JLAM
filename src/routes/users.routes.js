@@ -4,6 +4,7 @@ const usersController = require('../controller/usersController');
 const upload = require('../middleware/multerMidUsers')
 const adminMid = require('../middleware/adminMiddleware');
 const guestMid = require('../middleware/guestMiddleware');
+const registerValid = require('../middleware/registerMidValidator');
 
 
 routes.get('/edit-user/:id', usersController.userData);
@@ -11,7 +12,7 @@ routes.put('/edit-user', usersController.userEdit);
 routes.get('/login', guestMid, usersController.login);
 routes.post('/login', guestMid, usersController.processLogin);
 routes.get('/register', usersController.registerView);
-routes.post('/register', [upload, guestMid], usersController.register)
+routes.post('/register', [upload, guestMid], registerValid, usersController.register)
 routes.get('/admin', adminMid, usersController.admin);
 
 

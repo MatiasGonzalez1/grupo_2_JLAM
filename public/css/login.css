@@ -34,7 +34,7 @@ body{
 
 main {
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,7 +44,7 @@ main {
 
 .form-container {
     width: 100vw;
-    height: 100%;
+    height: 80%;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -66,7 +66,7 @@ main {
 }
 
 .mensaje h2 {
-    font-size: 20px;
+    font-size: 16px;
     padding: 16px 0;
     font-weight: 700;
 }
@@ -79,7 +79,7 @@ main {
     outline: none;
     cursor: pointer;
     font-size: 12px;
-    margin-top: 30px;
+    margin-top: 15px;
     transition: all .3s ease-in;
     color: #2b2b2b;
     font-weight: bold;
@@ -123,7 +123,7 @@ main {
     width: 95%;
     margin: auto;
     display: block;
-    margin-top: 10px;
+    margin-top: 5px;
     margin-bottom: 10px;
     background-color: whitesmoke;
     border: none;
@@ -155,12 +155,6 @@ main {
     position: absolute;
 }
 
-.login.active {
-    opacity: 0;
-    visibility: hidden;
-
-}
-
 
 @media(min-width: 1155px){
 
@@ -187,7 +181,7 @@ main {
     display: flex;
     justify-content: space-around;
     transition:  all .5s ease-out;
-    margin-top: 80px;
+    margin-top: 20px;
     align-items: center;
     padding: 0 100px;
 }
