@@ -1,11 +1,1 @@
-[
-    {
-        "id": 0,
-        "categoria": "admin",
-        "nombre": "admin",
-        "email": "admin@admin.com",
-        "fechaNac": "2022-07-04",
-        "password": "$2a$10$LyklbHGx8KlYHKRo5g2rH.Af6LzRJLvFEk80s22xy184ugGGWgxr6",
-        "profileImg": "admin@admin.com_1656906642509.png"
-    }
-]
+[]

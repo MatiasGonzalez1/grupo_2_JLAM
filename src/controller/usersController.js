@@ -61,8 +61,8 @@ const usersController = {
     userData: (req, res) =>{
         const updateId =  Number(req.params.id);
 
-        let coincidencia = usuarios.find((usuario) => {
-            return usuario.id === updateId;
+        let coincidencia = users.find((user) => {
+            return user.id === updateId;
         });
 
         res.render(path.join(__dirname, '../views/products/' //aca va la vista
@@ -88,7 +88,7 @@ const usersController = {
 
         userFilter.push(formDataUser);
 
-        let newDataUsers = JSON.stringify(usuarios, null, 4);
+        let newDataUsers = JSON.stringify(users, null, 4);
         fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers); 
     }
 
