@@ -2,6 +2,7 @@
 const express = require("express");
 const path = require("path"); //con este modulo se unifican las rutas para identificarlas mejor
 const methodOverride = require('method-override');
+let session = require('express-session');
 
 
 
@@ -23,6 +24,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(express.json());
 
+
+app.use(session({secret: "secreto"}));
 
 // Requerimiento index de ruteo
 app.use("/", require("./routes/index.routes"));
