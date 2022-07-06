@@ -40,6 +40,40 @@ const usersController = {
         res.redirect('/users/login')
     },
 
+    userData: (req, res) =>{
+        const updateId =  Number(req.params.id);
+
+        let coincidencia = usuarios.find((usuario) => {
+            return usuario.id === updateId;
+        });
+
+        res.render(path.join(__dirname, '../views/products/' //aca va la vista
+    ), { coincidencia: coincidencia });
+    },
+
+    userEdit: (req, res) =>{
+
+        const userId = Number(req.body.id);
+
+        let userFilter = usuarios.filter((usuario) => {
+            return usuario.id !== userId;
+        });
+
+        let formDataUser = {
+            id: updateId,
+            nombre: req.body.nombre,
+            email: req.body.email,
+            fechaNac: req.body.fechaNacimiento,
+            password: bcrypt.hashSync(req.body.password, 10), // Encriptacion de password
+            profileImg: req.file.filename,
+        }
+
+        userFilter.push(formDataUser);
+
+        let newDataUsers = JSON.stringify(usuarios, null, 4);
+        fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers); 
+    }
+
 
 }
 
