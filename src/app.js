@@ -25,7 +25,11 @@ app.use(methodOverride('_method'));
 app.use(express.json());
 
 
-app.use(session({secret: "secreto"}));
+app.use(session({
+    secret: "secreto",
+    resave: true,
+    saveUninitialized: true
+    }));
 
 // Requerimiento index de ruteo
 app.use("/", require("./routes/index.routes"));
