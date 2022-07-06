@@ -49,6 +49,7 @@ main {
     justify-content: space-around;
     flex-wrap: wrap;
     transition:  all .5s ease-out;
+    margin-top: 80px;
     align-items: center;
     top: 30px;
 }
@@ -152,19 +153,12 @@ main {
 
 .register {
     position: absolute;
-    opacity: 0;
-    visibility: hidden;
 }
 
 .login.active {
     opacity: 0;
     visibility: hidden;
 
-}
-
-.register.active {
-    opacity: 1;
-    visibility: visible;
 }
 
 
@@ -193,6 +187,7 @@ main {
     display: flex;
     justify-content: space-around;
     transition:  all .5s ease-out;
+    margin-top: 80px;
     align-items: center;
     padding: 0 100px;
 }
