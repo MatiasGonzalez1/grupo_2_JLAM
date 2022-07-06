@@ -22,12 +22,12 @@
         </section>
       </header>
       <main>
-        <!-- <section class="form-container register">
+        <section class="form-container register">
           <div class="welcome">
             <div class="mensaje">
               <h2>TE DAMOS LA BIENVENIDA</h2>
               <p>¿Ya tenes cuenta? iniciar sesión</p>
-              <button class="sign-up-btn">INICIAR SESION</button>
+<a href="/users/login"><button class="sign-up-btn">INICIAR SESION</button></a>
             </div>
           </div>
           <form class="formulario" action="/users/register" method="POST" enctype="multipart/form-data">
@@ -47,41 +47,6 @@
             <input id="submit" type="submit" value="REGISTRAR" />
             <a href="#">¿Olvidaste tu contraseña?</a>
           </form>
-        </section> -->
-        <section class="form-container login">
-          <form class="formulario" action="/" method="GET">
-            <h2 class="create-account">INICIAR SESION</h2>
-            <label>Email</label>
-            <input type="email" name="email" />
-            <label>Contraseña</label>
-            <input type="password" name="password" />
-            <input id="submit" type="submit" value="INGRESAR" />
-            <a href="#">¿Olvidaste tu contraseña?</a>
-          </form>
-          <div class="welcome">
-            <div class="mensaje">
-              <h2>BIENVENIDO DE NUEVO</h2>
-              <p>¿Aún no tenes cuenta? Creá una cuenta para iniciar sesión</p>
-              <a href="/users/register"><button class="sign-in-btn">REGISTRARSE</button></a>
-            </div>
-          </div>
         </section>
-      </main>
-    </div>
-
-    <footer></footer>
-    <!-- <script>
-      const btnLogin = document.querySelector(".sign-in-btn");
-      const btnRegister = document.querySelector(".sign-up-btn");
-      const register = document.querySelector(".register");
-      const login = document.querySelector(".login");
-
-      document.addEventListener("click", (e) => {
-        if (e.target === btnLogin || e.target === btnRegister) {
-          login.classList.toggle("active");
-          register.classList.toggle("active");
-        }
-      });
-    </script> -->
-  </body>
-</html>
+    </body>
+    </html>

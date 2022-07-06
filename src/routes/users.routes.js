@@ -10,6 +10,7 @@ routes.get('/edit-user/:id', usersController.userData);
 routes.put('/edit-user', usersController.userEdit);
 routes.get('/login', guestMid, usersController.login);
 routes.post('/login', guestMid, usersController.processLogin);
+routes.get('/register', usersController.registerView);
 routes.post('/register', [upload, guestMid], usersController.register)
 routes.get('/admin', adminMid, usersController.admin);
 

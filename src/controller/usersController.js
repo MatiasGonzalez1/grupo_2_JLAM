@@ -1,6 +1,7 @@
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
+const { dirname } = require('path');
 
 let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
 let users = JSON.parse(usersFile);
@@ -34,7 +35,9 @@ const usersController = {
     admin: (req, res) =>{
         res.render(path.join(__dirname, '../views/adminArea.ejs'))
     },
-
+    registerView: (req, res)=>{
+        res.render(path.join(__dirname, '../views/users/registro.ejs'))
+    },
     register: (req,res) =>{
 
         //genero una id segun tamaño de array
