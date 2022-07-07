@@ -13,7 +13,7 @@ const usersController = {
     },
 
     processLogin: (req, res) =>{
-
+       
         //comparo el usuario con mi base de datos
         let userMatch = users.find((user) => { 
             return user.email === req.body.email && bcrypt.compareSync(req.body.password, user.password);
@@ -25,11 +25,25 @@ const usersController = {
                 req.session.isAdmin = true;
             }
             req.session.userLogged = userMatch;
-            res.redirect('/index')
+
+            //si esta tildado el checkbox recordame //si no esta tildado viene como undefined
+            if(req.body.recordarme != undefined) {
+                res.cookie('recordarme', userMatch.email, { maxAge: 60000 })
+             }
+             
+            /*//para eliminar cookie al hacer logout
+            logout: (req, res) => {
+                res.clearCookie('userEmail');
+                req.session.destroy();
+                return res.redirect('/');
+            }*/
+            res.redirect('/')
             }else{
+                console.log("hola")
             res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
                 {msg: 'Datos Incorrectos'}
             ]});
+            
         }
     },
     admin: (req, res) =>{

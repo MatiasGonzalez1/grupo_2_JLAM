@@ -49,12 +49,16 @@
           </form>
         </section> -->
         <section class="form-container login">
-          <form class="formulario" action="/" method="GET">
+          <form class="formulario" action="/users/login" method="POST">
             <h2 class="create-account">INICIAR SESION</h2>
             <label>Email</label>
             <input type="email" name="email" />
             <label>Contraseña</label>
             <input type="password" name="password" />
+            <label>Recordarme</label>
+            <div class="remember">
+            <input type="checkbox" name="recordarme">
+            </div>
             <input id="submit" type="submit" value="INGRESAR" />
             <a href="#">¿Olvidaste tu contraseña?</a>
           </form>
