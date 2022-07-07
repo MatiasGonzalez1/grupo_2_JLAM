@@ -110,7 +110,11 @@ const usersController = {
 
         let newDataUsers = JSON.stringify(users, null, 4);
         fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers); 
-    }
+    }, 
+    cargarUsuarios: (req, res) =>{
+
+        res.render(path.join(__dirname, '../views/users/all-users.ejs'), { users: users });
+    },
 
 
 }
