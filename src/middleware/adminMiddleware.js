@@ -3,7 +3,6 @@ function adminMiddleware (req, res, next){
         next();
     }else{
         res.redirect('/index');
-        window.alert("No tienes los permisos necesarios");
     }
 }
 module.exports = adminMiddleware;
