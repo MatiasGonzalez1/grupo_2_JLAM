@@ -26,31 +26,34 @@
             <p>precio</p>
             <p>cantidad</p>
           </div>
-          <% productOnCart.forEach(producto => { %>
-          <div class="cart__product">
-            <img src="/img/productImg/<%= producto.imagen_producto%>" alt="imagen preview del producto" />
-            <div class="cart__productdetail">
-              <p><span><%=producto.nombre_producto%></span></p>
-              <div class="cart__buttons">
-                <p>$<%= formatter.format(producto.precio)%></p>
-                <form action="">
-                  <select>
-                    <option selected value="1">1</option>
-                    <option value="3">3</option>
-                    <option value="6">6</option>
-                    <option value="12">12</option>
-                    <option value="24">24</option>
-                    <option value="48">48</option>
-                  </select>
-                </form>
-                <form method="POST" action="/product/product-cart/<%=producto.id_producto%>?_method=DELETE">
-                <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
-                </form>
+           <!-- aca empieza -->
+           <% if(Array.isArray(carritoFinal) && carritoFinal.length){%>
+            <% carritoFinal.forEach(producto => { %>
+            <div class="cart__product">
+              <img src="/img/productImg/<%= producto.imagen_producto%>" alt="imagen preview del producto" />
+              <div class="cart__productdetail">
+                <p><span><%=producto.nombre_producto%></span></p>
+                <div class="cart__buttons">
+                  <p>$<%= formatter.format(producto.precio)%></p>
+                  <div>
+                    <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
+                    <input type="number" id="number" value="<%=producto.cantidad%>" name="cantidad"/>
+                    <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                  </div>
+                  <form method="POST" action="/product/product-cart/<%=producto.id_producto%>?_method=DELETE">
+                  <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
+                  </form>
+                </div>
               </div>
             </div>
-          </div>
-          <% })   %> 
+            <% })%> 
+          <%} else{%>
+            <div class="cart__productdetail cart__empty">
+              <p>No hay productos en tu carrito de compras :c</p>
+            </div>
+          <%}%>
         </div>
+        <!-- aca termina -->
         <div class="cart__section--media">
           <div class="cart__minisection">
             <p>¿Tenés un código de descuento?</p>
@@ -65,26 +68,19 @@
             <div class="container__total">
               <div class="total__detail">
                 <p>subtotal:</p>
-                <% for(let i=0; i < productOnCart.length; i++){%>
-                  <p>$ 
-                    <%= formatter.format(productOnCart[i].precio)%></p>
-                <%}%>
+                  <p>$ 00,00</p>
               </div>
               <div class="total__detail">
                 <p><span>total:</span></p>
                 <div>
-                  <p>$<% let count = 0; for(let i=0; i < productOnCart.length; i++){%>
-                    <% count = count + productOnCart[i].precio%>
-                  <%}%>
-                  <span><%=formatter.format(count)%></span>
-                  </p>
+                  <p>$ 00,00</p>
                   <div class="total__message">
                     <p>iva no incluido</p>
                   </div>
                 </div>
               </div>
               <a class="cart__btn--checkout" href="">finalizar compra</a>
-              <a class="cart__btn--checkout" href="">seguir comprando</a>
+              <a class="cart__btn--checkout" href="/product/catalogue">seguir comprando</a>
             </div>
           </div>
         </div>
