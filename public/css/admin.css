@@ -198,6 +198,13 @@ main{
     justify-content: space-between;
     list-style-type: none;
 }
+.filter__userlinks{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    list-style-type: none;
+}
 .filter__links a{
     font-weight: bolder;
     font-size: 8.5px;
@@ -654,6 +661,16 @@ a#cancel{
     .filter__links{
         width: 50%;
     }
+    .filter__userlinks{
+        width: 30%;
+    }
+    .filter__links{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    list-style-type: none;
+}
     .article__scroll{
         margin: auto;
         margin-top: 20px;
