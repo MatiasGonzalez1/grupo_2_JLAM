@@ -1,1 +1,11 @@
-[]
+[
+    {
+        "id": 0,
+        "permisos": "user",
+        "nombre": " Matias   ",
+        "email": "mng_epson@hotmail.com",
+        "fechaNac": "2022-01-01",
+        "password": "$2a$10$xCdUxdJhxphJhS.vtQqGlONNoUs4xsdsIyWRRLbI1D.hbfbuS2IzG",
+        "profileImg": "mng_epson@hotmail.com_1657243268807.png"
+    }
+]
