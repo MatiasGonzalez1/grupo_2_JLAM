@@ -43,7 +43,7 @@
               <p class="form-warning"> <%= errors.email.msg %> </p>
             <%}%> 
             <label>Fecha de Nacimiento</label>
-            <input type="date" name="fechaNacimiento" />
+            <input type="date" name="fechaNacimiento"/>
             <% if(locals.errors && errors.fechaNacimiento) { %> 
               <p class="form-warning"> <%= errors.fechaNacimiento.msg %> </p>
             <%}%> 
@@ -60,6 +60,9 @@
             <%}%> 
             <label>Ingrese una imagen de perfil</label>
             <input type="file" name="profileImage" />
+            <% if(locals.errors && errors.profileImage) { %> 
+              <p class="form-warning"> <%= errors.profileImage.msg %> </p>
+            <%}%> 
             <input id="submit" type="submit" value="REGISTRAR" />
             <a href="#">¿Olvidaste tu contraseña?</a>
           </form>
