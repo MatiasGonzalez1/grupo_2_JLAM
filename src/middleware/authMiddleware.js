@@ -3,6 +3,6 @@ function authMiddleware (req, res, next){
         next();
     }
     res.redirect('/login');
-    window.alert("No tienes los permisos necesarios");
+    
 }
 module.exports = authMiddleware;

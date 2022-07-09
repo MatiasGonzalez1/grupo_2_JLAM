@@ -590,7 +590,9 @@ input[type=number]::-webkit-outer-spin-button {
     width: 175px;
     height: auto;
 }
-
+.cart__empty {
+    margin-top: 2%;
+}
 .cart__product img {
     width: 30px;
     height: max-content;
@@ -1101,7 +1103,7 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: space-around;
     align-items: left;
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
     color: #FBF2E0;
     width: 70%;
     margin: auto
@@ -1196,8 +1198,36 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
     transition: all .3s ease-in;
 }
-
+.add-to-cart{
+    display: inline-block;
+    background: #FF452C;
+    color: #FBF2E0;
+    padding: 10px ;
+    border-radius: 4px;
+    font-weight: 200;
+    font-size: 18px;
+    height: 28px;
+    min-width: 45%;
+    cursor: pointer;
+    border: none;
+    transition: all .2s ease-in;
+    position: relative;
+}
 .cata__eye:hover {
+    background-color: #FBF2E0;
+    color: #333333;
+}
+.add-to-cart i{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 10px;
+    display: block;
+}
+.add-to-cart:hover{
     background-color: #FBF2E0;
     color: #333333;
 }
@@ -2575,7 +2605,7 @@ li datalist option {
 
     .catalogo__title {
         text-align: start;
-        padding-left: 80px;
+        padding-left: 10px;
         padding-top: 30px;
     }
 
@@ -2597,6 +2627,7 @@ li datalist option {
         padding-top: 40px;
 
     }
+   
 
     /*Seccion filtro*/
 
@@ -3069,7 +3100,7 @@ li datalist option {
     }
 
     .catalogo__conteiner {
-        width: 60%;
+        width: 70%;
         padding-top: 40px;
 
     }
@@ -3078,12 +3109,13 @@ li datalist option {
         width: 84%;
     }
 
+
     /*Fin catalogo*/
 
     /*Filtro*/
 
     .container__filtro {
-        margin-right: -12%;
+        margin-right: 5%;
     }
 }
 
@@ -3136,6 +3168,7 @@ li datalist option {
     .catalogo__headertitle {
         width: 82%;
     }
+
 
     /*Footer*/
     .footer ul {

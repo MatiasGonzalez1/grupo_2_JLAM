@@ -3,10 +3,10 @@ const routes = express.Router();
 const productController = require('../controller/productController');
 const upload = require('../middleware/multerMidProducts')
 const adminMid = require('../middleware/adminMiddleware');
-const authMid = require('../middleware/authMiddleware');
 
 routes.get('/catalogue', productController.catalogo);
-routes.get('/product-cart/:id?', authMid,productController.carrito);
+routes.get('/product-cart', productController.carrito);
+routes.post('/product-cart/:id', productController.agregarCarrito);
 routes.get('/product-detail/:id', productController.detalle);
 
 //cargar productos
