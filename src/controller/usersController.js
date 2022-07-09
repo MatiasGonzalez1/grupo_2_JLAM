@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const { dirname } = require('path');
+const {validationResult} = require('express-validator');
 
 let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
 let users = JSON.parse(usersFile);
@@ -54,7 +55,14 @@ const usersController = {
     },
     register: (req,res) =>{
 
-        //genero una id segun tamaño de array
+        let errors = validationResult(req);
+
+        
+        if(!errors.isEmpty()){
+         res.render('./users/registro', {errors:errors.mapped(), old: req.body});
+        } else{
+
+             //genero una id segun tamaño de array
         let generadorId;
         users.length === 0? generadorId = users.length : generadorId = (users.at(-1).id)+1
         
@@ -76,6 +84,8 @@ const usersController = {
 
         //Redireccion al login luego del registro
         res.redirect('/users/login')
+
+        }
     },
 
     userData: (req, res) =>{
