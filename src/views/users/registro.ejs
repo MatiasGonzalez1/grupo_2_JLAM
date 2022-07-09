@@ -12,7 +12,7 @@
     />
     <link rel="icon" type="img/png" href="/img/logo-web-icon.png" />
     <link rel="stylesheet" href="/css/login.css" />
-    <title>Login/Register</title>
+    <title>Register</title>
   </head>
   <body>
     <div class="login-Container">
@@ -31,19 +31,38 @@
             </div>
           </div>
           <form class="formulario" action="/users/register" method="POST" enctype="multipart/form-data">
-            <h2 class="create-account">REGISTRARSE</h2>
+            <h2 class="create-account">REGISTRARSE</h2>  
             <label>Nombre</label>
-            <input type="text" name="nombre" required />
+            <input type="text" name="nombre" value="<%= (locals.old && old.nombre ? old.nombre : '') %> "/>
+            <% if(locals.errors && errors.nombre) { %> 
+                <p class="form-warning"> <%= errors.nombre.msg %> </p>
+              <%}%> 
             <label>Email</label>
-            <input type="email" name="email" />
+            <input type="email" name="email" value="<%= (locals.old && old.email ? old.email : '') %> "/>
+            <% if(locals.errors && errors.email) { %> 
+              <p class="form-warning"> <%= errors.email.msg %> </p>
+            <%}%> 
             <label>Fecha de Nacimiento</label>
-            <input type="date" name="fechaNacimiento" />
+            <input type="date" name="fechaNacimiento"/>
+            <% if(locals.errors && errors.fechaNacimiento) { %> 
+              <p class="form-warning"> <%= errors.fechaNacimiento.msg %> </p>
+            <%}%> 
             <label>Contraseña</label>
             <input type="password" name="password" />
+            <% if(locals.errors && errors.password) { %> 
+              <p class="form-warning"> <%= errors.password.msg %> </p>
+            <%}%> 
             <label>Reingresa tu contraseña</label>
+            
             <input type="password" name="repassword" />
+            <% if(locals.errors && errors.repassword) { %> 
+              <p class="form-warning"> <%= errors.repassword.msg %> </p>
+            <%}%> 
             <label>Ingrese una imagen de perfil</label>
             <input type="file" name="profileImage" />
+            <% if(locals.errors && errors.profileImage) { %> 
+              <p class="form-warning"> <%= errors.profileImage.msg %> </p>
+            <%}%> 
             <input id="submit" type="submit" value="REGISTRAR" />
             <a href="#">¿Olvidaste tu contraseña?</a>
           </form>
