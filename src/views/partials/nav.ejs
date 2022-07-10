@@ -26,12 +26,26 @@
         <a class="nav-link" href="/product/product-cart"><i class="fa-solid fa-cart-shopping"></i></a>
       </li>
       <li class="nav-menu-item with-submenu">
-        <div class="user-submenu"><i class="fa-solid fa-user"></i>LEANDRO<i class="fa fa-caret-down"></i></div>
+        <div class="user-submenu"> <% if (user) { %>
+          <img src='/img/profileImages/<%=user.profileImg%>' class='imgRedonda' />
+        <% }else{%> <i class="fa-solid fa-user"></i><%}%><% if (user) { %>
+          <%= user.nombre %>  
+        <% }else{%>
+        <%= 'User'%><%}%><i class="fa fa-caret-down"></i></div>
         <ul class="submenu">
-          <li>Perfil</li>
-          <li>Iniciar Sesion</li>
-          <li>Cerrar sesion</li>
-          <li>Administrar</li>
+          <% if(user){ %>
+            <% if (user.permisos === "user") { %>
+              <li><a class="nav-link" href="/users/login">Perfil</a></li>
+              <li><a class="nav-link" href="/users/login">Cerrar Sesion</a></li>
+            <% }else{ %>
+              <li><a class="nav-link" href="/users/login">Perfil</a></li>
+              <li><a class="nav-link" href="/users/admin">Administración</a></li>
+              <li><a class="nav-link" href="/users/logout">Cerrar Sesion</a></li>
+            <%}%>
+            <%}else{%> 
+          <li><a class="nav-link" href="/users/login">Iniciar Sesion</a></li>
+          <li><a class="nav-link" href="/users/register">Registrarme</a></li>
+          <%}%>
         </ul>
       </li>
       <!-- <li class="nav-menu-item admin-icon">
