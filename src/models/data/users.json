@@ -1,2 +1,12 @@
 [
+    {
+        "id": 0,
+        "permisos": "admin",
+        "nombre": "Admin",
+        "email": "admin@admin.com",
+        "fechaNac": "2012-06-09",
+        "password": "$2a$10$HKNeaOXSig7hvG5zywrDOuIzumJIoK5PoQB/WWFZfQlty6/ERQ1GK",
+        "profileImg": "admin@admin.com_1657413736084.png"    
+    }
+
 ]
