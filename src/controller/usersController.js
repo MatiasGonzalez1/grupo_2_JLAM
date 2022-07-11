@@ -14,6 +14,12 @@ const usersController = {
     },
 
     processLogin: (req, res) =>{
+
+        let errors = validationResult(req);
+
+        if(!errors.isEmpty()){
+         res.render('./users/login', {errors:errors.mapped(), old: req.body});
+        } else{
        
         //comparo el usuario con mi base de datos
         let userMatch = users.find((user) => { 
@@ -40,12 +46,12 @@ const usersController = {
             }*/
             res.redirect('/')
             }else{
-                console.log("hola")
-            res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
+                res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
                 {msg: 'Datos Incorrectos'}
             ]});
-            
+        
         }
+    }
     },
     admin: (req, res) =>{
         res.render(path.join(__dirname, '../views/adminArea.ejs'))
