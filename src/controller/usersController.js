@@ -26,24 +26,22 @@ const usersController = {
             return user.email === req.body.email && bcrypt.compareSync(req.body.password, user.password);
         });
 
+        
+
         // si el usuario existe, de lo contrario lo redirecciono con un mensaje de error
         if(userMatch){
             if (userMatch.permisos == 'admin') {
                 req.session.isAdmin = true;
             }
+            //delete userMatch.password;
             req.session.userLogged = userMatch;
+
 
             //si esta tildado el checkbox recordame //si no esta tildado viene como undefined
             if(req.body.recordarme != undefined) {
                 res.cookie('recordarme', userMatch.email, { maxAge: 60000 })
              }
              
-            /*//para eliminar cookie al hacer logout
-            logout: (req, res) => {
-                res.clearCookie('userEmail');
-                req.session.destroy();
-                return res.redirect('/');
-            }*/
             res.redirect('/')
             }else{
                 res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
@@ -52,6 +50,12 @@ const usersController = {
         
         }
     }
+    },
+    //para eliminar cookie al hacer logout
+    logout: (req, res) => {
+        res.clearCookie('userEmail');
+        req.session.destroy();
+        return res.redirect('/');
     },
     admin: (req, res) =>{
         res.render(path.join(__dirname, '../views/adminArea.ejs'))
@@ -102,7 +106,7 @@ const usersController = {
         });
 
         res.render(path.join(__dirname, '../views/products/' //aca va la vista
-    ), { coincidencia: coincidencia });
+    ), { coincidencia: coincidencia, user: req.session.userLogged });
     },
 
     userEdit: (req, res) =>{
@@ -129,8 +133,8 @@ const usersController = {
     }, 
     cargarUsuarios: (req, res) =>{
 
-        res.render(path.join(__dirname, '../views/users/all-users.ejs'), { users: users });
-    },
+        res.render(path.join(__dirname, '../views/users/all-users.ejs'), { users: users, user: req.session.userLogged });
+    }
 
 
 }

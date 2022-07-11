@@ -23,6 +23,9 @@ function userLoggedMiddleware (req, res, next) {
                     break
                 }
             }
+
+            delete userMatch.password;
+            
             req.session.userLogged = userMatch; // coloca al usuario en session
     }
 }

@@ -11,7 +11,7 @@ let productos = JSON.parse(archivoProductos);
 const productController = {
     catalogo: (req, res) => {
         res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {
-            productos: productos,
+            productos: productos, user: req.session.userLogged
         });
     },
 
@@ -35,10 +35,10 @@ const productController = {
                 return productData; 
             });
             
-            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:carritoFinal});
+            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:carritoFinal, user: req.session.userLogged});
     
         }else{
-            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:[]});
+            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:[], user: req.session.userLogged});
         }
     },
 
@@ -120,7 +120,7 @@ const productController = {
             return producto.id_producto === detalleId;
         });
 
-        res.render(path.join(__dirname, '../views/products/productDetail.ejs'), { coincidencia: coincidencia });
+        res.render(path.join(__dirname, '../views/products/productDetail.ejs'), { coincidencia: coincidencia, user: req.session.userLogged });
     },
 
     nuevoProducto: (req, res) => {
