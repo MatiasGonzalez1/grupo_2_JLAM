@@ -26,8 +26,6 @@ const usersController = {
             return user.email === req.body.email && bcrypt.compareSync(req.body.password, user.password);
         });
 
-        
-
         // si el usuario existe, de lo contrario lo redirecciono con un mensaje de error
         if(userMatch){
             if (userMatch.permisos == 'admin') {
@@ -39,7 +37,7 @@ const usersController = {
 
             //si esta tildado el checkbox recordame //si no esta tildado viene como undefined
             if(req.body.recordarme != undefined) {
-                res.cookie('recordarme', userMatch.email, { maxAge: 60000 })
+                res.cookie('recordarme', userMatch.email, { maxAge: 3600000 })
              }
              
             res.redirect('/')
@@ -99,37 +97,66 @@ const usersController = {
     },
 
     userData: (req, res) =>{
-        const updateId =  Number(req.params.id);
+        let userActual =  req.session.userLogged;
 
-        let coincidencia = users.find((user) => {
-            return user.id === updateId;
+        let UserData = users.find((user) => {
+            return user.id == userActual.id;
         });
 
-        res.render(path.join(__dirname, '../views/products/' //aca va la vista
-    ), { coincidencia: coincidencia, user: req.session.userLogged });
+        res.render(path.join(__dirname, '../views/users/edit-user' 
+        ), {user: UserData});
     },
 
     userEdit: (req, res) =>{
+        let userId = Number(req.body.id);
+        let userActual =  req.session.userLogged;
 
-        const userId = Number(req.body.id);
+        let errors = validationResult(req);
 
-        let userFilter = usuarios.filter((usuario) => {
-            return usuario.id !== userId;
-        });
+        if(!errors.isEmpty()){
+        //    console.log(req.file);
+        //     // si existe un archivo con propiedad filename
+        //     if (!req.file.filename == undefined) {
+        //         //lo borramos 
+        //         fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
+        //     };
+        res.render(path.join(__dirname,'../views/users/edit-user'), {user: userActual, errors:errors.mapped()});
 
-        let formDataUser = {
-            id: updateId,
-            nombre: req.body.nombre,
-            email: req.body.email,
-            fechaNac: req.body.fechaNacimiento,
-            password: bcrypt.hashSync(req.body.password, 10), // Encriptacion de password
-            profileImg: req.file.filename,
-        }
+        } else{
+            let updateUsers= users.map(function(user){
+                //busco el producto que tiene el mismo id que el de mi carrito
+                if (user.id == userId) { 
+                    // si file vino con algo
+                    let formDataUser = {
+                        id: userId,
+                        nombre: req.body.nombre,
+                        email: req.body.email,
+                        fechaNac: req.body.fechaNacimiento,
+            
+            
+                        password: user.password,
+                        profileImg: user.profileImg,
+                    }
+                    //si hay una pass nueva la cambio
+                    if(req.body.password){
+                        formDataUser.password = bcrypt.hashSync(req.body.password, 10);
+                    }
+                    //si hay una imagen la cambio
+                    if(!req.file == undefined){
+                        formDataUser.profileImg = req.file.filename;
+                    }
+                    return formDataUser;
+                }else{
+                    return user;
+                }
+            });
+        
+            let newDataUsers = JSON.stringify(updateUsers, null, 4);
+            fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers);
 
-        userFilter.push(formDataUser);
-
-        let newDataUsers = JSON.stringify(users, null, 4);
-        fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers); 
+            res.redirect('/');
+        };
+        
     }, 
     cargarUsuarios: (req, res) =>{
 
