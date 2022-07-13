@@ -35,10 +35,10 @@
         <ul class="submenu">
           <% if(user){ %>
             <% if (user.permisos === "user") { %>
-              <li><a class="nav-link" href="/users/login">Perfil</a></li>
-              <li><a class="nav-link" href="/users/login">Cerrar Sesion</a></li>
+              <li><a class="nav-link" href="/users/userdata">Perfil</a></li>
+              <li><a class="nav-link" href="/users/logout">Cerrar Sesion</a></li>
             <% }else{ %>
-              <li><a class="nav-link" href="/users/login">Perfil</a></li>
+              <li><a class="nav-link" href="/users/userdata">Perfil</a></li>
               <li><a class="nav-link" href="/users/admin">Administración</a></li>
               <li><a class="nav-link" href="/users/logout">Cerrar Sesion</a></li>
             <%}%>
