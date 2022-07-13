@@ -1560,7 +1560,111 @@ li datalist option {
     text-decoration: none;
 }
 
+/* EDITAR USUARIO */
+.user__main__container{
+    background-color:#2b2b2b;
+    /* padding: 2% 0%; */
+}
+.user__data__columns{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 5%;
+    margin: auto;
+    padding: 2% 0% 6%;
 
+}
+.user__subgroup{
+    flex-direction: column;
+    text-align: center;
+    padding: 2% 0%;
+    width: 100%;
+}
+.user__subgroup h3{
+    text-align: left;
+    text-transform: capitalize;
+    color: #FBF2E0;
+    margin: 2% 0%;
+    /* padding: 4% 0%; */
+    font-weight: normal;
+}
+.group__a{
+    width: 100%;
+    border: none;
+}
+.group__b{
+    width: 100%;
+}
+.input__section{
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+}
+.input__section label{
+    padding-bottom: 5%;
+    color: #FBF2E0;
+    font-size: 15px;
+}
+.input__section input{
+    color: #2b2b2b;
+    padding: 2%;
+    background-color: #FBF2E0;
+    border: none;
+    border-radius: 5px;
+}
+.input__group{
+   display: flex;
+   flex-direction: column;
+}
+.edit__user{
+    padding: 2% 0%;
+}
+.edit__user img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit:cover;
+    margin: auto;
+    margin-top: 10%;
+}
+.edit__user p{
+    color: #FBF2E0;
+}
+.submit__container{
+    padding-right: 2%;
+    margin-top: 5%;
+    text-align: right;
+}
+.user__submit{
+    color: #FBF2E0;
+    background-color: #ee4c0f;
+    padding: 1.2% 4%;
+    border: none;
+    border-radius: 2px;
+    transition: ease 0.5ms;
+}
+.user__cancel{
+    color: #333;
+    background-color: #FBF2E0;
+    padding: 1% 2%;
+    border: none;
+    border-radius: 2px;
+    transition: ease 0.5ms;
+    text-decoration: none;
+    font-size: 14px;
+}
+.user__submit:hover{
+    color: #333;
+    background-color: #FBF2E0;
+}
+.user__cancel:hover{
+    color: #FBF2E0;
+    background-color: rgb(59, 59, 59);
+}
+
+/* FIN EDITAR USUARIO */
 
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
@@ -2140,6 +2244,45 @@ li datalist option {
     .blog-post__text {
         margin-bottom: 3rem;
         font-size: 17px;
+    }
+    /* EDITAR USUARIO */
+    .user__data__columns{
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        gap: 5%;
+        margin: auto;
+        padding: 2% 0% 6%;
+    
+    }
+    .user__subgroup h3{
+        margin: 0% 0% 2%;
+    }
+    .group__a{
+        width: 30%;
+        padding-right: 5%;
+        border-right:1px solid rgb(61, 61, 61); 
+    }
+    .group__b{
+        width: 70%;
+    }
+    .edit__user p{
+        font-size: 15px;
+        padding: 3% 0%;
+    }
+    .edit__user img{
+        width: 150px;
+        max-height: 150px;
+        margin-top: 20%;
+    }
+    .input__section label{
+        padding-bottom: 5%;
+        color: #FBF2E0;
+        font-size: 15px;
+    }
+    .input__group{
+       display: flex;
+       flex-direction: row;
     }
 }
 
@@ -2728,6 +2871,12 @@ li datalist option {
     }
 
     /*  FIN ADMIN AREA  */
+
+    /* EDITAR USUARIO */
+    .edit__user img{
+        width: 160px;
+        height: 160px;
+    }
 }
 
 /*Fin catalogo*/
@@ -3169,6 +3318,13 @@ li datalist option {
     .container__filtro {
         margin-right: 5%;
     }
+
+    /* EDITAR USUARIO */
+    .edit__user img{
+        width: 160px;
+        height: 160px;
+        
+    }
 }
 
 @media screen and (min-width: 1440px) {
@@ -3294,6 +3450,7 @@ li datalist option {
         font-size: 20px;
 
     }
+
 
 }
 

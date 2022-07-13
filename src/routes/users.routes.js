@@ -5,11 +5,12 @@ const upload = require('../middleware/multerMidUsers')
 const adminMid = require('../middleware/adminMiddleware');
 const guestMid = require('../middleware/guestMiddleware');
 const registerValid = require('../middleware/registerMidValidator');
+const updateUser = require('../middleware/updateUserMidValidator');
 const userLogg = require('../middleware/userLoggedMiddleware');
 
 
-routes.get('/edit-user/:id', usersController.userData);
-routes.put('/edit-user', usersController.userEdit);
+routes.get('/edit-user/:id', userLogg,usersController.userData);
+routes.put('/edit-user', [userLogg, upload, updateUser], usersController.userEdit);
 routes.get('/login', guestMid, usersController.login);
 routes.post('/login', [guestMid, userLogg], usersController.processLogin);
 routes.get('/register', guestMid, usersController.registerView);
