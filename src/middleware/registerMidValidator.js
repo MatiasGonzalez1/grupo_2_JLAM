@@ -1,5 +1,6 @@
 const { body } = require("express-validator");
 const path = require('path');
+const fs = require("fs");
 
 
 const formValid = [
@@ -11,13 +12,24 @@ const formValid = [
     .isLength({ min: 2 })
     .withMessage("El nombre debe de tener al menos dos carácteres")
     .isAlpha()
-    .withMessage("No se admiten números o caracteres especiales"),
-  body("email")
+    .withMessage("No se admiten números o caracteres especiales")
+    ,
+    body("email")
     .trim()
     .notEmpty()
     .withMessage("El campo email no puede estar vacio").bail()
     .isEmail()
-    .withMessage("Debe de ingresar un email válido"),
+    .withMessage("Debe de ingresar un email válido")
+    .custom((value, {req})=>{
+      let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
+      let users = JSON.parse(usersFile);     
+      let match = users.find((user) => { return user.email === req.body.email})
+      if(match){
+       throw new Error("Email actualmente en uso");
+        }
+        return true;
+      })
+       ,
   body("fechaNacimiento")
     .notEmpty()
     .withMessage("El campo fecha no puede estar vacio").bail()
@@ -25,8 +37,8 @@ const formValid = [
     .custom((value, {req})=>{
       let edadMinima = "2002/01/01";
       let edad = req.body.fechaNacimiento;
-      if(edad < edadMinima){
-        throw new Error('Debes tener 18 años o más para registrarte')
+      if(edad > edadMinima){
+        throw new Error("Debes tener 18 años o más para registrarte")
       }
       return true;
     }),
@@ -59,7 +71,6 @@ const formValid = [
     .custom((value, {req})=>{
     let file = req.file;
     let aceptedExt = ['.jpg', '.png', '.gif' ,'.webp'];
- 
     if(!file){
       throw new Error('Tienes que subir una imagen')
     } else{
