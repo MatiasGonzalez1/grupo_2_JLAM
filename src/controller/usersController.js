@@ -1,7 +1,6 @@
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
-const { dirname } = require('path');
 const {validationResult} = require('express-validator');
 
 let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
@@ -67,10 +66,15 @@ const usersController = {
 
         
         if(!errors.isEmpty()){
+        // // si existe un archivo con propiedad filename
+        // if (!req.file == undefined) {
+        //     //lo borramos 
+        //     fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
+        // };
          res.render('./users/registro', {errors:errors.mapped(), old: req.body});
         } else{
 
-             //genero una id segun tamaño de array
+        
         let generadorId;
         users.length === 0? generadorId = users.length : generadorId = (users.at(-1).id)+1
         
@@ -114,35 +118,37 @@ const usersController = {
         let errors = validationResult(req);
 
         if(!errors.isEmpty()){
-        //    console.log(req.file);
-        //     // si existe un archivo con propiedad filename
-        //     if (!req.file.filename == undefined) {
-        //         //lo borramos 
-        //         fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
-        //     };
+           
+            // // si existe un archivo con propiedad filename
+            // if (!req.file == undefined) {
+            //     //lo borramos 
+            //     fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
+            // };
         res.render(path.join(__dirname,'../views/users/edit-user'), {user: userActual, errors:errors.mapped()});
 
         } else{
             let updateUsers= users.map(function(user){
-                //busco el producto que tiene el mismo id que el de mi carrito
+                //busco el producto que tiene el mismo id
                 if (user.id == userId) { 
                     // si file vino con algo
                     let formDataUser = {
                         id: userId,
+                        permisos:user.permisos,
                         nombre: req.body.nombre,
                         email: req.body.email,
                         fechaNac: req.body.fechaNacimiento,
-            
-            
                         password: user.password,
                         profileImg: user.profileImg,
                     }
                     //si hay una pass nueva la cambio
-                    if(req.body.password){
+                    if(req.body.password == ''){
+                        formDataUser.password = user.password;
+                    }else{
                         formDataUser.password = bcrypt.hashSync(req.body.password, 10);
                     }
                     //si hay una imagen la cambio
-                    if(!req.file == undefined){
+                    if(req.file){
+                        fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", user.profileImg));
                         formDataUser.profileImg = req.file.filename;
                     }
                     return formDataUser;
