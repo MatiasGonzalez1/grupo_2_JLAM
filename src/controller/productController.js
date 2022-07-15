@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("fs");
+const {validationResult} = require('express-validator');
 
 let archivoProductos = fs.readFileSync(
     path.join(__dirname, "../models/data/products.json"),
@@ -167,7 +168,13 @@ const productController = {
     },
 
     crearProducto: (req, res) =>{
+        
+        let errors = validationResult(req);
 
+        if(!errors.isEmpty()) {
+            return res.render('./products/newProduct', {errors:errors.mapped(), old: req.body});
+        } else {
+            
         let generadorId;
         productos.length === 0? generadorId = productos.length : generadorId = (productos.at(-1).id_producto)+1;
 
@@ -187,9 +194,10 @@ const productController = {
 
         productos.push(newDataProduct);
 
-        let productosJson = JSON.stringify(productos);
+        let productosJson = JSON.stringify(productos, null, 4);
         fs.writeFileSync(path.join(__dirname,'../models/data/products.json'), productosJson);
         res.redirect('/product/all-products');
+     }
     },
     
     cargarProductos: (req, res) =>{
