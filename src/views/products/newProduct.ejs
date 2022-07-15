@@ -67,10 +67,10 @@
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fharYear">Año de cosecha</label>
-                                <input type="numbre" name="fcoseAnio" placeholder="" value="<%= (locals.old && old.fcoseAnio ? old.fcoseAnio : '') %> "> 
+                                <input type="number" name="fcoseAnio" placeholder="" value="<%= (locals.old && old.fcoseAnio ? old.fcoseAnio : '') %> "> 
                                 <% if(locals.errors && errors.fcoseAnio) { %> 
                                     <p class="product-warning"> <%= errors.fcoseAnio.msg %> </p>
-                                  <%}%> 
+                                  <%}%> >
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fvariety">Variedad</label>

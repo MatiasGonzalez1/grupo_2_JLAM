@@ -6,7 +6,15 @@
         "email": "admin@admin.com",
         "fechaNac": "2012-06-09",
         "password": "$2a$10$HKNeaOXSig7hvG5zywrDOuIzumJIoK5PoQB/WWFZfQlty6/ERQ1GK",
-        "profileImg": "admin@admin.com_1657413736084.png"    
+        "profileImg": "admin@admin.com_1657413736084.png"
+    },
+    {
+        "id": 2,
+        "permisos": "admin",
+        "nombre": "Joha",
+        "email": "asdemail@email.com",
+        "fechaNac": "2000-12-14",
+        "password": "$2a$10$8UXITBJbGaQ6f5CsJq7iPe3mTYTKfzA.1FCZeP/4qSIbgY05QyF8K",
+        "profileImg": "asdemail@email.com_1657764290979.jpg"
     }
-
 ]

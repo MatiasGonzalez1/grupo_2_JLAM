@@ -46,17 +46,17 @@
                 <div class="article__scroll">
                   <% users.forEach(user => { %>
                     <article class="productsdash__container">
-                        <div class="productdash_block">
-                            <img src="/img/productImg/<%= user.profileImg %>" alt="imagen del producto">
+                        <div class="productdash_block userdash_block">
+                            <img src="/img/profileImages/<%= user.profileImg %>" alt="imagen del producto">
                             <p><%= user.nombre %></p>
-                            <p>$ <span><%= user.email %></span></p>
-                            <p><%= user.fechaNac %></p>
+                            <p><span><%= user.email %></span></p>
+                            <p><%= user.permisos %></p>
                         </div>
                         <div class="productdash_button">
-                          <form class="form__container" method="POST" action="/product/all-products/<%= producto.id_producto%>?_method=DELETE"> 
+                          <form class="form__container" method="POST" action="/product/all-products/<%= user.id%>?_method=DELETE"> 
                             <button type="submit" class="delete">eliminar</button>
                             </form>
-                          <a class="update" href="/product/update-product/<%= producto.id_producto %>">actualizar</a>
+                          <a class="update" href="/product/update-product/<%= user.id%>">actualizar</a>
                         </div>
                     </article>
                   <% }); %>

@@ -56,7 +56,7 @@ const formValid = [
     .notEmpty()
     .withMessage("El campo reingresar contraseña no puede estar vacio")
     // To delete leading and triling space
-.trim()
+    .trim()
     // Custom validation: pasa el valor tomado desde el body
     // Validate confirmPassword
     .custom(async (confirmPassword, {req}) => {

@@ -231,19 +231,36 @@ main{
     background-color: #fbf2e0;
     border-radius: 5px;
 }
+
 .productdash_block img{
     width: 13%;
 }
+.userdash_block img{
+    object-fit: cover;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+}
 .productdash_block p{
-    text-align:left;
+    text-align:center;
     text-transform: capitalize;
     font-weight: normal;
-    width: 25%;
-}.productdash_block p:first-of-type{
+    width: 30%;
+}
+.productdash_block p:first-of-type{
     width: 35%;
 }
 .productdash_block p:last-of-type{
     width: 10%;
+}
+.userdash_block p{
+    width: 40%;
+}
+.userdash_block p:first-of-type{
+    width: 15%;
+}
+.userdash_block p:last-of-type{
+    width: 15%;
 }
 .productdash_button{
     display: flex;
@@ -416,8 +433,17 @@ a#cancel{
     .productdash_block{
         padding: 2%;  
     }
+    /* .userdash_block{
+        padding: 4%;
+    } */
     .productdash_block img{
         width: 8%;
+    }
+    .userdash_block img{
+        object-fit: cover;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
     }
     .productdash_block p{
         font-size: 12px;
@@ -430,7 +456,15 @@ a#cancel{
     .productdash_block p:last-of-type{
         width: 8%;
     }
- 
+    .userdash_block p{
+        width: 40%;
+    }
+    .userdash_block p:first-of-type{
+        width: 15%;
+    }
+    .userdash_block p:last-of-type{
+        width: 15%;
+    }
     .productdash_button{
         width: 145px;
         bottom: 20%;
@@ -618,6 +652,12 @@ a#cancel{
     }
     .productdash_block img{
         width: 5%;
+    }
+    .userdash_block img{
+        object-fit: cover;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px;
     }
     .admin__footer{
         padding: 0.5% 0%;
