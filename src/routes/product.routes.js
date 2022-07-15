@@ -3,6 +3,7 @@ const routes = express.Router();
 const productController = require('../controller/productController');
 const upload = require('../middleware/multerMidProducts')
 const adminMid = require('../middleware/adminMiddleware');
+const validationPro = require('../middleware/productMidValidator');
 
 routes.get('/catalogue', productController.catalogo);
 routes.get('/product-cart', productController.carrito);
@@ -14,7 +15,7 @@ routes.get('/all-products', adminMid, productController.cargarProductos);
 
 // nuevo producto
 routes.get('/new-product', adminMid, productController.nuevoProducto);
-routes.post('/new-product', [upload, adminMid], productController.crearProducto);
+routes.post('/new-product', [upload, adminMid], validationPro, productController.crearProducto);
 
 //actualizar productos
 routes.get('/update-product/:id', adminMid, productController.verActualizarProducto);

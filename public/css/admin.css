@@ -363,8 +363,16 @@ a#cancel{
 /* fin product input */
  
 /*  FIN ADMIN AREA  */
- 
- 
+
+/*Validacion de crear producto*/ 
+
+.product-warning {
+    color: #f53117;
+    font-size: 12px;
+    text-align: center;
+    font-weight: 600;
+    padding-top: 3px;
+}
 @media screen and (min-width: 768px) {
     .welcome__container{
         background-size: cover;
