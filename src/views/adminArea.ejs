@@ -11,7 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="icon" type="img/png" href="/img/logo-web-icon.png">
     <link rel="stylesheet" href="/css/admin.css" />
-    <title>Carrito de Compras - Terra Rossa</title>
+    <title>Panel de Administración- Terra Rossa</title>
 </head>
 <body>
     <!-- seccion barra de navegacion -->
@@ -26,15 +26,7 @@
             <%- include('./partials/sidebar')  %> 
             <section class="data__container">
                 <h4>Panel de administración</h4>
-                <div class="welcome__container">
-                  <div class="welcome__content">
-                    <h2>hola ana!</h2>
-                    <p>Que bueno volver a verte!</p>
-                  </div>
-                  <div class="welcome__content">
-                    <img src="/img/user-profile.png" alt="profile picture">
-                  </div>
-                </div>
+                <%- include('partials/adminContent')  %> 
                 <div class="filter__container">
                   <div class="static__container">
                     <img src="/img/adm-doodle.png" alt="">

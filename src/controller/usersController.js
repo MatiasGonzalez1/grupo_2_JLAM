@@ -55,7 +55,7 @@ const usersController = {
         return res.redirect('/');
     },
     admin: (req, res) =>{
-        res.render(path.join(__dirname, '../views/adminArea.ejs'))
+        res.render(path.join(__dirname, '../views/adminArea.ejs'), {userLog: req.session.userLogged});
     },
     registerView: (req, res)=>{
         res.render(path.join(__dirname, '../views/users/registro.ejs'))
@@ -163,12 +163,54 @@ const usersController = {
             res.redirect('/');
         };
         
-    }, 
+    },
+    userPermissions:(req, res) =>{
+        let userId = Number(req.params.id); 
+
+        let UserData = users.find((user) => {
+            return user.id == userId;
+        });
+        res.render(path.join(__dirname, '../views/users/edit-permissions.ejs'), { user: UserData, userLog: req.session.userLogged });
+    },
+    permissionsProcess:(req, res) =>{
+        let userId = Number(req.body.id);
+
+        let updateUsers= users.map(function(user){
+            if (user.id == userId) {
+               let formDataUser = {
+                        id: userId,
+                        permisos:user.permisos,
+                        nombre: user.nombre,
+                        email: user.email,
+                        fechaNac: user.fechaNac,
+                        password: user.password,
+                        profileImg: user.profileImg,
+                }
+
+                if(req.body.permisos != user.permisos && !req.body.permisos == ''){
+                    formDataUser.permisos = req.body.permisos;
+                }
+                return formDataUser;
+            }else{
+                return user;
+            }
+
+            
+        });
+
+        let newDataUsers = JSON.stringify(updateUsers, null, 4);
+        fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers);
+
+        res.redirect('/users/all-users');
+    },
     cargarUsuarios: (req, res) =>{
 
-        res.render(path.join(__dirname, '../views/users/all-users.ejs'), { users: users, user: req.session.userLogged });
-    }
+        //obligo a la vista a leer el json y tomar todos los datos actualizados antes de renderizar
+        let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
+        let users = JSON.parse(usersFile);
 
+        res.render(path.join(__dirname, '../views/users/all-users.ejs'), { users: users, userLog: req.session.userLogged });
+    }
 
 }
 
