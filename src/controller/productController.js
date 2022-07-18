@@ -125,7 +125,7 @@ const productController = {
     },
 
     nuevoProducto: (req, res) => {
-        res.render(path.join(__dirname, "../views/products/newProduct.ejs"));
+        res.render(path.join(__dirname, "../views/products/newProduct.ejs"),{userLog: req.session.userLogged});
     },
 
     verActualizarProducto: (req, res) =>{
@@ -135,7 +135,7 @@ const productController = {
             return producto.id_producto === updateId;
         });
 
-        res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), { coincidencia: coincidencia });
+        res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), { coincidencia: coincidencia, userLog: req.session.userLogged });
     },
 
     enviarActualizarProducto: (req, res) =>{
@@ -201,7 +201,7 @@ const productController = {
     },
     
     cargarProductos: (req, res) =>{
-        res.render(path.join(__dirname, '../views/products/all-products.ejs'), { productos: productos });
+        res.render(path.join(__dirname, '../views/products/all-products.ejs'), { productos: productos, userLog: req.session.userLogged});
     },
 
     delete: (req, res) => {
@@ -212,7 +212,7 @@ const productController = {
             path.join(__dirname, '../models/data/products.json'),
             JSON.stringify(productos)
         )
-        res.render(path.join(__dirname,"../views/products/all-products.ejs"), {productos: productos});
+        res.render(path.join(__dirname,"../views/products/all-products.ejs"), {productos: productos, userLog: req.session.userLogged});
     },
         
 };
