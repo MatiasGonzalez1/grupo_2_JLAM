@@ -27,3 +27,12 @@
 5. **Empezar a hacer:** Detallar con mas claridad cada una de las tareas a concretar, para tener despejada toda duda a la hora de comenzar a realizarlas. 
 También vemos importante que cada uno de los integrantes pueda compartir con el grupo la forma que realizó la tarea asignada, 
 ya que consideramos que de esta manera podemos enriquecernos y crecer individualmente y como grupo.
+
+
+## Retrospectiva sprint 5 ♻️
+
+1. **Seguir haciendo:** Mantener el tiempo previo para prever cualquier inconveniente o falta que se pudiera presentar.
+2. **Menos de:** Continuamos sin encontrar cualidades negativas que como grupo debemos disminuir.
+3. **Mas de:** Implementar como buenas prácticas el hábito de comentar porciones de código para ayudar la comprensión tanto para compañeros de equipo como terceros
+4. **Dejar de hacer:**  En este sprint en particular y debido al avanzado progreso que logramos como equipo, no consideramos que exista algo a lo que debamos prestar detenida atención. 
+5. **Empezar a hacer:** Implementar un protocolo más claro para nuestras daily’s, tener un plan sobre que necesitamos profundizar.
