@@ -16,5 +16,14 @@
         "fechaNac": "2000-12-14",
         "password": "$2a$10$8UXITBJbGaQ6f5CsJq7iPe3mTYTKfzA.1FCZeP/4qSIbgY05QyF8K",
         "profileImg": "asdemail@email.com_1657764290979.jpg"
+    },
+    {
+        "id": 3,
+        "permisos": "admin",
+        "nombre": "Leandro",
+        "email": "leandro@correo.com",
+        "fechaNac": "1995-09-17",
+        "password": "$2a$10$prJ4ZUhTh1MQQQiPQixuvuSamFK5nnyn48u3bwq5yev4wfWotdOiq",
+        "profileImg": "leandro@correo.com_1658374278426.jpg"
     }
 ]
