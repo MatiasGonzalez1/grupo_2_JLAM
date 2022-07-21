@@ -172,6 +172,10 @@ const productController = {
         let errors = validationResult(req);
 
         if(!errors.isEmpty()) {
+            if (req.file) {
+                //lo borramos
+                  fs.unlinkSync(path.join(__dirname, "../../public/img/productImg", req.file.filename));
+                   };
             return res.render('./products/newProduct', {errors:errors.mapped(), old: req.body});
         } else {
             

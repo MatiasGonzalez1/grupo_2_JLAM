@@ -3389,7 +3389,7 @@ li datalist option {
     }
 
     .footer .container .row {
-        justify-content: center;
+        justify-content: space-evenly;
     }
 
     .footer-col ul li a {
@@ -3398,7 +3398,7 @@ li datalist option {
 
     /*Section filtro*/
     .container__filtro {
-        margin-right: -17%;
+        margin-right: 0%;
     }
 
     /************ seccion all-blogs ************/

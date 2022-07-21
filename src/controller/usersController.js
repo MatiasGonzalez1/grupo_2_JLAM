@@ -66,11 +66,11 @@ const usersController = {
 
         
         if(!errors.isEmpty()){
-        // // si existe un archivo con propiedad filename
-        // if (!req.file == undefined) {
-        //     //lo borramos 
-        //     fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
-        // };
+        // si existe un archivo con propiedad filename
+        if (req.file) {
+      //lo borramos
+        fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
+         }
          res.render('./users/registro', {errors:errors.mapped(), old: req.body});
         } else{
 
@@ -120,10 +120,10 @@ const usersController = {
         if(!errors.isEmpty()){
            
             // // si existe un archivo con propiedad filename
-            // if (!req.file == undefined) {
+            if (req.file) {
             //     //lo borramos 
-            //     fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
-            // };
+            fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
+        }
         res.render(path.join(__dirname,'../views/users/edit-user'), {user: userActual, errors:errors.mapped()});
 
         } else{

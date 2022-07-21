@@ -25,5 +25,14 @@
         "fechaNac": "1995-09-17",
         "password": "$2a$10$prJ4ZUhTh1MQQQiPQixuvuSamFK5nnyn48u3bwq5yev4wfWotdOiq",
         "profileImg": "leandro@correo.com_1658374278426.jpg"
+    },
+    {
+        "id": 4,
+        "permisos": "user",
+        "nombre": "Matias",
+        "email": "mng_epson@hotmail.com",
+        "fechaNac": "2000-11-11",
+        "password": "$2a$10$qPt7P2NiWy3nprcYmuzN3OOspnYfBfN81r541YCWWBQ9SQN/0OHhe",
+        "profileImg": "mng_epson@hotmail.com_1658379721365.png"
     }
 ]
