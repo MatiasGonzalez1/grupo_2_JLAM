@@ -16,5 +16,14 @@
         "fechaNac": "2000-12-14",
         "password": "$2a$10$8UXITBJbGaQ6f5CsJq7iPe3mTYTKfzA.1FCZeP/4qSIbgY05QyF8K",
         "profileImg": "asdemail@email.com_1657764290979.jpg"
+    },
+    {
+        "id": 3,
+        "permisos": "admin",
+        "nombre": "Matias",
+        "email": "mng_epson@hotmail.com",
+        "fechaNac": "2000-02-11",
+        "password": "$2a$10$I0AkOX7EI9JrUTDy6zBiguOQ6Nr2/VVay4B53ST3xz1axFGkeIqMK",
+        "profileImg": "mng_epson@hotmail.com_1658052127077.png"
     }
 ]

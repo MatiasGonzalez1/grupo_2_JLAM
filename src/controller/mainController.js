@@ -41,9 +41,14 @@ const mainController = {
     allBlogs: (req,res) =>{
         
         res.render(path.join(__dirname, '../views/allBlogs.ejs'),{news:news, user: req.session.userLogged})
+    },
+    faq: (req,res) =>{
+        res.render(path.join(__dirname, '../views/faq.ejs'))
+    },
+
+    terminos: (req, res) =>{
+        res.render(path.join(__dirname, '../views/terminos.ejs'))
     }
-
-
 };
 
 module.exports = mainController;

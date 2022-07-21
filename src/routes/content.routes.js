@@ -6,6 +6,9 @@ routes.get('/', mainController.index);
 routes.get('/blog/:id', mainController.blog);
 routes.get('/contact', mainController.contacto);
 routes.get('/all_blogs', mainController.allBlogs);
+routes.get('/faq', mainController.faq);
+routes.get('/terminos', mainController.terminos);
+
 
 
 
