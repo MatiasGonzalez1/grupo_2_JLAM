@@ -187,6 +187,9 @@ main{
     flex-direction: column;
     width: 90%;
 }
+.data__container{
+    width: 100%;
+}
 .data__container h4{
     padding: 2% 0% 1%;
     font-size: 10px;
@@ -227,7 +230,7 @@ main{
 .productdash_block{
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items:flex-start;
     
     padding: 3%;
@@ -242,14 +245,15 @@ main{
 .userdash_block img{
     object-fit: cover;
     border-radius: 50%;
-    width: 60px;
-    height: 60px;
+    width: 35px;
+    height: 35px;
 }
 .productdash_block p{
     text-align:center;
     text-transform: capitalize;
     font-weight: normal;
     width: 30%;
+    font-size: 8.5px;
 }
 .productdash_block p:first-of-type{
     width: 35%;
