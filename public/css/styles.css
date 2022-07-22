@@ -2436,7 +2436,7 @@ li datalist option {
     .news {
         background-color: #fbf2e0;
         width: 100vw;
-        height: 700px;
+        height: 550px;
         padding: 4% 9%;
 
     }
@@ -3288,7 +3288,9 @@ li datalist option {
     .text-foo {
         margin-top: 10px;
     }
-
+    .news {
+        height: 600px;
+    }
     /*Comienzo catalogo*/
     .catalogo__queries {
         width: 85%;
