@@ -28,11 +28,20 @@
     },
     {
         "id": 4,
-        "permisos": "user",
+        "permisos": "admin",
         "nombre": "Matias",
         "email": "mng_epson@hotmail.com",
         "fechaNac": "2000-11-11",
         "password": "$2a$10$qPt7P2NiWy3nprcYmuzN3OOspnYfBfN81r541YCWWBQ9SQN/0OHhe",
         "profileImg": "mng_epson@hotmail.com_1658379721365.png"
+    },
+    {
+        "id": 5,
+        "permisos": "user",
+        "nombre": "Amalia",
+        "email": "amalia@grupo4.com",
+        "fechaNac": "2000-11-11",
+        "password": "$2a$10$MG/hGrCNngGrUie8r7P/GuC3hVGoncXzUV7Yq4hC4n.RZQWIkTgUu",
+        "profileImg": "amalia@grupo4.com_1658451055057.png"
     }
 ]

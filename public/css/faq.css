@@ -110,6 +110,11 @@ body{
     padding: 5px 0;
 }
 
+.sub-titles.active .desplegar a{
+    text-decoration: none;
+    color:#ff452c ;
+}
+
 
 
 
