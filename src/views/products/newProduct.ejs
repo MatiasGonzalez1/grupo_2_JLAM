@@ -26,15 +26,7 @@
              <%- include('../partials/sidebar')  %> 
             <section class="data__container">
                 <h4>Panel de administración</h4>
-                <div class="welcome__container">
-                  <div class="welcome__content">
-                    <h2>hola ana!</h2>
-                    <p>Que bueno volver a verte!</p>
-                  </div>
-                  <div class="welcome__content">
-                    <img src="/img/user-profile.png" alt="profile picture">
-                  </div>
-                </div>
+                <%- include('../partials/adminContent')  %> 
     
                 <div class="filter__container">
                     <h3 class="new__product__tittle">Nuevo producto</h3>
@@ -45,7 +37,10 @@
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fnombre">Nombre del producto</label>
-                                <input type="text" name="fnombre" placeholder="">
+                                <input type="text" name="fnombre" placeholder="" value="<%= (locals.old && old.fnombre ? old.fnombre : '') %> "> <!--para que queden los datos ingresados anteriormente-->
+                                <% if(locals.errors && errors.fnombre) { %> 
+                                    <p class="product-warning"> <%= errors.fnombre.msg %> </p>
+                                  <%}%> 
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fcategory">Categoría</label>
@@ -56,45 +51,70 @@
                                   <option value="espumantes">Espumante</option>
                                   <option value="especiales">Especial</option>
                                 </select>
+                                <% if(locals.errors && errors.fcategoria) { %> 
+                                  <p class="product-warning"> <%= errors.fcategoria.msg %> </p>
+                                <%}%> 
                             </div>
                         </div>
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fharYear">Año de cosecha</label>
-                                <input type="numbre" name="fcoseAnio" placeholder="">
+                                <input type="number" name="fcoseAnio" placeholder="" value="<%= (locals.old && old.fcoseAnio ? old.fcoseAnio : '') %> "> 
+                                <% if(locals.errors && errors.fcoseAnio) { %> 
+                                    <p class="product-warning"> <%= errors.fcoseAnio.msg %> </p>
+                                  <%}%>
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fvariety">Variedad</label>
-                                <input type="text" name="fvariedad" placeholder="">
+                                <input type="text" name="fvariedad" placeholder="" value="<%= (locals.old && old.fvariedad ? old.fvariedad : '') %> "> 
+                                <% if(locals.errors && errors.fvariedad) { %> 
+                                    <p class="product-warning"> <%= errors.fvariedad.msg %> </p>
+                                  <%}%> 
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fcrianza">Crianza</label>
-                                <input type="text" name="fcrianza" placeholder="">
+                                <input type="text" name="fcrianza" placeholder="" value="<%= (locals.old && old.fcrianza ? old.fcrianza : '') %> "> 
+                                <% if(locals.errors && errors.fcrianza) { %> 
+                                    <p class="product-warning"> <%= errors.fcrianza.msg %> </p>
+                                  <%}%> 
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fguarda">Potencial de guarda</label>
-                                <input type="text" name="fguarda" placeholder="">
+                                <input type="text" name="fguarda" placeholder="" value="<%= (locals.old && old.fguarda ? old.fguarda : '') %> "> 
+                                <% if(locals.errors && errors.fguarda) { %> 
+                                    <p class="product-warning"> <%= errors.fguarda.msg %> </p>
+                                  <%}%> 
                             </div>
                         </div>
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fnotacata">Nota de cata</label>
-                                <textarea placeholder="" name="fnotacata"  rows="4"></textarea>
+                                <textarea placeholder="" name="fnotacata"  rows="4"></textarea> <% if(locals.errors && errors.fnotacata) { %> 
+                                  <p class="product-warning"> <%= errors.fnotacata.msg %> </p>
+                                <%}%>
                             </div>
                         </div>
     
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fprodfoto">Imagen del producto</label>
-                                <input type="file" name="fprodfoto">
+                                <input type="file" name="fprodfoto"> <% if(locals.errors && errors.fprodfoto) { %> 
+                                  <p class="product-warning"> <%= errors.fprodfoto.msg %> </p>
+                                <%}%> 
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fprecio">Precio</label>
-                                <input type="number" name="fprecio" placeholder="">
+                                <input type="number" name="fprecio" placeholder="" value="<%= (locals.old && old.fprecio ? old.fprecio : '') %> "> 
+                                <% if(locals.errors && errors.fprecio) { %> 
+                                    <p class="product-warning"> <%= errors.fprecio.msg %> </p>
+                                  <%}%> 
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fstock">Stock</label>
-                                <input type="number" name="fstock" placeholder="">
+                                <input type="number" name="fstock" placeholder="" >
+                                <% if(locals.errors && errors.fstock) { %> 
+                                  <p class="product-warning"> <%= errors.fstock.msg %> </p>
+                                <%}%> 
                             </div>
                         </div>
                         <div>

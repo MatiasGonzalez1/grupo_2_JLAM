@@ -1,36 +1,56 @@
 <nav class="nav-bar">
-    <a href="/" ><img class="logo" src="/img/logo-w.png" /></a>
-    <div id="navMenu" class="nav-hamburguer">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul class="nav-menu-list">
-      <li class="nav-menu-item">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-      <li class="nav-menu-item">
-        <a class="nav-link" href=/product/catalogue>Catálogo</a>
-      </li>
-      <li class="nav-menu-item">
-        <a class="nav-link" href="/content/all_blogs">Blog</a>
-      </li>
-      <!-- <li class="nav-menu-item">
+  <a href="/"><img class="logo" src="/img/logo-w.png" /></a>
+  <div id="navMenu" class="nav-hamburguer">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="nav-menu-list">
+    <li class="nav-menu-item">
+      <a class="nav-link" href="/">Home</a>
+    </li>
+    <li class="nav-menu-item">
+      <a class="nav-link" href=/product/catalogue>Catálogo</a>
+    </li>
+    <li class="nav-menu-item">
+      <a class="nav-link" href="/content/all_blogs">Blog</a>
+    </li>
+    <!-- <li class="nav-menu-item">
         <a class="nav-link" href="/content/contact">Contacto</a>
       </li> -->
-      <div class="icon-2">
+    <div class="icon-2">
       <li class="nav-menu-item">
         <a class="nav-link" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
       </li>
       <li class="nav-menu-item">
         <a class="nav-link" href="/product/product-cart"><i class="fa-solid fa-cart-shopping"></i></a>
       </li>
-      <li class="nav-menu-item">
-        <a class="nav-link" href="/users/login"><i class="fa-solid fa-user"></i></a>
+      <li class="nav-menu-item with-submenu">
+        <div class="user-submenu"> <% if (user) { %>
+          <img src='/img/profileImages/<%=user.profileImg%>' class='imgRedonda' />
+        <% }else{%> <i class="fa-solid fa-user"></i><%}%><% if (user) { %>
+          <%= user.nombre %>  
+        <% }else{%>
+        <%= 'User'%><%}%><i class="fa fa-caret-down"></i></div>
+        <ul class="submenu">
+          <% if(user){ %>
+            <% if (user.permisos === "admin") { %>
+              <li><a class="nav-link" href="/users/edit-user/<%= user.id%>">Editar Perfil</a></li>
+              <li><a class="nav-link" href="/users/admin">Administración</a></li>
+              <li><a class="nav-link" href="/users/logout">Cerrar Sesion</a></li>
+            <% }else if(user.permisos === "user"){ %>
+              <li><a class="nav-link" href="/users/edit-user/<%= user.id%>">Editar Perfil</a></li>
+              <li><a class="nav-link" href="/users/logout">Cerrar Sesion</a></li>
+            <%}%>
+            <%}else{%> 
+          <li><a class="nav-link" href="/users/login">Iniciar Sesion</a></li>
+          <li><a class="nav-link" href="/users/register">Registrarme</a></li>
+          <%}%>
+        </ul>
       </li>
-      <li class="nav-menu-item admin-icon">
+      <!-- <li class="nav-menu-item admin-icon">
         <a class="nav-link" href="/users/admin"><i class="fa-solid fa-address-card"></i></a>
-      </li>
+      </li> -->
     </div>
-    </ul>
-  </nav>
+  </ul>
+</nav>

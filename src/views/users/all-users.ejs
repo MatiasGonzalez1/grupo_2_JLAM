@@ -11,32 +11,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="icon" type="img/png" href="/img/logo-web-icon.png">
     <link rel="stylesheet" href="/css/admin.css" />
-    <title>Panel de Administración- Terra Rossa</title>
+    <title>Ver Usuarios - Terra Rossa</title>
 </head>
 <body>
     <!-- seccion barra de navegacion -->
     <header>
-      <%- include('./partials/navAdmin')%>
+      <%- include('../partials/navAdmin')%>
     </header>
     <!-- fin seccion barra de navegacion -->
 
     <!-- seccion productos -->
     <main>
       <div class="admin__main">
-            <%- include('./partials/sidebar')  %> 
+            <%- include('../partials/sidebar')  %> 
             <section class="data__container">
                 <h4>Panel de administración</h4>
-                <%- include('partials/adminContent')  %> 
+                <%- include('../partials/adminContent')  %> 
+    
                 <div class="filter__container">
-                  <div class="static__container">
-                    <img src="/img/adm-doodle.png" alt="">
-                    <div class="static__content">
-                      <h3>Bienvenido al Panel de administración de Terra Rossa</h3>
-                      <p>Te invitamos a familiarizarte con sus diferentes características</p>
-                    </div>
-                  </div>
+                    <h3>Usuarios</h3>
+                    <ul class="filter__links filter__userlinks">
+                        <li><a href="">Todos los Usuarios</a></li>
+                        <li><a href="">Administradores</a></li>
+                    </ul>
                 </div>
-                
+                <div class="article__scroll">
+                  <% users.forEach(user => { %>
+                    <article class="productsdash__container">
+                        <div class="productdash_block userdash_block">
+                            <img src="/img/profileImages/<%= user.profileImg %>" alt="imagen del producto">
+                            <p><%= user.nombre %></p>
+                            <p><span><%= user.email %></span></p>
+                            <p><%= user.permisos %></p>
+                        </div>
+                        <div class="productdash_button">
+                          <form class="form__container" method="POST" action="/product/all-products/<%= user.id%>?_method=DELETE"> 
+                            <button type="submit" class="delete">eliminar</button>
+                            </form>
+                          <a class="update" href="/users/edit-permissions/<%= user.id%>">actualizar</a>
+                        </div>
+                    </article>
+                  <% }); %>
+                </div>
             </section>
       </div>
       
@@ -44,7 +60,7 @@
     <!-- fin seccion productos -->
 
     <footer>
-      <%- include('./partials/adminfooter')  %> 
+      <%- include('../partials/adminfooter')  %> 
     </footer>
 
     <script>

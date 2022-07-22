@@ -1,58 +1,116 @@
 const path = require("path");
 const fs = require("fs");
+const {validationResult} = require('express-validator');
 
 let archivoProductos = fs.readFileSync(
     path.join(__dirname, "../models/data/products.json"),
     { encoding: "utf-8" }
 );
-let archivoCart = fs.readFileSync(
-    path.join(__dirname, "../models/data/productOnCart.json"),
-    { encoding: "utf-8" }
-);
+
 let productos = JSON.parse(archivoProductos);
-let productOnCart = JSON.parse(archivoCart);
 
 const productController = {
     catalogo: (req, res) => {
         res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {
-            productos: productos,
+            productos: productos, user: req.session.userLogged
         });
     },
 
     carrito: (req, res) => {
-        if (req.params.id == null) {
-            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {
-                productOnCart: productOnCart,
+        if (req.cookies.carrito != undefined){
+            //asigno a una variable
+            let carritoActual = JSON.parse(req.cookies.carrito);
+
+            let carritoFinal= carritoActual.map(function(element){
+                //busco el producto que tiene el mismo id que el de mi carrito
+                let producto = productos.find( producto => producto.id_producto == element.id );
+
+                //genero un objeto con los datos que necesito de mi producto
+                let productData = {
+                    cantidad: element.quantity,
+                    id_producto: producto.id_producto,
+                    nombre_producto: producto.nombre_producto,                   
+                    imagen_producto: producto.imagen_producto,
+                    precio: producto.precio,
+                }
+                return productData; 
             });
-        } else {
-            let detalleId = Number(req.params.id);
-
-            let coincidencia = productos.find((producto) => {
-                //filtro mis productos y busco el id
-                return producto.id_producto === detalleId;
-            });
-
-            productOnCart.push(coincidencia);
-
             
-            fs.writeFileSync(
-                path.join(__dirname, "../models/data/productOnCart.json"),
-                JSON.stringify(productOnCart)
-            );
-
-            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {productOnCart: productOnCart});
+            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:carritoFinal, user: req.session.userLogged});
+    
+        }else{
+            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:[], user: req.session.userLogged});
         }
     },
 
-    deleteCart: (req, res) =>{
-        let id = req.params.id;
-        productOnCart = productOnCart.filter((producto) => producto.id_producto != id);
+    agregarCarrito: (req, res) => {
+        //tomo el id
+        const idProducto = req.params.id;
+        let cantidad = 0;
         
-        fs.writeFileSync(
-            path.join(__dirname, '../models/data/productOnCart.json'),
-            JSON.stringify(productOnCart)
-        )
-        res.render(path.join(__dirname, "../views/products/productCart.ejs"), {productOnCart: productOnCart});
+        //pregunto si existe re.body.cantidad
+        if (req.body.cantidad) {
+            cantidad = cantidad + req.body.cantidad;
+        }else{
+            cantidad = 1;
+        }
+        
+        //pregunto si existe la cookie
+        if(req.cookies.carrito != undefined){
+            //si existe guardo en una variable req.cookie.carrito
+            let carritoActual = JSON.parse(req.cookies.carrito);
+
+            //mapeo el array
+            let existe = carritoActual.find(elemento =>{
+                return elemento.id == idProducto;
+            })
+
+            if (existe) {
+                existe.quantity = cantidad + existe.quantity;
+                carritoActual = carritoActual.map(function(elemento){
+                    //si el id conincide con el id que recibo
+                    if (elemento.id == idProducto) {
+                        return existe;
+                    }else{
+                        return elemento; 
+                    }
+                });
+            }else{
+                //tomo los datos que necesito de mi nuevo item
+                let newProductData= {
+                    id: idProducto,
+                    quantity: cantidad
+                }
+                //los guardo en mi carrito
+                carritoActual.push(newProductData);
+            }
+            res.cookie('carrito', JSON.stringify(carritoActual),{maxAge:21600000});
+            
+        }else{
+            //else la creo y le asigno carrito
+            let productData = {
+                id: idProducto,
+                quantity: cantidad
+            };
+
+            //convierto mi objeto a string para almacenarlo en la cookie
+            res.cookie('carrito', JSON.stringify([productData]),{maxAge:21600000});
+           
+        }
+
+        res.redirect('/product/product-cart');  
+    },
+
+    deleteCart: (req, res) =>{
+        const idProducto = req.params.id;
+
+        let carritoActual = JSON.parse(req.cookies.carrito);
+
+        let carritoFilt = carritoActual.filter(producto => producto.id != idProducto);
+
+        res.cookie('carrito', JSON.stringify(carritoFilt),{maxAge:21600000});
+
+        res.redirect('/product/product-cart');
     },
 
     detalle: (req, res) => {
@@ -63,11 +121,11 @@ const productController = {
             return producto.id_producto === detalleId;
         });
 
-        res.render(path.join(__dirname, '../views/products/productDetail.ejs'), { coincidencia: coincidencia });
+        res.render(path.join(__dirname, '../views/products/productDetail.ejs'), { coincidencia: coincidencia, user: req.session.userLogged });
     },
 
     nuevoProducto: (req, res) => {
-        res.render(path.join(__dirname, "../views/products/newProduct.ejs"));
+        res.render(path.join(__dirname, "../views/products/newProduct.ejs"),{userLog: req.session.userLogged});
     },
 
     verActualizarProducto: (req, res) =>{
@@ -77,7 +135,7 @@ const productController = {
             return producto.id_producto === updateId;
         });
 
-        res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), { coincidencia: coincidencia });
+        res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), { coincidencia: coincidencia, userLog: req.session.userLogged });
     },
 
     enviarActualizarProducto: (req, res) =>{
@@ -110,7 +168,17 @@ const productController = {
     },
 
     crearProducto: (req, res) =>{
+        
+        let errors = validationResult(req);
 
+        if(!errors.isEmpty()) {
+            if (req.file) {
+                //lo borramos
+                  fs.unlinkSync(path.join(__dirname, "../../public/img/productImg", req.file.filename));
+                   };
+            return res.render('./products/newProduct', {errors:errors.mapped(), old: req.body});
+        } else {
+            
         let generadorId;
         productos.length === 0? generadorId = productos.length : generadorId = (productos.at(-1).id_producto)+1;
 
@@ -130,13 +198,14 @@ const productController = {
 
         productos.push(newDataProduct);
 
-        let productosJson = JSON.stringify(productos);
+        let productosJson = JSON.stringify(productos, null, 4);
         fs.writeFileSync(path.join(__dirname,'../models/data/products.json'), productosJson);
         res.redirect('/product/all-products');
+     }
     },
     
     cargarProductos: (req, res) =>{
-        res.render(path.join(__dirname, '../views/products/all-products.ejs'), { productos: productos });
+        res.render(path.join(__dirname, '../views/products/all-products.ejs'), { productos: productos, userLog: req.session.userLogged});
     },
 
     delete: (req, res) => {
@@ -147,7 +216,7 @@ const productController = {
             path.join(__dirname, '../models/data/products.json'),
             JSON.stringify(productos)
         )
-        res.render(path.join(__dirname,"../views/products/all-products.ejs"), {productos: productos});
+        res.render(path.join(__dirname,"../views/products/all-products.ejs"), {productos: productos, userLog: req.session.userLogged});
     },
         
 };

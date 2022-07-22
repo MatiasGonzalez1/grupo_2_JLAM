@@ -1,5 +1,6 @@
 const path = require('path');
-const fs = require('fs')
+const fs = require('fs');
+const session = require('express-session');
 
 let newsjson = fs.readFileSync(
     path.join(__dirname, "../models/data/newsBlog.json"),
@@ -18,7 +19,7 @@ const mainController = {
     index: (req,res) =>{
         
         let selecciones = productos.slice(-4);
-        res.render(path.join(__dirname, '../views/index.ejs'),{selecciones:selecciones, news:news})
+        res.render(path.join(__dirname, '../views/index.ejs'),{selecciones:selecciones, news:news, user:req.session.userLogged})
     },
 
     blog: (req,res) =>{
@@ -30,7 +31,7 @@ const mainController = {
             return news.id_novedades === detalleId;
         });
 
-        res.render(path.join(__dirname, '../views/blog_prueba.ejs'),{newsMatch})
+        res.render(path.join(__dirname, '../views/blog_prueba.ejs'),{newsMatch, user: req.session.userLogged})
     },
 
     contacto: (req,res) =>{
@@ -39,10 +40,15 @@ const mainController = {
 
     allBlogs: (req,res) =>{
         
-        res.render(path.join(__dirname, '../views/allBlogs.ejs'),{news:news})
+        res.render(path.join(__dirname, '../views/allBlogs.ejs'),{news:news, user: req.session.userLogged})
+    },
+    faq: (req,res) =>{
+        res.render(path.join(__dirname, '../views/faq.ejs'))
+    },
+
+    terminos: (req, res) =>{
+        res.render(path.join(__dirname, '../views/terminos.ejs'))
     }
-
-
 };
 
 module.exports = mainController;

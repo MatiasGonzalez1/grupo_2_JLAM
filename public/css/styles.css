@@ -22,7 +22,7 @@ main {
     align-items: center;
     width: 100%;
     height: 80px;
-    padding: 10px 30px;
+    padding: 10px;
     position: fixed;
     top: 0;
     z-index: 2;
@@ -34,6 +34,14 @@ main {
     padding-left: 8vw;
     margin: 0;
     box-sizing: content-box;
+}
+
+.imgRedonda {
+    width:40px;
+    height:40px;
+    border-radius:160px;
+    border:2px solid #666;
+    align-items: center;
 }
 
 .nav-menu-list {
@@ -60,13 +68,56 @@ main {
     text-align: center;
 }
 
-.icon-2 li{
-    width: 20%;
-}
+
 
 .nav-menu-item {
     font-size: 16px;
     padding-bottom: 60px;
+    transition: 0.5s linear all;
+}
+
+.user-submenu {
+    display: flex;
+    position: relative;
+    color: #fbf2e0;
+    align-items: center;
+    
+}
+
+.user-submenu > i{
+    color: #fbf2e0;
+    padding: 0 8px;
+}
+
+.submenu{
+    display: none;
+    position: absolute;
+    z-index: 10;
+    background-color: #333333;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.with-submenu {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+}
+
+.with-submenu:hover .submenu {
+    display: block;
+    transition: 0.3s all linear;
+}
+
+.submenu > li {
+    background: #333333;
+    color: #fbf2e0;
+    padding: 1.2em 1em;
+    transition: 0.3s all linear;
+    display: block;
+    width: 200px;
+    cursor: pointer;
 }
 
 .admin-icon a{
@@ -590,7 +641,9 @@ input[type=number]::-webkit-outer-spin-button {
     width: 175px;
     height: auto;
 }
-
+.cart__empty {
+    margin-top: 2%;
+}
 .cart__product img {
     width: 30px;
     height: max-content;
@@ -1101,7 +1154,7 @@ input[type=number]::-webkit-outer-spin-button {
     justify-content: space-around;
     align-items: left;
     padding-top: 25px;
-    padding-bottom: 25px;
+    padding-bottom: 10px;
     color: #FBF2E0;
     width: 70%;
     margin: auto
@@ -1196,8 +1249,36 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
     transition: all .3s ease-in;
 }
-
+.add-to-cart{
+    display: inline-block;
+    background: #FF452C;
+    color: #FBF2E0;
+    padding: 10px ;
+    border-radius: 4px;
+    font-weight: 200;
+    font-size: 18px;
+    height: 28px;
+    min-width: 45%;
+    cursor: pointer;
+    border: none;
+    transition: all .2s ease-in;
+    position: relative;
+}
 .cata__eye:hover {
+    background-color: #FBF2E0;
+    color: #333333;
+}
+.add-to-cart i{
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    height: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 10px;
+    display: block;
+}
+.add-to-cart:hover{
     background-color: #FBF2E0;
     color: #333333;
 }
@@ -1479,7 +1560,111 @@ li datalist option {
     text-decoration: none;
 }
 
+/* EDITAR USUARIO */
+.user__main__container{
+    background-color:#2b2b2b;
+    /* padding: 2% 0%; */
+}
+.user__data__columns{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    gap: 5%;
+    margin: auto;
+    padding: 2% 0% 6%;
 
+}
+.user__subgroup{
+    flex-direction: column;
+    text-align: center;
+    padding: 2% 0%;
+    width: 100%;
+}
+.user__subgroup h3{
+    text-align: left;
+    text-transform: capitalize;
+    color: #FBF2E0;
+    margin: 2% 0%;
+    /* padding: 4% 0%; */
+    font-weight: normal;
+}
+.group__a{
+    width: 100%;
+    border: none;
+}
+.group__b{
+    width: 100%;
+}
+.input__section{
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 100%;
+}
+.input__section label{
+    padding-bottom: 5%;
+    color: #FBF2E0;
+    font-size: 15px;
+}
+.input__section input{
+    color: #2b2b2b;
+    padding: 2%;
+    background-color: #FBF2E0;
+    border: none;
+    border-radius: 5px;
+}
+.input__group{
+   display: flex;
+   flex-direction: column;
+}
+.edit__user{
+    padding: 2% 0%;
+}
+.edit__user img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit:cover;
+    margin: auto;
+    margin-top: 10%;
+}
+.edit__user p{
+    color: #FBF2E0;
+}
+.submit__container{
+    padding-right: 2%;
+    margin-top: 5%;
+    text-align: right;
+}
+.user__submit{
+    color: #FBF2E0;
+    background-color: #ee4c0f;
+    padding: 1.2% 4%;
+    border: none;
+    border-radius: 2px;
+    transition: ease 0.5ms;
+}
+.user__cancel{
+    color: #333;
+    background-color: #FBF2E0;
+    padding: 1% 2%;
+    border: none;
+    border-radius: 2px;
+    transition: ease 0.5ms;
+    text-decoration: none;
+    font-size: 14px;
+}
+.user__submit:hover{
+    color: #333;
+    background-color: #FBF2E0;
+}
+.user__cancel:hover{
+    color: #FBF2E0;
+    background-color: rgb(59, 59, 59);
+}
+
+/* FIN EDITAR USUARIO */
 
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
@@ -2060,6 +2245,45 @@ li datalist option {
         margin-bottom: 3rem;
         font-size: 17px;
     }
+    /* EDITAR USUARIO */
+    .user__data__columns{
+        display: flex;
+        flex-direction: row;
+        width: 80%;
+        gap: 5%;
+        margin: auto;
+        padding: 2% 0% 6%;
+    
+    }
+    .user__subgroup h3{
+        margin: 0% 0% 2%;
+    }
+    .group__a{
+        width: 30%;
+        padding-right: 5%;
+        border-right:1px solid rgb(61, 61, 61); 
+    }
+    .group__b{
+        width: 70%;
+    }
+    .edit__user p{
+        font-size: 15px;
+        padding: 3% 0%;
+    }
+    .edit__user img{
+        width: 150px;
+        max-height: 150px;
+        margin-top: 20%;
+    }
+    .input__section label{
+        padding-bottom: 5%;
+        color: #FBF2E0;
+        font-size: 15px;
+    }
+    .input__group{
+       display: flex;
+       flex-direction: row;
+    }
 }
 
 
@@ -2080,7 +2304,8 @@ li datalist option {
     .icon-2 {
         width: 100%;
         flex-wrap: nowrap;
-        margin-left: 90px;
+        margin-left: 50px;
+        margin-right: 5%;
         align-items: center;
     }
 
@@ -2211,7 +2436,7 @@ li datalist option {
     .news {
         background-color: #fbf2e0;
         width: 100vw;
-        height: 700px;
+        height: 550px;
         padding: 4% 9%;
 
     }
@@ -2575,7 +2800,7 @@ li datalist option {
 
     .catalogo__title {
         text-align: start;
-        padding-left: 80px;
+        padding-left: 10px;
         padding-top: 30px;
     }
 
@@ -2597,6 +2822,7 @@ li datalist option {
         padding-top: 40px;
 
     }
+   
 
     /*Seccion filtro*/
 
@@ -2645,6 +2871,12 @@ li datalist option {
     }
 
     /*  FIN ADMIN AREA  */
+
+    /* EDITAR USUARIO */
+    .edit__user img{
+        width: 160px;
+        height: 160px;
+    }
 }
 
 /*Fin catalogo*/
@@ -3056,7 +3288,9 @@ li datalist option {
     .text-foo {
         margin-top: 10px;
     }
-
+    .news {
+        height: 600px;
+    }
     /*Comienzo catalogo*/
     .catalogo__queries {
         width: 85%;
@@ -3069,7 +3303,7 @@ li datalist option {
     }
 
     .catalogo__conteiner {
-        width: 60%;
+        width: 70%;
         padding-top: 40px;
 
     }
@@ -3078,12 +3312,20 @@ li datalist option {
         width: 84%;
     }
 
+
     /*Fin catalogo*/
 
     /*Filtro*/
 
     .container__filtro {
-        margin-right: -12%;
+        margin-right: 5%;
+    }
+
+    /* EDITAR USUARIO */
+    .edit__user img{
+        width: 160px;
+        height: 160px;
+        
     }
 }
 
@@ -3137,6 +3379,7 @@ li datalist option {
         width: 82%;
     }
 
+
     /*Footer*/
     .footer ul {
         margin: 0px;
@@ -3148,7 +3391,7 @@ li datalist option {
     }
 
     .footer .container .row {
-        justify-content: center;
+        justify-content: space-evenly;
     }
 
     .footer-col ul li a {
@@ -3157,7 +3400,7 @@ li datalist option {
 
     /*Section filtro*/
     .container__filtro {
-        margin-right: -17%;
+        margin-right: 0%;
     }
 
     /************ seccion all-blogs ************/
@@ -3209,6 +3452,7 @@ li datalist option {
         font-size: 20px;
 
     }
+
 
 }
 

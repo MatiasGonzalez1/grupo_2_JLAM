@@ -4,8 +4,6 @@ const mainController = require('../controller/mainController');
 
 routes.get('/', mainController.index);
 
-
-
 module.exports = routes;
 
 

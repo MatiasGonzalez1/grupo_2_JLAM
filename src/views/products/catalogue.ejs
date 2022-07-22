@@ -27,15 +27,13 @@
       <ul class="filter-ul">
         <li><p>Precio</p></li>
         <div class="li-flex">
-        <li class="li-not num"><input type="range" id="precio" min="5000" max="30000" step="5000" value="5000" onchange="document.getElementById('outvol') .value='Hasta ' + value" list="tickmarks">
+        <li class="li-not num"><input type="range" id="precio" min="5000" max="20000" step="5000" value="5000" onchange="document.getElementById('outvol') .value='Hasta ' + value" list="tickmarks">
           <output id="outvol" name="outvol" for="vol">Hasta 5.000</output> 
         <datalist>
           <option value="5000" class="value"></option>
           <option value="10000" class="value"></option>
           <option value="15000" class="value"></option>
           <option value="20000" class="value"></option>
-          <option value="25000" class="value"></option>
-          <option value="30000" class="value"></option>
         </datalist>
           
         </li>
@@ -78,10 +76,13 @@
           <img class="cataimg__product" src="/img/productImg/<%= producto.imagen_producto%>" alt="aqui va la foto">
           <p class="cataname__product"> <%= producto.nombre_producto %></p>
           <p class="cataprecio__product">$ <%= formatter.format(producto.precio)%></p>
-          <div class="container__buttons">
-            <a class="catabutton__agregar" href="/product/product-cart/<%= producto.id_producto%>" target=""><i class="fa-solid fa-cart-shopping"></i> </a>
-            <a class="cata__eye" href="/product/product-detail/<%= producto.id_producto%>" target=""><i class="fa-regular fa-eye"></i></a>
-          </div>
+          
+          <form action="/product/product-cart/<%= producto.id_producto%>" method="post">
+              <div class="container__buttons">
+                <button type="submit" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                <a class="cata__eye" href="/product/product-detail/<%= producto.id_producto%>" target=""><i class="fa-regular fa-eye"></i></a>
+              </div>
+            </form>
         </article>
        <% })   %> 
         

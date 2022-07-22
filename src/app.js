@@ -2,13 +2,14 @@
 const express = require("express");
 const path = require("path"); //con este modulo se unifican las rutas para identificarlas mejor
 const methodOverride = require('method-override');
-
+let session = require('express-session');
+const cookies = require('cookie-parser');
 
 
 // Determinacion de variable global para ejecucion de express
 const app = express();
 
-// Determiancion de puerto asignable
+// Determinacion de puerto asignable
 const port = process.env.PORT || 3000;
 
 
@@ -23,6 +24,15 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(express.json());
 
+
+app.use(session({
+    secret: "secreto",
+    resave: true,
+    saveUninitialized: true
+    }));
+
+//Requerimiento para cookies
+app.use(cookies());
 
 // Requerimiento index de ruteo
 app.use("/", require("./routes/index.routes"));

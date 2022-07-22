@@ -12,7 +12,7 @@
     />
     <link rel="icon" type="img/png" href="/img/logo-web-icon.png" />
     <link rel="stylesheet" href="/css/login.css" />
-    <title>Login/Register</title>
+    <title>Login</title>
   </head>
   <body>
     <div class="login-Container">
@@ -22,39 +22,23 @@
         </section>
       </header>
       <main>
-        <section class="form-container register">
-          <div class="welcome">
-            <div class="mensaje">
-              <h2>TE DAMOS LA BIENVENIDA</h2>
-              <p>¿Ya tenes cuenta? iniciar sesión</p>
-              <button class="sign-up-btn">INICIAR SESION</button>
-            </div>
-          </div>
-          <form class="formulario" action="/users/register" method="POST" enctype="multipart/form-data">
-            <h2 class="create-account">REGISTRARSE</h2>
-            <label>Nombre</label>
-            <input type="text" name="nombre" required />
-            <label>Email</label>
-            <input type="email" name="email" />
-            <label>Fecha de Nacimiento</label>
-            <input type="date" name="fechaNacimiento" />
-            <label>Contraseña</label>
-            <input type="password" name="password" />
-            <label>Reingresa tu contraseña</label>
-            <input type="password" />
-            <label>Ingrese una imagen de perfil</label>
-            <input type="file" name="profileImage" />
-            <input id="submit" type="submit" value="REGISTRAR" />
-            <a href="#">¿Olvidaste tu contraseña?</a>
-          </form>
-        </section>
         <section class="form-container login">
-          <form class="formulario" action="/" method="GET">
+          <form class="formulario" action="/users/login" method="POST">
             <h2 class="create-account">INICIAR SESION</h2>
             <label>Email</label>
-            <input type="email" name="email" />
+            <input type="email" name="email" value="<%= (locals.old && old.email ? old.email : '') %> "/>
+            <% if(locals.errors && errors.email) { %> 
+              <p class="form-warning"> <%= errors.email.msg %> </p>
+            <%}%> 
             <label>Contraseña</label>
             <input type="password" name="password" />
+            <% if(locals.errors && errors.password) { %> 
+              <p class="form-warning"> <%= errors.password.msg %> </p>
+            <%}%> 
+            <label>Recordarme</label>
+            <div class="remember">
+            <input type="checkbox" name="recordarme">
+            </div>
             <input id="submit" type="submit" value="INGRESAR" />
             <a href="#">¿Olvidaste tu contraseña?</a>
           </form>
@@ -62,26 +46,12 @@
             <div class="mensaje">
               <h2>BIENVENIDO DE NUEVO</h2>
               <p>¿Aún no tenes cuenta? Creá una cuenta para iniciar sesión</p>
-              <button class="sign-in-btn">REGISTRARSE</button>
+              <a href="/users/register"><button class="sign-in-btn">REGISTRARSE</button></a>
             </div>
           </div>
         </section>
       </main>
     </div>
-
     <footer></footer>
-    <script>
-      const btnLogin = document.querySelector(".sign-in-btn");
-      const btnRegister = document.querySelector(".sign-up-btn");
-      const register = document.querySelector(".register");
-      const login = document.querySelector(".login");
-
-      document.addEventListener("click", (e) => {
-        if (e.target === btnLogin || e.target === btnRegister) {
-          login.classList.toggle("active");
-          register.classList.toggle("active");
-        }
-      });
-    </script>
   </body>
 </html>

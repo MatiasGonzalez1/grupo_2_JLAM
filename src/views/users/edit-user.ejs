@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <%- include('../partials/head.ejs')%>
+    <title>Editar Perfil - Terra Rossa</title>
+  </head>
+  <body>
+    <header>
+      <!-- seccion barra de navegacion -->
+      <%- include('../partials/nav.ejs')%>
+    </header>
+    <main>
+        <div class="user__main__container">
+          <h1 class="cart__title">Editar Usuario</h1>
+          <div class="user__data__columns">
+            <div class="user__subgroup group__a">
+              <h3>Perfil Actual</h2>
+                <div class="edit__user">
+                  <img src="/img/profileImages/<%= user.profileImg%>" alt="profile picture">
+                </div>
+                <div class="edit__user">
+                  <p><%= user.nombre%></p>
+                  <p><%= user.email%></p>
+                </div>
+            </div>
+            <div class="user__subgroup group__b">
+              <h3>Información Básica</h2>
+              <form class="formulario" action="/users/edit-user/?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="input__group">
+                  <input type="hidden" name="id" value="<%= user.id%>"/>
+                  <div class="input__section">
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" value="<%= user.nombre%>"/>
+                    <% if(locals.errors && errors.nombre) { %> 
+                        <p class="form-warning"> <%= errors.nombre.msg %> </p>
+                      <%}%> 
+                  </div>
+                  <div class="input__section">
+                    <label>Email</label>
+                    <input type="email" name="email" value="<%= user.email%>"/>
+                    <% if(locals.errors && errors.email) { %> 
+                      <p class="form-warning"> <%= errors.email.msg %> </p>
+                    <%}%> 
+                  </div >
+                </div>
+                <div class="input__group">
+                  <div class="input__section">
+                    <label>Fecha de Nacimiento</label>
+                    <input type="date" name="fechaNacimiento" value="<%= user.fechaNac%>"/>
+                    <% if(locals.errors && errors.fechaNacimiento) { %> 
+                      <p class="form-warning"> <%= errors.fechaNacimiento.msg %> </p>
+                    <%}%> 
+                  </div>
+                  <div class="input__section">
+                    <label>Contraseña</label>
+                    <input type="password" name="password" value=""/>
+                    <% if(locals.errors && errors.password) { %> 
+                      <p class="form-warning"> <%= errors.password.msg %> </p>
+                    <%}%> 
+                  </div>
+                </div>
+                <div class="input__group">
+                  <div class="input__section">
+                    <label>Ingrese una imagen de perfil</label>
+                      <input type="file" id="profileImageUser" name="profileImage"/>
+                      <% if(locals.errors && errors.profileImage) { %> 
+                        <p class="form-warning"> <%= errors.profileImage.msg %> </p>
+                      <%}%> 
+                  </div>
+                </div>
+                <div class="submit__container">
+                  <a class="user__cancel" href="/">Cancelar</a>
+                  <input class="user__submit" id="submit" type="submit" value="Guardar"/>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+    
+    </main>
+   <footer class="footer">
+    <%- include('../partials/footer.ejs')%>
+   </footer>
+  </body>
+  </html>

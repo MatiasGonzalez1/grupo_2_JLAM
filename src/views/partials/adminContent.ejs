@@ -1,0 +1,11 @@
+<div class="welcome__container">
+    <% if (userLog) { %>
+      <div class="welcome__content">
+        <h2><%= userLog.nombre%></h2>
+        <p>Que bueno volver a verte!</p>
+      </div>
+      <div class="welcome__content">
+        <img src="/img/profileImages/<%= userLog.profileImg%>" alt="profile picture">
+      </div>
+    <% } %>
+  </div>
