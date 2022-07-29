@@ -36,7 +36,47 @@
                       <%}%> 
                   </div>
                   <div class="input__section">
-                    <label>Email</label>
+                    <label>Apellido</label>
+                    <input type="text" name="apellido" value="<%= user.apellido%>"/>
+                    <% if(locals.errors && errors.apellido) { %> 
+                        <p class="form-warning"> <%= errors.apellido.msg %> </p>
+                      <%}%> 
+                  </div>
+                </div>
+                <div class="input__group">
+                  <input type="hidden" name="id" value="<%= user.id%>"/>
+                  <div class="input__section">
+                      <label>Dirección</label>
+                    <input type="text" name="direccion" value="<%= user.direccion%>"/>
+                    <% if(locals.errors && errors.direccion) { %> 
+                        <p class="form-warning"> <%= errors.direccion.msg %> </p>
+                      <%}%> 
+                  </div>
+                  <div class="input__section">
+                    <div class="user__row">
+                      <label>Piso</label> <p>(En caso de ser necesario)</p>
+                    </div>
+                    <input type="text" name="direccion" value="<%= user.direccion%>"/>
+                    <% if(locals.errors && errors.direccion) { %> 
+                        <p class="form-warning"> <%= errors.direccion.msg %> </p>
+                      <%}%> 
+                  </div>
+                </div>
+                <div class="input__group">
+                  <div class="input__section">
+                    <label>Codigo Postal</label>
+                    <select name="codigoPostal">
+                      <% city.forEach(city => { %>
+                        <% if (city.codigo == user.codigoPostal) {%>
+                          <option selected><%= city.nombre%></option>
+                        <%}else {%> 
+                          <option><%= city.nombre%></option>
+                        <% }%>
+                      <% })%> 
+                    </select>
+                  </div>
+                  <div class="input__section">
+                    <label>Email</label> 
                     <input type="email" name="email" value="<%= user.email%>"/>
                     <% if(locals.errors && errors.email) { %> 
                       <p class="form-warning"> <%= errors.email.msg %> </p>
