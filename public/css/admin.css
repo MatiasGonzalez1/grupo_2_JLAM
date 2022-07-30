@@ -152,8 +152,6 @@ main{
     text-transform: capitalize;
 }
 .welcome__content img{
-    /* border-radius: 100px;
-    width: 100%; */
     width: 80px;
     height: 80px;
     border-radius: 160px;
@@ -477,9 +475,6 @@ a#cancel{
     .productdash_block{
         padding: 2%;  
     }
-    /* .userdash_block{
-        padding: 4%;
-    } */
     .productdash_block img{
         width: 8%;
     }

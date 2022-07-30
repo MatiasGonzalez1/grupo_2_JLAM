@@ -116,52 +116,6 @@ body{
 }
 
 
-
-
-/* .cards{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-}
-
-.card{
-width: 48%;
-border: 2px solid white;
-margin: 10px 0 ;
-padding: 10px;
-}
-
-.textos{
-    background-color:rgba(51, 51, 51, 0.144);
-    width: auto;
-    height: auto;
-    border-radius: 3px;
-}
-
-.textos h2{
-    margin-bottom: 20px;
-    padding-top: 10px;
-    text-align: center;
-    text-decoration: underline;
-    font-size: 22px;
-    font-weight: 600;
-}
-
-.textos ul li{
-list-style: none;
-margin: 10px;
-text-align: center;
-}
-
-.textos ul p{
-    text-align: center;
-    margin: 10px;
-} */
-
-
-
-
 /*Adaptable a dispositivos mobiles*/
 @media screen and (min-width: 600px){
     .sub-titles h3{
