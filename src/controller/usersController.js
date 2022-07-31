@@ -5,6 +5,8 @@ const {validationResult} = require('express-validator');
 
 let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
 let users = JSON.parse(usersFile);
+let cityFile = fs.readFileSync(path.join(__dirname, '../models/data/city.json'), { encoding: 'utf-8' });
+let city = JSON.parse(cityFile);
 
 const usersController = {
 
@@ -107,8 +109,9 @@ const usersController = {
             return user.id == userActual.id;
         });
 
+
         res.render(path.join(__dirname, '../views/users/edit-user' 
-        ), {user: UserData});
+        ), {user: UserData, city:city});
     },
 
     userEdit: (req, res) =>{
@@ -135,8 +138,11 @@ const usersController = {
                         id: userId,
                         permisos:user.permisos,
                         nombre: req.body.nombre,
+                        apellido:req.body.apellido,
                         email: req.body.email,
                         fechaNac: req.body.fechaNacimiento,
+                        direccion: req.body.direccion,
+                        codigoPostal:req.body.codigoPostal,
                         password: user.password,
                         profileImg: user.profileImg,
                     }
