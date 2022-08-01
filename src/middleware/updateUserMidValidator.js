@@ -19,6 +19,7 @@ const updateUserValid = [
         .isLength({ min: 3 })
         .withMessage("El nombre debe de tener al menos tres carácteres"),
     body("direccion")
+        .trim()
         .custom((value, {req})=>{
           let address = req.body.direccion;
           let expresion = (/\d/);
