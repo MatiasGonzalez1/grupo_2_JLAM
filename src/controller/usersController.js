@@ -132,6 +132,7 @@ const usersController = {
         } else{
             let updateUsers= users.map(function(user){
                 //busco el producto que tiene el mismo id
+                
                 if (user.id == userId) { 
                     // si file vino con algo
                     let formDataUser = {
@@ -141,8 +142,9 @@ const usersController = {
                         apellido:req.body.apellido,
                         email: req.body.email,
                         fechaNac: req.body.fechaNacimiento,
-                        direccion: req.body.direccion,
-                        codigoPostal:req.body.codigoPostal,
+                        direccion: user.direccion,
+                        departamento:user.departamento,
+                        codigoPostal:user.codigoPostal,
                         password: user.password,
                         profileImg: user.profileImg,
                     }
@@ -152,6 +154,22 @@ const usersController = {
                     }else{
                         formDataUser.password = bcrypt.hashSync(req.body.password, 10);
                     }
+                    //si agrego direccion
+                    if(req.body.direccion != undefined && req.body.direccion.length > 1){
+                        formDataUser.direccion = req.body.direccion;
+                    }
+                    if(req.body.departamento != undefined && req.body.departamento.length > 1){
+                        formDataUser.departamento = req.body.departamento;
+                    }
+                     //si agrego ciudad o la cambio 
+                    if(req.body.codigoPostal != undefined){
+                         //busco la ciudad que coincida y le asigno el nombre de la misma
+                        let Usercity = city.find((code) => {
+                            return code.nombre == req.body.codigoPostal;
+                        });
+                        formDataUser.codigoPostal = Usercity.codigo;
+                    }
+
                     //si hay una imagen la cambio
                     if(req.file){
                         fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", user.profileImg));
