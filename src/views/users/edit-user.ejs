@@ -44,7 +44,6 @@
                   </div>
                 </div>
                 <div class="input__group">
-                  <input type="hidden" name="id" value="<%= user.id%>"/>
                   <div class="input__section">
                       <label>Dirección</label>
                     <input type="text" name="direccion" value="<%= user.direccion%>"/>
@@ -56,9 +55,9 @@
                     <div class="user__row">
                       <label>Piso</label> <p>(En caso de ser necesario)</p>
                     </div>
-                    <input type="text" name="direccion" value="<%= user.direccion%>"/>
-                    <% if(locals.errors && errors.direccion) { %> 
-                        <p class="form-warning"> <%= errors.direccion.msg %> </p>
+                    <input type="text" name="departamento" value="<%= user.departamento%>"/>
+                    <% if(locals.errors && errors.departamento) { %> 
+                        <p class="form-warning"> <%= errors.departamento.msg %> </p>
                       <%}%> 
                   </div>
                 </div>
@@ -66,10 +65,11 @@
                   <div class="input__section">
                     <label>Codigo Postal</label>
                     <select name="codigoPostal">
+                      <option selected disabled>-- seleccione su ciudad --</option>
                       <% city.forEach(city => { %>
                         <% if (city.codigo == user.codigoPostal) {%>
                           <option selected><%= city.nombre%></option>
-                        <%}else {%> 
+                        <%}else {%>
                           <option><%= city.nombre%></option>
                         <% }%>
                       <% })%> 
