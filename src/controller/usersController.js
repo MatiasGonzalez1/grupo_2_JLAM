@@ -85,6 +85,7 @@ const usersController = {
             id: generadorId,
             permisos: 'user',
             nombre: req.body.nombre,
+            apellido: req.body.apellido,
             email: req.body.email,
             fechaNac: req.body.fechaNacimiento,
             password: bcrypt.hashSync(req.body.password, 10), // Encriptacion de password

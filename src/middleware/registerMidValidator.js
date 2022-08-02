@@ -14,6 +14,16 @@ const formValid = [
     .isAlpha()
     .withMessage("No se admiten números o caracteres especiales")
     ,
+    body("apellido")
+    .escape()
+    .trim()
+    .notEmpty()
+    .withMessage("El campo nombre no puede estar vacio")
+    .isLength({ min: 2 })
+    .withMessage("El apellido debe de tener al menos dos carácteres")
+    .isAlpha()
+    .withMessage("No se admiten números o caracteres especiales")
+    ,
     body("email")
     .trim()
     .notEmpty()
