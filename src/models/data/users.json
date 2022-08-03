@@ -47,5 +47,32 @@
         "fechaNac": "2000-11-11",
         "password": "$2a$10$MG/hGrCNngGrUie8r7P/GuC3hVGoncXzUV7Yq4hC4n.RZQWIkTgUu",
         "profileImg": "amalia@grupo4.com_1658451055057.png"
+    },
+    {
+        "id": 6,
+        "permisos": "user",
+        "nombre": "Jesica",
+        "email": "jesica@email.com",
+        "fechaNac": "1994-07-21",
+        "password": "$2a$10$qIhR37moM5UAHPFGIsAyqux65JZ3XEz4qv8nWiY2UG/JXb/IgubYW",
+        "profileImg": "jesica@email.com_1659380297358.jpg"
+    },
+    {
+        "id": 7,
+        "permisos": "user",
+        "nombre": "Araceli",
+        "email": "araceli@email.com",
+        "fechaNac": "1999-07-19",
+        "password": "$2a$10$jd3dEDa/CC2o5GLnRWELV.PNYCVXn7yVne6pa27KUfTO5Ym7ct.9S",
+        "profileImg": "araceli@email.com_1659380461343.png"
+    },
+    {
+        "id": 8,
+        "permisos": "user",
+        "nombre": "Esteban",
+        "email": "esteban@email.com",
+        "fechaNac": "1997-02-27",
+        "password": "$2a$10$4tdzL9hG0bN2.G.5LN1W0O5XuLQA3sO.9T02G29QJXNWuoIORP//e",
+        "profileImg": "esteban@email.com_1659381042015.jpg"
     }
 ]
