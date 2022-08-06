@@ -18,7 +18,7 @@ const formValid = [
     .escape()
     .trim()
     .notEmpty()
-    .withMessage("El campo nombre no puede estar vacio")
+    .withMessage("El campo apellido no puede estar vacio")
     .isLength({ min: 2 })
     .withMessage("El apellido debe de tener al menos dos carácteres")
     .isAlpha()
