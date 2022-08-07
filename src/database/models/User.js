@@ -55,23 +55,23 @@ module.exports = (sequelize, DataTypes)=>{
     // Relacion mediante Sequelize con las tablas correspondientes
     User.associate = models =>{
         //relacion 1:N
-        User.belongsTo(models.userCategory, 
+        User.belongsTo(models.UserCategory, 
             {
                 as: "userCategory",
                 foreignKey: "userCategory"
             }
         );
         //relacion 1:N
-        User.belongsTo(models.cities, 
+        User.belongsTo(models.City, 
             {
                 as: "city",
                 foreignKey: "idCity"
             }
         );
         //Relacion 1:N
-        User.hasMany(models.purchaseDetail,
+        User.hasMany(models.PurchaseDetail,
             {
-                as: "purchaseDetail",
+                as: "userPurchase",
                 foreignKey: "idUser"
             }
         );
