@@ -50,22 +50,22 @@ module.exports = (sequelize, DataTypes) => {
         {
         tableName: "products",
         timestamps: false
-    },
+    });
 
-    Product.associate = function(models) {
-        Product.belongsTo(models.productCategory, {
+    Product.associate = (models) => {
+        Product.belongsTo(models.ProductCategory, {
             as:"category",
             foreignKey:"productCategory"
-        })
-    },
-    Product.associate = function(models) {
+        }
+        ),
         Product.belongsToMany(models.purchaseDetail, {
             as:"Purchase",
             through:"itemsPurchase",
             foreignKey:"idProduct",
             otherKey:"idPurchaseDetail",
             timestamps: false
-        })
-    });
+        }
+      );
+    };
     return Product;
 }
