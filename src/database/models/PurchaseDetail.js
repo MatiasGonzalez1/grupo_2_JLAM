@@ -46,11 +46,20 @@ module.exports = (sequelize, DataTypes) => {
         as:"purchaseUser",
         foreignKey:"idUser",
       });
+
       //Relacion 1:N
       PurchaseDetail.belongsTo(models.City, {
         as:"purchaseCity",
         foreignKey:"idCity",
       });
+
+      PurchaseDetail.belongsToMany(models.product, {
+        as:"purchaseProduct",
+        through:"itemsPurchase",
+        foreignKey:"idPurchaseDetail",
+        otherKey:"idProduct",
+        timestamps: false
+    })
     };
     return Product;
 }

@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes)=>{
             unique: true,
             type: DataTypes.STRING
         },
-        userCategory:{
+        idUserCategory:{
             allowNull: false,
             type: DataTypes.INTEGER
         },
@@ -58,7 +58,7 @@ module.exports = (sequelize, DataTypes)=>{
         User.belongsTo(models.UserCategory, 
             {
                 as: "userCategory",
-                foreignKey: "userCategory"
+                foreignKey: "idUserCategory"
             }
         );
         //relacion 1:N
