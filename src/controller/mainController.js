@@ -43,11 +43,11 @@ const mainController = {
         res.render(path.join(__dirname, '../views/allBlogs.ejs'),{news:news, user: req.session.userLogged})
     },
     faq: (req,res) =>{
-        res.render(path.join(__dirname, '../views/faq.ejs'))
+        res.render(path.join(__dirname, '../views/faq.ejs'), {user: req.session.userLogged});
     },
 
     terminos: (req, res) =>{
-        res.render(path.join(__dirname, '../views/terminos.ejs'))
+        res.render(path.join(__dirname, '../views/terminos.ejs'),{user: req.session.userLogged})
     }
 };
 

@@ -1,21 +1,5 @@
 <section class="container">
   <div class="row">
-    <!-- <article class="footer-col">
-      <h4>Vinos</h4>
-      <ul>
-        <li><a href="#">Tintos</a></li>
-        <li><a href="#">Blancos</a></li>
-        <li><a href="#">Espumantes</a></li>
-        <li><a href="#">Especiales</a></li>
-      </ul>
-    </article> -->
-    <!-- <article class="footer-col">
-      <h4>Contacto</h4>
-      <ul> 
-        <li><a href="/users/login">Iniciar Sesión</a></li>
-        <li><a href="/users/register">Formulario de Registro</a></li>
-      </ul>
-    </article> -->
     <article class="footer-col">
       <h4>Ayuda</h4>
       <ul>
@@ -23,13 +7,7 @@
         <li><a href="/content/terminos">Términos y condiciones</a></li>
       </ul>
     </article>
-    <!-- <div class="footer-col">
-                <h4>Medios de pago</h4>
-                <ul>
-            <li><a href="#">Icono</a></li>
-            <li><a href="#">Icono</a></li>
-                </ul>
-            </div> -->
+    
     <article class="footer-col">
       <h4>Redes</h4>
       <div class="social-links">
@@ -64,5 +42,26 @@
     });
     navMenu.addEventListener("click", () => {
       navToggle.classList.toggle("nav-menu_visible");
+    });
+
+    // mostrar metodo de pago
+    const paymentVisible = document.getElementById('checkoutNext');
+    const shippingVisible = document.getElementById('checkoutPrev');
+    const paymentData = document.getElementById('paymentData');
+    const shippingForm = document.getElementById('shippingForm');
+    const paymentForm = document.getElementById('paymentForm');
+    
+    paymentVisible.addEventListener("click", () => {
+      paymentData.classList.toggle("disabled");
+      paymentData.classList.toggle("enabled");
+      shippingForm.classList.toggle("checkout-hidden");
+      paymentForm.classList.toggle("checkout-hidden");
+    });
+
+    shippingVisible.addEventListener("click", () => {
+      paymentData.classList.toggle("disabled");
+      paymentData.classList.toggle("enabled");
+      shippingForm.classList.toggle("checkout-hidden");
+      paymentForm.classList.toggle("checkout-hidden");
     });
   </script>
