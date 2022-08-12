@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
 
       PurchaseDetail.belongsToMany(models.product, {
         as:"purchaseProduct",
-        through:"itemsPurchase",
+        through:models.itemPurchases,
         foreignKey:"idPurchaseDetail",
         otherKey:"idProduct",
         timestamps: false
