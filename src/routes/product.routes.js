@@ -8,6 +8,7 @@ const validationPro = require('../middleware/productMidValidator');
 const checkoutData = require('../middleware/checkoutDataMidValidator');
 
 
+
 routes.get('/catalogue', productController.catalogo);
 routes.get('/product-detail/:id', productController.detalle);
 

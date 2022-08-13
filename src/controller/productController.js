@@ -1,11 +1,13 @@
 const path = require("path");
 const fs = require("fs");
 const {validationResult} = require('express-validator');
+const db = require("../database/models");
 
 let archivoProductos = fs.readFileSync(
     path.join(__dirname, "../models/data/products.json"),
     { encoding: "utf-8" }
 );
+
 let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
 
 let users = JSON.parse(usersFile);

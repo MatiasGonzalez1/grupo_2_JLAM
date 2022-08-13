@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const Product = sequelize.define("products", {
+    const Product = sequelize.define("Product", {
         idProduct: {
             primaryKey: true,
             autoIncrement: true,
@@ -53,7 +53,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Product.associate = (models) => {
-        Product.belongsTo(models.ProductCategory, {
+        Product.belongsTo(models.productCategory, {
             as:"category",
             foreignKey:"idProductCategory"
         }

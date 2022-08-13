@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes)=>{
 
     //Definicion del modelo Ciudades
 
-    const City = sequelize.define("cities", {
+    const City = sequelize.define("Cities", {
         idCity: {
             autoIncrement: true,
             primaryKey: true,
@@ -23,16 +23,16 @@ module.exports = (sequelize, DataTypes)=>{
     });
 
     // Relacion mediante Sequelize con las tablas correspondientes
-    City.associate = models =>{
-        //relacion 1:N
-        City.hasMany(models.User, 
+    City.associate = (models) =>{
+        //relacion 1:N 
+        City.hasMany(models.Users, 
             {
                 as: "user",
                 foreignKey: "idCity"
             }
         );
         //Relacion 1:N
-        City.hasMany(models.PurchaseDetail,
+        City.hasMany(models.purchaseDetail,
             {
                 as: "cityPurchase",
                 foreignKey: "idCity"
