@@ -32,7 +32,7 @@ module.exports = (sequelize, DataTypes)=>{
             }
         );
         //Relacion 1:N
-        City.hasMany(models.purchaseDetail,
+        City.hasMany(models.PurchaseDetail,
             {
                 as: "cityPurchase",
                 foreignKey: "idCity"

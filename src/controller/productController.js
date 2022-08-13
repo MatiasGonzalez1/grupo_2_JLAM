@@ -2,6 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const {validationResult} = require('express-validator');
 const db = require("../database/models");
+// const Product = db.Product;
 
 let archivoProductos = fs.readFileSync(
     path.join(__dirname, "../models/data/products.json"),
@@ -18,9 +19,12 @@ let city = JSON.parse(cityFile);
 
 const productController = {
     catalogo: (req, res) => {
-        res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {
-            productos: productos, user: req.session.userLogged
-        });
+        db.Product.findAll({
+        })
+        .then(productos =>{
+            res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {user: req.session.userLogged, productos: productos});
+        })
+        .catch(error => res.send(error))
     },
 
     carrito: (req, res) => {
@@ -187,14 +191,14 @@ const productController = {
     },
 
     detalle: (req, res) => {
-        const detalleId = Number(req.params.id); //convierto el id string a un numero para poder hacer la triple comparacion
 
-        let coincidencia = productos.find((producto) => {
-            //filtro mis productos y busco el id
-            return producto.id_producto === detalleId;
-        });
-
-        res.render(path.join(__dirname, '../views/products/productDetail.ejs'), { coincidencia: coincidencia, user: req.session.userLogged });
+        db.Product.findByPk(req.params.id, {
+            include: [{association: 'category'}]
+        })
+        .then(coincidencia =>{
+            res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {user: req.session.userLogged, coincidencia: coincidencia});
+        })
+        .catch(error => res.send(error))
     },
 
     nuevoProducto: (req, res) => {
@@ -202,13 +206,15 @@ const productController = {
     },
 
     verActualizarProducto: (req, res) =>{
-        const updateId =  Number(req.params.id);
+        
+        db.Product.findByPk(req.params.id, {
+            include: [{association: 'category'}]
+        })
+        .then(coincidencia =>{
+            res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, coincidencia: coincidencia});
+        })
+        .catch(error => res.send(error))
 
-        let coincidencia = productos.find((producto) => { //filtro mis productos y busco el id
-            return producto.id_producto === updateId;
-        });
-
-        res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), { coincidencia: coincidencia, userLog: req.session.userLogged });
     },
 
     enviarActualizarProducto: (req, res) =>{
@@ -278,7 +284,14 @@ const productController = {
     },
     
     cargarProductos: (req, res) =>{
-        res.render(path.join(__dirname, '../views/products/all-products.ejs'), { productos: productos, userLog: req.session.userLogged});
+
+        db.Product.findAll({
+            include: [{association: 'category'}]
+        })
+        .then(productos =>{
+            res.render(path.join(__dirname, '../views/products/all-products.ejs'), {userLog: req.session.userLogged, productos: productos});
+        })
+        .catch(error => res.send(error))
     },
 
     delete: (req, res) => {
