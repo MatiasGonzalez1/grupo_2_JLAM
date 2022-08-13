@@ -1,6 +1,6 @@
 module.exports = (sequelize, DataTypes) => {
 
-    const PurchaseDetail = sequelize.define("purchaseDetails", {
+    const PurchaseDetail = sequelize.define("purchaseDetail", {
         idPurchaseDetail: {
             primaryKey: true,
             autoIncrement: true,
@@ -36,24 +36,24 @@ module.exports = (sequelize, DataTypes) => {
         },
      }, 
         {
-        tableName: "products",
+        tableName: "purchasedDetail",
         timestamps: false
     });
 
     PurchaseDetail.associate = (models) => {
         //Relacion 1:N
-      PurchaseDetail.belongsTo(models.User, {
+      PurchaseDetail.belongsTo(models.Users, {
         as:"purchaseUser",
         foreignKey:"idUser",
       });
 
       //Relacion 1:N
-      PurchaseDetail.belongsTo(models.City, {
+      PurchaseDetail.belongsTo(models.Cities, {
         as:"purchaseCity",
         foreignKey:"idCity",
       });
 
-      PurchaseDetail.belongsToMany(models.product, {
+      PurchaseDetail.belongsToMany(models.Product, {
         as:"purchaseProduct",
         through:models.itemPurchases,
         foreignKey:"idPurchaseDetail",
@@ -61,5 +61,5 @@ module.exports = (sequelize, DataTypes) => {
         timestamps: false
     })
     };
-    return Product;
+    return PurchaseDetail;
 }

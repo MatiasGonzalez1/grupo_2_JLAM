@@ -1,7 +1,7 @@
 module.exports = (sequelize, DataTypes)=>{
 
 
-    const UserCategory = sequelize.define("userCategories", {
+    const UserCategory = sequelize.define("userCategory", {
         idUserCategory: {
             autoIncrement: true,
             primaryKey: true,
@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes)=>{
     });
 
     UserCategory.associate = models =>{
-        UserCategory.hasMany(models.User,
+        UserCategory.hasMany(models.Users,
             {
                 as: "user",
                 foreignKey: "idUserCategory"

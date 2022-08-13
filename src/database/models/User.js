@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes)=>{
 
     //Definicion del modelo usuario
 
-    const User = sequelize.define("users", {
+    const User = sequelize.define("Users", {
         userId: {
             autoIncrement: true,
             primaryKey: true,
@@ -38,7 +38,7 @@ module.exports = (sequelize, DataTypes)=>{
             allowNull: false,
             type: DataTypes.STRING
         },
-        zipCode:{
+        idCity:{
             allowNull: true,
             type: DataTypes.INTEGER
         },
@@ -53,23 +53,23 @@ module.exports = (sequelize, DataTypes)=>{
     });
 
     // Relacion mediante Sequelize con las tablas correspondientes
-    User.associate = models =>{
+    User.associate = (models) =>{
         //relacion 1:N
-        User.belongsTo(models.UserCategory, 
+        User.belongsTo(models.userCategory, 
             {
                 as: "userCategory",
                 foreignKey: "idUserCategory"
             }
         );
         //relacion 1:N
-        User.belongsTo(models.City, 
+        User.belongsTo(models.Cities, 
             {
                 as: "city",
                 foreignKey: "idCity"
             }
         );
         //Relacion 1:N
-        User.hasMany(models.PurchaseDetail,
+        User.hasMany(models.purchaseDetail,
             {
                 as: "userPurchase",
                 foreignKey: "idUser"
