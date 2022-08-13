@@ -4,7 +4,6 @@
     padding: 0;
     font-family: "Montserrat";
 }
-
 body{
     background-image: url("/img/login-bg.png");
     background-size:cover;
@@ -19,13 +18,11 @@ main{
     text-align: justify;
 
 }
-
 .cabecera{
     text-align: center;
     top: 0;
     width: 100% ;
 }
-
 .cabecera__logo{
     width: auto;
     height: auto;
@@ -42,30 +39,24 @@ h1{
     margin-bottom: 20px;
     text-decoration: underline;
 }
-
-
 .scroll{
     width:100%;
     height: 800px;
     overflow:hidden;
     overflow-y: scroll;
     background-color: #1a151577;
-    margin-top: 50px;
+    margin-top: 120px;
 
 }
-
 .tyc-container{
-    padding: 20px;
+    padding: 50px;
 }
-
 ol li{
     margin: 10px 10px 10px 25px;
 }
-
 ol p{
     line-height: 1.5;
 }
-
 .subtitulo{
     font-size: 18px;
     font-weight: bold;

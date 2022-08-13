@@ -2,31 +2,21 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="https://kit.fontawesome.com/9caded27f0.js" crossorigin="anonymous"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
-    rel="stylesheet" />
-  <link rel="icon" type="img/png" href="/img/logo-web-icon.png" />
+  <%- include('partials/head.ejs')%>
   <link rel="stylesheet" href="/css/tyc.css" />
   <title>Términos y condiciones</title>
 </head>
 
 <body>
-  <section class="cabecera">
-    <a href="/"><img class="cabecera__logo" src="/img/logo-w.png" /></a>
-  </section>
+  <!-- seccion barra de navegacion -->
+  <header>
+    <%- include('partials/nav.ejs')%>
+  </header>
+  <!-- fin seccion barra de navegacion -->
   <main>
-
     <div class="scroll">
       <div class="tyc-container">
         <h1>Términos y condiciones</h1>
-  
-  
         <p>La página Web de "Terra Rossa" tiene como función principal proveer información relativa a sus servicios.
           Solicitamos al visitante y al usuario de esta página, que lean detallada y juiciosamente estas condiciones y la
           política de privacidad, antes de iniciar su exploración o utilización, y en caso de no estar de acuerdo con
@@ -100,21 +90,17 @@
             medio fehaciente, cualquier uso no autorizado de su clave.</p>
             <li class="subtitulo">información y sitios web de terceros</li>
             <p>La página Web puede ofrecer hipervínculos o acceso a páginas Web y contenidos de otras personas o entidades, con el  propósito de informar al Usuario sobre la existencia de otras fuentes susceptibles de ampliar los contenidos que ésta ofrece, o que guardan relación con aquéllos. Terra Rossa no controla, refrenda ni garantiza el contenido incluido en dichos sitios, tampoco se responsabiliza del funcionamiento o accesibilidad de las páginas Web vinculadas; ni sugiere, invita o recomienda la visita a las mismas, por lo que tampoco será responsable del resultado obtenido.
-
               El Usuario acepta que la entidad no es responsable de ningún contenido, enlace asociado, recurso o servicio relacionado con el sitio de un tercero. Asimismo, el Usuario acepta que el Terra Rossa no será responsable de ninguna pérdida o daño de cualquier tipo que se derive del uso que se realice de los contenidos de un tercero.
-              
               Terra Rossa no se responsabiliza por cualquier consecuencia derivada del ingreso indebido de terceros a la base de datos y/o por alguna falla técnica en el funcionamiento y/o conservación de datos en el sistema en cualquiera de los menús de su página Web.
-              
               Igualmente, el Terra Rossa no podrá garantizar la disponibilidad de los servicios en línea y de la información que los usuarios requieran en determinado momento. Tampoco incurrirá en responsabilidad con el usuario o terceros, cuando su página Web no se encuentre disponible.
-              
-              Terra Rossa  no responderá en ningún caso y bajo ninguna circunstancia, por los ataques o incidentes contra la seguridad de su página Web o contra sus sistemas de información; o por cualquier exposición o acceso no autorizado, fraudulento o ilícito a su página Web y que puedan afectar la confidencialidad, integridad o autenticidad de la información publicada o asociada con los contenidos y servicios que se ofrecen en ella.</p>
+             Terra Rossa  no responderá en ningún caso y bajo ninguna circunstancia, por los ataques o incidentes contra la seguridad de su página Web o contra sus sistemas de información; o por cualquier exposición o acceso no autorizado, fraudulento o ilícito a su página Web y que puedan afectar la confidencialidad, integridad o autenticidad de la información publicada o asociada con los contenidos y servicios que se ofrecen en ella.</p>
         </ol>
       </div>
     </div>
-
-
   </main>
-
+  <footer class="footer">
+    <%- include('partials/footer.ejs')%>
+</footer>
 </body>
 
 </html>

@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/9caded27f0.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="img/png" href="/img/logo-web-icon.png" />
+    <%- include('partials/head.ejs')%>
     <link rel="stylesheet" href="/css/faq.css" />
     <title>FAQ</title>
   </head>
   <body>
+      <!-- seccion barra de navegacion -->
+      <header>
+        <%- include('partials/nav.ejs')%>
+      </header>
+      <!-- fin seccion barra de navegacion -->
+
     <div class="faq-container">
       <header>
-        <section class="cabecera">
+        <!-- <section class="cabecera">
           <a href="/"><img class="cabecera__logo" src="/img/logo-w.png" /></a>
-        </section>
+        </section> -->
     <main>
         <div class="cont-gen">
            <div class="container-acordeon">
@@ -56,7 +52,7 @@
                 <p class="desplegar">Se utilizan materiales de los más altos estándares de calidad tales cómo : Uvas sanas y maduras.
                     Levaduras indígenas (naturales de las vides) o seleccionadas (agregadas).
                     Recipientes donde realizar la fermentación (pueden ser de acero inoxidable, cemento, madera o plástico, dependiendo del estilo de vino que se quiera elaborar).
-                </>
+                />
             </section>
             <section class="sub-titles">
                 <h3>
@@ -152,6 +148,9 @@
         
         </div>
     </main>
+    <footer class="footer">
+        <%- include('partials/footer.ejs')%>
+    </footer>
     <script src="/js/acordeon.js">
     </script>
 </body>
