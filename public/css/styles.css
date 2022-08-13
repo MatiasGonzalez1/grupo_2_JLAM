@@ -2405,23 +2405,6 @@ li datalist option {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
-    
-    /* .checkout-items-text{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    .checkout-items-text p{
-        color: #fbf2e0;
-        font-size: 13px;
-        text-transform: capitalize;
-        margin-top: 5px;
-    }
-    .checkout-items{
-        margin-top: 20px;
-        padding: 10px;
-        border: 1px solid #fbf2e086;
-    } */
 
     .disabled{
         color: #222222;

@@ -2,7 +2,7 @@ module.exports = (sequelize, DataTypes)=>{
 
     //Definicion del modelo Categoria de producto
 
-    const ProductCategory = sequelize.define("productCategory", {
+    const ProductCategory = sequelize.define("ProductCategory", {
         idProductCategory: {
             autoIncrement: true,
             primaryKey: true,
@@ -24,7 +24,7 @@ module.exports = (sequelize, DataTypes)=>{
         ProductCategory.hasMany(models.Product,
             {
                 as: "product",
-                foreignKey: "productCategory"
+                foreignKey: "idProductCategory"
             }
         );
     };

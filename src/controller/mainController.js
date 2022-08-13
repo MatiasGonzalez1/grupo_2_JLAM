@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 const session = require('express-session');
+const db = require("../database/models");
+
 
 let newsjson = fs.readFileSync(
     path.join(__dirname, "../models/data/newsBlog.json"),
@@ -17,9 +19,14 @@ let productos = JSON.parse(archivoProductos);
 const mainController = {
 
     index: (req,res) =>{
-        
-        let selecciones = productos.slice(-4);
-        res.render(path.join(__dirname, '../views/index.ejs'),{selecciones:selecciones, news:news, user:req.session.userLogged})
+        db.Product.findAll({
+            order: [['productName', 'DESC']],
+            limit: 4
+        })
+        .then(seleccion =>{
+            res.render(path.join(__dirname, '../views/index.ejs'), {user: req.session.userLogged, news:news, seleccion:seleccion});
+        })
+        .catch(error => res.send(error))
     },
 
     blog: (req,res) =>{

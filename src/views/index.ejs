@@ -77,11 +77,11 @@
   <div class="selection__nextbuttonRight"> <i class="fa-solid fa-caret-right"></i></div>
 </div>
 <div class="container__block">
-  <% selecciones.forEach(seleccion => { %>
+  <% seleccion.forEach(seleccion => { %>
     <article class="block">
-        <p class="selection__type" ><%= seleccion.nombre_producto %></p>       
-      <img class="selection__product" src="/img/productImg/<%= seleccion.imagen_producto %>" alt="Aqui va la imagen">
-      <a class="selection__botomver" href="/product/product-detail/<%= seleccion.id_producto %>" target="ver.productoDetail">VER PRODUCTO</a>
+        <p class="selection__type" ><%= seleccion.productName %></p>       
+      <img class="selection__product" src="/img/productImg/<%= seleccion.productImg %>" alt="Aqui va la imagen">
+      <a class="selection__botomver" href="/product/product-detail/<%= seleccion.idProduct %>" target="ver.productoDetail">VER PRODUCTO</a>
     </article>
   <% }); %>
 <!--<script>
