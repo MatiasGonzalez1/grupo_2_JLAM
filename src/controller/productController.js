@@ -202,19 +202,30 @@ const productController = {
     },
 
     nuevoProducto: (req, res) => {
-        res.render(path.join(__dirname, "../views/products/newProduct.ejs"),{userLog: req.session.userLogged});
+        db.ProductCategory.findAll({
+        })
+        .then(categories =>{
+            res.render(path.join(__dirname, "../views/products/newProduct.ejs"), {userLog: req.session.userLogged, categories: categories});
+        })
+        .catch(error => res.send(error))
     },
 
     verActualizarProducto: (req, res) =>{
-        
-        db.Product.findByPk(req.params.id, {
-            include: [{association: 'category'}]
+
+        db.ProductCategory.findAll({
         })
-        .then(coincidencia =>{
-            res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, coincidencia: coincidencia});
+        .then(categories =>{
+            return categories;
+        })
+        .then((categories)=>{
+            db.Product.findByPk(req.params.id, {
+                include: [{association: 'category'}]
+            })
+            .then(coincidencia =>{
+                res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, coincidencia: coincidencia, categories:categories});
+            })
         })
         .catch(error => res.send(error))
-
     },
 
     enviarActualizarProducto: (req, res) =>{
@@ -255,30 +266,21 @@ const productController = {
                 //lo borramos
                   fs.unlinkSync(path.join(__dirname, "../../public/img/productImg", req.file.filename));
                    };
-            return res.render('./products/newProduct', {errors:errors.mapped(), old: req.body});
+            return res.render('./products/newProduct', {errors:errors.mapped(), old: req.body, userLog: req.session.userLogged});
         } else {
             
-        let generadorId;
-        productos.length === 0? generadorId = productos.length : generadorId = (productos.at(-1).id_producto)+1;
-
-        let newDataProduct = {
-            id_producto: generadorId,
-            nombre_producto: req.body.fnombre,
-            categoria: req.body.fcategoria,
-            anio_cosecha: req.body.fcoseAnio,
-            variedad: req.body.fvariedad,
-            crianza: req.body.fcrianza,
-            potencial_guarda: req.body.fguarda,
-            nota_cata: req.body.fnotacata,
-            imagen_producto: req.file.filename,
-            precio: Number(req.body.fprecio),
-            stock: Number(req.body.fstock),
-        }
-
-        productos.push(newDataProduct);
-
-        let productosJson = JSON.stringify(productos, null, 4);
-        fs.writeFileSync(path.join(__dirname,'../models/data/products.json'), productosJson);
+        db.Product.create({
+            productName: req.body.fnombre,
+            idProductCategory: req.body.fcategoria,
+            productHarvest: req.body.fcoseAnio,
+            productVariety: req.body.fvariedad,
+            productBreeding: req.body.fcrianza,
+            productGuard: req.body.fguarda,
+            productDescription: req.body.fnotacata,
+            productImg: req.file.filename,
+            productPrice: req.body.fprecio,
+            productStock: req.body.fstock,
+        })
         res.redirect('/product/all-products');
      }
     },
