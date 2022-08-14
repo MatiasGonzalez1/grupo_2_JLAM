@@ -18,6 +18,7 @@ module.exports = (sequelize, DataTypes)=>{
     });
 
     UserCategory.associate = models =>{
+        //cada que declaramos una relacion usamos tabla.larelacion(models.ELALIASQUELEASIGNAMOS) -- de lo contrario sequelize no encuentra la tabla 
         UserCategory.hasMany(models.Users,
             {
                 as: "user",
