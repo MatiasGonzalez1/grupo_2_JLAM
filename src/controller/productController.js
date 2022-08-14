@@ -218,32 +218,34 @@ const productController = {
     },
 
     enviarActualizarProducto: (req, res) =>{
-        const idProducto = Number(req.body.fid);
-
-        let productosFilter = productos.filter((producto) => {
-            return producto.id_producto !== idProducto;
-        });
-
-        let formDataProduct = {
-            id_producto: idProducto,
-            nombre_producto: req.body.fnombre,
-            categoria: req.body.fcategoria,
-            anio_cosecha: req.body.fcoseAnio,
-            variedad: req.body.fvariedad,
-            crianza: req.body.fcrianza,
-            potencial_guarda: req.body.fguarda,
-            nota_cata: req.body.fnotacata,
-            imagen_producto: req.body.fprodfoto,
-            precio: req.body.fprecio,
-            stock: req.body.fstock,
+        let imgProduct = req.body.imgProduct;
+        if (req.file) {
+            imgProduct = req.file.filename;
         }
+        
+        db.Product.update({
+            idProduct: req.body.fid,
+            productName: req.body.fnombre,
+            idProductCategory: req.body.fcategoria,
+            productHarvest: req.body.fcoseAnio,
+            productVariety: req.body.fvariedad,
+            productBreeding: req.body.fcrianza,
+            productGuard: req.body.fguarda,
+            productDescription: req.body.fnotacata,
+            productImg: imgProduct,
+            productPrice: req.body.fprecio,
+            productStock: req.body.fstock,
+        },
+        {
+            where:{
+                idProduct: req.body.fid
+            }
+        })
+        .then(producto =>{
+            res.redirect('/product/all-products');
+        })
+        .catch(error => res.send(error))
 
-        productosFilter.push(formDataProduct);
-
-        let productosJson = JSON.stringify(productosFilter);
-        fs.writeFileSync(path.join(__dirname,'../models/data/products.json'), productosJson);
-
-        res.redirect('/product/all-products');
     },
 
     crearProducto: (req, res) =>{

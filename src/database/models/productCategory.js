@@ -18,8 +18,8 @@ module.exports = (sequelize, DataTypes)=>{
         timestamps: false
     });
 
-    // Relacion mediante Sequelize con las tablas correspondientes
     ProductCategory.associate = models =>{
+        //cada que declaramos una relacion usamos tabla.larelacion(models.ELALIASQUELEASIGNAMOS) -- de lo contrario sequelize no encuentra la tabla 
         //Relacion 1:N
         ProductCategory.hasMany(models.Product,
             {

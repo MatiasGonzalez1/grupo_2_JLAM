@@ -53,6 +53,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     Product.associate = (models) => {
+        //cada que declaramos una relacion usamos tabla.larelacion(models.ELALIASQUELEASIGNAMOS) -- de lo contrario sequelize no encuentra la tabla 
         Product.belongsTo(models.ProductCategory, {
             as:"category",
             foreignKey:"idProductCategory"

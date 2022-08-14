@@ -41,6 +41,7 @@ module.exports = (sequelize, DataTypes) => {
     });
 
     PurchaseDetail.associate = (models) => {
+   //cada que declaramos una relacion usamos tabla.larelacion(models.ELALIASQUELEASIGNAMOS) -- de lo contrario sequelize no encuentra la tabla 
         //Relacion 1:N
       PurchaseDetail.belongsTo(models.Users, {
         as:"purchaseUser",

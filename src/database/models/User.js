@@ -52,8 +52,9 @@ module.exports = (sequelize, DataTypes)=>{
         timestamps: false
     });
 
-    // Relacion mediante Sequelize con las tablas correspondientes
+    
     User.associate = (models) =>{
+        //cada que declaramos una relacion usamos tabla.larelacion(models.ELALIASQUELEASIGNAMOS) -- de lo contrario sequelize no encuentra la tabla 
         //relacion 1:N
         User.belongsTo(models.userCategory, 
             {
