@@ -46,10 +46,9 @@
                                 <label for="fcategory">Categoría</label>
                                 <select name="fcategoria">
                                   <option selected disabled>Seleccione una categoría</option>
-                                  <option value="tintos">Tinto</option>
-                                  <option value="blancos">Blanco</option>
-                                  <option value="espumantes">Espumante</option>
-                                  <option value="especiales">Especial</option>
+                                  <% categories.forEach(category => { %>
+                                    <option value="<%=category.idProductCategory%>"><%=category.productCategoryName%></option>
+                                  <% }) %>
                                 </select>
                                 <% if(locals.errors && errors.fcategoria) { %> 
                                   <p class="product-warning"> <%= errors.fcategoria.msg %> </p>

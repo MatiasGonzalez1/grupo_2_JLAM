@@ -48,8 +48,17 @@
                                 <input type="text" name="fnombre" value="<%= coincidencia.productName%>">
                             </div>
                             <div class="new__prod__ind">
-                                <label for="fcategory">Categoría</label>
-                                <input type="text" name="fcategoria" value="<%= coincidencia.idProductCategory%>">
+                              <label for="fcategory">Categoría</label>
+                              <!-- <input type="text" name="fcategoria" value="<%= coincidencia.idProductCategory%>"> -->
+                              <select name="fcategoria">
+                                <% categories.forEach(category => { %>
+                                  <% if (category.idProductCategory == coincidencia.idProductCategory) {%>
+                                    <option selected value="<%=category.idProductCategory%>"><%=category.productCategoryName%></option>
+                                  <%}else {%>
+                                    <option value="<%=category.idProductCategory%>"><%=category.productCategoryName%></option>
+                                  <% }%>
+                                <% })%> 
+                              </select>
                             </div>
                         </div>
                         <div class="new__prod__subgroup">

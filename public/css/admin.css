@@ -239,6 +239,7 @@ main{
 
 .productdash_block img{
     width: 13%;
+    min-height: 70px;
 }
 .userdash_block img{
     object-fit: cover;
@@ -276,7 +277,7 @@ main{
     position:absolute;
     justify-content: space-around;
     bottom: 15%;
-    right: 0%;
+    right: 2%;
 }
 .productdash_button a{
     text-decoration: none;
@@ -477,6 +478,7 @@ a#cancel{
     }
     .productdash_block img{
         width: 8%;
+        min-height: 80px;
     }
     .userdash_block img{
         object-fit: cover;
@@ -572,6 +574,7 @@ a#cancel{
     }
     .main__group li a{
         width: 100%;
+        height: 20px;
         display: inline-block;
         justify-content: space-between;
     }
@@ -702,6 +705,7 @@ a#cancel{
     }
     .productdash_block img{
         width: 5%;
+        min-height: 70px;
     }
     .userdash_block img{
         object-fit: cover;
@@ -752,7 +756,7 @@ a#cancel{
         margin: 5% 0% 1% 0%;
     }
     .side_logo img{
-        padding: 20px 60px 50px;
+        padding: 20px 40px 50px;
         width: 100%;
     }
     .filter__container{
