@@ -45,6 +45,10 @@ module.exports = (sequelize, DataTypes)=>{
         userAddress:{
             allowNull: true,
             type: DataTypes.STRING
+        },
+        userFloor:{
+            allowNull: true,
+            type: DataTypes.STRING
         }
      }, 
         {

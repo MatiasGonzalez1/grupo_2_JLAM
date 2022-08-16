@@ -32,26 +32,31 @@
                     
                 </div>
                 <form class="form__perm" method="POST" action="/users/edit-permissions/?_method=PUT" enctype="multipart/form-data">
-                  <input type="hidden" name="id" value="<%= user.id%>">  
+                  <input type="hidden" name="id" value="<%= user.userId%>">  
                   <div>
                         <div class="">
                             <div class="">
                                 <div class="user__perm__container">
                                   <div class="user__perm__data">
-                                    <img src="/img/profileImages/<%= user.profileImg%>" alt="">
+                                    <img src="/img/profileImages/<%= user.userImg%>" alt="">
                                   </div>
                                   <div class="user__perm__data">
                                     <div class="user__perm__row">
                                       <p><span>Nombre: </span></p>
-                                      <p><%= user.nombre%></p>
+                                      <p><%= user.firstName%></p>
                                     </div>
                                     <div class="user__perm__row">
                                       <p><span>Email: </span></p>
-                                      <p><%= user.email%></p>
+                                      <p><%= user.userEmail%></p>
                                     </div>
                                     <div class="user__perm__row">
                                       <p><span>Permisos: </span></p>
-                                      <p><%= user.permisos%></p>
+                                      <% categories.forEach(category => { %>
+                                        <% if(category.idUserCategory == user.idUserCategory) { %>
+                                          <p><%= category.userCategoryName %></p>
+                                          <% } %>
+                                        <% }); %>
+                                      
                                     </div>
                                   </div>
                                 </div>

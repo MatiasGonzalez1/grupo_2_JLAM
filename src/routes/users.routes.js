@@ -8,6 +8,7 @@ const registerValid = require('../middleware/registerMidValidator');
 const updateUser = require('../middleware/updateUserMidValidator');
 const userLogg = require('../middleware/userLoggedMiddleware');
 const loginValid = require('../middleware/loginMidValidator');
+const { userDetail } = require('../controller/usersController');
 
 
 routes.get('/edit-user/:id', userLogg,usersController.userData);

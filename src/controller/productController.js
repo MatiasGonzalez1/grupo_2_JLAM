@@ -297,14 +297,11 @@ const productController = {
     },
 
     delete: (req, res) => {
-        let id = req.params.id;
-        productos = productos.filter((producto) => producto.id_producto != id);
-        
-        fs.writeFileSync(
-            path.join(__dirname, '../models/data/products.json'),
-            JSON.stringify(productos)
-        )
-        res.render(path.join(__dirname,"../views/products/all-products.ejs"), {productos: productos, userLog: req.session.userLogged});
+
+        db.Product.destroy({
+            where: {idProduct: Number (req.params.id)} 
+        })
+        res.redirect('/product/all-products');
     },
         
 };
