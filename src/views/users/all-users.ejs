@@ -39,16 +39,21 @@
                   <% users.forEach(user => { %>
                     <article class="productsdash__container">
                         <div class="productdash_block userdash_block">
-                            <img src="/img/profileImages/<%= user.profileImg %>" alt="imagen del producto">
-                            <p><%= user.nombre %></p>
-                            <p><span><%= user.email %></span></p>
-                            <p><%= user.permisos %></p>
+                            <img src="/img/profileImages/<%= user.userImg %>" alt="imagen del producto">
+                            <p><%= user.firstName %></p>
+                            <p><span><%= user.userEmail %></span></p>
+                            <% categories.forEach(category => { %>
+                              <% if(category.idUserCategory == user.idUserCategory) { %>
+                                <p><%= category.userCategoryName %></p>
+                                <% } %>
+                              <% }); %>
+                            
                         </div>
                         <div class="productdash_button">
-                          <form class="form__container" method="POST" action="/product/all-products/<%= user.id%>?_method=DELETE"> 
+                          <form class="form__container" method="POST" action="/product/all-products/<%= user.userId%>?_method=DELETE"> 
                             <button type="submit" class="delete">eliminar</button>
                             </form>
-                          <a class="update" href="/users/edit-permissions/<%= user.id%>">actualizar</a>
+                          <a class="update" href="/users/edit-permissions/<%= user.userId%>">actualizar</a>
                         </div>
                     </article>
                   <% }); %>

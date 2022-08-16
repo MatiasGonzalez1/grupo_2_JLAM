@@ -2,6 +2,8 @@ const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
+const db = require("../database/models");
+// const User = db.User;
 
 let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
 let users = JSON.parse(usersFile);
@@ -230,12 +232,25 @@ const usersController = {
     },
     cargarUsuarios: (req, res) =>{
 
-        //obligo a la vista a leer el json y tomar todos los datos actualizados antes de renderizar
-        let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
-        let users = JSON.parse(usersFile);
+        let users = db.Users.findAll({
+            include: [{association: 'userCategory'}]
+        })
 
-        res.render(path.join(__dirname, '../views/users/all-users.ejs'), { users: users, userLog: req.session.userLogged });
-    }
+        let categories = db.userCategory.findAll({
+        })
+        //let cities = db.Cities.findAll({
+        //})
+        Promise.all ([users, categories]) 
+          .then(([users, categories]) => {
+           
+            res.render(path.join(__dirname, '../views/users/all-users.ejs'), {users, categories, userLog: req.session.userLogged });
+          })
+          .catch(error => res.send(error))
+        
+    },
+
+    
+    
 
 }
 
