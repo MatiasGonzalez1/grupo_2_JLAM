@@ -77,27 +77,20 @@ const usersController = {
          }
          res.render('./users/registro', {errors:errors.mapped(), old: req.body});
         } else{
-
-        
-        let generadorId;
-        users.length === 0? generadorId = users.length : generadorId = (users.at(-1).id)+1
-        
+     
         //Asigno datos del body al objeto a insertar a la base de datos    
-        let formDataUser = {
-            id: generadorId,
-            permisos: 'user',
-            nombre: req.body.nombre,
-            apellido: req.body.apellido,
-            email: req.body.email,
-            fechaNac: req.body.fechaNacimiento,
-            password: bcrypt.hashSync(req.body.password, 10), // Encriptacion de password
-            profileImg: req.file.filename,
-        }
-
-        //Isercion de objeto a la base de datos
-        users.push(formDataUser);
-        let newDataUsers = JSON.stringify(users, null, 4);
-        fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers);
+        db.Users.create({
+            firstName: req.body.nombre,
+            lastName: req.body.apellido,
+            userEmail: req.body.email,
+            idUserCategory: 2,
+            userBirthDate: req.body.fechaNacimiento,
+            userPassword: bcrypt.hashSync(req.body.password, 10),
+            userImg: req.file.filename,
+            idCity: null,
+            userAddress: null,
+            userFloor: null
+        })
 
         //Redireccion al login luego del registro
         res.redirect('/users/login')
