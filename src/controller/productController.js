@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const {validationResult} = require('express-validator');
 const db = require("../database/models");
-// const Product = db.Product;
+
 
 let archivoProductos = fs.readFileSync(
     path.join(__dirname, "../models/data/products.json"),
@@ -230,6 +230,7 @@ const productController = {
 
     enviarActualizarProducto: (req, res) =>{
         let imgProduct = req.body.imgProduct;
+        
         if (req.file) {
             imgProduct = req.file.filename;
         }
@@ -252,7 +253,7 @@ const productController = {
                 idProduct: req.body.fid
             }
         })
-        .then(producto =>{
+        .then(() =>{
             res.redirect('/product/all-products');
         })
         .catch(error => res.send(error))

@@ -3,12 +3,10 @@ const fs = require('fs');
 const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
 const db = require("../database/models");
-// const User = db.User;
 
 let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
 let users = JSON.parse(usersFile);
-let cityFile = fs.readFileSync(path.join(__dirname, '../models/data/city.json'), { encoding: 'utf-8' });
-let city = JSON.parse(cityFile);
+
 
 const usersController = {
 
@@ -100,20 +98,19 @@ const usersController = {
 
     userData: (req, res) =>{
         let userActual =  req.session.userLogged;
-
-        let UserData = users.find((user) => {
-            return user.id == userActual.id;
-        });
-
-
-        res.render(path.join(__dirname, '../views/users/edit-user' 
-        ), {user: UserData, city:city});
+        let userData = db.Users.findByPk(userActual.id,{
+        })
+        let cities = db.Cities.findAll({
+        })
+        Promise.all ([userData, cities]) 
+          .then(([userData, cities]) => {
+           
+            res.render(path.join(__dirname, '../views/users/edit-user'), {userData, cities, user:req.session.userLogged });
+          })
+          .catch(error => res.send(error))
     },
 
     userEdit: (req, res) =>{
-        let userId = Number(req.body.id);
-        let userActual =  req.session.userLogged;
-
         let errors = validationResult(req);
 
         if(!errors.isEmpty()){
@@ -125,114 +122,94 @@ const usersController = {
         }
         res.render(path.join(__dirname,'../views/users/edit-user'), {user: userActual, errors:errors.mapped()});
 
-        } else{
-            let updateUsers= users.map(function(user){
-                //busco el producto que tiene el mismo id
-                
-                if (user.id == userId) { 
-                    // si file vino con algo
-                    let formDataUser = {
-                        id: userId,
-                        permisos:user.permisos,
-                        nombre: req.body.nombre,
-                        apellido:req.body.apellido,
-                        email: req.body.email,
-                        fechaNac: req.body.fechaNacimiento,
-                        direccion: user.direccion,
-                        departamento:user.departamento,
-                        codigoPostal:user.codigoPostal,
-                        password: user.password,
-                        profileImg: user.profileImg,
-                    }
-                    //si hay una pass nueva la cambio
-                    if(req.body.password == ''){
-                        formDataUser.password = user.password;
-                    }else{
-                        formDataUser.password = bcrypt.hashSync(req.body.password, 10);
-                    }
-                    //si agrego direccion
-                    if(req.body.direccion != undefined && req.body.direccion.length > 1){
-                        formDataUser.direccion = req.body.direccion;
-                    }
-                    if(req.body.departamento != undefined && req.body.departamento.length > 1){
-                        formDataUser.departamento = req.body.departamento;
-                    }
-                     //si agrego ciudad o la cambio 
-                    if(req.body.codigoPostal != undefined){
-                         //busco la ciudad que coincida y le asigno el nombre de la misma
-                        let Usercity = city.find((code) => {
-                            return code.nombre == req.body.codigoPostal;
-                        });
-                        formDataUser.codigoPostal = Usercity.codigo;
-                    }
+        }
 
-                    //si hay una imagen la cambio
-                    if(req.file){
-                        fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", user.profileImg));
-                        formDataUser.profileImg = req.file.filename;
-                    }
-                    return formDataUser;
-                }else{
-                    return user;
-                }
-            });
-        
-            let newDataUsers = JSON.stringify(updateUsers, null, 4);
-            fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers);
+        let userData = {
+            userId: req.body.id,
+            firstName: req.body.nombre,
+            lastName: req.body.apellido,
+            userEmail: req.body.email,
+            userBirthDate: req.body.fechaNacimiento,
+            userPassword: req.body.password,
+            userImg: req.body.profileImageUser,
+            idCity: req.body.codigoPostal,
+            userAddress: req.body.direccion,
+            userFloor: req.body.departamento,
+        }
+        //si hay una pass nueva la cambio
+        if(req.body.password.length > 0){
+            userData.userPassword = bcrypt.hashSync(req.body.password, 10);
+        }else{
+            delete userData.userPassword;
+        }
+        // si agrego direccion
+        if(req.body.direccion != undefined && req.body.direccion.length > 1){
+            userData.userAddress= req.body.direccion;
+        }else{
+            delete userData.userAddress;
+        }
+        if(req.body.departamento != undefined && req.body.departamento.length > 0){
+            userData.userFloor = req.body.departamento;
+        }else{
+            delete userData.userFloor;
+        }
+        //si hay una imagen la cambio
+        if(req.file){
+            fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", user.profileImg));
+            userData.userImg = req.file.filename;
+        }else{
+            delete userData.userImg;
+        }
+        console.log(userData);
 
+        db.Users.update(userData,
+        {
+            where:{
+                userId: Number(req.body.id)
+            }
+        })
+        .then((result) =>{
+            console.log(result);
             res.redirect('/');
-        };
-        
+        })
+        .catch(error => res.send(error))
+   
     },
     userPermissions:(req, res) =>{
-        let userId = Number(req.params.id); 
-
-        let UserData = users.find((user) => {
-            return user.id == userId;
-        });
-        res.render(path.join(__dirname, '../views/users/edit-permissions.ejs'), { user: UserData, userLog: req.session.userLogged });
+        let user = db.Users.findByPk(Number(req.params.id),{
+            include: [{association: 'userCategory'}]
+        })
+        let categories = db.userCategory.findAll({
+        })
+        Promise.all ([user, categories]) 
+          .then(([user, categories]) => {
+           
+            res.render(path.join(__dirname, '../views/users/edit-permissions.ejs'), {user, categories, userLog: req.session.userLogged });
+          })
+          .catch(error => res.send(error))
     },
     permissionsProcess:(req, res) =>{
-        let userId = Number(req.body.id);
-
-        let updateUsers= users.map(function(user){
-            if (user.id == userId) {
-               let formDataUser = {
-                        id: userId,
-                        permisos:user.permisos,
-                        nombre: user.nombre,
-                        email: user.email,
-                        fechaNac: user.fechaNac,
-                        password: user.password,
-                        profileImg: user.profileImg,
-                }
-
-                if(req.body.permisos != user.permisos && !req.body.permisos == ''){
-                    formDataUser.permisos = req.body.permisos;
-                }
-                return formDataUser;
-            }else{
-                return user;
+        
+        db.Users.update({
+            idUserCategory:req.body.permisos,
+        },
+        {
+            where:{
+                userId: req.body.id
             }
-
-            
-        });
-
-        let newDataUsers = JSON.stringify(updateUsers, null, 4);
-        fs.writeFileSync(path.join(__dirname,'../models/data/users.json'), newDataUsers);
-
-        res.redirect('/users/all-users');
+        })
+        .then(() =>{
+            res.redirect('/users/all-users');
+        })
+        .catch(error => res.send(error))
     },
     cargarUsuarios: (req, res) =>{
 
         let users = db.Users.findAll({
             include: [{association: 'userCategory'}]
         })
-
         let categories = db.userCategory.findAll({
         })
-        //let cities = db.Cities.findAll({
-        //})
         Promise.all ([users, categories]) 
           .then(([users, categories]) => {
            

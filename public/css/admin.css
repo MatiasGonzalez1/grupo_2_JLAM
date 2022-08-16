@@ -901,6 +901,7 @@ a#cancel{
     .data__container{
         width:100%;
         padding: 0%;
+        margin-bottom: 95px;
     }
     .data__container h4{
         padding: 2% 5% 1%;

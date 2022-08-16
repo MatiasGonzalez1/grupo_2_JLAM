@@ -64,9 +64,13 @@
                             <div class="new__prod__ind new__user__ind">
                                 <label for="permisos">Permisos</label>
                                 <select name="permisos">
-                                  <option selected disabled>Seleccione el tipo de usuario</option>
-                                  <option value="user">Usuario</option>
-                                  <option value="admin">Administrador</option>
+                                  <% categories.forEach(category => { %>
+                                    <% if(category.idUserCategory == user.idUserCategory) { %>
+                                      <option selected value="<%= category.idUserCategory %>"><%= category.userCategoryName %></option>
+                                      <% }else { %>
+                                      <option value="<%= category.idUserCategory %>"><%= category.userCategoryName %></option>
+                                      <% }%>
+                                    <% }); %>
                                 </select>
                             </div>
                         </div>
