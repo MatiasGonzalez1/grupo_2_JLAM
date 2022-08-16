@@ -39,15 +39,15 @@ module.exports = (sequelize, DataTypes)=>{
             type: DataTypes.STRING
         },
         idCity:{
-            allowNull: true,
+            allowNull: false,
             type: DataTypes.INTEGER
         },
         userAddress:{
-            allowNull: true,
+            allowNull: false,
             type: DataTypes.STRING
         },
         userFloor:{
-            allowNull: true,
+            allowNull: false,
             type: DataTypes.STRING
         }
      }, 

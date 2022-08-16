@@ -9,7 +9,7 @@
         "profileImg": "admin@admin.com_1657413736084.png"
     },
     {
-        "id": 2,
+        "id": 3,
         "permisos": "admin",
         "nombre": "Johanna",
         "apellido": "Chamorro",
@@ -22,7 +22,7 @@
         "profileImg": "asdemail@email.com_1657764290979.jpg"
     },
     {
-        "id": 3,
+        "id": 4,
         "permisos": "admin",
         "nombre": "Leandro",
         "email": "leandro@correo.com",
@@ -31,7 +31,7 @@
         "profileImg": "leandro@correo.com_1658374278426.jpg"
     },
     {
-        "id": 4,
+        "id": 5,
         "permisos": "admin",
         "nombre": "Matias",
         "email": "mng_epson@hotmail.com",
@@ -40,7 +40,7 @@
         "profileImg": "mng_epson@hotmail.com_1658379721365.png"
     },
     {
-        "id": 5,
+        "id": 6,
         "permisos": "user",
         "nombre": "Amalia",
         "email": "amalia@grupo4.com",
@@ -49,7 +49,7 @@
         "profileImg": "amalia@grupo4.com_1658451055057.png"
     },
     {
-        "id": 6,
+        "id": 7,
         "permisos": "user",
         "nombre": "Jesica",
         "email": "jesica@email.com",
@@ -58,7 +58,7 @@
         "profileImg": "jesica@email.com_1659380297358.jpg"
     },
     {
-        "id": 7,
+        "id": 8,
         "permisos": "user",
         "nombre": "Araceli",
         "email": "araceli@email.com",
@@ -67,7 +67,7 @@
         "profileImg": "araceli@email.com_1659380461343.png"
     },
     {
-        "id": 8,
+        "id": 9,
         "permisos": "user",
         "nombre": "Esteban",
         "email": "esteban@email.com",
