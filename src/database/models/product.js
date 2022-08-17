@@ -49,7 +49,10 @@ module.exports = (sequelize, DataTypes) => {
      }, 
         {
         tableName: "products",
-        timestamps: false
+        paranoid:true,
+        deletedAt: 'softDelete',
+        createdAt: 'createAt',
+        updatedAt: 'modifiedAt'
     });
 
     Product.associate = (models) => {

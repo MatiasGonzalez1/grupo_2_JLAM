@@ -299,9 +299,9 @@ const productController = {
         .catch(error => res.send(error))
     },
 
-    delete: (req, res) => {
+    delete: async (req, res) => {
 
-        db.Product.destroy({
+        await db.Product.destroy({
             where: {idProduct: Number (req.params.id)} 
         })
         res.redirect('/product/all-products');
