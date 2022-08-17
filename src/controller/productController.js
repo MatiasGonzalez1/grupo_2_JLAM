@@ -25,6 +25,7 @@ const productController = {
             res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {user: req.session.userLogged, productos: productos});
         })
         .catch(error => res.send(error))
+
     },
 
     carrito: (req, res) => {
@@ -205,7 +206,7 @@ const productController = {
         db.ProductCategory.findAll({
         })
         .then(categories =>{
-            res.render(path.join(__dirname, "../views/products/newProduct.ejs"), {userLog: req.session.userLogged, categories: categories});
+            res.render(path.join(__dirname, "../views/products/newProduct.ejs"), {userLog: req.session.userLogged, categories:categories});
         })
         .catch(error => res.send(error))
     },
@@ -261,31 +262,34 @@ const productController = {
     },
 
     crearProducto: (req, res) =>{
-        
-        let errors = validationResult(req);
-
-        if(!errors.isEmpty()) {
-            if (req.file) {
-                //lo borramos
-                  fs.unlinkSync(path.join(__dirname, "../../public/img/productImg", req.file.filename));
-                   };
-            return res.render('./products/newProduct', {errors:errors.mapped(), old: req.body, userLog: req.session.userLogged});
-        } else {
-            
-        db.Product.create({
-            productName: req.body.fnombre,
-            idProductCategory: req.body.fcategoria,
-            productHarvest: req.body.fcoseAnio,
-            productVariety: req.body.fvariedad,
-            productBreeding: req.body.fcrianza,
-            productGuard: req.body.fguarda,
-            productDescription: req.body.fnotacata,
-            productImg: req.file.filename,
-            productPrice: req.body.fprecio,
-            productStock: req.body.fstock,
+        db.ProductCategory.findAll({   
         })
-        res.redirect('/product/all-products');
-     }
+        .then(categories =>{
+            let errors = validationResult(req);
+    
+            if(!errors.isEmpty()) {
+                if (req.file) {
+                    //lo borramos
+                        fs.unlinkSync(path.join(__dirname, "../../public/img/productImg", req.file.filename));
+                        };
+                return res.render('./products/newProduct', {errors:errors.mapped(), old: req.body, userLog: req.session.userLogged, categories});
+            } else {
+                
+            db.Product.create({
+                productName: req.body.fnombre,
+                idProductCategory: req.body.fcategoria,
+                productHarvest: req.body.fcoseAnio,
+                productVariety: req.body.fvariedad,
+                productBreeding: req.body.fcrianza,
+                productGuard: req.body.fguarda,
+                productDescription: req.body.fnotacata,
+                productImg: req.file.filename,
+                productPrice: req.body.fprecio,
+                productStock: req.body.fstock,
+            })
+            res.redirect('/product/all-products');
+            }
+        })
     },
     
     cargarProductos: (req, res) =>{
