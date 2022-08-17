@@ -24,6 +24,7 @@ routes.post('/register', [upload, guestMid], registerValid,usersController.regis
 routes.get('/logout',usersController.logout)
 
 routes.get('/all-users', adminMid,usersController.cargarUsuarios);
+routes.delete('/all-users/:id', [adminMid], usersController.delete);
 routes.get('/admin', adminMid, usersController.admin);
 
 
