@@ -218,6 +218,13 @@ const usersController = {
           .catch(error => res.send(error))
         
     },
+    delete: async (req, res) => {
+
+        await db.Users.destroy({
+            where: {userId: Number (req.params.id)} 
+        })
+        res.redirect('/users/all-users');
+    },
 
     
     

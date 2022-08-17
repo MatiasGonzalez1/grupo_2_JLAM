@@ -50,7 +50,7 @@
                             
                         </div>
                         <div class="productdash_button">
-                          <form class="form__container" method="POST" action="/product/all-products/<%= user.userId%>?_method=DELETE"> 
+                          <form class="form__container" method="POST" action="/users/all-users/<%= user.userId%>?_method=DELETE"> 
                             <button type="submit" class="delete">eliminar</button>
                             </form>
                           <a class="update" href="/users/edit-permissions/<%= user.userId%>">actualizar</a>
