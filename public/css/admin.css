@@ -574,7 +574,6 @@ a#cancel{
     }
     .main__group li a{
         width: 100%;
-        height: 20px;
         display: inline-block;
         justify-content: space-between;
     }
@@ -588,9 +587,10 @@ a#cancel{
         justify-content: space-between;
         text-decoration: none;
         color: #fbf2e0;
-        font-size: 12px;
+        font-size: 14px;
         padding: 15px ;
         text-transform: capitalize;
+        align-items: center;
     }
     a.side__link i{
         float: right;
@@ -610,24 +610,25 @@ a#cancel{
     .side__child{
         text-decoration: none;
         color: #fbf2e0;
-        font-size: 10px;
+        font-size: 13px;
         padding: 15px;
-        border-bottom: solid 1px #fbf2e060;
         text-transform: capitalize;
     }
     .side__child:hover{
         color: #ff452c;
+        background-color: #2b2b2b;
     }
     .icon{
+        margin-top:450px;
         text-decoration: none;
         color: #fbf2e0;
-        font-size: 12px;
+        font-size: 14px;
         padding: 5px ;
         text-transform: capitalize;
+        height: 20px;
     }
     .icon i{
-        padding:5%;
-        margin-top:320px;
+        padding:0% 5%;
         color: #fbf2e0;
     }
     .static__container{
