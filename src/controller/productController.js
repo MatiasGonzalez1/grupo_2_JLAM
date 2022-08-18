@@ -2,7 +2,7 @@ const path = require("path");
 const fs = require("fs");
 const {validationResult} = require('express-validator');
 const db = require("../database/models");
-
+const { Op } = require("sequelize");
 
 let archivoProductos = fs.readFileSync(
     path.join(__dirname, "../models/data/products.json"),
@@ -293,14 +293,26 @@ const productController = {
     },
     
     cargarProductos: (req, res) =>{
-
+        
+        if(req.params.id) {
+            db.Product.findAll({
+                include: [{association: 'category'}],  
+                where: {[Op.eq]: req.params.id}
+            })
+            .then(productos =>{
+                res.send (productos)
+               // res.render(path.join(__dirname, '../views/products/all-products.ejs'), {userLog: req.session.userLogged, productos: productos});
+            })
+        } 
         db.Product.findAll({
-            include: [{association: 'category'}]
+            include: [{association: 'category'}],
         })
         .then(productos =>{
             res.render(path.join(__dirname, '../views/products/all-products.ejs'), {userLog: req.session.userLogged, productos: productos});
         })
+
         .catch(error => res.send(error))
+       
     },
 
     delete: async (req, res) => {
