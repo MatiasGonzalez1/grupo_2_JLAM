@@ -27,13 +27,14 @@
       <ul class="filter-ul">
         <li><p>Precio</p></li>
         <div class="li-flex">
-        <li class="li-not num"><input type="range" id="precio" min="5000" max="20000" step="5000" value="5000" onchange="document.getElementById('outvol') .value='Hasta ' + value" list="tickmarks">
-          <output id="outvol" name="outvol" for="vol">Hasta 5.000</output> 
-        <datalist>
-          <option value="5000" class="value"></option>
-          <option value="10000" class="value"></option>
-          <option value="15000" class="value"></option>
-          <option value="20000" class="value"></option>
+        <li class="li-not num">
+            <input type="range" id="precio" min="5000" max="20000" step="5000" value="5000" list="tickmarks">
+            <output id="outvol" name="outvol" for="vol">Hasta 5.000</output> 
+        <datalist id="data">
+          <option value="5000" class="value">
+          <option value="10000" class="value">
+          <option value="15000" class="value">
+          <option value="20000" class="value">
         </datalist>
           
         </li>
@@ -60,8 +61,6 @@
           <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Syrah</p></li> 
           <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Tempranillo</p></li>
           <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Chardonnay<p></li>  
-
-
  
 
           <li class="li-not submit"><button>Buscar</button></li>
@@ -95,15 +94,7 @@
     <%- include('../partials/footer.ejs')%>
   </footer>
 
-  <script>
-const onFil = document.getElementById('filter');
-
-onFil.addEventListener('click', () => {
-let show = document.getElementById('show');
-
-show.style.display === 'none' ? show.style.display = 'block' : show.style.display ='none';
-});
-
+  <script src="/js/filtroCatalogo.js">
   </script>
 
 </body>
