@@ -21,7 +21,10 @@ routes.get('/checkout', [authMid] ,productController.checkout);
 routes.post('/checkout', [authMid,checkoutData], productController.submitCheckout);
 
 //cargar productos
-routes.get('/all-products', [adminMid], productController.cargarProductos);
+routes.get('/all-products/', [adminMid], productController.cargarProductos);
+
+//filtrar productos
+routes.get('/all-products/:filter', [adminMid], productController.filtrarProductos);
 
 // nuevo producto
 routes.get('/new-product', [adminMid], productController.nuevoProducto);
