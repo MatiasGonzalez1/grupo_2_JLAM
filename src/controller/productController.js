@@ -291,26 +291,51 @@ const productController = {
             }
         })
     },
-    
-    cargarProductos: (req, res) =>{
-        
-        if(req.params.id) {
+    filtrarProductos: (req, res) =>{
+        if(req.params.filter == 1){
             db.Product.findAll({
-                include: [{association: 'category'}],  
-                where: {[Op.eq]: req.params.id}
+                include: [{association: 'category'}],
             })
             .then(productos =>{
-                res.send (productos)
-               // res.render(path.join(__dirname, '../views/products/all-products.ejs'), {userLog: req.session.userLogged, productos: productos});
+                let response = {
+                 meta: {
+                     status: 200,
+                     url: '/all-products/filter'
+                 },
+                 data: productos
+                }
+                res.json(response)
+             })
+        }else{
+            db.Product.findAll({
+                include: [{association: 'category'}],  
+                where: {
+                    idProductCategory: {
+                      [Op.eq]: Number(req.params.filter)
+                    }
+                  }
             })
-        } 
+            .then(productos =>{
+               let response = {
+                meta: {
+                    status: 200,
+                    url: '/all-products/filter'
+                },
+                data: productos
+               }
+               res.json(response)
+            })
+        }
+
+    },
+    cargarProductos: (req, res) =>{
+
         db.Product.findAll({
             include: [{association: 'category'}],
         })
         .then(productos =>{
             res.render(path.join(__dirname, '../views/products/all-products.ejs'), {userLog: req.session.userLogged, productos: productos});
         })
-
         .catch(error => res.send(error))
        
     },

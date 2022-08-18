@@ -31,16 +31,16 @@
                 <div class="filter__container">
                     <h3>Productos</h3>
                     <ul class="filter__links">
-                        <button class="admin_filter"><a>Todos los productos</a></button>
-                        <button class="admin_filter" id="Tintos"><a>Tintos</a></button>
-                        <button class="admin_filter" id="Blancos"><a>Blancos</a></button>
-                        <button class="admin_filter" id="Espumantes"><a>Espumantes</a></button>
-                        <button class="admin_filter" id="Especiales"><a>Especiales</a></button>
+                        <button class="admin_filter"id="1">Todos los productos</button>
+                        <button class="admin_filter" id="2">Tintos</button>
+                        <button class="admin_filter" id="3">Blancos</button>
+                        <button class="admin_filter" id="4">Especiales</button>
+                        <button class="admin_filter" id="5">Espumantes</button>
                     </ul>
                 </div>
-                <div class="article__scroll">
+                <div class="article__scroll" id="product-container">
                   <% productos.forEach(producto => { %>
-                    <article class="productsdash__container">
+                    <article class="productsdash__container" id="article-container">
                         <div class="productdash_block">
                             <img src="/img/productImg/<%= producto.productImg %>" alt="imagen del producto">
                             <p><%= producto.productName %></p>
