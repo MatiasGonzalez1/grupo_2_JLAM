@@ -19,6 +19,7 @@ let city = JSON.parse(cityFile);
 
 const productController = {
     catalogo: (req, res) => {
+
         db.Product.findAll({
         })
         .then(productos =>{
@@ -26,6 +27,27 @@ const productController = {
         })
         .catch(error => res.send(error))
 
+    },
+    searchProduct: (req, res) => {
+        let searchQuery = req.query.searchValue;
+        db.Product.findAll({
+            include: [{association: 'category'}],  
+            where: {
+                [Op.or] :[
+                    {productName: {
+                        [Op.like]: '%' + searchQuery + '%'
+                    }},
+                    {productVariety: {
+                        [Op.like]: '%' + searchQuery + '%'
+                    }},
+                ]
+            }
+        })
+        .then(productos =>{
+            res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {user: req.session.userLogged, productos: productos});
+        })
+        .catch(error => res.send(error))
+        
     },
 
     carrito: (req, res) => {

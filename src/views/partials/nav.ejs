@@ -20,8 +20,16 @@
       </li> -->
     <div class="icon-2">
       <li class="nav-menu-item">
-        <a class="nav-link" href="#"><i class="fa-solid fa-magnifying-glass"></i></a>
+        <div class="search-area nav-link">
+          <form action="/product/busqueda" method="GET" id="searchForm">
+            <input type="text" name="searchValue" id="search-input" placeholder="¿Que deseas buscar?...">
+          </form>
+          <div id="sign">
+            <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
       </li>
+      
       <li class="nav-menu-item">
         <a class="nav-link" href="/product/product-cart"><i class="fa-solid fa-cart-shopping"></i></a>
       </li>

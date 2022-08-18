@@ -760,6 +760,7 @@ a#cancel{
 }
 .admin_filter:hover{
     color:  #ff452c;
+    cursor: pointer;
 }
 .admin-filter-selected{
     font-size: 13px;
@@ -768,7 +769,6 @@ a#cancel{
 @media screen and (min-width: 1200px) {
     /* filter tittles */
    
- 
     .data__container h3 {
         font-size: 15px;
         margin: 5% 0% 1% 0%;
