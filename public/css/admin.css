@@ -747,7 +747,24 @@ a#cancel{
         margin-left: 2%;
     }
 }
- 
+
+.admin_filter{
+   background-color: white; 
+    margin: 5px;
+    border: none;
+    color: #2b2b2b;
+    font-weight: bold;
+    font-size: 12px;
+    transition: all 0.5s ease;
+
+}
+.admin_filter:hover{
+    color:  #ff452c;
+}
+.admin-filter-selected{
+    font-size: 13px;
+    color:  #ff452c;
+}
 @media screen and (min-width: 1200px) {
     /* filter tittles */
    
