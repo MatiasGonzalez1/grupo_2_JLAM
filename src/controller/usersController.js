@@ -33,15 +33,12 @@ const usersController = {
             
             req.session.userLogged = userMatch;
 
-            console.log(userMatch);
-
             if(req.body.recordarme != undefined) {
             res.cookie('recordarme', userMatch.userEmail, { maxAge: 3600000 })
             }
 
             res.redirect('/')
         }else{
-            console.log('error');
             res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
             {msg: 'Datos Incorrectos'}
             
