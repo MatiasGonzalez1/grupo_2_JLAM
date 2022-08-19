@@ -35,19 +35,19 @@
       </li>
       <li class="nav-menu-item with-submenu">
         <div class="user-submenu"> <% if (user) { %>
-          <img src='/img/profileImages/<%=user.profileImg%>' class='imgRedonda' />
+          <img src='/img/profileImages/<%=user.userImg%>' class='imgRedonda' />
         <% }else{%> <i class="fa-solid fa-user"></i><%}%><% if (user) { %>
-          <%= user.nombre %>  
+          <%= user.firstName %>  
         <% }else{%>
         <%= 'User'%><%}%><i class="fa fa-caret-down"></i></div>
         <ul class="submenu">
           <% if(user){ %>
-            <% if (user.permisos === "admin") { %>
-              <li><a class="nav-link" href="/users/edit-user/<%= user.id%>">Editar Perfil</a></li>
+            <% if (user.idUserCategory === 1) { %>
+              <li><a class="nav-link" href="/users/edit-user/<%= user.userId%>">Editar Perfil</a></li>
               <li><a class="nav-link" href="/users/admin">Administración</a></li>
               <li><a class="nav-link" href="/users/logout">Cerrar Sesion</a></li>
-            <% }else if(user.permisos === "user"){ %>
-              <li><a class="nav-link" href="/users/edit-user/<%= user.id%>">Editar Perfil</a></li>
+            <% }else if(user.idUserCategory === 2){ %>
+              <li><a class="nav-link" href="/users/edit-user/<%= user.userId%>">Editar Perfil</a></li>
               <li><a class="nav-link" href="/users/logout">Cerrar Sesion</a></li>
             <%}%>
             <%}else{%> 
