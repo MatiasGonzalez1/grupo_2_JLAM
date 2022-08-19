@@ -70,9 +70,9 @@
     </div>
       </div>
 
-      <div class="catalogo__conteiner">
+      <div class="catalogo__conteiner" id="divSearch">
         <% productos.forEach(producto => { %>
-              <article class="cata__products">
+          <article class="cata__products">
           <img class="cataimg__product" src="/img/productImg/<%= producto.productImg%>" alt="aqui va la foto">
           <p class="cataname__product"> <%= producto.productName %></p>
           <p class="cataprecio__product">$ <%= formatter.format(producto.productPrice)%></p>
@@ -84,9 +84,7 @@
               </div>
             </form>
         </article>
-       <% })   %> 
-        
-
+       <% })   %>
       </div>
     </div>
 

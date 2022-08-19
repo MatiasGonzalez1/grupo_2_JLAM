@@ -10,6 +10,7 @@ const checkoutData = require('../middleware/checkoutDataMidValidator');
 
 
 routes.get('/catalogue', productController.catalogo);
+routes.get('/busqueda', productController.searchProduct);
 routes.get('/product-detail/:id', productController.detalle);
 
 //carrito de compras
