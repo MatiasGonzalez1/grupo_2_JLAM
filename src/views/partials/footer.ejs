@@ -44,24 +44,17 @@
       navToggle.classList.toggle("nav-menu_visible");
     });
 
-    // mostrar metodo de pago
-    const paymentVisible = document.getElementById('checkoutNext');
-    const shippingVisible = document.getElementById('checkoutPrev');
-    const paymentData = document.getElementById('paymentData');
-    const shippingForm = document.getElementById('shippingForm');
-    const paymentForm = document.getElementById('paymentForm');
-    
-    paymentVisible.addEventListener("click", () => {
-      paymentData.classList.toggle("disabled");
-      paymentData.classList.toggle("enabled");
-      shippingForm.classList.toggle("checkout-hidden");
-      paymentForm.classList.toggle("checkout-hidden");
-    });
+  </script>
+  <script>
+    // activar y desactivar buscador 
+    const searchIcon = document.getElementById("search-icon");
+    const searchArea = document.getElementById("search-input");
+    const signBtn = document.getElementById("sign");
 
-    shippingVisible.addEventListener("click", () => {
-      paymentData.classList.toggle("disabled");
-      paymentData.classList.toggle("enabled");
-      shippingForm.classList.toggle("checkout-hidden");
-      paymentForm.classList.toggle("checkout-hidden");
+    searchIcon.addEventListener("click", () => {
+      signBtn.classList.toggle("active-search");
+      searchArea.classList.toggle("active-search");
     });
   </script>
+
+<script src="/JS/navSearch.js"></script>
