@@ -4,9 +4,6 @@ const bcrypt = require('bcryptjs');
 const {validationResult} = require('express-validator');
 const db = require("../database/models");
 
-let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
-let users = JSON.parse(usersFile);
-
 
 const usersController = {
 
@@ -14,7 +11,7 @@ const usersController = {
         res.render(path.join(__dirname, '../views/users/login.ejs'))
     },
 
-    processLogin: (req, res) =>{
+    processLogin: async (req, res) =>{
 
         let errors = validationResult(req);
 
@@ -22,34 +19,37 @@ const usersController = {
          res.render('./users/login', {errors:errors.mapped(), old: req.body});
         } else{
        
-        //comparo el usuario con mi base de datos
-        let userMatch = users.find((user) => { 
-            return user.email === req.body.email && bcrypt.compareSync(req.body.password, user.password);
+            
+        let userMatch = await db.Users.findOne({
+            
+                where: {userEmail: req.body.email}
         });
 
-        // si el usuario existe, de lo contrario lo redirecciono con un mensaje de error
-        if(userMatch){
-            if (userMatch.permisos == 'admin') {
-                req.session.isAdmin = true;
-            }
-            //delete userMatch.password;
+        let secure = await bcrypt.compare(req.body.password, userMatch.userPassword)
+
+        if(userMatch && secure ){
+            
+            userMatch.idUserCategory == 1? req.session.isAdmin = true : undefined
+            
             req.session.userLogged = userMatch;
 
+            console.log(userMatch);
 
-            //si esta tildado el checkbox recordame //si no esta tildado viene como undefined
             if(req.body.recordarme != undefined) {
-                res.cookie('recordarme', userMatch.email, { maxAge: 3600000 })
-             }
-             
+            res.cookie('recordarme', userMatch.userEmail, { maxAge: 3600000 })
+            }
+
             res.redirect('/')
-            }else{
-                res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
-                {msg: 'Datos Incorrectos'}
-            ]});
-        
-        }
+        }else{
+            console.log('error');
+            res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
+            {msg: 'Datos Incorrectos'}
+            
+        ]})
     }
-    },
+
+} 
+},
     //para eliminar cookie al hacer logout
     logout: (req, res) => {
         res.clearCookie('userEmail');
@@ -62,7 +62,7 @@ const usersController = {
     registerView: (req, res)=>{
         res.render(path.join(__dirname, '../views/users/registro.ejs'))
     },
-    register: (req,res) =>{
+    register: async (req,res) =>{
 
         let errors = validationResult(req);
 
@@ -75,15 +75,19 @@ const usersController = {
          }
          res.render('./users/registro', {errors:errors.mapped(), old: req.body});
         } else{
+
+            let pass = await bcrypt.hash(req.body.password, 10);
+
+            console.log(pass);
      
         //Asigno datos del body al objeto a insertar a la base de datos    
-        db.Users.create({
+        let userData = await db.Users.create({
             firstName: req.body.nombre,
             lastName: req.body.apellido,
             userEmail: req.body.email,
             idUserCategory: 2,
             userBirthDate: req.body.fechaNacimiento,
-            userPassword: bcrypt.hashSync(req.body.password, 10),
+            userPassword: pass,
             userImg: req.file.filename,
             idCity: null,
             userAddress: null,

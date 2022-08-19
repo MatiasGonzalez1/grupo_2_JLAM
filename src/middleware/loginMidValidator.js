@@ -1,6 +1,7 @@
 const { body } = require("express-validator");
 const path = require('path');
 const fs = require("fs");
+const db = require("../database/models");
 
 
 const loginValid = [
@@ -10,11 +11,11 @@ body("email")
 .withMessage("El campo email no puede estar vacio").bail()
 .isEmail()
 .withMessage("Debe de ingresar un email válido")
-.custom((value, {req})=>{
-    let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
-    let users = JSON.parse(usersFile);     
-    let match = users.find((user) => { return user.email === req.body.email})
-    if(!match){
+.custom( async (value, {req})=>{
+    let users = await db.Users.findOne({
+        where: {userEmail: req.body.email}
+    })
+    if(!users){
      throw new Error("El correo no coincide con un usuario registrado");
       }
       return true;
