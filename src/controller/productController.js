@@ -28,8 +28,71 @@ const productController = {
         .catch(error => res.send(error))
 
     },
+    filterCatalogue: (req, res) => {
+        //tomo el dato que quiero filtrar
+        let query = req.query;
+        let where = {};
+
+        if (query == undefined) {
+            db.Product.findAll({
+            })
+            .then(productos =>{
+                let response = {
+                    meta: {
+                        status: 200,
+                        url: '/catalogue/filter'
+                    },
+                    data: productos
+                   }
+                   res.json(response)
+            })
+            .catch(error => res.send(error))
+            
+        }else{
+            // si el usuario envia el type en el filtro
+            if(query.type){
+                const typeArray = query.type.split(",");
+                const condition = {
+                    idProductCategory: {
+                        [Op.in]: typeArray
+                    }
+                }
+                where = condition;
+            }
+    
+            if(query.price){
+                const condition = {
+                    productPrice: {
+                        [Op.lte]: query.price
+                    }
+                }
+                if(query.type){
+                    where[Op.and] = condition;
+                }else{
+                    where = condition;
+                }
+            }
+    
+            db.Product.findAll({
+                include: [{association: 'category'}],  
+                where: where
+            })
+            .then(productos =>{
+                let response = {
+                    meta: {
+                        status: 200,
+                        url: '/catalogue/filter'
+                    },
+                    data: productos
+                   }
+                   res.json(response)
+            })
+            .catch(error => res.send(error))
+        }
+    },
     searchProduct: (req, res) => {
         let searchQuery = req.query.searchValue;
+        
         db.Product.findAll({
             include: [{association: 'category'}],  
             where: {

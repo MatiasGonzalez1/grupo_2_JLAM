@@ -75,7 +75,6 @@ const usersController = {
 
             let pass = await bcrypt.hash(req.body.password, 10);
 
-            console.log(pass);
      
         //Asigno datos del body al objeto a insertar a la base de datos    
         let userData = await db.Users.create({
@@ -161,8 +160,7 @@ const usersController = {
         }else{
             delete userData.userImg;
         }
-        console.log(userData);
-
+        
         db.Users.update(userData,
         {
             where:{
@@ -170,7 +168,7 @@ const usersController = {
             }
         })
         .then((result) =>{
-            console.log(result);
+            
             res.redirect('/');
         })
         .catch(error => res.send(error))
