@@ -25,7 +25,7 @@
         <div class="container__filtro_title" id="filter"><h2>FILTROS</h2><i class="fa-solid fa-list"></i></div>        
     <div id="show">
       <ul class="filter-ul">
-        <li><p>Precio</p></li>
+        <li><p class="filter-tittle">Precio</p></li>
         <div class="li-flex">
         <li class="li-not num">
             <input type="range" id="precio" min="5000" max="20000" step="5000" value="5000" list="tickmarks">
@@ -43,26 +43,26 @@
       </div>
       </ul>
       <ul class="filter-ul" id="pri">
-          <li class="li-not"><input type="checkbox" id="tintos" name="tintos" value="tintos"><p>Tintos</p></li>  
-         <li class="li-not"><input type="checkbox" id="blancos" name="blancos" value="blancos"><p>Blancos</p></li>  
-          <li class="li-not"><input type="checkbox" id="especiales" name="especiales" value="especiales"><p>Especiales</p></li>  
-          <li class="li-not"><input type="checkbox" id="espumantes" name="espumantes" value="espumantes"><p>Espumantes</p></li> 
+        <li><p class="filter-tittle">Tipo</p></li>
+          <li class="li-not"><input type="checkbox" id="filterType" name="tintos" value="2"><p>Tintos</p></li>  
+         <li class="li-not"><input type="checkbox" id="filterType" name="blancos" value="3"><p>Blancos</p></li>  
+          <li class="li-not"><input type="checkbox" id="filterType" name="especiales" value="4"><p>Especiales</p></li>  
+          <li class="li-not"><input type="checkbox" id="filterType" name="espumantes" value="5"><p>Espumantes</p></li> 
           <!-- <li class="li-not submit"><button >Buscar</button></li> -->
       </ul>
-      <ul class="filter-ul">
-        <li><p>Variedad</p></li>
-        <div class="">
-          <li class="li-not"><input type="checkbox" id="malbec" name="variedad" value="malbec"><p>Malbec</p></li>  
-          <li class="li-not"><input type="checkbox" id="merlot" name="variedad" value="merlot"><p>Merlot</p></li>  
-          <li class="li-not"><input type="checkbox" id="pinotNoir" name="variedad" value="pinotNoir"><p>Pinot Noir</p></li>  
-          <li class="li-not"><input type="checkbox" id="cabernetSauvignon" name="variedad" value="cabernetSauvignon"><p>Cabernet Sauvignon</p></li>  
-          <li class="li-not"><input type="checkbox" id="syrah" name="variedad" value="syrah"><p>Syrah</p></li> 
-          <li class="li-not"><input type="checkbox" id="tempranillo" name="variedad" value="tempranillo"><p>Tempranillo</p></li>
-          <li class="li-not"><input type="checkbox" id="chardonnay" name="variedad" value="chardonnay"><p>Chardonnay<p></li>
- 
+      <ul class="">
+      <!-- <li><p>Variedad</p></li>
+      <div class="">
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="malbec"><p>Malbec</p></li>  
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="merlot"><p>Merlot</p></li>  
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="pinotNoir"><p>Pinot Noir</p></li>  
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="cabernet sauvignon"><p>Cabernet Sauvignon</p></li>  
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="syrah"><p>Syrah</p></li> 
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="tempranillo"><p>Tempranillo</p></li>
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="chardonnay"><p>Chardonnay<p></li>
 
-          <li class="li-not submit"><button>Buscar</button></li>
-      </div>
+        </div> -->
+        <!-- <li class="li-not submit"><button id="btnReset">Buscar</button></li> -->
       </ul>
     </div>
       </div>

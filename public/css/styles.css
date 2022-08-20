@@ -1307,8 +1307,10 @@ input[type=number]::-webkit-outer-spin-button {
     width: 250px;
     margin: auto;
     height: auto;
-    padding: 30px 15px;
+    padding: 30px 20px;
     transition: all 1s ease-in-out;
+    background-color: #333;
+    border-radius: 5px;
 }
 
 .container__filtro_title {
@@ -1333,7 +1335,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .container__filtro ul {
     margin-top: 10px;
-    padding-left: 20px;
+    padding-left: 10px;
     color: #FF452C;
 }
 
@@ -1342,9 +1344,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 
-.container__filtro li {
+/* .container__filtro li {
     border-bottom: 1px solid #FBF2E0;
-}
+} */
 
 .container__filtro .li-not {
     border: none;
@@ -1374,7 +1376,7 @@ input[type='range'],
 input[type='range']::-webkit-slider-runnable-track,
 input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none;
-    background-color: #2B2B2B;
+    background-color: #333;
 }
 
 input[type=range]::-webkit-slider-thumb {
@@ -1461,11 +1463,16 @@ li datalist option {
 .filter-ul li.submit {
     text-align: -webkit-center;
 }
-
+.filter-ul .filter-tittle{
+    font-weight: bold;
+    font-size: 15px;
+   padding-bottom: 10px;
+    border-bottom: .5px solid #fbf2e0;
+}
 .li-not button {
     display: block;
     border-radius: 5px;
-    width: 90px;
+    width: 100%;
     height: 30px;
     border: none;
     background-color: #FF452C;
