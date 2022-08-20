@@ -11,12 +11,35 @@ const updateUserValid = [
         .withMessage("El nombre debe de tener al menos dos carácteres")
         .isAlpha()
         .withMessage("No se admiten números o caracteres especiales"),
+    body("apellido")
+        .escape()
+        .trim()
+        .notEmpty()
+        .withMessage("El campo nombre no puede estar vacio")
+        .isLength({ min: 3 })
+        .withMessage("El nombre debe de tener al menos tres carácteres"),
+    body("direccion")
+        .trim()
+        .custom((value, {req})=>{
+          let address = req.body.direccion;
+          let expresion = (/\d/);
+          if (address) {
+            if (address.length < 3) {
+              throw new Error('Ingrese una dirección valida')
+            }
+    
+            if (!address.match(expresion)) {
+              throw new Error('Debe incluir la numeración')
+            }
+          }
+          return true;
+        }),
     body("email")
         .trim()
         .notEmpty()
         .withMessage("El campo email no puede estar vacio").bail()
         .isEmail()
-        .withMessage("Debe de ingresar un email válido"),
+        .withMessage("Debe ingresar un email válido"),
     body("fechaNacimiento")
         .notEmpty().withMessage("El campo fecha no puede estar vacio").bail()
         .isDate().withMessage("La fecha debe tener un formato válido")

@@ -36,6 +36,11 @@
             <input type="text" name="nombre" value="<%= (locals.old && old.nombre ? old.nombre : '') %> "/>
             <% if(locals.errors && errors.nombre) { %> 
                 <p class="form-warning"> <%= errors.nombre.msg %> </p>
+              <%}%>
+            <label>Apellido</label>
+            <input type="text" name="apellido" value="<%= (locals.old && old.apellido ? old.apellido : '') %> "/>
+            <% if(locals.errors && errors.apellido) { %> 
+                <p class="form-warning"> <%= errors.apellido.msg %> </p>
               <%}%> 
             <label>Email</label>
             <input type="email" name="email" value="<%= (locals.old && old.email ? old.email : '') %> "/>

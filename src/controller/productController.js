@@ -1,19 +1,116 @@
 const path = require("path");
 const fs = require("fs");
 const {validationResult} = require('express-validator');
+const db = require("../database/models");
+const { Op } = require("sequelize");
 
 let archivoProductos = fs.readFileSync(
     path.join(__dirname, "../models/data/products.json"),
     { encoding: "utf-8" }
 );
 
+let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
+
+let users = JSON.parse(usersFile);
 let productos = JSON.parse(archivoProductos);
+
+let cityFile = fs.readFileSync(path.join(__dirname, '../models/data/city.json'), { encoding: 'utf-8' });
+let city = JSON.parse(cityFile);
 
 const productController = {
     catalogo: (req, res) => {
-        res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {
-            productos: productos, user: req.session.userLogged
-        });
+
+        db.Product.findAll({
+        })
+        .then(productos =>{
+            res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {user: req.session.userLogged, productos: productos});
+        })
+        .catch(error => res.send(error))
+
+    },
+    filterCatalogue: (req, res) => {
+        //tomo el dato que quiero filtrar
+        let query = req.query;
+        let where = {};
+
+        if (query == undefined) {
+            db.Product.findAll({
+            })
+            .then(productos =>{
+                let response = {
+                    meta: {
+                        status: 200,
+                        url: '/catalogue/filter'
+                    },
+                    data: productos
+                   }
+                   res.json(response)
+            })
+            .catch(error => res.send(error))
+            
+        }else{
+            // si el usuario envia el type en el filtro
+            if(query.type){
+                const typeArray = query.type.split(",");
+                const condition = {
+                    idProductCategory: {
+                        [Op.in]: typeArray
+                    }
+                }
+                where = condition;
+            }
+    
+            if(query.price){
+                const condition = {
+                    productPrice: {
+                        [Op.lte]: query.price
+                    }
+                }
+                if(query.type){
+                    where[Op.and] = condition;
+                }else{
+                    where = condition;
+                }
+            }
+    
+            db.Product.findAll({
+                include: [{association: 'category'}],  
+                where: where
+            })
+            .then(productos =>{
+                let response = {
+                    meta: {
+                        status: 200,
+                        url: '/catalogue/filter'
+                    },
+                    data: productos
+                   }
+                   res.json(response)
+            })
+            .catch(error => res.send(error))
+        }
+    },
+    searchProduct: (req, res) => {
+        let searchQuery = req.query.searchValue;
+        
+        db.Product.findAll({
+            include: [{association: 'category'}],  
+            where: {
+                [Op.or] :[
+                    {productName: {
+                        [Op.like]: '%' + searchQuery + '%'
+                    }},
+                    {productVariety: {
+                        [Op.like]: '%' + searchQuery + '%'
+                    }},
+                ]
+            }
+        })
+        .then(productos =>{
+            res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {user: req.session.userLogged, productos: productos});
+        })
+        .catch(error => res.send(error))
+        
     },
 
     carrito: (req, res) => {
@@ -112,111 +209,228 @@ const productController = {
 
         res.redirect('/product/product-cart');
     },
+    checkout: (req, res) => {
 
-    detalle: (req, res) => {
-        const detalleId = Number(req.params.id); //convierto el id string a un numero para poder hacer la triple comparacion
+        //toma el usuario segun la session
+        let userActual =  req.session.userLogged;
 
-        let coincidencia = productos.find((producto) => {
-            //filtro mis productos y busco el id
-            return producto.id_producto === detalleId;
+        //lo busca entre los usuarios registrados
+        let UserData = users.find((user) => {
+            return user.id == userActual.id;
         });
 
-        res.render(path.join(__dirname, '../views/products/productDetail.ejs'), { coincidencia: coincidencia, user: req.session.userLogged });
+        //si existe la cookie carrito
+        if (req.cookies.carrito != undefined){
+            //asigno a una variable
+            let carritoActual = JSON.parse(req.cookies.carrito);
+
+            let carritoFinal= carritoActual.map(function(element){
+                //busco el producto que tiene el mismo id que el de mi carrito
+                let producto = productos.find( producto => producto.id_producto == element.id );
+
+                //genero un objeto con los datos que necesito de mi producto
+                let productData = {
+                    cantidad: element.quantity,
+                    id_producto: producto.id_producto,
+                    nombre_producto: producto.nombre_producto,                   
+                    imagen_producto: producto.imagen_producto,
+                    precio: producto.precio,
+                }
+                return productData; 
+            });
+            
+            //renderizo enviando el carrito, el usuario y las ciudades
+            res.render(path.join(__dirname, "../views/products/checkout.ejs"), {
+                carritoFinal:carritoFinal, user:UserData, city:city
+            });
+    
+        }else{
+            res.render(path.join(__dirname, "../views/products/checkout.ejs"), {
+                carritoFinal:[], user:UserData
+            });
+        }
+    },
+    submitCheckout: (req, res) => {
+        let purchaseFile = fs.readFileSync(
+            path.join(__dirname, "../models/data/purchaseDetail.json"),
+            { encoding: "utf-8" }
+        );
+        let purchases = JSON.parse(purchaseFile);
+
+
+        let formDataPayment = {
+            nombre: req.body.checkoutName,
+            apellido: req.body.checkoutLastName,
+            email: req.body.checkoutEmail,
+            ciudad: req.body.city,
+            direccion: req.body.checkoutAddress,
+            piso: req.body.checkoutFloor,
+        }
+
+        purchases.push(formDataPayment);
+
+        let purchasesUpdated = JSON.stringify(purchases);
+        fs.writeFileSync(path.join(__dirname,'../models/data/purchaseDetail.json'), purchasesUpdated);
+
+        res.redirect('/');
+
+    },
+
+    detalle: (req, res) => {
+
+        db.Product.findByPk(req.params.id, {
+            include: [{association: 'category'}]
+        })
+        .then(coincidencia =>{
+            res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {user: req.session.userLogged, coincidencia: coincidencia});
+        })
+        .catch(error => res.send(error))
     },
 
     nuevoProducto: (req, res) => {
-        res.render(path.join(__dirname, "../views/products/newProduct.ejs"),{userLog: req.session.userLogged});
+        db.ProductCategory.findAll({
+        })
+        .then(categories =>{
+            res.render(path.join(__dirname, "../views/products/newProduct.ejs"), {userLog: req.session.userLogged, categories:categories});
+        })
+        .catch(error => res.send(error))
     },
 
     verActualizarProducto: (req, res) =>{
-        const updateId =  Number(req.params.id);
 
-        let coincidencia = productos.find((producto) => { //filtro mis productos y busco el id
-            return producto.id_producto === updateId;
-        });
-
-        res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), { coincidencia: coincidencia, userLog: req.session.userLogged });
+        db.ProductCategory.findAll({
+        })
+        .then(categories =>{
+            return categories;
+        })
+        .then((categories)=>{
+            db.Product.findByPk(req.params.id, {
+                include: [{association: 'category'}]
+            })
+            .then(coincidencia =>{
+                res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, coincidencia: coincidencia, categories:categories});
+            })
+        })
+        .catch(error => res.send(error))
     },
 
     enviarActualizarProducto: (req, res) =>{
-        const idProducto = Number(req.body.fid);
-
-        let productosFilter = productos.filter((producto) => {
-            return producto.id_producto !== idProducto;
-        });
-
-        let formDataProduct = {
-            id_producto: idProducto,
-            nombre_producto: req.body.fnombre,
-            categoria: req.body.fcategoria,
-            anio_cosecha: req.body.fcoseAnio,
-            variedad: req.body.fvariedad,
-            crianza: req.body.fcrianza,
-            potencial_guarda: req.body.fguarda,
-            nota_cata: req.body.fnotacata,
-            imagen_producto: req.body.fprodfoto,
-            precio: req.body.fprecio,
-            stock: req.body.fstock,
+        let imgProduct = req.body.imgProduct;
+        
+        if (req.file) {
+            imgProduct = req.file.filename;
         }
+        
+        db.Product.update({
+            idProduct: req.body.fid,
+            productName: req.body.fnombre,
+            idProductCategory: req.body.fcategoria,
+            productHarvest: req.body.fcoseAnio,
+            productVariety: req.body.fvariedad,
+            productBreeding: req.body.fcrianza,
+            productGuard: req.body.fguarda,
+            productDescription: req.body.fnotacata,
+            productImg: imgProduct,
+            productPrice: req.body.fprecio,
+            productStock: req.body.fstock,
+        },
+        {
+            where:{
+                idProduct: req.body.fid
+            }
+        })
+        .then(() =>{
+            res.redirect('/product/all-products');
+        })
+        .catch(error => res.send(error))
 
-        productosFilter.push(formDataProduct);
-
-        let productosJson = JSON.stringify(productosFilter);
-        fs.writeFileSync(path.join(__dirname,'../models/data/products.json'), productosJson);
-
-        res.redirect('/product/all-products');
     },
 
     crearProducto: (req, res) =>{
-        
-        let errors = validationResult(req);
-
-        if(!errors.isEmpty()) {
-            if (req.file) {
-                //lo borramos
-                  fs.unlinkSync(path.join(__dirname, "../../public/img/productImg", req.file.filename));
-                   };
-            return res.render('./products/newProduct', {errors:errors.mapped(), old: req.body});
-        } else {
-            
-        let generadorId;
-        productos.length === 0? generadorId = productos.length : generadorId = (productos.at(-1).id_producto)+1;
-
-        let newDataProduct = {
-            id_producto: generadorId,
-            nombre_producto: req.body.fnombre,
-            categoria: req.body.fcategoria,
-            anio_cosecha: req.body.fcoseAnio,
-            variedad: req.body.fvariedad,
-            crianza: req.body.fcrianza,
-            potencial_guarda: req.body.fguarda,
-            nota_cata: req.body.fnotacata,
-            imagen_producto: req.file.filename,
-            precio: Number(req.body.fprecio),
-            stock: Number(req.body.fstock),
+        db.ProductCategory.findAll({   
+        })
+        .then(categories =>{
+            let errors = validationResult(req);
+    
+            if(!errors.isEmpty()) {
+                if (req.file) {
+                    //lo borramos
+                        fs.unlinkSync(path.join(__dirname, "../../public/img/productImg", req.file.filename));
+                        };
+                return res.render('./products/newProduct', {errors:errors.mapped(), old: req.body, userLog: req.session.userLogged, categories});
+            } else {
+                
+            db.Product.create({
+                productName: req.body.fnombre,
+                idProductCategory: req.body.fcategoria,
+                productHarvest: req.body.fcoseAnio,
+                productVariety: req.body.fvariedad,
+                productBreeding: req.body.fcrianza,
+                productGuard: req.body.fguarda,
+                productDescription: req.body.fnotacata,
+                productImg: req.file.filename,
+                productPrice: req.body.fprecio,
+                productStock: req.body.fstock,
+            })
+            res.redirect('/product/all-products');
+            }
+        })
+    },
+    filtrarProductos: (req, res) =>{
+        if(req.params.filter == 1){
+            db.Product.findAll({
+                include: [{association: 'category'}],
+            })
+            .then(productos =>{
+                let response = {
+                 meta: {
+                     status: 200,
+                     url: '/all-products/filter'
+                 },
+                 data: productos
+                }
+                res.json(response)
+             })
+        }else{
+            db.Product.findAll({
+                include: [{association: 'category'}],  
+                where: {
+                    idProductCategory: {
+                      [Op.eq]: Number(req.params.filter)
+                    }
+                  }
+            })
+            .then(productos =>{
+               let response = {
+                meta: {
+                    status: 200,
+                    url: '/all-products/filter'
+                },
+                data: productos
+               }
+               res.json(response)
+            })
         }
 
-        productos.push(newDataProduct);
-
-        let productosJson = JSON.stringify(productos, null, 4);
-        fs.writeFileSync(path.join(__dirname,'../models/data/products.json'), productosJson);
-        res.redirect('/product/all-products');
-     }
     },
-    
     cargarProductos: (req, res) =>{
-        res.render(path.join(__dirname, '../views/products/all-products.ejs'), { productos: productos, userLog: req.session.userLogged});
+
+        db.Product.findAll({
+            include: [{association: 'category'}],
+        })
+        .then(productos =>{
+            res.render(path.join(__dirname, '../views/products/all-products.ejs'), {userLog: req.session.userLogged, productos: productos});
+        })
+        .catch(error => res.send(error))
+       
     },
 
-    delete: (req, res) => {
-        let id = req.params.id;
-        productos = productos.filter((producto) => producto.id_producto != id);
-        
-        fs.writeFileSync(
-            path.join(__dirname, '../models/data/products.json'),
-            JSON.stringify(productos)
-        )
-        res.render(path.join(__dirname,"../views/products/all-products.ejs"), {productos: productos, userLog: req.session.userLogged});
+    delete: async (req, res) => {
+
+        await db.Product.destroy({
+            where: {idProduct: Number (req.params.id)} 
+        })
+        res.redirect('/product/all-products');
     },
         
 };

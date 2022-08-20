@@ -25,15 +25,16 @@
         <div class="container__filtro_title" id="filter"><h2>FILTROS</h2><i class="fa-solid fa-list"></i></div>        
     <div id="show">
       <ul class="filter-ul">
-        <li><p>Precio</p></li>
+        <li><p class="filter-tittle">Precio</p></li>
         <div class="li-flex">
-        <li class="li-not num"><input type="range" id="precio" min="5000" max="20000" step="5000" value="5000" onchange="document.getElementById('outvol') .value='Hasta ' + value" list="tickmarks">
-          <output id="outvol" name="outvol" for="vol">Hasta 5.000</output> 
-        <datalist>
-          <option value="5000" class="value"></option>
-          <option value="10000" class="value"></option>
-          <option value="15000" class="value"></option>
-          <option value="20000" class="value"></option>
+        <li class="li-not num">
+            <input type="range" id="precio" min="5000" max="20000" step="5000" value="5000" list="tickmarks">
+            <output id="outvol" name="outvol" for="vol">Hasta 5.000</output> 
+        <datalist id="data">
+          <option value="5000" class="value">
+          <option value="10000" class="value">
+          <option value="15000" class="value">
+          <option value="20000" class="value">
         </datalist>
           
         </li>
@@ -41,52 +42,46 @@
         <!-- <li class="li-not submit"><button type="submit">Buscar</button></li> -->
       </div>
       </ul>
-      <ul class="filter-ul">
-          <li><p>Tipo</p></li>
-          <li class="li-not"><input type="checkbox" id="" name="tintos" value=""><p>Tintos</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="blancos" value=""><p>Blancos</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="especiales" value=""><p>Especiales</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="espumantes" value=""><p>Espumantes</p></li>  
+      <ul class="filter-ul" id="pri">
+        <li><p class="filter-tittle">Tipo</p></li>
+          <li class="li-not"><input type="checkbox" id="filterType" name="tintos" value="2"><p>Tintos</p></li>  
+         <li class="li-not"><input type="checkbox" id="filterType" name="blancos" value="3"><p>Blancos</p></li>  
+          <li class="li-not"><input type="checkbox" id="filterType" name="especiales" value="4"><p>Especiales</p></li>  
+          <li class="li-not"><input type="checkbox" id="filterType" name="espumantes" value="5"><p>Espumantes</p></li> 
           <!-- <li class="li-not submit"><button >Buscar</button></li> -->
       </ul>
-      <ul class="filter-ul">
-        <li><p>Variedad</p></li>
-        <div class="">
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Malbec</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Merlot</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Pinot Noir</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Cabernet Sauvignon</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Pinot Noir</p></li>  
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Syrah</p></li> 
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Tempranillo</p></li>
-          <li class="li-not"><input type="checkbox" id="" name="variedad" value=""><p>Chardonnay<p></li>  
+      <ul class="">
+      <!-- <li><p>Variedad</p></li>
+      <div class="">
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="malbec"><p>Malbec</p></li>  
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="merlot"><p>Merlot</p></li>  
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="pinotNoir"><p>Pinot Noir</p></li>  
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="cabernet sauvignon"><p>Cabernet Sauvignon</p></li>  
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="syrah"><p>Syrah</p></li> 
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="tempranillo"><p>Tempranillo</p></li>
+        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="chardonnay"><p>Chardonnay<p></li>
 
-
- 
-
-          <li class="li-not submit"><button>Buscar</button></li>
-      </div>
+        </div> -->
+        <!-- <li class="li-not submit"><button id="btnReset">Buscar</button></li> -->
       </ul>
     </div>
       </div>
 
-      <div class="catalogo__conteiner">
+      <div class="catalogo__conteiner" id="divSearch">
         <% productos.forEach(producto => { %>
-              <article class="cata__products">
-          <img class="cataimg__product" src="/img/productImg/<%= producto.imagen_producto%>" alt="aqui va la foto">
-          <p class="cataname__product"> <%= producto.nombre_producto %></p>
-          <p class="cataprecio__product">$ <%= formatter.format(producto.precio)%></p>
+          <article class="cata__products">
+          <img class="cataimg__product" src="/img/productImg/<%= producto.productImg%>" alt="aqui va la foto">
+          <p class="cataname__product"> <%= producto.productName %></p>
+          <p class="cataprecio__product">$ <%= formatter.format(producto.productPrice)%></p>
           
-          <form action="/product/product-cart/<%= producto.id_producto%>" method="post">
+          <form action="/product/product-cart/<%= producto.idProduct%>" method="post">
               <div class="container__buttons">
                 <button type="submit" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i></button>
-                <a class="cata__eye" href="/product/product-detail/<%= producto.id_producto%>" target=""><i class="fa-regular fa-eye"></i></a>
+                <a class="cata__eye" href="/product/product-detail/<%= producto.idProduct%>" target=""><i class="fa-regular fa-eye"></i></a>
               </div>
             </form>
         </article>
-       <% })   %> 
-        
-
+       <% })   %>
       </div>
     </div>
 
@@ -95,15 +90,7 @@
     <%- include('../partials/footer.ejs')%>
   </footer>
 
-  <script>
-const onFil = document.getElementById('filter');
-
-onFil.addEventListener('click', () => {
-let show = document.getElementById('show');
-
-show.style.display === 'none' ? show.style.display = 'block' : show.style.display ='none';
-});
-
+  <script src="/js/filtroCatalogo.js">
   </script>
 
 </body>

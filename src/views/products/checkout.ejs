@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head.ejs')%>
+    <title>Finalizar Compra - Terra Rossa</title>
+  </head>
+  <body>
+    <!-- seccion barra de navegacion -->
+    <header>
+      <%- include('../partials/nav.ejs')%>
+    </header>
+    <!-- fin seccion barra de navegacion -->
+    <% 
+  const formatter = new Intl.NumberFormat("es-AR", { 
+    style: "decimal",
+    minimumFractionDigits: 2,
+  }); 
+  %>
+    <!-- inicio -->
+    <section class="margin__nav">
+      <h1 class="cart__title">Finalizar Compra</h1>
+      <div class="checkout-main">
+        <div class="checkout-grid">
+          <div class="checkout-element-container">
+            <div class="checkout-alignment">
+                <h4 class="enabled" id="shippingData">Datos de envío</h4>
+                <i class="fa-solid fa-arrow-right"></i>
+                <h4 class="disabled" id="paymentData">Método de Pago</h4>
+            </div>
+            <form action="/product/checkout" method="POST">
+              <div class="checkout-groups" id="shippingForm" >
+                  <div class="checkout-subgroups">
+                      <div class="input__section">
+                          <label>Nombre</label>
+                          <input type="text" name="checkoutName" value="<%= user.nombre%>"/>
+                          <% if(locals.errors && errors.checkoutName) { %> 
+                            <p class="form-warning"> <%= errors.checkoutName.msg %> </p>
+                          <%}%> 
+                        </div>
+                      <div class="input__section">
+                          <label>Apellido</label>
+                          <input type="text" name="checkoutLastName" value="<%= user.apellido%>"/>
+                          <% if(locals.errors && errors.checkoutLastName) { %> 
+                            <p class="form-warning"> <%= errors.checkoutLastName.msg %> </p>
+                          <%}%> 
+                        </div>
+                      <div class="input__section">
+                          <label>Email</label>
+                          <input type="text" name="checkoutEmail" value="<%= user.email%>"/>
+                          <% if(locals.errors && errors.checkoutEmail) { %> 
+                            <p class="form-warning"> <%= errors.checkoutEmail.msg %> </p>
+                          <%}%>
+                        </div>
+                      <div class="input__section">
+                          <label>Ciudad</label>
+                          <select name="city">
+                            <option selected disabled>-- seleccione su ciudad --</option>
+                            <% city.forEach(city => { %>
+                              <% if (city.codigo == user.codigoPostal) {%>
+                                <option selected><%= city.nombre%></option>
+                              <%}else {%>
+                                <option><%= city.nombre%></option>
+                              <% }%>
+                            <% })%> 
+                          </select>
+                      </div>
+                      <div class="input__section">
+                          <label>Dirección</label>
+                          <input type="text" name="checkoutAddress" value="<%= user.direccion%>"/>
+                          <% if(locals.errors && errors.checkoutAddress) { %> 
+                            <p class="form-warning"> <%= errors.checkoutAddress.msg %> </p>
+                          <%}%>
+                        </div>
+                      <div class="input__section">
+                          <label>Piso</label>
+                          <input type="text" name="checkoutFloor" value="<%= user.departamento%>"/>
+                          <% if(locals.errors && errors.checkoutFloor) { %> 
+                            <p class="form-warning"> <%= errors.checkoutFloor.msg %> </p>
+                          <%}%> 
+                        </div>
+                      <div class="input__section center-checkout">
+                        <input type="button" class="cart__btn--checkout" id="checkoutNext" value="Siguente paso">
+                      </div>
+                  </div>
+              </div>
+              <div class="checkout-groups checkout-hidden" id="paymentForm">
+                <div class="checkout-subgroups">
+                  <div class="input__section">
+                      <label>datos de facturación</label>
+                      <input type="text" name="facturacion" value=""/>
+                  </div>
+                  <div class="input__section">
+                    <label>datos de facturación</label>
+                    <input type="text" name="facturacion" value=""/>
+                  </div>
+                  <div class="input__section">
+                  <label>datos de facturación</label>
+                  <input type="text" name="facturacion" value=""/>
+                  </div>
+                  <div class="input__section">
+                    <label>datos de facturación</label>
+                    <input type="text" name="facturacion" value=""/>
+                    </div>
+                  <div class="input__section">
+                    <label>datos de facturación</label>
+                    <input type="text" name="facturacion" value=""/>
+                  </div>
+                  <div class="input__section">
+                    <label>datos de facturación</label>
+                    <input type="text" name="facturacion" value=""/>
+                </div>
+                <div class="input__section center-checkout btn__checkout">
+                  <input type="button" class="cart__btn--checkout" id="checkoutPrev" value="Paso Anterior">
+                  <input type="submit" class="cart__btn--checkout" value="Realizar Pago">
+                </div>
+                 </div>
+              </div>
+            </form>
+          </div>
+          <div class="checkout-element-container">
+            <div class="checkout-items">
+              <% if(Array.isArray(carritoFinal) && carritoFinal.length){%>
+                <% carritoFinal.forEach(producto => { %>
+                  <div class="checkout-items-grid">
+                    <img src="/img/productImg/<%= producto.imagen_producto%>" alt="" style="width: 20px;">
+                    <p><%=producto.nombre_producto%></p>
+                    <p>$<%= formatter.format(producto.precio)%></p>
+                    <p><%=producto.cantidad%> ud.</p>
+                  </div>
+                <% })%> 
+              <%} else{%>
+                <div class="cart__productdetail cart__empty">
+                  <p>No hay productos en tu carrito de compras :c</p>
+                </div>
+              <%}%>
+            </div>
+            <div class="checkout-items">
+              <div class="checkout-items-text">
+                <p>subtotal:</p>
+                <p>5000</p>
+              </div>
+              <div class="checkout-items-text">
+                <p><span>costo de envio:</span></p>
+                <p><span>+ 1000</span></p>
+              </div>
+              <div class="checkout-items-text">
+                <p>total:</p>
+                <p>6000</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+    <!-- fin carrito de compras -->
+    <footer class="footer">
+      <%- include('../partials/footer.ejs')%>
+    </footer>
+    <script>// mostrar metodo de pago
+      const paymentVisible = document.getElementById('checkoutNext');
+      const shippingVisible = document.getElementById('checkoutPrev');
+      const paymentData = document.getElementById('paymentData');
+      const shippingForm = document.getElementById('shippingForm');
+      const paymentForm = document.getElementById('paymentForm');
+      
+      paymentVisible.addEventListener("click", () => {
+        paymentData.classList.toggle("disabled");
+        paymentData.classList.toggle("enabled");
+        shippingForm.classList.toggle("checkout-hidden");
+        paymentForm.classList.toggle("checkout-hidden");
+      });
+  
+      shippingVisible.addEventListener("click", () => {
+        paymentData.classList.toggle("disabled");
+        paymentData.classList.toggle("enabled");
+        shippingForm.classList.toggle("checkout-hidden");
+        paymentForm.classList.toggle("checkout-hidden");
+      });</script>
+  </body>
+</html>

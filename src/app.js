@@ -12,7 +12,6 @@ const app = express();
 // Determinacion de puerto asignable
 const port = process.env.PORT || 3000;
 
-
 // Determinacion de folder 'public' como archivos estaticos
 app.use(express.static("./public")); 
 

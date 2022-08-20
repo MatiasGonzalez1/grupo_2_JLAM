@@ -36,3 +36,12 @@ ya que consideramos que de esta manera podemos enriquecernos y crecer individual
 3. **Mas de:** Implementar como buenas prácticas el hábito de comentar porciones de código para ayudar la comprensión tanto para compañeros de equipo como terceros
 4. **Dejar de hacer:**  En este sprint en particular y debido al avanzado progreso que logramos como equipo, no consideramos que exista algo a lo que debamos prestar detenida atención. 
 5. **Empezar a hacer:** Implementar un protocolo más claro para nuestras daily’s, tener un plan sobre que necesitamos profundizar.
+
+
+## Retrospectiva sprint 6 ♻️
+
+1. **Seguir haciendo:** Comunicar a los integrantes del grupo cualquier inconveniente que pueda surgir en el transcurso de la tarea asignada para no interrumpir el flujo de trabajo.
+2. **Menos de:** Encontramos una dinamica de trabajo muy efectiva con la cual seguimos sin encontrar cualidades negativas que como grupo debamos disminuir.
+3. **Mas de:** Implementar el habito de explicar las porciones de codigo escritas individualmente a los demas integrantes para enriquecer nuestros conocimientos y el de nuestros compañeros.
+4. **Dejar de hacer:**  Subestimar las tareas que parecen de poca dificultad, para asi prevenir cualquier inconveniente con los tiempos estimados.
+5. **Empezar a hacer:** Testear todos los cambios implementados para asegurarnos de no tener imprevistos en ninguna de las funcionalidades.

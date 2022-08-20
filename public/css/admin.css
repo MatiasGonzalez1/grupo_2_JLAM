@@ -152,8 +152,6 @@ main{
     text-transform: capitalize;
 }
 .welcome__content img{
-    /* border-radius: 100px;
-    width: 100%; */
     width: 80px;
     height: 80px;
     border-radius: 160px;
@@ -241,6 +239,7 @@ main{
 
 .productdash_block img{
     width: 13%;
+    min-height: 70px;
 }
 .userdash_block img{
     object-fit: cover;
@@ -278,7 +277,7 @@ main{
     position:absolute;
     justify-content: space-around;
     bottom: 15%;
-    right: 0%;
+    right: 2%;
 }
 .productdash_button a{
     text-decoration: none;
@@ -477,11 +476,9 @@ a#cancel{
     .productdash_block{
         padding: 2%;  
     }
-    /* .userdash_block{
-        padding: 4%;
-    } */
     .productdash_block img{
         width: 8%;
+        min-height: 80px;
     }
     .userdash_block img{
         object-fit: cover;
@@ -590,9 +587,10 @@ a#cancel{
         justify-content: space-between;
         text-decoration: none;
         color: #fbf2e0;
-        font-size: 12px;
+        font-size: 14px;
         padding: 15px ;
         text-transform: capitalize;
+        align-items: center;
     }
     a.side__link i{
         float: right;
@@ -612,24 +610,25 @@ a#cancel{
     .side__child{
         text-decoration: none;
         color: #fbf2e0;
-        font-size: 10px;
+        font-size: 13px;
         padding: 15px;
-        border-bottom: solid 1px #fbf2e060;
         text-transform: capitalize;
     }
     .side__child:hover{
         color: #ff452c;
+        background-color: #2b2b2b;
     }
     .icon{
+        margin-top:450px;
         text-decoration: none;
         color: #fbf2e0;
-        font-size: 12px;
+        font-size: 14px;
         padding: 5px ;
         text-transform: capitalize;
+        height: 20px;
     }
     .icon i{
-        padding:5%;
-        margin-top:320px;
+        padding:0% 5%;
         color: #fbf2e0;
     }
     .static__container{
@@ -707,6 +706,7 @@ a#cancel{
     }
     .productdash_block img{
         width: 5%;
+        min-height: 70px;
     }
     .userdash_block img{
         object-fit: cover;
@@ -747,17 +747,34 @@ a#cancel{
         margin-left: 2%;
     }
 }
- 
+
+.admin_filter{
+   background-color: white; 
+    margin: 5px;
+    border: none;
+    color: #2b2b2b;
+    font-weight: bold;
+    font-size: 12px;
+    transition: all 0.5s ease;
+
+}
+.admin_filter:hover{
+    color:  #ff452c;
+    cursor: pointer;
+}
+.admin-filter-selected{
+    font-size: 13px;
+    color:  #ff452c;
+}
 @media screen and (min-width: 1200px) {
     /* filter tittles */
    
- 
     .data__container h3 {
         font-size: 15px;
         margin: 5% 0% 1% 0%;
     }
     .side_logo img{
-        padding: 20px 60px 50px;
+        padding: 20px 40px 50px;
         width: 100%;
     }
     .filter__container{
@@ -902,6 +919,7 @@ a#cancel{
     .data__container{
         width:100%;
         padding: 0%;
+        margin-bottom: 95px;
     }
     .data__container h4{
         padding: 2% 5% 1%;

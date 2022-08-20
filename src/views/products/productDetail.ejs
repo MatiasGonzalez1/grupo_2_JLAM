@@ -21,18 +21,18 @@
    <div class="container__pd">
     <div class="pd__section">
         <div class="pd__img" id="zoomC">
-          <img src="/img/productImg/<%= coincidencia.imagen_producto %>" alt="imagen del producto">
+          <img src="/img/productImg/<%= coincidencia.productImg %>" alt="imagen del producto">
         </div>
         <div class="pd_center">
           <article class="pd__info">
-            <h2><%= coincidencia.nombre_producto%></h2> <span></span>
-            <p><span>AÑO COSECHA: </span> <%= coincidencia.anio_cosecha%>, <span> VARIEDAD: </span> <%= coincidencia.variedad%>, <span> CRIANZA: </span> <%= coincidencia.crianza%>, <span> POTENCIAL DE GUARDA: </span> <%= coincidencia.potencial_guarda%>.</p>
+            <h2><%= coincidencia.productName%></h2> <span></span>
+            <p><span>AÑO COSECHA: </span> <%= coincidencia.productHarvest%>, <span> VARIEDAD: </span> <%= coincidencia.productVariety%>, <span> CRIANZA: </span> <%= coincidencia.productBreeding%>, <span> POTENCIAL DE GUARDA: </span> <%= coincidencia.productGuard%>.</p>
             <h3>NOTAS DE CATA</h3>
-            <p><%= coincidencia.nota_cata%></p>
+            <p><%= coincidencia.productDescription%></p>
           </article>
             
             <form class="pd_buysection">
-                <p><span>$ <%= formatter.format(coincidencia.precio)%></span></p>
+                <p><span>$ <%= formatter.format(coincidencia.productPrice)%></span></p>
                 <!-- seleccion de producto- incremento y decremento -->
                 <div>
                   <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
@@ -42,7 +42,7 @@
                 <!-- fin seleccion de producto- incremento y decremento -->
                 <div class="cart__btn">
                   <i class="fa-solid fa-cart-shopping"></i>
-                  <a href="/product/product-cart/<%= coincidencia.id_producto%>">agregar al carrito</a>
+                  <a href="/product/product-cart/<%= coincidencia.idProduct%>">agregar al carrito</a>
                 </div>
             </form>
         </div>
