@@ -97,17 +97,13 @@ const usersController = {
     },
 
     userData: (req, res) =>{
-        let userActual =  req.session.userLogged;
-        let userData = db.Users.findByPk(userActual.id,{
+        let userData =  req.session.userLogged;
+        db.Cities.findAll({
         })
-        let cities = db.Cities.findAll({
+        .then((cities) => {
+        res.render(path.join(__dirname, '../views/users/edit-user'), {userData, cities, user:req.session.userLogged });
         })
-        Promise.all ([userData, cities]) 
-          .then(([userData, cities]) => {
-           
-            res.render(path.join(__dirname, '../views/users/edit-user'), {userData, cities, user:req.session.userLogged });
-          })
-          .catch(error => res.send(error))
+        .catch(error => res.send(error))
     },
 
     userEdit: (req, res) =>{
