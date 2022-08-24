@@ -44,12 +44,12 @@ const updateUserValid = [
         .notEmpty().withMessage("El campo fecha no puede estar vacio").bail()
         .isDate().withMessage("La fecha debe tener un formato válido")
         .custom((value, {req})=>{
-        let edadMinima = "2002/01/01";
-        let edad = req.body.fechaNacimiento;
-        if(edad > edadMinima){
-            throw new Error('Debes tener 18 años o más')
-        }
-        return true;
+          let edadMinima = "2002/01/01";
+          let edad = req.body.fechaNacimiento;
+          if(edad > edadMinima){
+              throw new Error('Debes tener 18 años o más')
+          }
+          return true;
     }),
 
     body("password")
