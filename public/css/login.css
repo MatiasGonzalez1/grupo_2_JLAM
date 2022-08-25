@@ -176,6 +176,7 @@ main {
 
 .is-invalid{
     border:2px solid #FF452C;
+    outline-color: #FF452C;
 }
 
 .err{
