@@ -26,12 +26,14 @@
           <form class="formulario" action="/users/login" method="POST">
             <h2 class="create-account">INICIAR SESION</h2>
             <label>Email</label>
-            <input type="email" name="email" value="<%= (locals.old && old.email ? old.email : '') %> "/>
+            <input type="email" name="email" id="email" value="<%= (locals.old && old.email ? old.email : '') %> "/>
+            <div id="er" class="err"></div>
             <% if(locals.errors && errors.email) { %> 
               <p class="form-warning"> <%= errors.email.msg %> </p>
             <%}%> 
             <label>Contraseña</label>
-            <input type="password" name="password" />
+            <input type="password" name="password" id="password"/>
+            <div id="er2" class="err"></div>
             <% if(locals.errors && errors.password) { %> 
               <p class="form-warning"> <%= errors.password.msg %> </p>
             <%}%> 
@@ -53,5 +55,6 @@
       </main>
     </div>
     <footer></footer>
+    <script src="/js/loginValidator.js"></script>
   </body>
 </html>
