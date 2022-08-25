@@ -52,11 +52,18 @@ window.addEventListener("load", (e) => {
     } 
   });
   inputPass.addEventListener("input", () => {
+    const password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+    
     let mostrar2 = document.querySelector("#er2");
     if (inputPass.value.length < 8) {
       inputPass.classList.add("is-invalid");
       mostrar2.innerHTML = "El campo debe tener más de ocho carácteres";
-    } else {
+    } 
+    else if(!inputPass.value.match(password)){
+      inputPass.classList.add("is-invalid");
+      mostrar2.innerHTML = "La contraseña debe de tener un numero, una mayuscula y un caracter especial"
+    }
+    else {
       inputPass.classList.remove("is-invalid");
       mostrar2.innerHTML = "";
     }
