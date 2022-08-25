@@ -136,9 +136,9 @@ main {
     display: block;
     margin-top: 5px;
     margin-bottom: 10px;
-    background-color: whitesmoke;
-    border: none;
-    outline: none;
+    /* background-color: whitesmoke; */
+    /* border: none;
+    outline: none; */
     padding: 5px;
     font-size: 13px;
     color: #2b2b2b;
@@ -172,6 +172,18 @@ main {
  text-align: center;
 }
 
+/*validaciones*/
+
+.is-invalid{
+    border:2px solid #FF452C;
+    outline-color: #FF452C;
+}
+
+.err{
+    color: #FF452C;
+    text-align: center;
+    font-size: 12px;
+}
 
 @media(min-width: 1155px){
 
@@ -273,9 +285,9 @@ main {
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
-    background-color: whitesmoke;
-    border: none;
-    outline: none;
+    /* background-color: whitesmoke; */
+        /* border: none;
+        outline: none; */
     padding: 10px;
     font-size: 13px;
     color: #2b2b2b;

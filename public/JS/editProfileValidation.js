@@ -95,7 +95,7 @@ window.addEventListener('load', ()=>{
                 password.classList.add('input-warning');
                 errorWarning(password, errores.password);
             }
-            let expresion = (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]/);
+            let expresion = (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/);
             if (!password.value.match(expresion)) {
                 errores.password = "La contraseña debe de tener un numero, una mayuscula y un caracter especial"
                 password.classList.add('input-warning');
