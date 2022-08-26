@@ -5,7 +5,7 @@ window.addEventListener('load', ()=>{
     let lastName = document.querySelector("input.apellido");
     let address = document.querySelector("input.direccion");
     let floor = document.querySelector("input.departamento");
-    let password = document.querySelector("input.password");
+    let password = document.querySelector("input.editPassword");
     let email = document.querySelector("input.email");
     let birthDate = document.querySelector("input.fechaNacimiento");
     let profileImg = document.querySelector("input.profileImageUser");
@@ -15,6 +15,8 @@ window.addEventListener('load', ()=>{
     //funcion que quita mi clase cuando pasa la validacion y elimina el mensaje de error
     function delError(param) {
         param.classList.remove('input-warning');
+        param.nextElementSibling.innerHTML= "";
+        param.nextElementSibling.style.display = 'none';
         delete errores.param;
     }
              
