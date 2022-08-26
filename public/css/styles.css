@@ -1798,6 +1798,13 @@ li datalist option {
     color: #fbf2e0 !important;
     background-color: #ff452c !important;
 }
+.btn-back-cart{
+    width: 100%;
+    justify-content: end;
+    margin-top: 10px;
+}
+
+
 /* warnings validations */
 .form-warning {
     padding-top: 5px !important;
