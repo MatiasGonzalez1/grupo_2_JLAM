@@ -60,7 +60,7 @@ const formValid = [
     .withMessage("La contraseña debe de tener como mínimo 8 caracteres")
     // .isIn(['123', '456', '789', '987', '654' ,'321', 'password', 'god'])
     // .withMessage("No puedes usar palabras comunes en la contraseña")
-    .matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]/)
+    .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/)
     .withMessage("La contraseña debe de tener un numero, una mayuscula y un caracter especial"),
     body("repassword")
     .notEmpty()
