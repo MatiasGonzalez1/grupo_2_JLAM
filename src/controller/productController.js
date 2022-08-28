@@ -8,14 +8,7 @@ let archivoProductos = fs.readFileSync(
     path.join(__dirname, "../models/data/products.json"),
     { encoding: "utf-8" }
 );
-
-let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
-
-let users = JSON.parse(usersFile);
 let productos = JSON.parse(archivoProductos);
-
-let cityFile = fs.readFileSync(path.join(__dirname, '../models/data/city.json'), { encoding: 'utf-8' });
-let city = JSON.parse(cityFile);
 
 const productController = {
     catalogo: (req, res) => {
@@ -210,10 +203,10 @@ const productController = {
         res.redirect('/product/product-cart');
     },
     checkout: async (req, res) => {
+        //toma el usuario segun la session
+       let userData =  req.session.userLogged;
         //si existe la cookie carrito
         if (req.cookies.carrito != undefined && req.session.userLogged){
-             //toma el usuario segun la session
-            let userData =  req.session.userLogged;
             //asigno a una variable
             let carritoActual = JSON.parse(req.cookies.carrito);
 
@@ -241,11 +234,10 @@ const productController = {
             });
            
         }else{
-            res.render(path.join(__dirname, "../views/products/checkout.ejs"), {
-                carritoFinal:[], user:userData
-            });
+            res.redirect('/');
         }
     },
+    //pendiente a la tabla pivot
     submitCheckout: (req, res) => {
         let purchaseFile = fs.readFileSync(
             path.join(__dirname, "../models/data/purchaseDetail.json"),

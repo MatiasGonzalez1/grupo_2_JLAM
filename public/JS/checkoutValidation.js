@@ -31,7 +31,7 @@ window.addEventListener('load', ()=>{
         
 
      // //nombre
-     nameCheck.addEventListener('blur', ()=>{
+     nameCheck.addEventListener('input', ()=>{
         if (nameCheck.value == "") {
             errores.nameCheck = "El nombre es obligatorio"
             nameCheck.classList.add('input-warning');
@@ -46,12 +46,12 @@ window.addEventListener('load', ()=>{
     })
 
      //apellido
-     lastNameCheck.addEventListener('blur', ()=>{
+     lastNameCheck.addEventListener('input', ()=>{
         if(lastNameCheck.value == "") {
             errores.lastNameCheck = "El apellido es obligatorio"
             lastNameCheck.classList.add('input-warning');
             errorWarning(lastNameCheck, errores.lastNameCheck);
-        }if(lastNameCheck.value.length <=2) {
+        }else if(lastNameCheck.value.length <=2) {
             errores.lastNameCheck = "El apellido debe contener al menos 3 carácteres"
             lastNameCheck.classList.add('input-warning');
             errorWarning(lastNameCheck, errores.lastNameCheck);
@@ -61,13 +61,12 @@ window.addEventListener('load', ()=>{
     })
 
      //email
-     emailheck.addEventListener('blur', ()=>{
-        if (emailheck.value == undefined) {
+     emailheck.addEventListener('input', ()=>{
+        if (emailheck.value == "") {
             errores.emailheck = "El email es obligatorio"
             emailheck.classList.add('input-warning');
             errorWarning(emailheck, errores.emailheck);
-        }
-        if(emailheck.value.length <5 || !emailheck.value.includes("@")) {
+        }else if(emailheck.value.length <5 || !emailheck.value.includes("@")) {
             errores.emailheck = "Ingresa un email válido"
             emailheck.classList.add('input-warning');
             errorWarning(emailheck, errores.emailheck);
@@ -88,14 +87,14 @@ window.addEventListener('load', ()=>{
     })
 
      //direccion
-     addressCheck.addEventListener('blur', ()=>{
+     addressCheck.addEventListener('input', ()=>{
         let expresion = (/\d/);
         if (addressCheck.value == "") {
             errores.addressCheck = "La dirección es obligatoria";
             addressCheck.classList.add('input-warning');
             errorWarning(addressCheck, errores.addressCheck);
         }
-        if (addressCheck.value.length <4) {
+        else if (addressCheck.value.length <4) {
             errores.addressCheck = "Ingresa una direccion válida";
             addressCheck.classList.add('input-warning');
             errorWarning(addressCheck, errores.addressCheck);
@@ -109,13 +108,13 @@ window.addEventListener('load', ()=>{
     })
 
     //departamento
-    floorCheck.addEventListener('blur', ()=>{
+    floorCheck.addEventListener('input', ()=>{
         if (floorCheck.value != "") {
             if (floorCheck.value.length <= 1) {
                 errores.floorCheck = "Ingresa un piso válido"
                 floorCheck.classList.add('input-warning');
                 errorWarning(floorCheck, errores.floorCheck);
-            }if (floorCheck.value.length >= 2) {
+            }else{
                 delError(floorCheck);
             }
         }else {

@@ -285,9 +285,6 @@ main {
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
-    /* background-color: whitesmoke; */
-        /* border: none;
-        outline: none; */
     padding: 10px;
     font-size: 13px;
     color: #2b2b2b;
@@ -307,6 +304,9 @@ main {
     transition: all .3s ease-in;
 }
 
+.btn-sweet{
+    color: #FF452C;
+}
 .formulario #submit:hover{
     background-color: #FBF2E0;
     color: #333333;
