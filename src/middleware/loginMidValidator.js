@@ -2,6 +2,7 @@ const { body } = require("express-validator");
 const path = require('path');
 const fs = require("fs");
 const db = require("../database/models");
+const bcrypt = require('bcryptjs');
 
 
 const loginValid = [
@@ -29,6 +30,19 @@ body("password")
 .withMessage("La contraseña debe de tener como mínimo 8 caracteres")
 .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/)
 .withMessage("La contraseña debe de tener un numero, una mayuscula y un caracter especial")
+.custom( async (value, {req})=>{
+
+let users = await db.Users.findOne({
+    where: {userEmail: req.body.email}
+})
+let secure = await bcrypt.compare(req.body.password, users.userPassword)
+
+if(!secure){
+
+    throw new Error("Error contraseña incorrecta");
+           }
+        return true;
+})
 ];
 
 module.exports = loginValid;
