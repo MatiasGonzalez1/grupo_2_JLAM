@@ -46,14 +46,13 @@
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fcategory">Categoría</label>
-                                <select  name="fcategoria" id="fcategoria">
+                                <select name="fcategoria" id="fcategoria">
                                   <option class="" selected disabled>Seleccione una categoría</option>
-                                  <div class="inv"></div>
                                   <% categories.forEach(category => { %>
                                     <option value="<%=category.idProductCategory%>"><%=category.productCategoryName%></option>
                                   <% }) %>
                                 </select>
-
+                                <div class="inv" id="fcat"></div>
                                 <% if(locals.errors && errors.fcategoria) { %> 
                                   <p class="product-warning"> <%= errors.fcategoria.msg %> </p>
                                 <%}%> 

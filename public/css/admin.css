@@ -432,7 +432,8 @@ a#cancel{
 }
 
 .is-invalid{
-    border: 1px solid #f53117 !important;
+    border:2px solid #FF452C !important;
+    outline-color: #FF452C;
 }
 
 .inv{
