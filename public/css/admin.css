@@ -430,6 +430,18 @@ a#cancel{
     font-weight: 600;
     padding-top: 3px;
 }
+
+.is-invalid{
+    border: 1px solid #f53117 !important;
+}
+
+.inv{
+    text-align: center;
+    color: #f53117;
+    font-size: 12px;
+    padding-top: 2px;
+}
+
 @media screen and (min-width: 768px) {
     .data__container{
         width: 100%;

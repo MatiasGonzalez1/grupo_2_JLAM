@@ -27,6 +27,8 @@ body("password")
 .withMessage("El campo contraseña no puede estar vacio")
 .isLength({ min: 8 })
 .withMessage("La contraseña debe de tener como mínimo 8 caracteres")
+.matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/)
+.withMessage("La contraseña debe de tener un numero, una mayuscula y un caracter especial")
 ];
 
 module.exports = loginValid;
