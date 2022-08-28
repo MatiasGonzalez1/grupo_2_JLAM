@@ -10,6 +10,7 @@ window.addEventListener("load", (e) => {
     arrInp.forEach((inp) => {
       if (inp.value.length < 1) {
         inp.classList.add("is-invalid");
+        inp.nextElementSibling.innerHTML = 'Éste campo no puede estar vacío'        
         e.preventDefault();
       }
       if (inp.value != "") {
@@ -22,7 +23,7 @@ window.addEventListener("load", (e) => {
     let mostrar = document.querySelector("#er");
     if (inputEmail.value == "") {
       inputEmail.classList.add("is-invalid");
-      mostrar.innerHTML = "El campo no puede estar vacío";
+      mostrar.innerHTML = "El campo email no puede estar vacío";
     }
   });
 
@@ -48,7 +49,7 @@ window.addEventListener("load", (e) => {
     let mostrar2 = document.querySelector("#er2");
     if (inputPass.value == "") {
       inputPass.classList.add("is-invalid");
-      mostrar2.innerHTML = "El campo no puede estar vacío";
+      mostrar2.innerHTML = "El campo contraseña no puede estar vacío";
     } 
   });
   inputPass.addEventListener("input", () => {
