@@ -19,9 +19,20 @@ const registerProcess = async (dataBody)=>{
             buttonsStyling:true,
             type: "success"}).then(okay => {
                 if (okay) {
+                    //redireccion 
                  window.location.href = "/users/login";
                }
           })
     }else{
+        Swal.fire({
+            title: '¡Oh no! Ocurrió algo inesperado',
+            text: 'Revisa todos tus datos',
+            imageUrl: '/img/error-icon.png',
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+            confirmButtonText: "Entendido!",
+            confirmButtonColor: "#FF452C", 
+            buttonsStyling:true,
+          })
     }
     }

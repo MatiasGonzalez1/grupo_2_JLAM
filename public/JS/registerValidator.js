@@ -1,5 +1,3 @@
-// window.addEventListener('load', function () {
-
     let formRegister = document.querySelector("form.formulario");
     let campoNombre = document.querySelector("input.nombre")
     let campoApellido = document.querySelector("input.apellido")
@@ -210,7 +208,6 @@
 
         }
     });
-    // });
     
     
     
