@@ -1,4 +1,4 @@
-window.addEventListener('load', function () {
+// window.addEventListener('load', function () {
 
     let formRegister = document.querySelector("form.formulario");
     let campoNombre = document.querySelector("input.nombre")
@@ -58,10 +58,10 @@ window.addEventListener('load', function () {
             } else {
                 campoApellido.classList.remove('is-invalid')
                 lastName.innerHTML = " ";
-            }
-            campoApellido.addEventListener('input', function () {
-                let especials = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/
-                if (campoApellido.value != especials) {
+                }
+                campoApellido.addEventListener('input', function () {
+                    let especials = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/
+                    if (campoApellido.value != especials) {
                     campoApellido.classList.add('is-invalid')
                     lastName.innerHTML = "No se admiten caracteres especiales"
                     return;
@@ -69,27 +69,31 @@ window.addEventListener('load', function () {
             })
         });
     })
-
+    
     //Validacion para Email
     campoEmail.addEventListener('blur', function () {
         let usEmail = document.querySelector('#isEmail')
-        if (campoEmail.value == "") {
+        if(campoEmail.value == "") {
             campoEmail.classList.add('is-invalid')
             usEmail.innerHTML = "El campo email no puede estar vacio"
+        }else {
+            campoEmail.classList.remove('is-invalid')
+            usEmail.innerHTML = "";
         }
+        
         campoEmail.addEventListener('input', function () {
             const valido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!campoEmail.value.match(valido)) {
                 campoEmail.classList.add('is-invalid')
                 usEmail.innerHTML = "Debes ingresar un email válido"
-            } else {
+            }else {
                 campoEmail.classList.remove('is-invalid')
                 usEmail.innerHTML = "";
             }
-
+            
         })
     });
-
+    
     //Validacion para fecha de nacimiento
     campoDate.addEventListener('blur', function () {
         let usDate = document.querySelector('#dateBo')
@@ -107,50 +111,50 @@ window.addEventListener('load', function () {
                 usDate.innerHTML = "";
             }
         })
-    });
-
-    //Validacion para contraseña
-    campoPassword.addEventListener('blur', function () {
-        let caracteres = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
-        let usPassword = document.querySelector('#pass')
-        if (campoPassword.value == "") {
-            campoPassword.classList.add('is-invalid')
-            usPassword.innerHTML = "Debes ingresar una contraseña"
-        }
-        campoPassword.addEventListener('input', function () {
-            if (campoPassword.value.length < 8) {
+        });
+        
+        //Validacion para contraseña
+        campoPassword.addEventListener('blur', function () {
+            // let caracteres = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+            let usPassword = document.querySelector('#pass')
+            if (campoPassword.value == "") {
                 campoPassword.classList.add('is-invalid')
-                usPassword.innerHTML = "La contraseña debe tener como mínimo 8 caracteres"
-            } else if (!campoPassword.value.match(caracteres)) {
-                campoPassword.classList.add('is-invalid')
-                usPassword.innerHTML = "La contraseña debe de tener un numero, una mayúscula y un caracter especial"
-            } else {
-                campoPassword.classList.remove('is-invalid')
-                usPassword.innerHTML = " ";
+                usPassword.innerHTML = "Debes ingresar una contraseña"
             }
-        })
-    });
-    //Validacion para reingresar contraseña
-    campoRepassword.addEventListener('blur', function () {
-        let usRepassword = document.querySelector('#repass')
-        if (campoRepassword.value == "") {
-            campoRepassword.classList.add('is-invalid')
-            usRepassword.innerHTML = "Debes reingresar la contraseña"
-        }
-        campoRepassword.addEventListener('input', function () {
-            if (campoRepassword.value != campoPassword.value) {
-                campoRepassword.classList.add('is-invalid')
-                usRepassword.innerHTML = "La contraseña no coincide con la ingresada"
-            } else {
-                campoRepassword.classList.remove('is-invalid')
-                usRepassword.innerHTML = "";
-            }
-        })
-    });
-
-    //Validacion para imagen
-    campoProfileImage.addEventListener('blur', function () {
-        let usImg = document.querySelector('#img')
+            campoPassword.addEventListener('input', function () {
+                if (campoPassword.value.length < 8) {
+                    campoPassword.classList.add('is-invalid')
+                    usPassword.innerHTML = "La contraseña debe tener como mínimo 8 caracteres"
+                    // } else if (!campoPassword.value.match(caracteres)) {
+                        //     campoPassword.classList.add('is-invalid')
+                        //     usPassword.innerHTML = "La contraseña debe de tener un numero, una mayúscula y un caracter especial"
+                    } else {
+                        campoPassword.classList.remove('is-invalid')
+                        usPassword.innerHTML = " ";
+                    }
+                })
+            });
+            //Validacion para reingresar contraseña
+            campoRepassword.addEventListener('blur', function () {
+                let usRepassword = document.querySelector('#repass')
+                if (campoRepassword.value == "") {
+                    campoRepassword.classList.add('is-invalid')
+                    usRepassword.innerHTML = "Debes reingresar la contraseña"
+                }
+                campoRepassword.addEventListener('input', function () {
+                    if (campoRepassword.value != campoPassword.value) {
+                        campoRepassword.classList.add('is-invalid')
+                        usRepassword.innerHTML = "La contraseña no coincide con la ingresada"
+                    } else {
+                        campoRepassword.classList.remove('is-invalid')
+                        usRepassword.innerHTML = "";
+                    }
+                })
+            });
+            
+            //Validacion para imagen
+            campoProfileImage.addEventListener('blur', function () {
+                let usImg = document.querySelector('#img')
         if (campoProfileImage.value == "") {
             campoProfileImage.classList.add('is-invalid')
             usImg.innerHTML = "Debes ingresar una imagen"
@@ -167,20 +171,47 @@ window.addEventListener('load', function () {
             }
         })
     });
-
+    
+    
     formRegister.addEventListener("submit", (e) => {
+
+        // el event.default va si o si al inicio porque usamos un fetch para acceder a la ruta backend que se ejecuta en la linea 218
+        e.preventDefault();
+
+        let isEmpty;
         arrayCampos.forEach((input) => {
             if (input.value.length < 1) {
                 input.classList.add("is-invalid");
-                e.preventDefault();
-            }
-            if (input.value != "") {
+            }else{
                 input.classList.remove("is-invalid");
+                return isEmpty = true;
             }
         });
+        if(isEmpty==true){
+            //genero un form nuevo para enviarle al backend lo que inserto el usuario
+            bodyInputs = new FormData();
+            //seteo los valores dentro de mi form
+            bodyInputs.set("nombre", campoNombre.value);
+            bodyInputs.set("apellido", campoApellido.value);
+            bodyInputs.set("email", campoEmail.value);
+            bodyInputs.set("fechaNacimiento", campoDate.value);
+            bodyInputs.set("profileImage", campoProfileImage.files[0]);
+            bodyInputs.set("password", campoPassword.value);
+            //creo el atributo repassword dentro de mi nuevo form
+            bodyInputs.append("repassword", campoRepassword.value);
+
+            //limpio mis campos
+            arrayCampos.forEach(campo =>{
+                campo.value=""
+            });
+            
+            //ejecuto la funcion que llama a mi fetch y le envio mi objeto con los datos del body
+            registerProcess(bodyInputs);
+
+        }
     });
-});
-
-
-
-
+    // });
+    
+    
+    
+    
