@@ -27,7 +27,7 @@
               <h3>Información Básica</h2>
               <form class="formulario" action="/users/edit-user/?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="input__group">
-                  <input type="hidden" name="id" value="<%= userData.userId%>"/>
+                  <input type="hidden" name="id" class="userId" value="<%= userData.userId%>"/>
                   <div class="input__section">
                     <label>Nombre</label>
                     <input type="text" name="nombre" class="nombre" value="<%= userData.firstName%>"/>
@@ -74,7 +74,7 @@
                   <div class="input__section">
                     <label>Ciudad</label>
                     <select name="codigoPostal" class="ciudad">
-                      <option selected disabled>-- seleccione su ciudad --</option>
+                      <option selected disabled value="0">-- seleccione su ciudad --</option>
                       <% cities.forEach(city => { %>
                         <% if (city.idCity == userData.idCity) {%>
                           <option selected value="<%= city.idCity%>"><%= city.cityName%></option>
@@ -139,5 +139,6 @@
     <%- include('../partials/footer.ejs')%>
    </footer>
    <script src="/JS/editProfileValidation.js"></script>
+   <script src="/JS/updateProfileProcess.js"></script>
   </body>
   </html>

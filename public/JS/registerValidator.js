@@ -113,7 +113,7 @@
         
         //Validacion para contraseña
         campoPassword.addEventListener('blur', function () {
-            // let caracteres = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+            let caracteres = /^(?=.*[0-9])(?=.*[!@#$_.^&*])[a-zA-Z0-9!@#$_.^&*]{8,16}$/;
             let usPassword = document.querySelector('#pass')
             if (campoPassword.value == "") {
                 campoPassword.classList.add('is-invalid')
@@ -123,9 +123,9 @@
                 if (campoPassword.value.length < 8) {
                     campoPassword.classList.add('is-invalid')
                     usPassword.innerHTML = "La contraseña debe tener como mínimo 8 caracteres"
-                    // } else if (!campoPassword.value.match(caracteres)) {
-                        //     campoPassword.classList.add('is-invalid')
-                        //     usPassword.innerHTML = "La contraseña debe de tener un numero, una mayúscula y un caracter especial"
+                    } else if (!campoPassword.value.match(caracteres)) {
+                            campoPassword.classList.add('is-invalid')
+                            usPassword.innerHTML = "La contraseña debe de tener un numero, una mayúscula y un caracter especial"
                     } else {
                         campoPassword.classList.remove('is-invalid')
                         usPassword.innerHTML = " ";

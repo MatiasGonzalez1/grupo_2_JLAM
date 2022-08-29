@@ -1,14 +1,15 @@
-window.addEventListener('load', ()=>{
-    
     let form = document.querySelector("form.formulario");
-    let name = document.querySelector("input.nombre");
+    let firstName = document.querySelector("input.nombre");
     let lastName = document.querySelector("input.apellido");
     let address = document.querySelector("input.direccion");
     let floor = document.querySelector("input.departamento");
+    let city = document.querySelector("select.ciudad");
     let password = document.querySelector("input.editPassword");
     let email = document.querySelector("input.email");
     let birthDate = document.querySelector("input.fechaNacimiento");
     let profileImg = document.querySelector("input.profileImageUser");
+
+
     let errores = {};
     
 
@@ -27,17 +28,17 @@ window.addEventListener('load', ()=>{
     }
           
     // //nombre
-    name.addEventListener('blur', ()=>{
-        if (name.value == "") {
-            errores.name = "El nombre es obligatorio"
-            name.classList.add('input-warning');
-            errorWarning(name, errores.name);
-        }else if(name.value.length <=2) {
-                errores.name = "El nombre debe contener al menos 3 carácteres"
-                name.classList.add('input-warning');
-                errorWarning(name, errores.name);
+    firstName.addEventListener('blur', ()=>{
+        if (firstName.value == "") {
+            errores.firstName = "El nombre es obligatorio"
+            firstName.classList.add('input-warning');
+            errorWarning(firstName, errores.firstName);
+        }else if(firstName.value.length <=2) {
+                errores.firstName = "El nombre debe contener al menos 3 carácteres"
+                firstName.classList.add('input-warning');
+                errorWarning(firstName, errores.firstName);
         }else{
-            delError(name);
+            delError(firstName);
         }
     })
 
@@ -88,7 +89,7 @@ window.addEventListener('load', ()=>{
             delError(floor);
         }
     })
-    
+
     //contraseña
     password.addEventListener('blur', ()=>{
         if (password.value != "") {
@@ -97,12 +98,13 @@ window.addEventListener('load', ()=>{
                 password.classList.add('input-warning');
                 errorWarning(password, errores.password);
             }
-            let expresion = (/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/);
+            let expresion = (/^(?=.*[0-9])(?=.*[!@#$_.^&*])[a-zA-Z0-9!@#$_.^&*]{8,16}$/);
             if (!password.value.match(expresion)) {
                 errores.password = "La contraseña debe de tener un numero, una mayuscula y un caracter especial"
                 password.classList.add('input-warning');
                 errorWarning(password, errores.password);
-            }else{
+            }
+            else{
                 delError(password);
             }
         }
@@ -159,7 +161,32 @@ window.addEventListener('load', ()=>{
     form.addEventListener('submit', (e)=>{
         e.preventDefault();
        if (Object.keys(errores).length < 1) {
-            form.submit();
+           
+             let userId = document.querySelector("input.userId");
+             //genero un form nuevo para enviarle al backend lo que inserto el usuario
+             bodyInputs = new FormData();
+             //seteo los valores dentro de mi form
+             bodyInputs.set("id", userId.value);
+             bodyInputs.set("nombre", firstName.value);
+             bodyInputs.set("apellido", lastName.value);
+             bodyInputs.set("email", email.value);
+             bodyInputs.set("fechaNacimiento", birthDate.value);
+             bodyInputs.set("profileImage", profileImg.files[0]);
+             if (Object.keys(password.value).length > 1) {
+                bodyInputs.set("password", password.value);
+             }
+             if (city.value != undefined && Object.keys(city.value).length > 1) {
+                bodyInputs.set("codigoPostal", city.value);
+             }
+             if (address.value) {
+                bodyInputs.set("direccion", address.value);
+             }
+             if(floor.value) {
+                bodyInputs.set("departamento", floor.value);;
+             }
+ 
+             //ejecuto la funcion que llama a mi fetch y le envio mi objeto con los datos del body
+             editProfileProcess(bodyInputs);
        }    
     })
-})
+
