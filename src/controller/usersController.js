@@ -6,7 +6,6 @@ const db = require("../database/models");
 
 
 const usersController = {
-
     login: (req, res) =>{
         res.render(path.join(__dirname, '../views/users/login.ejs'))
     },
@@ -36,7 +35,6 @@ const usersController = {
             if(req.body.recordarme != undefined) {
             res.cookie('recordarme', userMatch.userEmail, { maxAge: 3600000 })
             }
-
             res.redirect('/')
         }else{
             res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
