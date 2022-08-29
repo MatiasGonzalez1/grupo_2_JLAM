@@ -23,9 +23,7 @@ const validUpdateProduct = [
     body('fprodfoto').trim().custom((value, {req})=>{
         let file = req.file;
         let aceptedExtensions = ['.jpg', '.png', '.gif' ,'.webp'];
-        if(!file){
-          throw new Error('Tienes que subir una imagen')
-        } else{
+        if(file){
           let fileExtension = path.extname(file.originalname);
          if(!aceptedExtensions.includes(fileExtension)){
           throw new Error('Las extensiones permitidas son: ' + aceptedExtensions.join(', '));

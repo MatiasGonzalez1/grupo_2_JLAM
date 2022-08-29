@@ -304,11 +304,33 @@ const productController = {
 
     enviarActualizarProducto: (req, res) =>{
 
+        // db.Product.findByPk(req.body.id, {
+        //     include: [{association: 'category'}]
+        // })
+        // .then(coincidencia =>{
+        //     return coincidencia
+        //     res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, coincidencia: coincidencia, categories:categories});
+        // })
+
         let errors = validationResult(req);
+
+        console.log(errors);
     
             if(!errors.isEmpty()) {
-                console.log('hola');
-                return res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {errors:errors.mapped(), old: req.body});
+                db.ProductCategory.findAll({
+                })
+                .then(categories =>{
+                    return categories;
+                })
+                .then((categories)=>{
+                    db.Product.findByPk(req.body.fid, {
+                        include: [{association: 'category'}]
+                    })
+                    .then(coincidencia =>{
+                        res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, errors:errors.mapped(), coincidencia: coincidencia, categories:categories});
+                    })
+                })
+                .catch(error => res.send(error))
             } else {
 
         
