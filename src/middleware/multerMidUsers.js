@@ -26,5 +26,4 @@ let upload = multer({
     }
 }).single('profileImage');
 
-
 module.exports = upload;

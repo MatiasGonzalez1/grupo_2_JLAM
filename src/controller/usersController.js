@@ -62,7 +62,7 @@ const usersController = {
     register: async (req,res) =>{
 
         let errors = validationResult(req);
-
+        console.log(errors);
         
         if(!errors.isEmpty()){
         // si existe un archivo con propiedad filename
@@ -73,25 +73,25 @@ const usersController = {
          res.render('./users/registro', {errors:errors.mapped(), old: req.body});
         } else{
 
-            let pass = await bcrypt.hash(req.body.password, 10);
+        let pass = await bcrypt.hash(req.body.password, 10);
 
-     
         //Asigno datos del body al objeto a insertar a la base de datos    
-        let userData = await db.Users.create({
-            firstName: req.body.nombre,
-            lastName: req.body.apellido,
-            userEmail: req.body.email,
-            idUserCategory: 2,
-            userBirthDate: req.body.fechaNacimiento,
-            userPassword: pass,
-            userImg: req.file.filename,
-            idCity: null,
-            userAddress: null,
-            userFloor: null
+        await db.Users.create({
+        firstName: req.body.nombre,
+        lastName: req.body.apellido,
+        userEmail: req.body.email,
+        idUserCategory: 2,
+        userBirthDate: req.body.fechaNacimiento,
+        userPassword: pass,
+        userImg: req.file.filename,
+        idCity: null,
+        userAddress: null,
+        userFloor: null
         })
-
-        //Redireccion al login luego del registro
-        res.redirect('/users/login')
+        .then(() =>{
+            return res.json(response)
+        })
+        .catch(error => res.send(error))
 
         }
     },
