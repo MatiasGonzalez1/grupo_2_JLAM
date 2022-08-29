@@ -5,6 +5,7 @@ const upload = require('../middleware/multerMidProducts')
 const adminMid = require('../middleware/adminMiddleware');
 const authMid = require('../middleware/authMiddleware');
 const validationPro = require('../middleware/productMidValidator');
+const validUpdateProduct = require('../middleware/updateProductMidValidator');
 const checkoutData = require('../middleware/checkoutDataMidValidator');
 
 
@@ -34,7 +35,7 @@ routes.post('/new-product', [upload, adminMid], validationPro, productController
 
 //actualizar productos
 routes.get('/update-product/:id', [adminMid], productController.verActualizarProducto);
-routes.put('/update-product', [adminMid, upload], productController.enviarActualizarProducto);
+routes.put('/update-product', [adminMid, upload], validUpdateProduct, productController.enviarActualizarProducto);
 
 //eliminar productos
 routes.delete('/all-products/:id', [adminMid], productController.delete);

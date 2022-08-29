@@ -315,6 +315,15 @@ const productController = {
     },
 
     enviarActualizarProducto: (req, res) =>{
+
+        let errors = validationResult(req);
+    
+            if(!errors.isEmpty()) {
+                console.log('hola');
+                return res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {errors:errors.mapped(), old: req.body});
+            } else {
+
+        
         let imgProduct = req.body.imgProduct;
         
         if (req.file) {
@@ -343,7 +352,7 @@ const productController = {
             res.redirect('/product/all-products');
         })
         .catch(error => res.send(error))
-
+    }
     },
 
     crearProducto: (req, res) =>{
