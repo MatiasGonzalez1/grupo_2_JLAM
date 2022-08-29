@@ -53,7 +53,7 @@ window.addEventListener("load", (e) => {
     } 
   });
   inputPass.addEventListener("input", () => {
-    const password = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/;
+    const password = /^(?=.*[0-9])(?=.*[!@#$_.^&*])[a-zA-Z0-9!@#$_.^&*]{8,16}$/;
     
     let mostrar2 = document.querySelector("#er2");
     if (inputPass.value.length < 8) {
@@ -69,10 +69,4 @@ window.addEventListener("load", (e) => {
       mostrar2.innerHTML = "";
     }
   });
-
-  //cierre del load
-
-  //--------------iconos------------------------
-  //<i class="fa-regular fa-hexagon-xmark"></i> equis
-  //<i class="fa-solid fa-hexagon-check"></i> check
 });
