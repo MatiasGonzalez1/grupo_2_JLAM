@@ -57,9 +57,9 @@ const formValid = [
     .notEmpty()
     .withMessage("El campo contraseña no puede estar vacio")
     .isLength({ min: 8 })
-    .withMessage("La contraseña debe de tener como mínimo 8 caracteres"),
-    // .matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/)
-    // .withMessage("La contraseña debe de tener un numero, una mayuscula y un caracter especial"),
+    .withMessage("La contraseña debe de tener como mínimo 8 caracteres")
+    .matches(/^(?=.*[0-9])(?=.*[!@#$_.^&*])[a-zA-Z0-9!@#$_.^&*]{8,16}$/)
+    .withMessage("La contraseña debe de tener un numero, una mayuscula y un caracter especial"),
     body("repassword")
     .notEmpty()
     .withMessage("El campo reingresar contraseña no puede estar vacio")
