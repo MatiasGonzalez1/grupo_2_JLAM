@@ -106,7 +106,7 @@ const productController = {
         
     },
 
-    carrito: (req, res) => {
+    cart: (req, res) => {
         if (req.cookies.carrito != undefined){
             //asigno a una variable
             let carritoActual = JSON.parse(req.cookies.carrito);
@@ -133,7 +133,7 @@ const productController = {
         }
     },
 
-    agregarCarrito: (req, res) => {
+    addItem: (req, res) => {
         //tomo el id
         const idProducto = req.params.id;
         let cantidad = 0;
@@ -275,7 +275,7 @@ const productController = {
         .catch(error => res.send(error))
     },
 
-    nuevoProducto: (req, res) => {
+    newProduct: (req, res) => {
         db.ProductCategory.findAll({
         })
         .then(categories =>{
@@ -284,7 +284,7 @@ const productController = {
         .catch(error => res.send(error))
     },
 
-    verActualizarProducto: (req, res) =>{
+    updateProduct: (req, res) =>{
 
         db.ProductCategory.findAll({
         })
@@ -302,7 +302,7 @@ const productController = {
         .catch(error => res.send(error))
     },
 
-    enviarActualizarProducto: (req, res) =>{
+    updateProductSubmit: (req, res) =>{
 
         // db.Product.findByPk(req.body.id, {
         //     include: [{association: 'category'}]
@@ -365,7 +365,7 @@ const productController = {
     }
     },
 
-    crearProducto: (req, res) =>{
+    newProductSubmit: (req, res) =>{
         db.ProductCategory.findAll({   
         })
         .then(categories =>{
@@ -395,7 +395,7 @@ const productController = {
             }
         })
     },
-    filtrarProductos: (req, res) =>{
+    filterCategory: (req, res) =>{
         if(req.params.filter == 1){
             db.Product.findAll({
                 include: [{association: 'category'}],
@@ -432,7 +432,7 @@ const productController = {
         }
 
     },
-    cargarProductos: (req, res) =>{
+    allProducts: (req, res) =>{
 
         db.Product.findAll({
             include: [{association: 'category'}],
