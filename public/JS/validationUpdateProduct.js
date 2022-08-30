@@ -15,30 +15,40 @@ window.addEventListener('load',()=>{
     let precio = document.querySelector('#fprecio');
     let fstock = document.querySelector('#fstock');
 
-    // callbacks de implementacion
-
+    
     errores = {};
+    
+    form.addEventListener('submit', (e)=>{
+        if(Object.keys(errores).length >= 1){
+            e.preventDefault()
+        }
+
+        console.log(errores);
+    })
+
+
+    // callbacks de implementacion
 
     //creacion de elemento HTML para error
     let elemento = (error,input)=>{
         let p = document.createElement('p');
         p.classList.add('product-warning');
-        p.setAttribute('id', `${input}Err`)
+        p.setAttribute('id', `${input.name}Err`)
         p.textContent = error
-        console.log(p);
         return p
     }
 
     //Insercion del elemento creado con el error fijado
     let errorLog = (input, error)=>{
 
-        let errEncontrado = document.getElementById(`${input}Err`);
+        let errEncontrado = document.getElementById(`${input.name}Err`);
 
         if(!errEncontrado){
-            input.insertAdjacentElement('afterend', elemento(error, input))
+            input.insertAdjacentElement('afterend', elemento(error, input));
         }else{
-            delErrorLog(input)
-            input.insertAdjacentElement('afterend', elemento(error, input))
+            input.classList.remove('is-invalid')
+            input.nextElementSibling.remove()
+            input.insertAdjacentElement('afterend', elemento(error, input));
         }
     }
 
@@ -46,17 +56,21 @@ window.addEventListener('load',()=>{
     let delErrorLog = (input)=>{
         input.classList.remove('is-invalid')
         input.nextElementSibling.remove()
-        delete errores.input
     }
 
     //Nombre
     nombreProducto.addEventListener('input', ()=>{
         if(nombreProducto.value == ''){
             errores.nombreProducto = 'El nombre no debe estar vacio';
-            nombreProducto.classList.add('is-invalid');
             errorLog(nombreProducto, errores.nombreProducto);
+            nombreProducto.classList.add('is-invalid');
+        }else if (nombreProducto.value.length < 6){
+            errores.nombreProducto = 'El nombre debe de tener al menos seis carácteres';
+            errorLog(nombreProducto, errores.nombreProducto);
+            nombreProducto.classList.add('is-invalid');
         }else{
             delErrorLog(nombreProducto)
+            delete errores.nombreProducto
         }
     })
 
@@ -69,6 +83,7 @@ window.addEventListener('load',()=>{
             errorLog(categoria, errores.categoria)
         }else{
             delErrorLog(categoria)
+            delete errores.categoria
         }
     })
 
@@ -76,10 +91,11 @@ window.addEventListener('load',()=>{
     cosechaAnio.addEventListener('input',()=>{
         if(cosechaAnio.value == ''){
             errores.cosechaAnio = 'El campo año de cosecha no puede estar vacío';
+            errorLog(cosechaAnio, errores.cosechaAnio);
             cosechaAnio.classList.add('is-invalid');
-            errorLog(cosechaAnio, errores.cosechaAnio)
         }else{
             delErrorLog(cosechaAnio)
+            delete errores.cosechaAnio
         }
     })
 
@@ -87,10 +103,15 @@ window.addEventListener('load',()=>{
     variedad.addEventListener('input',()=>{
         if(variedad.value == ''){
             errores.variedad = 'El campo variedad no puede estar vacío';
-            variedad.classList.add('is-invalid');
             errorLog(variedad, errores.variedad)
+            variedad.classList.add('is-invalid');
+        }else if (variedad.value.length < 6){
+            errores.variedad = 'El nombre debe de tener al menos seis carácteres';
+            errorLog(variedad, errores.variedad);
+            variedad.classList.add('is-invalid');
         }else{
             delErrorLog(variedad)
+            delete errores.variedad
         }
     })
 
@@ -98,10 +119,15 @@ window.addEventListener('load',()=>{
     crianza.addEventListener('input',()=>{
         if(crianza.value == ''){
             errores.crianza = 'El campo crianza no puede estar vacío';
-            crianza.classList.add('is-invalid');
             errorLog(crianza, errores.crianza)
+            crianza.classList.add('is-invalid');
+        }else if (crianza.value.length < 6){
+            errores.crianza = 'Crianza debe de tener al menos seis carácteres';
+            errorLog(crianza, errores.crianza);
+            crianza.classList.add('is-invalid');
         }else{
             delErrorLog(crianza)
+            delete errores.crianza
         }
     })
 
@@ -109,21 +135,15 @@ window.addEventListener('load',()=>{
     guarda.addEventListener('input',()=>{
         if(guarda.value == ''){
             errores.guarda = 'El campo guarda no puede estar vacío';
-            guarda.classList.add('is-invalid');
             errorLog(guarda, errores.guarda)
+            guarda.classList.add('is-invalid');
+        }else if (guarda.value.length < 5){
+            errores.guarda = 'Guarda debe de tener al menos cinco carácteres';
+            errorLog(guarda, errores.guarda);
+            guarda.classList.add('is-invalid');
         }else{
             delErrorLog(guarda)
-        }
-    })
-
-    //Guarda 
-    guarda.addEventListener('input',()=>{
-        if(guarda.value == ''){
-            errores.guarda = 'El campo guarda no puede estar vacío';
-            guarda.classList.add('is-invalid');
-            errorLog(guarda, errores.guarda)
-        }else{
-            delErrorLog(guarda)
+            delete errores.guarda
         }
     })
 
@@ -131,10 +151,15 @@ window.addEventListener('load',()=>{
     notaCata.addEventListener('input',()=>{
         if(notaCata.value == ''){
             errores.notaCata = 'El campo nota cata no puede estar vacío';
-            notaCata.classList.add('is-invalid');
             errorLog(notaCata, errores.notaCata)
+            notaCata.classList.add('is-invalid');
+        }else if (notaCata.value.length < 40){
+            errores.notaCata = 'La descripcion del producto debe tener al menos cuarenta carácteres';
+            errorLog(notaCata, errores.notaCata);
+            notaCata.classList.add('is-invalid');
         }else{
             delErrorLog(notaCata)
+            delete errores.notaCata
         }
     })
 
@@ -144,11 +169,12 @@ window.addEventListener('load',()=>{
         let extensiones = ["png", "jpg", "jpeg", "webp"];
 
         if (extensiones.includes(fileExt) == false) {
-            fotoProd.classList.add('is-invalid');
             errores.fotoProd = "Solo de admiten archivos .jpeg, .jpg, .png y .webp";
             errorLog(fotoProd, errores.fotoProd)    
+            fotoProd.classList.add('is-invalid');
         }else{
             delErrorLog(fotoProd)
+            delete errores.fotoProd
         }
     })
 
@@ -156,10 +182,11 @@ window.addEventListener('load',()=>{
     precio.addEventListener('input',()=>{
         if(precio.value == ''){
             errores.precio = 'El campo precio no puede estar vacío';
-            precio.classList.add('is-invalid');
             errorLog(precio, errores.precio)
+            precio.classList.add('is-invalid');
         }else{
             delErrorLog(precio)
+            delete errores.precio
         }
     })
 
@@ -167,19 +194,15 @@ window.addEventListener('load',()=>{
     fstock.addEventListener('input',()=>{
         if(fstock.value == ''){
             errores.fstock = 'El campo stock no puede estar vacío';
-            fstock.classList.add('is-invalid');
             errorLog(fstock, errores.fstock)
+            fstock.classList.add('is-invalid');
         }else{
             delErrorLog(fstock)
+            delete errores.fstock
         }
     })
 
-    form.addEventListener('submit', (e)=>{
-        e.preventDefault();
-       if (Object.keys(errores).length < 1) {
-            form.submit();
-       }    
-    })
+    
     
 
 

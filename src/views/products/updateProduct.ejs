@@ -61,7 +61,7 @@
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fharYear">Año de cosecha</label>
-                                <input type="text" name="fcoseAnio" id="fcoseAnio" value="<%= coincidencia.productHarvest%>">
+                                <input type="number" name="fcoseAnio" id="fcoseAnio" value="<%= coincidencia.productHarvest%>">
                                 <% if(locals.errors && errors.fcoseAnio) { %> 
                                   <p class="product-warning"> <%= errors.fcoseAnio.msg %> </p>
                                 <%}%>
@@ -112,14 +112,14 @@
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fprecio">Precio</label>
-                                <input type="text" name="fprecio" id="fprecio" placeholder="" value="<%= coincidencia.productPrice%>">
+                                <input type="number" name="fprecio" id="fprecio" placeholder="" value="<%= coincidencia.productPrice%>">
                                 <% if(locals.errors && errors.fprecio) { %> 
                                   <p class="product-warning"> <%= errors.fprecio.msg %> </p>
                                 <%}%> 
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fstock">Stock</label>
-                                <input type="text" name="fstock" value="<%= coincidencia.productStock%>">
+                                <input type="number" name="fstock" value="<%= coincidencia.productStock%>">
                                 <% if(locals.errors && errors.fstock) { %> 
                                   <p class="product-warning"> <%= errors.fstock.msg %> </p>
                                 <%}%> 
