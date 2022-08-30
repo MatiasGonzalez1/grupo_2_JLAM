@@ -45,7 +45,7 @@
                             <input type="hidden"name="fid" value="<%= coincidencia.idProduct %>">
                             <div class="new__prod__ind">
                                 <label for="fnombre">Nombre del producto</label>
-                                <input type="text" name="fnombre" value="<%= coincidencia.productName%>">
+                                <input type="text" name="fnombre" id="fnombre" value="<%= coincidencia.productName%>">
                                 <% if(locals.errors && errors.fnombre) { %> 
                                   <p class="product-warning"> <%= errors.fnombre.msg %> </p>
                                 <%}%> 
@@ -53,7 +53,7 @@
                             <div class="new__prod__ind">
                               <label for="fcategory">Categoría</label>
                               <!-- <input type="text" name="fcategoria" value="<%= coincidencia.idProductCategory%>"> -->
-                              <select name="fcategoria">
+                              <select name="fcategoria" id="fcategoria">
                                 <% categories.forEach(category => { %>
                                   <% if (category.idProductCategory == coincidencia.idProductCategory) {%>
                                     <option selected value="<%=category.idProductCategory%>"><%=category.productCategoryName%></option>
@@ -70,28 +70,28 @@
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fharYear">Año de cosecha</label>
-                                <input type="text" name="fcoseAnio" value="<%= coincidencia.productHarvest%>">
+                                <input type="text" name="fcoseAnio" id="fcoseAnio" value="<%= coincidencia.productHarvest%>">
                                 <% if(locals.errors && errors.fcoseAnio) { %> 
                                   <p class="product-warning"> <%= errors.fcoseAnio.msg %> </p>
                                 <%}%>
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fvariety">Variedad</label>
-                                <input type="text" name="fvariedad"  value="<%= coincidencia.productVariety%>">
+                                <input type="text" name="fvariedad" id="fvariedad"  value="<%= coincidencia.productVariety%>">
                                 <% if(locals.errors && errors.fvariedad) { %> 
                                   <p class="product-warning"> <%= errors.fvariedad.msg %> </p>
                                 <%}%> 
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fcrianza">Crianza</label>
-                                <input type="text" name="fcrianza" value="<%= coincidencia.productBreeding%>">
+                                <input type="text" name="fcrianza" id="fcrianza" value="<%= coincidencia.productBreeding%>">
                                 <% if(locals.errors && errors.fcrianza) { %> 
                                   <p class="product-warning"> <%= errors.fcrianza.msg %> </p>
                                 <%}%> 
                               </div>
                             <div class="new__prod__ind">
                                 <label for="fguarda">Potencial de guarda</label>
-                                <input type="text" name="fguarda" value="<%= coincidencia.productGuard%>">
+                                <input type="text" name="fguarda" id="fguarda" value="<%= coincidencia.productGuard%>">
                                 <% if(locals.errors && errors.fguarda) { %> 
                                   <p class="product-warning"> <%= errors.fguarda.msg %> </p>
                                 <%}%> 
@@ -100,7 +100,7 @@
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fnotacata">Nota de cata</label>
-                                <textarea name="fnotacata"  rows="4"><%= coincidencia.productDescription%>  </textarea>
+                                <textarea name="fnotacata" id="fnotacata"  rows="4"><%= coincidencia.productDescription%>  </textarea>
                                 <% if(locals.errors && errors.fnotacata) { %> 
                                   <p class="product-warning"> <%= errors.fnotacata.msg %> </p>
                                 <%}%>
@@ -114,14 +114,14 @@
                             </div>
                             <div class="new__prod__ind ">
                                 <label for="fprodfoto">Imagen del producto</label>
-                                <input type="file" name="fprodfoto">
+                                <input type="file" name="fprodfoto" id="fprodfoto">
                                 <% if(locals.errors && errors.fprodfoto) { %> 
                                   <p class="product-warning"> <%= errors.fprodfoto.msg %> </p>
                                 <%}%> 
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fprecio">Precio</label>
-                                <input type="text" name="fprecio" placeholder="" value="<%= coincidencia.productPrice%>">
+                                <input type="text" name="fprecio" id="fprecio" placeholder="" value="<%= coincidencia.productPrice%>">
                                 <% if(locals.errors && errors.fprecio) { %> 
                                   <p class="product-warning"> <%= errors.fprecio.msg %> </p>
                                 <%}%> 
@@ -193,6 +193,7 @@
         });
       })
     </script>
+    <script src="/js/validationUpdateProduct.js"></script>
 
    
 </body>

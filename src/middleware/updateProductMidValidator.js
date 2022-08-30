@@ -2,9 +2,7 @@ const { body } = require('express-validator');
 const path = require('path');
 
 const validUpdateProduct = [
-    body('fnombre').trim().notEmpty().withMessage('Debes completar el campo de nombre')
-    .isLength({ min: 6 })
-    .withMessage("El nombre debe de tener al menos seis carácteres"), 
+    body('fnombre').trim().notEmpty().withMessage('Debes completar el campo de nombre'),
     body('fcategoria').trim().notEmpty().withMessage('Debes elegir una categoría'), 
     body('fcoseAnio').trim().notEmpty().withMessage('Debes completar el campo año de cosecha')
     .isNumeric().withMessage('Debes completar el campo con numeros para el año'), 
