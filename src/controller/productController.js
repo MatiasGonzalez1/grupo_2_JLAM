@@ -4,11 +4,6 @@ const {validationResult} = require('express-validator');
 const db = require("../database/models");
 const { Op } = require("sequelize");
 
-let archivoProductos = fs.readFileSync(
-    path.join(__dirname, "../models/data/products.json"),
-    { encoding: "utf-8" }
-);
-let productos = JSON.parse(archivoProductos);
 
 const productController = {
     catalogo: (req, res) => {
@@ -106,28 +101,29 @@ const productController = {
         
     },
 
-    cart: (req, res) => {
+    cart: async(req, res) => {
         if (req.cookies.carrito != undefined){
             //asigno a una variable
             let carritoActual = JSON.parse(req.cookies.carrito);
 
-            let carritoFinal= carritoActual.map(function(element){
+            let carritoFinal= await Promise.all(carritoActual.map(async function(element){
                 //busco el producto que tiene el mismo id que el de mi carrito
-                let producto = productos.find( producto => producto.id_producto == element.id );
 
+                let product = await db.Product.findOne( {where: {
+                    idProduct : element.id
+                }});
+                
                 //genero un objeto con los datos que necesito de mi producto
                 let productData = {
-                    cantidad: element.quantity,
-                    id_producto: producto.id_producto,
-                    nombre_producto: producto.nombre_producto,                   
-                    imagen_producto: producto.imagen_producto,
-                    precio: producto.precio,
+                    quantity: element.quantity,
+                    idProduct: product.idProduct,
+                    productName: product.productName,                   
+                    productImg: product.productImg,
+                    productPrice: product.productPrice,
                 }
                 return productData; 
-            });
-            
+            }));
             res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:carritoFinal, user: req.session.userLogged});
-    
         }else{
             res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:[], user: req.session.userLogged});
         }
@@ -182,12 +178,9 @@ const productController = {
                 id: idProducto,
                 quantity: cantidad
             };
-
             //convierto mi objeto a string para almacenarlo en la cookie
-            res.cookie('carrito', JSON.stringify([productData]),{maxAge:21600000});
-           
+            res.cookie('carrito', JSON.stringify([productData]),{maxAge:21600000});   
         }
-
         res.redirect('/product/product-cart');  
     },
 
@@ -254,14 +247,11 @@ const productController = {
             direccion: req.body.checkoutAddress,
             piso: req.body.checkoutFloor,
         }
-
         purchases.push(formDataPayment);
-
         let purchasesUpdated = JSON.stringify(purchases);
         fs.writeFileSync(path.join(__dirname,'../models/data/purchaseDetail.json'), purchasesUpdated);
 
         res.redirect('/');
-
     },
 
     detalle: (req, res) => {

@@ -34,7 +34,7 @@
           <form class="formulario" action="/users/register" method="POST" enctype="multipart/form-data">
             <h2 class="create-account">REGISTRARSE</h2>  
             <label>Nombre</label>
-            <input type="text" name="nombre" class="nombre" value="<%= (locals.old && old.nombre ? old.nombre : '') %> "/>
+            <input type="text" name="nombre" class="nombre" value="<%=(locals.old && old.nombre ? old.nombre : '') %>"/>
             <% if(locals.errors && errors.nombre) { %> 
                 <p class="form-warning"> <%= errors.nombre.msg %> </p>
                 <%}else{%> 
