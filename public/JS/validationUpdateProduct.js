@@ -20,9 +20,10 @@ window.addEventListener('load',()=>{
     errores = {};
 
     //creacion de elemento HTML para error
-    let elemento = (error)=>{
+    let elemento = (error,input)=>{
         let p = document.createElement('p');
         p.classList.add('product-warning');
+        p.setAttribute('id', `${input}Err`)
         p.textContent = error
         console.log(p);
         return p
@@ -30,7 +31,15 @@ window.addEventListener('load',()=>{
 
     //Insercion del elemento creado con el error fijado
     let errorLog = (input, error)=>{
-        input.insertAdjacentElement('afterend', elemento(error))
+
+        let errEncontrado = document.getElementById(`${input}Err`);
+
+        if(!errEncontrado){
+            input.insertAdjacentElement('afterend', elemento(error, input))
+        }else{
+            delErrorLog(input)
+            input.insertAdjacentElement('afterend', elemento(error, input))
+        }
     }
 
     //Eliminación del elemento creado con el error fijado
