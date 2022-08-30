@@ -55,27 +55,29 @@ cd .\grupo_2_JLAM\
 npm install
 ```
 4. Archivo necesario para conectar la base de datos:
-```
+
 5. Crear archivo .env en la raiz del proyecto:
+
 ```
 El mismo debe contener: 
-```
 HOST=
 USER=
 PASSWORD=
 DB_NAME=
 PORT=
 ```
-6. Poblar la base de datos con los archivos structure.sql y data.sql (src/database/db_structure)
+6. Poblar la base de datos con los archivos structure.sql y data.sql
+```
+(src/database/db_structure)
 ```
 7. Correr la base de datos:
-```
+
 8. Ejecutar el proyecto:
 ```
 npm start
 ```
 (En caso de no tener nodemon instalado instalarlo con el comando npm i nodemon)
-```
+
 
 
 
