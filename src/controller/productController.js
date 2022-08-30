@@ -293,6 +293,37 @@ const productController = {
     },
 
     updateProductSubmit: (req, res) =>{
+
+        // db.Product.findByPk(req.body.id, {
+        //     include: [{association: 'category'}]
+        // })
+        // .then(coincidencia =>{
+        //     return coincidencia
+        //     res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, coincidencia: coincidencia, categories:categories});
+        // })
+
+        let errors = validationResult(req);
+
+        console.log(errors);
+    
+            if(!errors.isEmpty()) {
+                db.ProductCategory.findAll({
+                })
+                .then(categories =>{
+                    return categories;
+                })
+                .then((categories)=>{
+                    db.Product.findByPk(req.body.fid, {
+                        include: [{association: 'category'}]
+                    })
+                    .then(coincidencia =>{
+                        res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, errors:errors.mapped(), coincidencia: coincidencia, categories:categories});
+                    })
+                })
+                .catch(error => res.send(error))
+            } else {
+
+        
         let imgProduct = req.body.imgProduct;
         
         if (req.file) {
@@ -321,7 +352,7 @@ const productController = {
             res.redirect('/product/all-products');
         })
         .catch(error => res.send(error))
-
+    }
     },
 
     newProductSubmit: (req, res) =>{

@@ -210,7 +210,7 @@ const usersController = {
         
     },
     delete: async (req, res) => {
-
+        
         await db.Users.destroy({
             where: {userId: Number (req.params.id)} 
         })
