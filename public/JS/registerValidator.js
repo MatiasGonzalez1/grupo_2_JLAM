@@ -198,11 +198,6 @@
             //creo el atributo repassword dentro de mi nuevo form
             bodyInputs.append("repassword", campoRepassword.value);
 
-            //limpio mis campos
-            arrayCampos.forEach(campo =>{
-                campo.value=""
-            });
-            
             //ejecuto la funcion que llama a mi fetch y le envio mi objeto con los datos del body
             registerProcess(bodyInputs);
 

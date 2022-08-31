@@ -1,7 +1,7 @@
 const { body } = require("express-validator");
 const path = require('path');
 const fs = require("fs");
-
+const db = require("../database/models");
 
 const formValid = [
   body("nombre")
@@ -30,11 +30,10 @@ const formValid = [
     .withMessage("El campo email no puede estar vacio").bail()
     .isEmail()
     .withMessage("Debe de ingresar un email válido")
-    .custom((value, {req})=>{
-      let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
-      let users = JSON.parse(usersFile);     
-      let match = users.find((user) => { return user.email === req.body.email})
-      if(match){
+    .custom(async(value, {req})=>{
+      let match =
+        await db.Users.findOne({where:{userEmail : req.body.email}}).then(()=>{match = result})   
+      if(match != undefined){
        throw new Error("Email actualmente en uso");
         }
         return true;
@@ -66,11 +65,10 @@ const formValid = [
     // To delete leading and triling space
     .trim()
     // Custom validation: pasa el valor tomado desde el body
-    // Validate confirmPassword
+ 
     .custom(async (confirmPassword, {req}) => {
       const password = req.body.password
-      // If password and confirm password not same
-      // don't allow to sign up and throw error
+      // If password and confirm password not same don't allow to sign up and throw error
       if(password !== confirmPassword){
         throw new Error('La contraseña no coincide con la ingresada')
       }
@@ -87,7 +85,6 @@ const formValid = [
       throw new Error('Las extensiones permitidas son: ' + aceptedExt.join(', '));
     }
     }
-
     return true;
   }),
 ];

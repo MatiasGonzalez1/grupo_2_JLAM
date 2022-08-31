@@ -1845,6 +1845,13 @@ li datalist option {
 }
 
 
+.horizontal-alert{
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
     .slider__text {
