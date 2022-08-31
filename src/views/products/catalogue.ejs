@@ -38,8 +38,6 @@
         </datalist>
           
         </li>
-        <!-- <li class="li-not num"><input type="number" placeholder="Hasta" min="7000" max="30000" step="1000"></li>   -->
-        <!-- <li class="li-not submit"><button type="submit">Buscar</button></li> -->
       </div>
       </ul>
       <ul class="filter-ul" id="pri">
@@ -66,7 +64,6 @@
       </ul>
     </div>
       </div>
-
       <div class="catalogo__conteiner" id="divSearch">
         <% productos.forEach(producto => { %>
           <article class="cata__products">
@@ -74,10 +71,11 @@
           <p class="cataname__product"> <%= producto.productName %></p>
           <p class="cataprecio__product">$ <%= formatter.format(producto.productPrice)%></p>
           
-          <form action="/product/product-cart/<%= producto.idProduct%>" method="post">
+          <form class="cartForm" action="/product/product-cart/<%= producto.idProduct%>" method="post">
+            <input class="inputForm" type="hidden" value="<%= producto.idProduct%>">
               <div class="container__buttons">
                 <button type="submit" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i></button>
-                <a class="cata__eye" href="/product/product-detail/<%= producto.idProduct%>" target=""><i class="fa-regular fa-eye"></i></a>
+                <a class="cata__eye" id="add-item" href="/product/product-detail/<%= producto.idProduct%>" target=""><i class="fa-regular fa-eye"></i></a>
               </div>
             </form>
         </article>
@@ -90,9 +88,8 @@
     <%- include('../partials/footer.ejs')%>
   </footer>
 
-  <script src="/js/filtroCatalogo.js">
-  </script>
-
+  <script src="/js/filtroCatalogo.js"></script>
+  <script src="/js/addItemToCart.js"></script>
 </body>
 
 </html>

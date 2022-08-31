@@ -131,6 +131,7 @@ const productController = {
 
     addItem: (req, res) => {
         //tomo el id
+        console.log(req);
         const idProducto = req.params.id;
         let cantidad = 0;
         
@@ -140,12 +141,10 @@ const productController = {
         }else{
             cantidad = 1;
         }
-        
         //pregunto si existe la cookie
         if(req.cookies.carrito != undefined){
             //si existe guardo en una variable req.cookie.carrito
             let carritoActual = JSON.parse(req.cookies.carrito);
-
             //mapeo el array
             let existe = carritoActual.find(elemento =>{
                 return elemento.id == idProducto;
@@ -181,9 +180,10 @@ const productController = {
             //convierto mi objeto a string para almacenarlo en la cookie
             res.cookie('carrito', JSON.stringify([productData]),{maxAge:21600000});   
         }
-        res.redirect('/product/product-cart');  
+        res.json({
+            response:true
+        });
     },
-
     deleteCart: (req, res) =>{
         const idProducto = req.params.id;
 
