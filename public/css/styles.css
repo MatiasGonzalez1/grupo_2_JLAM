@@ -1817,6 +1817,33 @@ li datalist option {
     border: 3px solid #FF452C !important; 
     background-color: #ffd3cd  !important;
 }
+/*sweetAlert en el ingreso al home*/
+.alertFooter {
+    color:#A52A2A;
+    font-size:10px;
+    text-align: center;
+    
+}
+.swal2-footer {
+    justify-content: center;
+        margin: 1em 0 0;
+        padding: 1em 1em 0;
+        border-top: 1px solid #ffd3cd;
+        color: inherit;
+        font-size: 1em;
+        
+    }
+.swal2-footer p {
+    font-weight: 600;
+}
+.swal2-container.swal2-backdrop-show {
+    backdrop-filter: blur(3px)
+}
+.AlertNo {
+    background-size: 100% auto;
+    font-size: 13px;
+}
+
 
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
