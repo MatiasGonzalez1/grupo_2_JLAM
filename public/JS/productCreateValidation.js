@@ -230,7 +230,7 @@ notaCata.addEventListener('input',()=>{
 
 //Imagen
 fimg.addEventListener('input', ()=>{
-  let fileExt = img.value.split('.').pop();
+  let fileExt = fimg.value.split('.').pop();
   let extensiones = ["png", "jpg", "jpeg", "webp"];
 
   if (extensiones.includes(fileExt) == false) {
