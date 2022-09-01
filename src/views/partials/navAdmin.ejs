@@ -5,18 +5,27 @@
       <span></span>
       <span></span>
     </div>
-    <ul class="nav-menu-list">
+    <ul class="nav-menu-list main__group">
       <li class="nav-menu-item">
-        <a class="nav-link" href="/catalogo">Usuarios</a>
+        <a class="nav-link" href="#">Usuarios<i class="fa-solid fa-angle-down"></i></a>
+      </li>
+      <li class="">
+        <ul class="sub__group">
+              <li ><a class="side__child" href="/users/all-users">Cargar Usuarios</a></li>
+        </ul>
       </li>
       <li class="nav-menu-item">
-        <a class="nav-link" href="/nosotros">Productos</a>
+        <a class="nav-link" href="#">Productos<i class="fa-solid fa-angle-down"></i></a>
       </li>
-      <li class="nav-menu-item">
+      <ul class="sub__group">
+        <li><a class="side__child" href="/product/new-product">Nuevo Producto</a></li>
+        <li ><a class="side__child" href="/product/all-products">Cargar Productos</a></li>
+    </ul>
+      <!-- <li class="nav-menu-item">
         <a class="nav-link" href="/contactus">Novedades</a>
-      </li>
+      </li> -->
       <li class="nav-menu-item">
-        <a class="nav-link" href="/contactus"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+        <a class="icon" href="/users/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar sesion</a>
       </li>
       </ul>
   </nav>
