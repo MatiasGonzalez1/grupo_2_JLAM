@@ -32,8 +32,8 @@ const formValid = [
     .withMessage("Debe de ingresar un email válido")
     .custom(async(value, {req})=>{
       let match =
-        await db.Users.findOne({where:{userEmail : req.body.email}}).then(()=>{match = result})   
-      if(match != undefined){
+        await db.Users.findOne({where:{userEmail : req.body.email}})   
+      if(match){
        throw new Error("Email actualmente en uso");
         }
         return true;

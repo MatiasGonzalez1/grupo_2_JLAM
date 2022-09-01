@@ -1,8 +1,3 @@
-//fetch("http://localhost:3000/")
-//.then(function(response) {
-//function esMayor(usuario) {
-//if(usuario==undefined) {
-//if(localStorage == undefined) {
 const entryUser = localStorage.getItem("usuario")
 if(entryUser == undefined) {
 Swal.fire({
