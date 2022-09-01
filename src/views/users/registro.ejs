@@ -41,14 +41,14 @@
                   <div id="inName" class="form-warning"></div>
                 <%}%> 
             <label>Apellido</label>
-            <input type="text" name="apellido" class="apellido" value="<%= (locals.old && old.apellido ? old.apellido : '') %> "/>
+            <input type="text" name="apellido" class="apellido" value="<%=(locals.old && old.apellido ? old.apellido : '')%>"/>
             <% if(locals.errors && errors.apellido) { %> 
                 <p class="form-warning"> <%= errors.apellido.msg %> </p>
                 <%}else{%> 
                   <div id="lastName" class="form-warning"></div>
                 <%}%> 
             <label>Email</label>
-            <input type="email" name="email"class="email" value="<%= (locals.old && old.email ? old.email : '') %> "/>           
+            <input type="email" name="email"class="email" value="<%=(locals.old && old.email ? old.email : '')%>"/>           
             <% if(locals.errors && errors.email) { %> 
               <p class="form-warning"> <%= errors.email.msg %> </p>
               <%}else{%> 
