@@ -48,21 +48,20 @@ let delErrorLog = (input)=>{
     arrInp.forEach((inp) => {   
     if(inp.value.trim() == ''){
            e.preventDefault()
-           inp.classList.add('is-invalid')
-           errores.inp = 'El campo no debe estar vacio';
-        errorLog(inp, errores.inp);
+            inp.classList.add('is-invalid')
+            errores.inp = 'El campo no debe estar vacio';
+            errorLog(inp, errores.inp);
        }
       })
 
-      if(categoria.value == 'Seleccione una categoría'){
-                    categoria.classList.add('is-invalid')
+    if(categoria.value == 'Seleccione una categoría'){    
                     errores.categoria = 'Debe seleccionar una categoria';
                     errorLog(categoria, errores.categoria);
-
+                    categoria.classList.add('is-invalid')
                 } else{
                     categoria.classList.remove("is-invalid");
-                    // let catErr = document.getElementById('fcat');
-                    // catErr.innerHTML = '';
+                    delErrorLog(categoria)
+                    delete errores.categoria
         
                 }
    })
