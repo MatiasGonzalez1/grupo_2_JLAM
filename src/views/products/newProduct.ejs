@@ -40,7 +40,10 @@
                                 <select name="fcategoria" id="fcategoria">
                                   <option class="" selected disabled>Seleccione una categoría</option>
                                   <% categories.forEach(category => { %>
-                                    <option value="<%=category.idProductCategory%>"><%=category.productCategoryName%></option>
+                                    <option 
+                                    value="<%=category.idProductCategory%>"
+                                    <%= locals.old && (category.idProductCategory === old.fcategoria) ? 'selected' : null %>
+                                    ><%=category.productCategoryName%></option>
                                   <% }) %>
                                 </select>
                                 <!-- <div class="inv" id="fcat"></div> -->
@@ -86,7 +89,7 @@
                         <div class="new__prod__subgroup">
                             <div class="new__prod__ind">
                                 <label for="fnotacata">Nota de cata</label>
-                                <textarea class="" placeholder="" id="fnotacata" name="fnotacata"  rows="4"></textarea> 
+                                <textarea class="" id="fnotacata" name="fnotacata"  rows="4" value ="<%= (locals.old && old.fnotacata? old.fnotacata: '') %>"></textarea> 
                                 <!-- <div class="inv"></div> -->
                                 <% if(locals.errors && errors.fnotacata) { %> 
                                   <p class="product-warning"> <%= errors.fnotacata.msg %> </p>
@@ -114,7 +117,7 @@
                             </div>
                             <div class="new__prod__ind">
                                 <label for="fstock">Stock</label>
-                                <input class="" type="number" id="fstock" name="fstock" placeholder="" >
+                                <input class="" type="number" id="fstock" name="fstock" placeholder="" value="<%= (locals.old && old.fstock ? old.fstock: '') %>">
                                 <!-- <div class="inv"></div> -->
                                 <% if(locals.errors && errors.fstock) { %> 
                                   <p class="product-warning"> <%= errors.fstock.msg %> </p>
