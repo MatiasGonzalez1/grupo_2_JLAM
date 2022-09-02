@@ -177,18 +177,14 @@ formRegister.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     let isEmpty;
-
-    arrayCampos.forEach((mar) => {
-        if (mar.value == "") {
-            mar.classList.add("is-invalid");
-            mar.nextElementSibling.innerHTML = 'Éste campo no puede estar vacío'
-            createError(mar) 
+    errores.forEach((errores)=>{
+     arrayCampos.forEach((input) => {
+     if(input.name == errores){
         }else{
             isEmpty = true
         }
+    })
     });
-
-
     
     if (isEmpty == true) {
         //genero un form nuevo para enviarle al backend lo que inserto el usuario
@@ -215,8 +211,8 @@ formRegister.addEventListener("submit", async (e) => {
             }
         });
     });
-    
-});
+})
+
 
 
 
