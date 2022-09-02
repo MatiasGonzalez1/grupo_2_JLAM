@@ -68,7 +68,9 @@ const usersController = {
       //lo borramos
         fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
          }
-         res.status(401).render('./users/registro', {errors:errors.mapped(), old: req.body});
+         return res.json({errors:errors});
+
+        //  res.render('./users/registro', {errors:errors.mapped(), old: req.body});
         } else{
 
         let pass = await bcrypt.hash(req.body.password, 10);

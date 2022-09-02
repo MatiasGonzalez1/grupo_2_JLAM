@@ -14,10 +14,9 @@ function deleteError(input) {
     input.nextElementSibling.innerHTML = "";
 }
 function createError (input) {
-    if(!input == "") {
-        errores.push(input)
+        errores.push(input.name)
     }
-}
+
 //Validacion para el nombre
 campoNombre.addEventListener('blur', function () {
     if (campoNombre.value == "") {
@@ -29,11 +28,11 @@ campoNombre.addEventListener('blur', function () {
     }
 });
 campoNombre.addEventListener('input', function (e) {
-    let especials = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/
+    let especials = /^[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/
     if (campoNombre.value.length < 3) {
         campoNombre.classList.add('is-invalid')
         campoNombre.nextElementSibling.innerHTML = "Debe ingresar mas de 3 caracteres"
-    } else if (e.key != especials) {
+    } else if (campoNombre.value.includes(especials)) {
         campoNombre.classList.add('is-invalid')
         campoNombre.nextElementSibling.innerHTML = "No se admiten caracteres especiales"
         createError(campoNombre)
@@ -54,11 +53,11 @@ campoApellido.addEventListener('blur', function () {
     }
 });
 campoApellido.addEventListener('input', function () {
-    let especials = /^[a-zA-Z0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/
+    let especials = /^[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/
     if (campoApellido.value.length < 3) {
         campoApellido.classList.add('is-invalid')
         campoApellido.nextElementSibling.innerHTML = "Debe ingresar mas de 3 caracteres"
-    } else if (campoApellido.value != especials) {
+    } else if (campoApellido.value == especials) {
         campoApellido.classList.add('is-invalid')
         campoApellido.nextElementSibling.innerHTML = "No se admiten caracteres especiales"
         createError(campoApellido)
@@ -169,8 +168,10 @@ campoProfileImage.addEventListener('input', function () {
         }
     })
 
+    //se guarda informacion proveniente del fetch registerProcess
+    let resFetch;
 
-formRegister.addEventListener("submit", (e) => {
+formRegister.addEventListener("submit", async (e) => {
 
     // el event.default va si o si al inicio porque usamos un fetch para acceder a la ruta backend que se ejecuta en la linea 218
     e.preventDefault();
@@ -181,11 +182,14 @@ formRegister.addEventListener("submit", (e) => {
         if (mar.value == "") {
             mar.classList.add("is-invalid");
             mar.nextElementSibling.innerHTML = 'Éste campo no puede estar vacío'
-        } else {
-            mar.classList.remove("is-invalid");
-            return isEmpty = true;
+            createError(mar) 
+        }else{
+            isEmpty = true
         }
     });
+
+
+    
     if (isEmpty == true) {
         //genero un form nuevo para enviarle al backend lo que inserto el usuario
         bodyInputs = new FormData();
@@ -200,9 +204,18 @@ formRegister.addEventListener("submit", (e) => {
         bodyInputs.append("repassword", campoRepassword.value);
 
         //ejecuto la funcion que llama a mi fetch y le envio mi objeto con los datos del body
-        registerProcess(bodyInputs);
-
+        resFetch = await registerProcess(bodyInputs);
+        
     }
+
+    resFetch.errors.errors.forEach((error)=>{
+        arrayCampos.forEach((input)=>{
+            if(input.name == error.param){
+                input.nextElementSibling.innerHTML = error.msg;
+            }
+        });
+    });
+    
 });
 
 
