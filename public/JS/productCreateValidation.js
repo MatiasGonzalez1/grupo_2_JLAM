@@ -52,6 +52,9 @@ let delErrorLog = (input)=>{
             errores.inp = 'El campo no debe estar vacio';
             errorLog(inp, errores.inp);
        }
+       if(Object.keys(errores).length >= 1){
+        e.preventDefault()
+}
       })
 
     if(categoria.value == 'Seleccione una categoría'){    
