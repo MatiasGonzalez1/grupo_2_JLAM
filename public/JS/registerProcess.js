@@ -5,6 +5,23 @@ const registerProcess = async (dataBody)=>{
         //envio los datos que recibo desde registerValidator.js
         body:dataBody, 
     });
+
+    const responseJson = await request.json();
+
+    if(responseJson.errors != undefined){
+        Swal.fire({
+            title: '¡Oh no! Ocurrió algo inesperado',
+            text: 'Revisa todos tus datos',
+            imageUrl: '/img/error-icon.png',
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+            confirmButtonText: "Entendido!",
+            confirmButtonColor: "#FF452C", 
+            buttonsStyling:true,
+          })
+        return responseJson;
+    } else{
+
     if (request.status == 200) {
         //disparo mi alerta con la configuracion y redirecciono a /login
         Swal.fire({
@@ -17,22 +34,20 @@ const registerProcess = async (dataBody)=>{
             confirmButtonText: "Iniciar Sesión",
             confirmButtonColor: "#FF452C", 
             buttonsStyling:true,
-            type: "success"}).then(okay => {
+            type: "success"})
+            .then(okay => {
                 if (okay) {
                     //redireccion 
                  window.location.href = "/users/login";
                }
           })
-    }else{
-        Swal.fire({
-            title: '¡Oh no! Ocurrió algo inesperado',
-            text: 'Revisa todos tus datos',
-            imageUrl: '/img/error-icon.png',
-            imageHeight: 100,
-            imageAlt: 'Custom image',
-            confirmButtonText: "Entendido!",
-            confirmButtonColor: "#FF452C", 
-            buttonsStyling:true,
-          })
     }
+}
     }
+
+
+
+
+
+
+
