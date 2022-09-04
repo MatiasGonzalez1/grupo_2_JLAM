@@ -7,7 +7,6 @@ const registerProcess = async (dataBody)=>{
     });
 
     const responseJson = await request.json();
-    console.log(responseJson);
 
     if(responseJson.errors != undefined){
         Swal.fire({

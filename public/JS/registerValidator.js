@@ -1,144 +1,119 @@
+
+//Variables globales
+let isEmpty;
+let resFetch;
+
+//Capturo los inputs de mi form
 let formRegister = document.querySelector("form.formulario");
-let campoNombre = document.querySelector("input.nombre")
-let campoApellido = document.querySelector("input.apellido")
-let campoEmail = document.querySelector("input.email")
-let campoDate = document.querySelector("input.fechaNacimiento")
-let campoPassword = document.querySelector("input.password")
-let campoRepassword = document.querySelector("input.repassword")
-let campoProfileImage = document.querySelector("input.profileImage")
-let errores = []
+let campoNombre = document.querySelector("input.nombre");
+let campoApellido = document.querySelector("input.apellido");
+let campoEmail = document.querySelector("input.email");
+let campoDate = document.querySelector("input.fechaNacimiento");
+let campoPassword = document.querySelector("input.password");
+let campoRepassword = document.querySelector("input.repassword");
+let campoProfileImage = document.querySelector("input.profileImage");
+
+//Creo objeto que almacena mis errores
+let errores = {};
 let arrayCampos = [campoNombre, campoApellido, campoEmail, campoDate, campoPassword, campoRepassword, campoProfileImage];
 
-function deleteError(input) {
+
+//funciones 
+let crearError = (input, error)=>{
+    input.classList.add('is-invalid');
+    input.nextElementSibling.innerHTML = error;
+}
+
+let delError = (input)=>{
     input.classList.remove('is-invalid');
-    input.nextElementSibling.innerHTML = "";
-}
-function createError(input) {
-    errores.push(input.name)
-    
-}
-async function checkInputs(arrayCampos) {
-    for (let i = 0; i < arrayCampos.length; i++) {
-        if (arrayCampos[i].length < 1) {
-            arrayCampos[i].classList.add('is-invalid')
-            arrayCampos[i].nextElementSibling.innerHTML = "Éste campo no puede estar vacío"
-            errores.push(arrayCampos[i]);
-            return errores;
-        }
-    }
-    
-    if(errores.length < 1) {
-        isEmpty = true
-    }
+    input.nextElementSibling.innerHTML = '';
 }
 
 //Validacion para el nombre
-campoNombre.addEventListener('blur', function () {
+campoNombre.addEventListener('input', function () {
     //let especials = /^[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/ || campoNombre.value.includes(especials)
     if (campoNombre.value == "") {
-        campoNombre.classList.add('is-invalid')
-        campoNombre.nextElementSibling.innerHTML = "El campo nombre no puede estar vacio"
-        createError(campoNombre)
+        crearError(campoNombre,"El campo nombre no puede estar vacio")
+        errores.campoNombre = "El campo nombre no puede estar vacio"
     } else if (campoNombre.value.length < 3) {
-        campoNombre.classList.add('is-invalid')
-        campoNombre.nextElementSibling.innerHTML = "Debe ingresar un nombre valido"
-        createError(campoNombre)
+        crearError(campoNombre,"Debe ingresar un nombre valido")
+        errores.campoNombre = "Debe ingresar un nombre valido"
     } else {
-        deleteError(campoNombre)
+        delError(campoNombre)
+        delete errores.campoNombre
     }
 
 });
 
-
-//Validacion para Apellido
-campoApellido.addEventListener('blur', function () {
+//Validacion para el apellido
+campoApellido.addEventListener('input', function () {
     if (campoApellido.value == "") {
-        campoApellido.classList.add('is-invalid')
-        campoApellido.nextElementSibling.innerHTML = "El campo apellido no puede estar vacio"
-        createError(campoApellido)
+        crearError(campoApellido,"El campo apellido no puede estar vacio")
+        errores.campoApellido = "El campo apellido no puede estar vacio"
     } else if (campoApellido.value.length < 3) {
-        campoApellido.classList.add('is-invalid')
-        campoApellido.nextElementSibling.innerHTML = "Debe ingresar mas de 3 caracteres"
-        createError(campoApellido)
+        crearError(campoApellido,"Debe ingresar un apellido valido")
+        errores.campoApellido = "Debe ingresar un apellido valido"
     } else {
-        deleteError(campoApellido)
+        delError(campoApellido)
+        delete errores.campoApellido
     }
 });
-
-    /*let especials = /^[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/
-    } else if (campoApellido.value == especials) {
-        campoApellido.classList.add('is-invalid')
-        campoApellido.nextElementSibling.innerHTML = "No se admiten caracteres especiales"
-        createError(campoApellido)
-    } else {
-        deleteError(campoApellido)
-    }
-});*/
-
 //Validacion para Email
-campoEmail.addEventListener('blur', function () {
+campoEmail.addEventListener('input', function () {
     const valido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (campoEmail.value == "") {
-        campoEmail.classList.add('is-invalid')
-        campoEmail.nextElementSibling.innerHTML = "El campo email no puede estar vacio"
-        createError(campoEmail)
+        crearError(campoEmail,"El campo email no puede estar vacio")
+        errores.campoEmail = "El campo email no puede estar vacio"
     } else if (!campoEmail.value.match(valido)) {
-        campoEmail.classList.add('is-invalid')
-        campoEmail.nextElementSibling.innerHTML = "Debes ingresar un email válido"
-        createError(campoEmail)
+        crearError(campoEmail,"Debes ingresar un email válido")
+        errores.campoEmail = "Debes ingresar un email válido"
     } else {
-        deleteError(campoEmail)
+        delError(campoEmail)
+        delete errores.campoEmail
     }
 });
-
-
 //Validacion para fecha de nacimiento
 campoDate.addEventListener('input', function () {
     let fechaNacimiento = "2002/01/01"
     if (campoDate.value == "") {
-        campoDate.classList.add('is-invalid')
-        campoDate.nextElementSibling.innerHTML = "Debes seleccionar una fecha"
-        createError(campoDate)
+        crearError(campoDate,"Debes seleccionar una fecha")
+        errores.campoDate = "Debes seleccionar una fecha"
     } else  if (campoDate.value > fechaNacimiento) {
-        campoDate.classList.add('is-invalid')
-        campoDate.nextElementSibling.innerHTML = "Debes ser mayor de 18 años"
-        createError(campoDate)
+        crearError(campoDate,"Debes ser mayor de 18 años")
+        errores.campoDate = "Debes ser mayor de 18 años"
     } else {
-        deleteError(campoDate)
+        delError(campoDate)
+        delete errores.campoDate
     }
 });
 //Validacion para contraseña
-campoPassword.addEventListener('blur', function () {
+campoPassword.addEventListener('input', function () {
     let caracteres = /^(?=.*[0-9])(?=.*[!@#$_.^&*])[a-zA-Z0-9!@#$_.^&*]{8,16}$/;
     if (campoPassword.value == "") {
-        campoPassword.classList.add('is-invalid')
-        campoPassword.nextElementSibling.innerHTML = "Debes ingresar una contraseña"
-        createError(campoPassword)
+        crearError(campoPassword,"Debes ingresar una contraseña")
+        errores.campoPassword = "Debes ingresar una contraseña"
     } else if (campoPassword.value.length < 8) {
-        campoPassword.classList.add('is-invalid')
-        campoPassword.nextElementSibling.innerHTML = "La contraseña debe tener como mínimo 8 caracteres"
-        createError(campoPassword)
+        crearError(campoPassword,"La contraseña debe tener como mínimo 8 caracteres")
+        errores.campoPassword = "La contraseña debe tener como mínimo 8 caracteres"
     } else if (!campoPassword.value.match(caracteres)) {
-        campoPassword.classList.add('is-invalid')
-        campoPassword.nextElementSibling.innerHTML = "La contraseña debe de tener un numero, una mayúscula y un caracter especial"
-        createError(campoPassword)
+        crearError(campoPassword,"La contraseña debe de tener un numero, una mayúscula y un caracter especial")
+        errores.campoPassword = "La contraseña debe de tener un numero, una mayúscula y un caracter especial"  
     } else {
-        deleteError(campoPassword)
+        delError(campoPassword)
+        delete errores.campoPassword
     }
 });
-
 //Validacion para reingresar contraseña
-campoRepassword.addEventListener('blur', function () {
+campoRepassword.addEventListener('input', function () {
     if (campoRepassword.value == "") {
-        campoRepassword.classList.add('is-invalid')
-        campoRepassword.nextElementSibling.innerHTML = "Debes reingresar la contraseña"
-        createError(campoRepassword)
+        crearError(campoRepassword,"Debes reingresar la contraseña")
+        errores.campoRepassword = "Debes reingresar la contraseña"
     } else if (campoRepassword.value != campoPassword.value) {
-        campoRepassword.classList.add('is-invalid')
-        campoRepassword.nextElementSibling.innerHTML = "La contraseña no coincide con la ingresada"
-        createError(campoRepassword)
+        crearError(campoRepassword,"La contraseña no coincide con la ingresada")
+        errores.campoRepassword = "La contraseña no coincide con la ingresada"
     } else {
-        deleteError(campoRepassword)
+        delError(campoRepassword)
+        delete errores.campoRepassword
     }
 });
 //Validacion para imagen
@@ -146,33 +121,18 @@ campoProfileImage.addEventListener('input', function () {
     let fileExt = campoProfileImage.value.split('.').pop();
     let coincidence = ['jpg', 'png', 'gif', 'webp'];
     if (campoProfileImage.value == "") {
-        campoProfileImage.classList.add('is-invalid')
-        campoProfileImage.nextElementSibling.innerHTML = "Debes ingresar una imagen"
+        crearError(campoProfileImag,"Debes ingresar una imagen")
+        errores.campoProfileImag = "Debes ingresar una imagen"
     } else if (coincidence.includes(fileExt) == false) {
-        campoProfileImage.classList.add('is-invalid')
-        campoProfileImage.nextElementSibling.innerHTML = "Solo se admiten archivos .jpeg, .jpg, .png y .webp"
-        createError(campoRepassword)
+        crearError(campoProfileImag,"Solo se admiten archivos .jpeg, .jpg, .png y .webp")
+        errores.campoProfileImag = "Solo se admiten archivos .jpeg, .jpg, .png y .webp"
     } else {
-        deleteError(campoProfileImage)
+        delError(campoProfileImag)
+        delete errores.campoProfileImag
     }
 })
 
-//se guarda informacion proveniente del fetch registerProcess
-let resFetch;
-
-let isEmpty = false;
-formRegister.addEventListener("submit", async (e) => {
-   
-    // el event.default va si o si al inicio porque usamos un fetch para acceder a la ruta backend que se ejecuta en la linea 218
-    e.preventDefault();
-   
-    //llama a la funcion para que se ejecute
-    checkInputs(arrayCampos);
-     //revisa si hay errores al momento de hacer submit 
-     if(errores.length < 1) {
-        isEmpty = true
-    }
-   
+let envioForm = async (isEmpty)=>{
     if (isEmpty == true) {
         //genero un form nuevo para enviarle al backend lo que inserto el usuario
         bodyInputs = new FormData();
@@ -189,22 +149,44 @@ formRegister.addEventListener("submit", async (e) => {
         //ejecuto la funcion que llama a mi fetch y le envio mi objeto con los datos del body
         resFetch = await registerProcess(bodyInputs);
     }
-    if (resFetch.errors != undefined) {
-    resFetch.errors.errors.forEach((error) => {
-            arrayCampos.forEach((input) => {
-                if (input.name == error.param) {
-                    input.nextElementSibling.innerHTML = error.msg;
-                }
-            });
-        });
+}
+
+
+formRegister.addEventListener('submit', async (e)=>{
+    console.log(errores);
+
+    e.preventDefault()
+
+
+    
+    arrayCampos.forEach((input)=>{
+        if(input.value < 1){
+            crearError(input, `El campo ${input.name} no puede estar vacio ameo`);
+            errores.input = `El campo ${input.name} no puede estar vacio ameo`
+            e.preventDefault();
+        }
+    })
+
+    
+    if(Object.keys(errores).length >= 1){
+        isEmpty = false
+        e.preventDefault()
+    }else{
+        isEmpty = true;
     }
+
+    await envioForm(isEmpty)
+
+
+    
+    if (resFetch.errors != undefined) {
+        resFetch.errors.errors.forEach((error) => {
+                arrayCampos.forEach((input) => {
+                    if (input.name == error.param) {
+                        input.nextElementSibling.innerHTML = error.msg;
+                    }
+                });
+            });
+        }
 })
-
-
-
-
-
-
-
-
 
