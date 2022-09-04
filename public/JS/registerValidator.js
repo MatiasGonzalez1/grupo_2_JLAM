@@ -31,13 +31,12 @@ let delError = (input)=>{
 
 //Validacion para el nombre
 campoNombre.addEventListener('input', function () {
-    //let especials = /^[0-9!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]*$/ || campoNombre.value.includes(especials)
     if (campoNombre.value == "") {
-        crearError(campoNombre,"El campo nombre no puede estar vacio")
-        errores.campoNombre = "El campo nombre no puede estar vacio"
+        crearError(campoNombre,"El campo nombre no puede estar vacío")
+        errores.campoNombre = "El campo nombre no puede estar vacío"
     } else if (campoNombre.value.length < 3) {
-        crearError(campoNombre,"Debe ingresar un nombre valido")
-        errores.campoNombre = "Debe ingresar un nombre valido"
+        crearError(campoNombre,"El nombre debe tener al menos tres caracteres y no pueden ser especiales")
+        errores.campoNombre = "El nombre debe tener al menos tres caracteres y no pueden ser especiales"
     } else {
         delError(campoNombre)
         delete errores.campoNombre
@@ -48,11 +47,11 @@ campoNombre.addEventListener('input', function () {
 //Validacion para el apellido
 campoApellido.addEventListener('input', function () {
     if (campoApellido.value == "") {
-        crearError(campoApellido,"El campo apellido no puede estar vacio")
-        errores.campoApellido = "El campo apellido no puede estar vacio"
+        crearError(campoApellido,"El campo apellido no puede estar vacío")
+        errores.campoApellido = "El campo apellido no puede estar vacío"
     } else if (campoApellido.value.length < 3) {
-        crearError(campoApellido,"Debe ingresar un apellido valido")
-        errores.campoApellido = "Debe ingresar un apellido valido"
+        crearError(campoApellido,"El apellido debe tener al menos tres caracteres y no pueden ser especiales")
+        errores.campoApellido = "El apellido debe tener al menos tres caracteres y no pueden ser especiales"
     } else {
         delError(campoApellido)
         delete errores.campoApellido
@@ -62,18 +61,18 @@ campoApellido.addEventListener('input', function () {
 campoEmail.addEventListener('input', function () {
     const valido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (campoEmail.value == "") {
-        crearError(campoEmail,"El campo email no puede estar vacio")
-        errores.campoEmail = "El campo email no puede estar vacio"
+        crearError(campoEmail,"El campo email no puede estar vacío")
+        errores.campoEmail = "El campo email no puede estar vacío"
     } else if (!campoEmail.value.match(valido)) {
-        crearError(campoEmail,"Debes ingresar un email válido")
-        errores.campoEmail = "Debes ingresar un email válido"
+        crearError(campoEmail,"La contraseña debe de tener un número, una mayúscula y un caracter especial")
+        errores.campoEmail = "La contraseña debe de tener un número, una mayúscula y un caracter especial"
     } else {
         delError(campoEmail)
         delete errores.campoEmail
     }
 });
 //Validacion para fecha de nacimiento
-campoDate.addEventListener('input', function () {
+campoDate.addEventListener('change', function () {
     let fechaNacimiento = "2002/01/01"
     if (campoDate.value == "") {
         crearError(campoDate,"Debes seleccionar una fecha")
@@ -96,8 +95,8 @@ campoPassword.addEventListener('input', function () {
         crearError(campoPassword,"La contraseña debe tener como mínimo 8 caracteres")
         errores.campoPassword = "La contraseña debe tener como mínimo 8 caracteres"
     } else if (!campoPassword.value.match(caracteres)) {
-        crearError(campoPassword,"La contraseña debe de tener un numero, una mayúscula y un caracter especial")
-        errores.campoPassword = "La contraseña debe de tener un numero, una mayúscula y un caracter especial"  
+        crearError(campoPassword,"La contraseña debe tener un número, una mayúscula y un caracter especial")
+        errores.campoPassword = "La contraseña debe tener un número, una mayúscula y un caracter especial"  
     } else {
         delError(campoPassword)
         delete errores.campoPassword
@@ -121,14 +120,14 @@ campoProfileImage.addEventListener('input', function () {
     let fileExt = campoProfileImage.value.split('.').pop();
     let coincidence = ['jpg', 'png', 'gif', 'webp'];
     if (campoProfileImage.value == "") {
-        crearError(campoProfileImag,"Debes ingresar una imagen")
-        errores.campoProfileImag = "Debes ingresar una imagen"
+        crearError(campoProfileImage,"Debes ingresar una imágen")
+        errores.campoProfileImage = "Debes ingresar una imágen"
     } else if (coincidence.includes(fileExt) == false) {
-        crearError(campoProfileImag,"Solo se admiten archivos .jpeg, .jpg, .png y .webp")
-        errores.campoProfileImag = "Solo se admiten archivos .jpeg, .jpg, .png y .webp"
+        crearError(campoProfileImage,"Solo se admiten archivos .jpeg, .jpg, .png y .webp")
+        errores.campoProfileImage = "Solo se admiten archivos .jpeg, .jpg, .png y .webp"
     } else {
-        delError(campoProfileImag)
-        delete errores.campoProfileImag
+        delError(campoProfileImage)
+        delete errores.campoProfileImage
     }
 })
 
@@ -151,23 +150,20 @@ let envioForm = async (isEmpty)=>{
     }
 }
 
-
+//Envio el formulario 
 formRegister.addEventListener('submit', async (e)=>{
-    console.log(errores);
 
     e.preventDefault()
-
-
-    
+    //recorro el array de los input
     arrayCampos.forEach((input)=>{
         if(input.value < 1){
-            crearError(input, `El campo ${input.name} no puede estar vacio ameo`);
-            errores.input = `El campo ${input.name} no puede estar vacio ameo`
+            crearError(input, `El campo ${input.name} no puede estar vacío `);
+            errores.input = `El campo ${input.name} no puede estar vacío `
             e.preventDefault();
         }
     })
 
-    
+    //si el objeto errores tiene errores seteo la variable isEmty en false para que no queden los errores del back a la vista.
     if(Object.keys(errores).length >= 1){
         isEmpty = false
         e.preventDefault()
@@ -176,7 +172,6 @@ formRegister.addEventListener('submit', async (e)=>{
     }
 
     await envioForm(isEmpty)
-
 
     
     if (resFetch.errors != undefined) {
