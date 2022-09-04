@@ -121,6 +121,34 @@ main{
 #navMenu.active > span:nth-child(3){
     transform: translateY(-9px) rotate(90deg);
 }
+
+.admin-nav-menu-item{
+    font-size: 16px;
+    padding: 20px 0px;
+}
+
+.admin-nav-off{
+    display: none;
+}
+
+.admin-nav-on{
+    display: block;
+    padding-bottom: 15px;
+}
+
+.admin-nav-link{
+    color: #fbf2e0;
+    text-decoration: none;
+    position: relative;
+    padding: 8px 0;
+    margin: 0;
+    transition: all .2s;
+}
+
+.admin-nav-link:hover{
+    color: #f53117;
+}
+
 /* side menu */
 .side__container{
     display: none;

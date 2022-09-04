@@ -1,22 +1,25 @@
 <nav class="nav-bar">
-    <a href="/" ><img class="logo" src="/img/logo-w.png" /></a>
-    <div id="navMenu" class="nav-hamburguer">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul class="nav-menu-list">
-      <li class="nav-menu-item">
-        <a class="nav-link" href="/catalogo">Usuarios</a>
-      </li>
-      <li class="nav-menu-item">
-        <a class="nav-link" href="/nosotros">Productos</a>
-      </li>
-      <li class="nav-menu-item">
-        <a class="nav-link" href="/contactus">Novedades</a>
-      </li>
-      <li class="nav-menu-item">
-        <a class="nav-link" href="/contactus"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
-      </li>
-      </ul>
-  </nav>
+  <a href="/"><img class="logo" src="/img/logo-w.png" /></a>
+  <div id="navMenu" class="nav-hamburguer">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+  <ul class="nav-menu-list main__group">
+    <li class="admin-nav-menu-item">
+      <a class="admin-nav-link" href="#" id="nav-ad">Usuarios<i class=""></i></a>
+      <li id='subUs' class="admin-nav-off"><a class="nav-link" href="/users/all-users">Cargar Usuarios</a></li>
+    </li>
+    
+    <li class="admin-nav-menu-item">
+      <a class="admin-nav-link" href="#" id="nav-ad_pr">Productos<i class=""></i></a>
+      <li id="subProd_new"class="admin-nav-off"><a class="nav-link" href="/product/new-product">Nuevo Producto</a></li>
+      <li id="subProd_all"class="admin-nav-off"><a class="nav-link" href="/product/all-products">Cargar Productos</a></li>
+    </li>
+    
+    <li class="admin-nav-menu-item">
+      <a class="icon nav-link" href="/users/logout"><i class="fa-solid fa-arrow-right-from-bracket"></i> Cerrar
+        sesion</a>
+    </li>
+  </ul>
+</nav>
