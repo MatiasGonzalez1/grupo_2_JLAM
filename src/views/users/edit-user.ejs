@@ -27,45 +27,54 @@
               <h3>Información Básica</h2>
               <form class="formulario" action="/users/edit-user/?_method=PUT" method="POST" enctype="multipart/form-data">
                 <div class="input__group">
-                  <input type="hidden" name="id" value="<%= userData.userId%>"/>
+                  <input type="hidden" name="id" class="userId" value="<%= userData.userId%>"/>
                   <div class="input__section">
                     <label>Nombre</label>
-                    <input type="text" name="nombre" value="<%= userData.firstName%>"/>
+                    <input type="text" name="nombre" class="nombre" value="<%= userData.firstName%>"/>
                     <% if(locals.errors && errors.nombre) { %> 
                         <p class="form-warning"> <%= errors.nombre.msg %> </p>
-                      <%}%> 
+                    <%}else{%> 
+                      <p class="form-warning" style="display: none;"></p>
+                    <%}%> 
                   </div>
                   <div class="input__section">
                     <label>Apellido</label>
-                    <input type="text" name="apellido" value="<%= userData.lastName%>"/>
+                    <input type="text" name="apellido" class="apellido" value="<%= userData.lastName%>"/>
                     <% if(locals.errors && errors.apellido) { %> 
                         <p class="form-warning"> <%= errors.apellido.msg %> </p>
-                      <%}%> 
+                    <%}else{%> 
+                      <p class="form-warning" style="display: none;"></p>
+                    <%}%>  
                   </div>
                 </div>
                 <div class="input__group">
                   <div class="input__section">
                       <label>Dirección</label>
-                    <input type="text" name="direccion" value="<%= userData.userAddress%>"/>
-                    <% if(locals.errors && errors.direccion) { %> 
+                    <input type="text" name="direccion" class="direccion" value="<%= userData.userAddress%>"/>
+                    
+                      <% if(locals.errors && errors.direccion) { %> 
                         <p class="form-warning"> <%= errors.direccion.msg %> </p>
+                      <%}else{%> 
+                        <p class="form-warning" style="display: none;"></p>
                       <%}%> 
                   </div>
                   <div class="input__section">
                     <div class="user__row">
                       <label>Piso</label> <p>(En caso de ser necesario)</p>
                     </div>
-                    <input type="text" name="departamento" value="<%= userData.userFloor%>"/>
+                    <input type="text" name="departamento" class="departamento" value="<%= userData.userFloor%>"/>
                     <% if(locals.errors && errors.departamento) { %> 
                         <p class="form-warning"> <%= errors.departamento.msg %> </p>
+                      <%}else{%> 
+                        <p class="form-warning" style="display: none;"></p>
                       <%}%> 
                   </div>
                 </div>
                 <div class="input__group">
                   <div class="input__section">
                     <label>Ciudad</label>
-                    <select name="codigoPostal">
-                      <option selected disabled>-- seleccione su ciudad --</option>
+                    <select name="codigoPostal" class="ciudad">
+                      <option selected disabled value="0">-- seleccione su ciudad --</option>
                       <% cities.forEach(city => { %>
                         <% if (city.idCity == userData.idCity) {%>
                           <option selected value="<%= city.idCity%>"><%= city.cityName%></option>
@@ -77,40 +86,48 @@
                   </div>
                   <div class="input__section">
                     <label>Email</label> 
-                    <input type="email" name="email" value="<%= userData.userEmail%>"/>
+                    <input type="email" name="email" class="email" value="<%= userData.userEmail%>"/>
                     <% if(locals.errors && errors.email) { %> 
                       <p class="form-warning"> <%= errors.email.msg %> </p>
+                    <%}else{%> 
+                      <p class="form-warning" style="display: none;"></p>
                     <%}%> 
                   </div >
                 </div>
                 <div class="input__group">
                   <div class="input__section">
                     <label>Fecha de Nacimiento</label>
-                    <input type="date" name="fechaNacimiento" value="<%= userData.userBirthDate%>"/>
+                    <input type="date" name="fechaNacimiento" class="fechaNacimiento" value="<%= userData.userBirthDate%>"/>
                     <% if(locals.errors && errors.fechaNacimiento) { %> 
                       <p class="form-warning"> <%= errors.fechaNacimiento.msg %> </p>
-                    <%}%> 
+                    <%}else{%> 
+                      <p class="form-warning" style="display: none;"></p>
+                    <%}%>  
                   </div>
                   <div class="input__section">
                     <label>Contraseña</label>
-                    <input type="password" name="password" value=""/>
+                    <input type="password" name="password"  class="editPassword"/>
                     <% if(locals.errors && errors.password) { %> 
                       <p class="form-warning"> <%= errors.password.msg %> </p>
-                    <%}%> 
+                    <%}else{%> 
+                      <p class="form-warning " style="display: none;"></p>
+                    <%}%>  
                   </div>
                 </div>
                 <div class="input__group">
                   <div class="input__section">
                     <label>Ingrese una imagen de perfil</label>
-                      <input type="file" id="profileImageUser" name="<%= userData.userImg%>"/>
+                      <input type="file" id="profileImageUser" class="profileImageUser" name="<%= userData.userImg%>"/>
                       <% if(locals.errors && errors.profileImage) { %> 
                         <p class="form-warning"> <%= errors.profileImage.msg %> </p>
-                      <%}%> 
+                      <%}else{%> 
+                        <p class="form-warning" style="display: none;"></p>
+                      <%}%>  
                   </div>
                 </div>
                 <div class="submit__container">
                   <a class="user__cancel" href="/">Cancelar</a>
-                  <input class="user__submit" id="submit" type="submit" value="Guardar"/>
+                  <button class="user__submit" id="btnSubmit" type="submit">Guardar</button>
                 </div>
               </form>
             </div>
@@ -121,5 +138,7 @@
    <footer class="footer">
     <%- include('../partials/footer.ejs')%>
    </footer>
+   <script src="/JS/editProfileValidation.js"></script>
+   <script src="/JS/updateProfileProcess.js"></script>
   </body>
   </html>

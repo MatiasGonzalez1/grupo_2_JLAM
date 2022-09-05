@@ -5,6 +5,7 @@ const upload = require('../middleware/multerMidProducts')
 const adminMid = require('../middleware/adminMiddleware');
 const authMid = require('../middleware/authMiddleware');
 const validationPro = require('../middleware/productMidValidator');
+const validUpdateProduct = require('../middleware/updateProductMidValidator');
 const checkoutData = require('../middleware/checkoutDataMidValidator');
 
 
@@ -15,26 +16,26 @@ routes.get('/busqueda', productController.searchProduct);
 routes.get('/product-detail/:id', productController.detalle);
 
 //carrito de compras
-routes.get('/product-cart', productController.carrito);
-routes.post('/product-cart/:id', productController.agregarCarrito);
+routes.get('/product-cart', productController.cart);
+routes.post('/product-cart/:id', productController.addItem);
 
 //checkout
 routes.get('/checkout', [authMid] ,productController.checkout);
 routes.post('/checkout', [authMid,checkoutData], productController.submitCheckout);
 
 //cargar productos
-routes.get('/all-products/', [adminMid], productController.cargarProductos);
+routes.get('/all-products/', [adminMid], productController.allProducts);
 
 //filtrar productos
-routes.get('/all-products/:filter', [adminMid], productController.filtrarProductos);
+routes.get('/all-products/:filter', [adminMid], productController.filterCategory);
 
 // nuevo producto
-routes.get('/new-product', [adminMid], productController.nuevoProducto);
-routes.post('/new-product', [upload, adminMid], validationPro, productController.crearProducto);
+routes.get('/new-product', [adminMid], productController.newProduct);
+routes.post('/new-product', [upload, adminMid], validationPro, productController.newProductSubmit);
 
 //actualizar productos
-routes.get('/update-product/:id', [adminMid], productController.verActualizarProducto);
-routes.put('/update-product', [adminMid, upload], productController.enviarActualizarProducto);
+routes.get('/update-product/:id', [adminMid], productController.updateProduct);
+routes.put('/update-product', [adminMid, upload], validUpdateProduct, productController.updateProductSubmit);
 
 //eliminar productos
 routes.delete('/all-products/:id', [adminMid], productController.delete);

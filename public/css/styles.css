@@ -1798,6 +1798,60 @@ li datalist option {
     color: #fbf2e0 !important;
     background-color: #ff452c !important;
 }
+.btn-back-cart{
+    width: 100%;
+    justify-content: end;
+    margin-top: 10px;
+}
+
+
+/* warnings validations */
+.form-warning {
+    padding-top: 5px !important;
+    font-size: 14px !important;
+    color: #FF452C !important;
+    text-align: center !important;
+}
+
+.input-warning{
+    border: 3px solid #FF452C !important; 
+    background-color: #ffd3cd  !important;
+}
+/*sweetAlert en el ingreso al home*/
+.alertFooter {
+    color:#A52A2A;
+    font-size:10px;
+    text-align: center;
+    
+}
+.swal2-footer {
+    justify-content: center;
+        margin: 1em 0 0;
+        padding: 1em 1em 0;
+        border-top: 1px solid #ffd3cd;
+        color: inherit;
+        font-size: 1em;
+        
+    }
+.swal2-footer p {
+    font-weight: 600;
+}
+.swal2-container.swal2-backdrop-show {
+    backdrop-filter: blur(3px)
+}
+.AlertNo {
+    background-size: 100% auto;
+    font-size: 13px;
+}
+
+
+.horizontal-alert{
+    display: flex !important;
+    justify-content: space-around !important;
+    align-items: center !important;
+    text-align: center !important;
+}
+
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
     .slider__text {
@@ -3635,6 +3689,7 @@ li datalist option {
 
 
 }
+
 
 
 /*animations slider*/

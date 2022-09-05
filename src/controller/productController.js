@@ -4,18 +4,6 @@ const {validationResult} = require('express-validator');
 const db = require("../database/models");
 const { Op } = require("sequelize");
 
-let archivoProductos = fs.readFileSync(
-    path.join(__dirname, "../models/data/products.json"),
-    { encoding: "utf-8" }
-);
-
-let usersFile = fs.readFileSync(path.join(__dirname, '../models/data/users.json'), { encoding: 'utf-8' });
-
-let users = JSON.parse(usersFile);
-let productos = JSON.parse(archivoProductos);
-
-let cityFile = fs.readFileSync(path.join(__dirname, '../models/data/city.json'), { encoding: 'utf-8' });
-let city = JSON.parse(cityFile);
 
 const productController = {
     catalogo: (req, res) => {
@@ -113,35 +101,37 @@ const productController = {
         
     },
 
-    carrito: (req, res) => {
+    cart: async(req, res) => {
         if (req.cookies.carrito != undefined){
             //asigno a una variable
             let carritoActual = JSON.parse(req.cookies.carrito);
 
-            let carritoFinal= carritoActual.map(function(element){
+            let carritoFinal= await Promise.all(carritoActual.map(async function(element){
                 //busco el producto que tiene el mismo id que el de mi carrito
-                let producto = productos.find( producto => producto.id_producto == element.id );
 
+                let product = await db.Product.findOne( {where: {
+                    idProduct : element.id
+                }});
+                
                 //genero un objeto con los datos que necesito de mi producto
                 let productData = {
-                    cantidad: element.quantity,
-                    id_producto: producto.id_producto,
-                    nombre_producto: producto.nombre_producto,                   
-                    imagen_producto: producto.imagen_producto,
-                    precio: producto.precio,
+                    quantity: element.quantity,
+                    idProduct: product.idProduct,
+                    productName: product.productName,                   
+                    productImg: product.productImg,
+                    productPrice: product.productPrice,
                 }
                 return productData; 
-            });
-            
+            }));
             res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:carritoFinal, user: req.session.userLogged});
-    
         }else{
             res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:[], user: req.session.userLogged});
         }
     },
 
-    agregarCarrito: (req, res) => {
+    addItem: (req, res) => {
         //tomo el id
+        console.log(req);
         const idProducto = req.params.id;
         let cantidad = 0;
         
@@ -151,12 +141,10 @@ const productController = {
         }else{
             cantidad = 1;
         }
-        
         //pregunto si existe la cookie
         if(req.cookies.carrito != undefined){
             //si existe guardo en una variable req.cookie.carrito
             let carritoActual = JSON.parse(req.cookies.carrito);
-
             //mapeo el array
             let existe = carritoActual.find(elemento =>{
                 return elemento.id == idProducto;
@@ -189,15 +177,13 @@ const productController = {
                 id: idProducto,
                 quantity: cantidad
             };
-
             //convierto mi objeto a string para almacenarlo en la cookie
-            res.cookie('carrito', JSON.stringify([productData]),{maxAge:21600000});
-           
+            res.cookie('carrito', JSON.stringify([productData]),{maxAge:21600000});   
         }
-
-        res.redirect('/product/product-cart');  
+        res.json({
+            response:true
+        });
     },
-
     deleteCart: (req, res) =>{
         const idProducto = req.params.id;
 
@@ -209,47 +195,42 @@ const productController = {
 
         res.redirect('/product/product-cart');
     },
-    checkout: (req, res) => {
-
+    checkout: async (req, res) => {
         //toma el usuario segun la session
-        let userActual =  req.session.userLogged;
-
-        //lo busca entre los usuarios registrados
-        let UserData = users.find((user) => {
-            return user.id == userActual.id;
-        });
-
+       let userData =  req.session.userLogged;
         //si existe la cookie carrito
-        if (req.cookies.carrito != undefined){
+        if (req.cookies.carrito != undefined && req.session.userLogged){
             //asigno a una variable
             let carritoActual = JSON.parse(req.cookies.carrito);
 
-            let carritoFinal= carritoActual.map(function(element){
-                //busco el producto que tiene el mismo id que el de mi carrito
-                let producto = productos.find( producto => producto.id_producto == element.id );
-
-                //genero un objeto con los datos que necesito de mi producto
-                let productData = {
-                    cantidad: element.quantity,
-                    id_producto: producto.id_producto,
-                    nombre_producto: producto.nombre_producto,                   
-                    imagen_producto: producto.imagen_producto,
-                    precio: producto.precio,
-                }
-                return productData; 
-            });
-            
-            //renderizo enviando el carrito, el usuario y las ciudades
+            let city = await db.Cities.findAll({});
+            const getProds = async(carritoActual) => {
+                const carritoFinal = await Promise.all(carritoActual.map(async function(cartItem){
+                    let producto = await db.Product.findOne({
+                        where: {
+                            idProduct: cartItem.id 
+                          },
+                    });
+                    let finalItem = { 
+                        productName:producto.productName,
+                        productImg:producto.productImg,
+                        productPrice:producto.productPrice,
+                        quantity: cartItem.quantity}
+                    return finalItem; 
+                }));
+                return carritoFinal;
+            }
+            let carritoFinal = await getProds(carritoActual);
+        
             res.render(path.join(__dirname, "../views/products/checkout.ejs"), {
-                carritoFinal:carritoFinal, user:UserData, city:city
+                carritoFinal:carritoFinal, user:userData, city:city
             });
-    
+           
         }else{
-            res.render(path.join(__dirname, "../views/products/checkout.ejs"), {
-                carritoFinal:[], user:UserData
-            });
+            res.redirect('/');
         }
     },
+    //pendiente a la tabla pivot
     submitCheckout: (req, res) => {
         let purchaseFile = fs.readFileSync(
             path.join(__dirname, "../models/data/purchaseDetail.json"),
@@ -266,14 +247,11 @@ const productController = {
             direccion: req.body.checkoutAddress,
             piso: req.body.checkoutFloor,
         }
-
         purchases.push(formDataPayment);
-
         let purchasesUpdated = JSON.stringify(purchases);
         fs.writeFileSync(path.join(__dirname,'../models/data/purchaseDetail.json'), purchasesUpdated);
 
         res.redirect('/');
-
     },
 
     detalle: (req, res) => {
@@ -287,7 +265,7 @@ const productController = {
         .catch(error => res.send(error))
     },
 
-    nuevoProducto: (req, res) => {
+    newProduct: (req, res) => {
         db.ProductCategory.findAll({
         })
         .then(categories =>{
@@ -296,7 +274,7 @@ const productController = {
         .catch(error => res.send(error))
     },
 
-    verActualizarProducto: (req, res) =>{
+    updateProduct: (req, res) =>{
 
         db.ProductCategory.findAll({
         })
@@ -314,7 +292,38 @@ const productController = {
         .catch(error => res.send(error))
     },
 
-    enviarActualizarProducto: (req, res) =>{
+    updateProductSubmit: (req, res) =>{
+
+        // db.Product.findByPk(req.body.id, {
+        //     include: [{association: 'category'}]
+        // })
+        // .then(coincidencia =>{
+        //     return coincidencia
+        //     res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, coincidencia: coincidencia, categories:categories});
+        // })
+
+        let errors = validationResult(req);
+
+        console.log(errors);
+    
+            if(!errors.isEmpty()) {
+                db.ProductCategory.findAll({
+                })
+                .then(categories =>{
+                    return categories;
+                })
+                .then((categories)=>{
+                    db.Product.findByPk(req.body.fid, {
+                        include: [{association: 'category'}]
+                    })
+                    .then(coincidencia =>{
+                        res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, errors:errors.mapped(), coincidencia: coincidencia, categories:categories});
+                    })
+                })
+                .catch(error => res.send(error))
+            } else {
+
+        
         let imgProduct = req.body.imgProduct;
         
         if (req.file) {
@@ -343,10 +352,10 @@ const productController = {
             res.redirect('/product/all-products');
         })
         .catch(error => res.send(error))
-
+    }
     },
 
-    crearProducto: (req, res) =>{
+    newProductSubmit: (req, res) =>{
         db.ProductCategory.findAll({   
         })
         .then(categories =>{
@@ -376,7 +385,7 @@ const productController = {
             }
         })
     },
-    filtrarProductos: (req, res) =>{
+    filterCategory: (req, res) =>{
         if(req.params.filter == 1){
             db.Product.findAll({
                 include: [{association: 'category'}],
@@ -413,7 +422,7 @@ const productController = {
         }
 
     },
-    cargarProductos: (req, res) =>{
+    allProducts: (req, res) =>{
 
         db.Product.findAll({
             include: [{association: 'category'}],

@@ -44,18 +44,18 @@ const updateUserValid = [
         .notEmpty().withMessage("El campo fecha no puede estar vacio").bail()
         .isDate().withMessage("La fecha debe tener un formato válido")
         .custom((value, {req})=>{
-        let edadMinima = "2002/01/01";
-        let edad = req.body.fechaNacimiento;
-        if(edad > edadMinima){
-            throw new Error('Debes tener 18 años o más')
-        }
-        return true;
+          let edadMinima = "2002/01/01";
+          let edad = req.body.fechaNacimiento;
+          if(edad > edadMinima){
+              throw new Error('Debes tener 18 años o más')
+          }
+          return true;
     }),
 
     body("password")
     .custom((value, {req})=>{
       let pass = req.body.password;
-      let expresion = (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[a-zA-Z\d@$.!%*#?&]/);
+      let expresion = (/^(?=.*[0-9])(?=.*[!@#$_.^&*])[a-zA-Z0-9!@#$_.^&*]{8,16}$/);
       if (pass) {
         if (pass.length < 8) {
           throw new Error('La contraseña debe de tener como mínimo 8 caracteres')

@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
       rel="stylesheet"
     />
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="icon" type="img/png" href="/img/logo-web-icon.png" />
     <link rel="stylesheet" href="/css/login.css" />
     <title>Register</title>
@@ -33,44 +34,31 @@
           <form class="formulario" action="/users/register" method="POST" enctype="multipart/form-data">
             <h2 class="create-account">REGISTRARSE</h2>  
             <label>Nombre</label>
-            <input type="text" name="nombre" value="<%= (locals.old && old.nombre ? old.nombre : '') %> "/>
-            <% if(locals.errors && errors.nombre) { %> 
-                <p class="form-warning"> <%= errors.nombre.msg %> </p>
-              <%}%>
+            <input type="text" name="nombre" class="nombre"/>
+                  <div id="inName" class="form-warning"></div>
             <label>Apellido</label>
-            <input type="text" name="apellido" value="<%= (locals.old && old.apellido ? old.apellido : '') %> "/>
-            <% if(locals.errors && errors.apellido) { %> 
-                <p class="form-warning"> <%= errors.apellido.msg %> </p>
-              <%}%> 
+            <input type="text" name="apellido" class="apellido"/>                
+                  <div id="lastName" class="form-warning"></div>
             <label>Email</label>
-            <input type="email" name="email" value="<%= (locals.old && old.email ? old.email : '') %> "/>
-            <% if(locals.errors && errors.email) { %> 
-              <p class="form-warning"> <%= errors.email.msg %> </p>
-            <%}%> 
+            <input type="email" name="email"class="email"/>           
+                <div id="isEmail" class="form-warning"></div>
             <label>Fecha de Nacimiento</label>
-            <input type="date" name="fechaNacimiento"/>
-            <% if(locals.errors && errors.fechaNacimiento) { %> 
-              <p class="form-warning"> <%= errors.fechaNacimiento.msg %> </p>
-            <%}%> 
+            <input type="date" name="fechaNacimiento" class="fechaNacimiento"/>
+                <div id="dateBo" class="form-warning"></div>
             <label>Contraseña</label>
-            <input type="password" name="password" />
-            <% if(locals.errors && errors.password) { %> 
-              <p class="form-warning"> <%= errors.password.msg %> </p>
-            <%}%> 
+            <input type="password" name="password" class="password"/>
+                <div id="pass" class="form-warning"></div>
             <label>Reingresa tu contraseña</label>
-            
-            <input type="password" name="repassword" />
-            <% if(locals.errors && errors.repassword) { %> 
-              <p class="form-warning"> <%= errors.repassword.msg %> </p>
-            <%}%> 
+            <input type="password" name="repassword" class="repassword"/>
+                <div id="repass" class="form-warning"></div>
             <label>Ingrese una imagen de perfil</label>
-            <input type="file" name="profileImage" />
-            <% if(locals.errors && errors.profileImage) { %> 
-              <p class="form-warning"> <%= errors.profileImage.msg %> </p>
-            <%}%> 
-            <input id="submit" type="submit" value="REGISTRAR" />
+            <input type="file" name="profileImage" class="profileImage"/> 
+                <div id="img" class="form-warning"></div>
+            <input id="registerSubmit" type="submit" value="REGISTRAR" />
             <a href="#">¿Olvidaste tu contraseña?</a>
           </form>
         </section>
+        <script src="/JS/registerProcess.js"></script>
+        <script src="/JS/registerValidator.js"></script>
     </body>
     </html>

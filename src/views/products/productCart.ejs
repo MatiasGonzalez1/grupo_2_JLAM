@@ -28,19 +28,19 @@
           </div>
            <!-- aca empieza -->
            <% if(Array.isArray(carritoFinal) && carritoFinal.length){%>
-            <% carritoFinal.forEach(producto => { %>
+            <% carritoFinal.forEach(product => { %>
             <div class="cart__product">
-              <img src="/img/productImg/<%= producto.imagen_producto%>" alt="imagen preview del producto" />
+              <img src="/img/productImg/<%= product.productImg%>" alt="imagen preview del producto" />
               <div class="cart__productdetail">
-                <p><span><%=producto.nombre_producto%></span></p>
+                <p><span><%=product.productName%></span></p>
                 <div class="cart__buttons">
-                  <p>$<%= formatter.format(producto.precio)%></p>
+                  <p>$<%= formatter.format(product.productPrice)%></p>
                   <div>
                     <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                    <input type="number" id="number" value="<%=producto.cantidad%>" name="cantidad"/>
+                    <input type="number" id="number" value="<%=product.quantity%>" name="cantidad"/>
                     <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
                   </div>
-                  <form method="POST" action="/product/product-cart/<%=producto.id_producto%>?_method=DELETE">
+                  <form method="POST" action="/product/product-cart/<%=product.idProduct%>?_method=DELETE">
                   <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
                   </form>
                 </div>

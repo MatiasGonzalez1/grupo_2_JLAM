@@ -1,57 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="img/png" href="/img/logo-web-icon.png" />
-    <link rel="stylesheet" href="/css/login.css" />
-    <title>Login</title>
-  </head>
-  <body>
-    <div class="login-Container">
-      <header>
-        <section class="cabecera">
-          <a href="/"><img class="cabecera__logo" src="/img/logo-w.png" /></a>
-        </section>
-      </header>
-      <main>
-        <section class="form-container login">
-          <form class="formulario" action="/users/login" method="POST">
-            <h2 class="create-account">INICIAR SESION</h2>
-            <label>Email</label>
-            <input type="email" name="email" value="<%= (locals.old && old.email ? old.email : '') %> "/>
-            <% if(locals.errors && errors.email) { %> 
-              <p class="form-warning"> <%= errors.email.msg %> </p>
-            <%}%> 
-            <label>Contraseña</label>
-            <input type="password" name="password" />
-            <% if(locals.errors && errors.password) { %> 
-              <p class="form-warning"> <%= errors.password.msg %> </p>
-            <%}%> 
-            <label>Recordarme</label>
-            <div class="remember">
-            <input type="checkbox" name="recordarme">
-            </div>
-            <input id="submit" type="submit" value="INGRESAR" />
-            <a href="#">¿Olvidaste tu contraseña?</a>
-          </form>
-          <div class="welcome">
-            <div class="mensaje">
-              <h2>BIENVENIDO DE NUEVO</h2>
-              <p>¿Aún no tenes cuenta? Creá una cuenta para iniciar sesión</p>
-              <a href="/users/register"><button class="sign-in-btn">REGISTRARSE</button></a>
-            </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&display=swap"
+    rel="stylesheet" />
+  <link rel="icon" type="img/png" href="/img/logo-web-icon.png" />
+  <link rel="stylesheet" href="/css/login.css" />
+  <title>Login</title>
+</head>
+
+<body>
+  <div class="login-Container">
+    <header>
+      <section class="cabecera">
+        <a href="/"><img class="cabecera__logo" src="/img/logo-w.png" /></a>
+      </section>
+    </header>
+    <main>
+      <section class="form-container login">
+        <form class="formulario" action="/users/login" method="POST">
+          <h2 class="create-account">INICIAR SESION</h2>
+          <label>Email</label>
+          <input type="email" name="email" id="email" value="<%= (locals.old && old.email ? old.email : '') %> " />
+          <% if(locals.errors && errors.email) { %>
+            <p class="form-warning">
+              <%= errors.email.msg %>
+            </p>
+            <%} else {%>
+              <div id="er" class="err"></div>
+              <% } %>
+                <label>Contraseña</label>
+                <input type="password" name="password" id="password" />
+                <% if(locals.errors && errors.password) { %>
+                  <p class="form-warning">
+                    <%= errors.password.msg %>
+                  </p>
+                  <%} else {%>
+                    <div id="er2" class="err"></div>
+                    <% } %>
+                      <label>Recordarme</label>
+                      <div class="remember">
+                        <input type="checkbox" name="recordarme">
+                      </div>
+                      <input id="submit" type="submit" value="INGRESAR" />
+                      <a href="#">¿Olvidaste tu contraseña?</a>
+        </form>
+        <div class="welcome">
+          <div class="mensaje">
+            <h2>BIENVENIDO DE NUEVO</h2>
+            <p>¿Aún no tenes cuenta? Creá una cuenta para iniciar sesión</p>
+            <a href="/users/register"><button class="sign-in-btn">REGISTRARSE</button></a>
           </div>
-        </section>
-      </main>
-    </div>
-    <footer></footer>
-  </body>
+        </div>
+      </section>
+    </main>
+  </div>
+  <footer></footer>
+  <script src="/js/loginValidator.js"></script>
+</body>
+
 </html>

@@ -6,7 +6,6 @@ const db = require("../database/models");
 
 
 const usersController = {
-
     login: (req, res) =>{
         res.render(path.join(__dirname, '../views/users/login.ejs'))
     },
@@ -36,7 +35,6 @@ const usersController = {
             if(req.body.recordarme != undefined) {
             res.cookie('recordarme', userMatch.userEmail, { maxAge: 3600000 })
             }
-
             res.redirect('/')
         }else{
             res.render(path.join(__dirname, '../views/users/login.ejs'), {errors: [
@@ -62,7 +60,7 @@ const usersController = {
     register: async (req,res) =>{
 
         let errors = validationResult(req);
-
+        console.log(errors);
         
         if(!errors.isEmpty()){
         // si existe un archivo con propiedad filename
@@ -70,109 +68,105 @@ const usersController = {
       //lo borramos
         fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
          }
-         res.render('./users/registro', {errors:errors.mapped(), old: req.body});
+         return res.json({errors:errors});
+
+        //  res.render('./users/registro', {errors:errors.mapped(), old: req.body});
         } else{
 
-            let pass = await bcrypt.hash(req.body.password, 10);
+        let pass = await bcrypt.hash(req.body.password, 10);
 
-     
         //Asigno datos del body al objeto a insertar a la base de datos    
-        let userData = await db.Users.create({
-            firstName: req.body.nombre,
-            lastName: req.body.apellido,
-            userEmail: req.body.email,
-            idUserCategory: 2,
-            userBirthDate: req.body.fechaNacimiento,
-            userPassword: pass,
-            userImg: req.file.filename,
-            idCity: null,
-            userAddress: null,
-            userFloor: null
+        await db.Users.create({
+        firstName: req.body.nombre,
+        lastName: req.body.apellido,
+        userEmail: req.body.email,
+        idUserCategory: 2,
+        userBirthDate: req.body.fechaNacimiento,
+        userPassword: pass,
+        userImg: req.file.filename,
+        idCity: null,
+        userAddress: null,
+        userFloor: null
         })
-
-        //Redireccion al login luego del registro
-        res.redirect('/users/login')
+        .then(() =>{
+            return res.json(response)
+        })
+        .catch(error => res.send(error))
 
         }
     },
 
-    userData: (req, res) =>{
-        let userActual =  req.session.userLogged;
-        let userData = db.Users.findByPk(userActual.id,{
+    userData: async (req, res) =>{
+        let userData = await db.Users.findByPk(Number( req.session.userLogged.userId),{
+            include: [{association: 'city'}]
         })
-        let cities = db.Cities.findAll({
+        let cities = await db.Cities.findAll({
         })
-        Promise.all ([userData, cities]) 
-          .then(([userData, cities]) => {
-           
-            res.render(path.join(__dirname, '../views/users/edit-user'), {userData, cities, user:req.session.userLogged });
-          })
-          .catch(error => res.send(error))
+        res.render(path.join(__dirname, '../views/users/edit-user'), {userData, cities, user:req.session.userLogged });
     },
 
     userEdit: (req, res) =>{
         let errors = validationResult(req);
-
+        console.log(req, errors);
         if(!errors.isEmpty()){
-           
             // // si existe un archivo con propiedad filename
             if (req.file) {
             //     //lo borramos 
             fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
         }
         res.render(path.join(__dirname,'../views/users/edit-user'), {user: userActual, errors:errors.mapped()});
-
-        }
-
-        let userData = {
-            userId: req.body.id,
-            firstName: req.body.nombre,
-            lastName: req.body.apellido,
-            userEmail: req.body.email,
-            userBirthDate: req.body.fechaNacimiento,
-            userPassword: req.body.password,
-            userImg: req.body.profileImageUser,
-            idCity: req.body.codigoPostal,
-            userAddress: req.body.direccion,
-            userFloor: req.body.departamento,
-        }
-        //si hay una pass nueva la cambio
-        if(req.body.password.length > 0){
-            userData.userPassword = bcrypt.hashSync(req.body.password, 10);
         }else{
-            delete userData.userPassword;
-        }
-        // si agrego direccion
-        if(req.body.direccion != undefined && req.body.direccion.length > 1){
-            userData.userAddress= req.body.direccion;
-        }else{
-            delete userData.userAddress;
-        }
-        if(req.body.departamento != undefined && req.body.departamento.length > 0){
-            userData.userFloor = req.body.departamento;
-        }else{
-            delete userData.userFloor;
-        }
-        //si hay una imagen la cambio
-        if(req.file){
-            fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", user.profileImg));
-            userData.userImg = req.file.filename;
-        }else{
-            delete userData.userImg;
-        }
-        
-        db.Users.update(userData,
-        {
-            where:{
-                userId: Number(req.body.id)
+            let userData = {
+                firstName: req.body.nombre,
+                lastName: req.body.apellido,
+                userEmail: req.body.email,
+                userBirthDate: req.body.fechaNacimiento,
+                userPassword: req.body.password,
+                idCity: req.body.codigoPostal,
+                userAddress: req.body.direccion,
+                userFloor: req.body.departamento,
             }
-        })
-        .then((result) =>{
-            
-            res.redirect('/');
-        })
-        .catch(error => res.send(error))
-   
+            //si hay una pass nueva la cambio
+            if(req.body.password != undefined){
+                userData.userPassword = bcrypt.hashSync(req.body.password, 10);
+            }else{
+                delete userData.userPassword;
+            }
+            // si agrego ciudad
+            if(req.body.codigoPostal != undefined){
+                userData.idCity= req.body.codigoPostal;
+            }else{
+                delete userData.idCity;
+            }
+            // si agrego direccion
+            if(req.body.direccion != undefined){
+                userData.userAddress= req.body.direccion;
+            }else{
+                delete userData.userAddress;
+            }
+            if(req.body.departamento != undefined){
+                userData.userFloor = req.body.departamento;
+            }else{
+                delete userData.userFloor;
+            }
+            //si hay una imagen la cambio
+            if(req.file){
+                fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", userLogged.userImg));
+                userData.userImg = req.file.filename;
+            }
+
+            db.Users.update(userData,
+            {
+                where:{
+                    userId: Number(req.body.id)
+                }
+            })
+            .then((response) =>{
+                return res.json(response)
+            })
+            .catch(error => res.send(error))
+        }
+
     },
     userPermissions:(req, res) =>{
         let user = db.Users.findByPk(Number(req.params.id),{
@@ -218,7 +212,7 @@ const usersController = {
         
     },
     delete: async (req, res) => {
-
+        
         await db.Users.destroy({
             where: {userId: Number (req.params.id)} 
         })
