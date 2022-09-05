@@ -45,3 +45,12 @@ ya que consideramos que de esta manera podemos enriquecernos y crecer individual
 3. **Mas de:** Implementar el habito de explicar las porciones de codigo escritas individualmente a los demas integrantes para enriquecer nuestros conocimientos y el de nuestros compañeros.
 4. **Dejar de hacer:**  Subestimar las tareas que parecen de poca dificultad, para asi prevenir cualquier inconveniente con los tiempos estimados.
 5. **Empezar a hacer:** Testear todos los cambios implementados para asegurarnos de no tener imprevistos en ninguna de las funcionalidades.
+
+
+## Retrospectiva sprint 7 ♻️
+
+1. **Seguir haciendo:** Priorizar las tareas que respecta a cada sprint, para luego continuar con el resto de tareas.
+2. **Menos de:** Encontrándonos en el penúltimo sprint de la jornada no consideramos que haya algo que deba ser tenido en cuenta a disminuir.
+3. **Mas de:**  Mantener presente la necesidad de comentar las porciones de código que pudieran presentar mayor dificultad de interpretación, con el fin de facilitar la comprensión al resto del equipo.
+4. **Dejar de hacer:**  Como mencionamos anteriormente no hallamos ningún aspecto o hábito que necesite ser tenido en cuenta para su cese. 
+5. **Empezar a hacer:** Tener una mayor conciencia con respecto al tiempo que se tiene hasta cada entrega y la cantidad de tareas pendientes a realizar sean o no parte de cada sprint.

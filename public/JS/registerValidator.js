@@ -160,6 +160,8 @@ formRegister.addEventListener('submit', async (e)=>{
             crearError(input, `El campo ${input.name} no puede estar vacío `);
             errores.input = `El campo ${input.name} no puede estar vacío `
             e.preventDefault();
+        }else{
+            delete errores.input
         }
     })
 
