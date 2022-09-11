@@ -4,13 +4,14 @@ const path = require("path"); //con este modulo se unifican las rutas para ident
 const methodOverride = require('method-override');
 let session = require('express-session');
 const cookies = require('cookie-parser');
+const cors = require('cors')
 
 
 // Determinacion de variable global para ejecucion de express
 const app = express();
 
 // Determinacion de puerto asignable
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Determinacion de folder 'public' como archivos estaticos
 app.use(express.static("./public")); 
@@ -32,6 +33,9 @@ app.use(session({
 
 //Requerimiento para cookies
 app.use(cookies());
+
+// uso cors para posibles problemas de llamados a un fetch
+app.use(cors())
 
 // Requerimiento index de ruteo
 app.use("/", require("./routes/index.routes"));
