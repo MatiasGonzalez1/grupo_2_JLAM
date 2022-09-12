@@ -13,7 +13,7 @@ window.onload = () => {
            
            idTarget.classList.add("admin-filter-selected");
 
-           fetch("http://localhost:3000/product/all-products/"+idTarget.id)
+           fetch("http://localhost:3001/product/all-products/"+idTarget.id)
            .then(function(response) {
                return response.json();
            })

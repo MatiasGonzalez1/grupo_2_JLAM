@@ -106,14 +106,14 @@ const usersController = {
 
     userEdit: (req, res) =>{
         let errors = validationResult(req);
-        console.log(req, errors);
         if(!errors.isEmpty()){
             // // si existe un archivo con propiedad filename
             if (req.file) {
             //     //lo borramos 
             fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
         }
-        res.render(path.join(__dirname,'../views/users/edit-user'), {user: userActual, errors:errors.mapped()});
+        return res.json({errors});
+        
         }else{
             let userData = {
                 firstName: req.body.nombre,
