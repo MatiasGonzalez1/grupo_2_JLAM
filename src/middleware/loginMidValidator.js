@@ -31,14 +31,14 @@ body("password")
 .matches(/^(?=.*[0-9])(?=.*[!@#$_.^&*])[a-zA-Z0-9!@#$_.^&*]{8,16}$/)
 .withMessage("La contraseña debe de tener un numero, una mayuscula y un caracter especial")
 .custom( async (value, {req})=>{
-
 let users = await db.Users.findOne({
     where: {userEmail: req.body.email}
 })
-let secure = await bcrypt.compare(req.body.password, users.userPassword)
-
+if(users == undefined){
+    throw new Error("Error primero debe de ingresar un usuario válido");
+}
+let secure = await bcrypt.compare(req.body.password, users.userPassword) 
 if(!secure){
-
     throw new Error("Error contraseña incorrecta");
            }
         return true;
