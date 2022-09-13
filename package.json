@@ -21,6 +21,7 @@
   "homepage": "https://github.com/MatiasGonzalez1/grupo_2_JLAM#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^7.4.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",

@@ -73,8 +73,8 @@
 <section class="container__selection">
   <div class="selection__title"><h1>SELECCIÓN TERRA ROSSA</h1></div>
   <div class="container__buttonarrow">
-    <div class="selection__nextbuttonLeft"><i class="fa-solid fa-caret-left"></i></div>
-  <div class="selection__nextbuttonRight"> <i class="fa-solid fa-caret-right"></i></div>
+    <button class="selection__nextbuttonLeft"><i class="fa-solid fa-chevron-left"></i></button>
+  <button class="selection__nextbuttonRight"> <i class="fa-solid fa-chevron-right"></i></button>
 </div>
 <div class="container__block">
   <% seleccion.forEach(seleccion => { %>
@@ -84,15 +84,8 @@
       <a class="selection__botomver" href="/product/product-detail/<%= seleccion.idProduct %>" target="ver.productoDetail">VER PRODUCTO</a>
     </article>
   <% }); %>
-<!--<script>
-const button = document.getElementById('next');
 
-button.onclick = function (next) {
-document.getElementById('container__block').scrollLeft += 20;
-};
-</script>-->
 </div>
-
 </section>
 
       <!-- Seccion de novedades -->
@@ -117,5 +110,6 @@ document.getElementById('container__block').scrollLeft += 20;
     <%- include('partials/footer.ejs')%>
    </footer>
    <script src="/JS/indexAccessPermission.js"></script>
+   <script src="/JS/buttonSelection.js"></script>
   </body>
   </html>
