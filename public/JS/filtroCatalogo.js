@@ -59,7 +59,7 @@ range.addEventListener('change', (e)=>{
 
 
 const filter = ()=>{
-    const url = new URL("http://localhost:3000/product/catalogue/filter");
+    const url = new URL("http://localhost:3001/product/catalogue/filter");
     // pregunto si mis atributos (tipo, precio, variedad)contienen algo
     if (params.price) {
         url.searchParams.append("price", params.price);

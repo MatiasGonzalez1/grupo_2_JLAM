@@ -1823,7 +1823,6 @@ li datalist option {
 
 .input-warning{
     border: 3px solid #FF452C !important; 
-    background-color: #ffd3cd  !important;
 }
 /*sweetAlert en el ingreso al home*/
 .alertFooter {
@@ -1851,7 +1850,6 @@ li datalist option {
     background-size: 100% auto;
     font-size: 13px;
 }
-
 
 .horizontal-alert{
     display: flex !important;
@@ -3228,7 +3226,7 @@ li datalist option {
 
     .selection__botomver {
         font-size: 13px;
-        padding: 5px 10px;
+        padding: 10px 30px;
     }
 
     .block {
