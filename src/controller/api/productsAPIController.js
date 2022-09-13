@@ -13,7 +13,6 @@ let dataProduct = (respuesta, array) => {
       });
     });
   };
-  
 
 const productAPIController = {
 
@@ -48,10 +47,23 @@ const productAPIController = {
             status: 500,
             error: error,
           };
-  
           res.json(errores);
         });
     },
-  };
+    ProductPage: (req, res)=>{
+      let page = Number(req.query.page);
+      let currentOffSet = (page - 1) * 5;
+
+      db.Product.findAll({
+        include: [{association: 'category'}],
+        limit: 5,
+        offset: currentOffSet
+      })
+      .then(response =>{
+        res.json(response);
+      })
+      .catch(error => res.send(error));
+    }
+};
 
 module.exports = productAPIController
