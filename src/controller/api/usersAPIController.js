@@ -4,8 +4,8 @@ const { Op } = require("sequelize");
 // creo una funcion para setear los datos de c/usuario que llega de la DB
 // controlo los datos que se envian en la response eliminando datos sensibles
 
-let dataSet = (users, array) => {
-  users.forEach((usuario) => {
+let dataSet = (respuesta, array) => {
+  respuesta.forEach((usuario) => {
     array.push({
       id: usuario.userId,
       firstName: usuario.firstName,
@@ -31,6 +31,7 @@ const userAPIController = {
           count: users.length,
           data: datos,
         };
+
         res.json(usuarios);
       })
       .catch((error) => {
@@ -46,6 +47,33 @@ const userAPIController = {
 
   userData: (req, res) => {
     //datos de usuario por id
+
+    db.Users.findByPk(Number(req.params.id))
+      .then((user) => {
+        // creo un objeto para la response con los datos finales
+        let usuario = {
+          status: 200,
+          data: {
+            id: user.userId,
+            firstName: user.firstName,
+            lastName: user.lastName,
+            email: user.userEmail,
+            imgPath: `/img/profileImages/${user.userImg}`,
+            detail: `http://localhost:3001/api/users/${user.userId}`,
+          },
+        };
+
+        res.json(usuario);
+      })
+      .catch((error) => {
+        // En caso de error respondo con un status 500
+        let errores = {
+          status: 500,
+          error: error,
+        };
+
+        res.json(errores);
+      });
   },
 };
 
