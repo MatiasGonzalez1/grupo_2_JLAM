@@ -10,107 +10,105 @@
       <%- include('partials/nav.ejs')%>
     </header>
     <main>
-
       <!-- contenedor banner principal -->
-    <div class="container-slider">
-      <div class="slider">
-          <div class="pagination">
-              <div class="pagination__item" ></div>
-              <div class="pagination__item" ></div>
-              <div class="pagination__item" ></div>
-          </div>
+      <div class="container-slider">
+        <div class="slider">
+            <div class="pagination">
+                <div class="pagination__item" ></div>
+                <div class="pagination__item" ></div>
+                <div class="pagination__item" ></div>
+            </div>
+            <div class="slider__section">
+                <div class="slider__text">
+                    <div class="slider__hidden">
+                      <span></span>
+                    </div>
+                    <div>
+                      <h4>Espumante</h4>
+                      <h2>brut nature</h2>
+                      <p>Una sensación refrescante.</p>
+                      <a  href="/product/product-detail">ver producto</a>
+                    </div>
+                    
+                </div>
+                <img src="img/home-cr-01.png" alt="vino espumante" class="slider__img">
+            </div> 
           <div class="slider__section">
-              <div class="slider__text">
-                  <div class="slider__hidden">
-                    <span></span>
-                  </div>
-                  <div>
-                    <h4>Espumante</h4>
-                    <h2>brut nature</h2>
-                    <p>Una sensación refrescante.</p>
-                    <a  href="/product/product-detail">ver producto</a>
-                  </div>
-                  
-              </div>
-              <img src="img/home-cr-01.png" alt="vino espumante" class="slider__img">
-          </div> 
-         <div class="slider__section">
-              <div class="slider02__text">
-                  <h2>Tour Tradicional</h2>
-                  <h4>Degustación de 3 copas</h4>
-                  <p>Visitá nuestras bodegas y degusta una selección de 3 vinos</p>
-              </div>
-              <div>
-                <span></span>
-              </div>
-              <img src="img/home-cr-02.png" alt="foto de bodega" class="slider__img">
-          </div>
-          <div class="slider__section">
-              <div class="slider03__text">
-                  <h2>Sorpréndete con estos vinos</h2>
-                  <a  href="/product/catalogue">ver catálogo</a>
-              </div>
-              <img src="img/home-cr-03.png" alt="vinos tintos" class="slider__img">
-          </div>
+                <div class="slider02__text">
+                    <h2>Tour Tradicional</h2>
+                    <h4>Degustación de 3 copas</h4>
+                    <p>Visitá nuestras bodegas y degusta una selección de 3 vinos</p>
+                </div>
+                <div>
+                  <span></span>
+                </div>
+                <img src="img/home-cr-02.png" alt="foto de bodega" class="slider__img">
+            </div>
+            <div class="slider__section">
+                <div class="slider03__text">
+                    <h2>Sorpréndete con estos vinos</h2>
+                    <a  href="/product/catalogue">ver catálogo</a>
+                </div>
+                <img src="img/home-cr-03.png" alt="vinos tintos" class="slider__img">
+            </div>
+        </div>
       </div>
-  </div>
-  <!-- fin contenedor banner principal -->
-<!--Inicio seccion filolosofia-->
-<section class="philosophy">
-  <div class="text-content">
-  <div class="title-philosophy">
-    <img src="img/title-filosofia.png" alt="imagen de título">
-  </div>
-  <h2>Una copa, una historia</h2>
-  <div class="text-circle"><p>En <b>Terra Rossa</b> sabemos que no se puede comprar la felicidad, pero un buen vaso de vino en el momento oportuno vale más que todas las riquezas de la tierra. Por éste motivo nos dedicamos a darte siempre lo mejor, en cada momento y en cada lugar.</p>
- <img src="img/side-view-glass-of-red-wine-with-human-hand.jpg" alt="">
-  </div>
-  </div>
-</section>
-<!--Fin seccion filosofia-->
-
-<!--Inicio seleccion terra rossa-->
-<section class="container__selection">
-  <div class="selection__title"><h1>SELECCIÓN TERRA ROSSA</h1></div>
-  <div class="container__buttonarrow">
-    <div class="selection__nextbuttonLeft"><i class="fa-solid fa-caret-left"></i></div>
-  <div class="selection__nextbuttonRight"> <i class="fa-solid fa-caret-right"></i></div>
-</div>
-<div class="container__block">
-  <% seleccion.forEach(seleccion => { %>
-    <article class="block">
-        <p class="selection__type" ><%= seleccion.productName %></p>       
-      <img class="selection__product" src="/img/productImg/<%= seleccion.productImg %>" alt="Aqui va la imagen">
-      <a class="selection__botomver" href="/product/product-detail/<%= seleccion.idProduct %>" target="ver.productoDetail">VER PRODUCTO</a>
-    </article>
-  <% }); %>
-<!--<script>
-const button = document.getElementById('next');
-
-button.onclick = function (next) {
-document.getElementById('container__block').scrollLeft += 20;
-};
-</script>-->
-</div>
-
-</section>
-
-      <!-- Seccion de novedades -->
-    <section class="news">
-      <article ><h2 class="subtitle">Novedades:</h2></article>
-      <article >
-        <ul class="product-news">
-          <% news.forEach(news => { %>
-          <li class="item">
-            <div><img class="img" src="<%=news.img%>"></div>
-            <div class="parrafo"><p><h2 class="news-title"><%=news.titulo%></h2></p>
-            <a href="/content/blog/<%=news.id_novedades%>"><button>LEER MAS</button></a>
+      <!-- fin contenedor banner principal -->
+      <!--Inicio seccion filolosofia-->
+      <section class="philosophy">
+        <div class="text-content">
+          <div class="title-philosophy">
+            <img src="img/title-filosofia.png" alt="imagen de título">
           </div>
-          </li>
-          <%})%>
-        </ul>
-      </article>
-    </section>
+          <h2>Una copa, una historia</h2>
+          <div class="text-circle"><p>En <b>Terra Rossa</b> sabemos que no se puede comprar la felicidad, pero un buen vaso de vino en el momento oportuno vale más que todas las riquezas de la tierra. Por éste motivo nos dedicamos a darte siempre lo mejor, en cada momento y en cada lugar.</p>
+            <img src="img/side-view-glass-of-red-wine-with-human-hand.jpg" alt="">
+          </div>
+        </div>
+      </section>
+      <!--Fin seccion filosofia-->
+
+      <!--Inicio seleccion terra rossa-->
+      <section class="container__selection">
+        <div class="selection__title"><h1>SELECCIÓN TERRA ROSSA</h1></div>
+        <div class="container__buttonarrow">
+          <div class="selection__nextbuttonLeft"><i class="fa-solid fa-caret-left"></i></div>
+          <div class="selection__nextbuttonRight"> <i class="fa-solid fa-caret-right"></i></div>
+        </div>
+      <div class="container__block">
+        <% seleccion.forEach(seleccion => { %>
+          <article class="block">
+            <p class="selection__type" ><%= seleccion.productName %></p>       
+            <img class="selection__product" src="/img/productImg/<%= seleccion.productImg %>" alt="Aqui va la imagen">
+            <a class="selection__botomver" href="/product/product-detail/<%= seleccion.idProduct %>" target="ver.productoDetail">VER PRODUCTO</a>
+          </article>
+        <% }); %>
+      <!--<script>
+      const button = document.getElementById('next');
+
+      button.onclick = function (next) {
+      document.getElementById('container__block').scrollLeft += 20;
+      };
+      </script>-->
+      </div>
+
+      </section>
+        <!-- Seccion de novedades -->
+      <section class="news">
+        <article ><h2 class="subtitle">Novedades:</h2></article>
+        <article >
+          <ul class="product-news">
+            <% news.forEach(news => { %>
+            <li class="item">
+              <div><img class="img" src="<%=news.img%>"></div>
+              <div class="parrafo"><p><h2 class="news-title"><%=news.titulo%></h2></p>
+              <a href="/content/blog/<%=news.id_novedades%>"><button>LEER MAS</button></a>
+            </div>
+            </li>
+            <%})%>
+          </ul>
+        </article>
+      </section>
     
     </main>
    <footer class="footer">

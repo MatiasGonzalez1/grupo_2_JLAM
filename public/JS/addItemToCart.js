@@ -6,7 +6,7 @@ formAddToCart.forEach((f)=>{
     f.addEventListener("submit", async(e)=>{
             e.preventDefault();
             
-            const response =  await fetch("http://localhost:3000/product/product-cart/"+ inputCart, {
+            const response =  await fetch("http://localhost:3001/product/product-cart/"+ inputCart, {
                 method:"POST"
             });
             if (response.status == 200) {
