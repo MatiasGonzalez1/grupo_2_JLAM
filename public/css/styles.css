@@ -921,6 +921,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 40px;
     z-index: 0;
     align-items: center;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory
 
 }
 
@@ -946,6 +948,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 175px;
     height: 300px;
     border-radius: 3px;
+    scroll-snap-align: center;
 }
 
 .selection__title h1 {
@@ -1015,17 +1018,22 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .selection__nextbuttonLeft {
+    height: 0px;
     align-items: flex-start;
-    font-size: 50px;
+    font-size: 31px;
     color: white;
     margin-top: 160px;
+    background: transparent;
+    border: 2px solid transparent;
 }
 
 .selection__nextbuttonRight {
-    height: 60px;
-    font-size: 50px;
+    height: 0px;
+    font-size: 31px;
     color: white;
+    background-color:#2B2B2B;
     margin-top: 160px;
+    border: 2px solid transparent;
 }
 
 /*************************FOOTER************************/
@@ -2007,6 +2015,7 @@ li datalist option {
 
     .container__block {
         width: 290px;
+        padding: 18px;
     }
 
     .container__buttonarrow {
@@ -2016,12 +2025,12 @@ li datalist option {
 
     .selection__nextbuttonLeft {
         margin-left: 80px;
-
+        font-size: 37px;
     }
 
     .selection__nextbuttonRight {
         margin-right: 80px;
-
+        font-size: 37px;
     }
 
     .container__block {
