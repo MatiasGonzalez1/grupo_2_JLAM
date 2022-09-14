@@ -59,8 +59,7 @@
           <p class="cataname__product"> <%= producto.productName %></p>
           <p class="cataprecio__product">$ <%= formatter.format(producto.productPrice)%></p>
           
-          <form class="cartForm" action="" method="post">
-            <input class="inputForm" type="hidden" value="<%= producto.idProduct%>">
+          <form class="cartForm" id="<%= producto.idProduct%>" action="" method="post">
               <div class="container__buttons">
                 <button type="submit" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i></button>
                 <a class="cata__eye" id="add-item" href="/product/product-detail/<%= producto.idProduct%>" target=""><i class="fa-regular fa-eye"></i></a>

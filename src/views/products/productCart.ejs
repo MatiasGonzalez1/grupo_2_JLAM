@@ -68,7 +68,7 @@
             <div class="container__total">
               <div class="total__detail">
                 <p>subtotal:</p>
-                <% if(total){%>
+                <% if(total >0){%>
                   <p>$ <%= formatter.format(total)%></p>
                 <% }else{%>
                   <p>$ 0</p>
@@ -81,7 +81,7 @@
               <div class="total__detail">
                 <p><span>total:</span></p>
                 <div>
-                  <% if(total){%>
+                  <% if(total > 0){%>
                     <p>$ <%= formatter.format(total)%></p>
                   <% }else{%>
                     <p>$ 0</p>
