@@ -40,7 +40,6 @@ const mainController = {
     },
 
     allBlogs: (req,res) =>{
-        
         res.render(path.join(__dirname, '../views/allBlogs.ejs'),{news:news, user: req.session.userLogged})
     },
     faq: (req,res) =>{

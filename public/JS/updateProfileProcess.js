@@ -1,12 +1,25 @@
 const editProfileProcess = async (dataBody)=>{
-    const request = await fetch("http://localhost:3000/users/edit-user", {
+    const request = await fetch("http://localhost:3001/users/edit-user", {
         method: "PUT",
         //envio los datos que recibo desde editProfileValidator.js
         body:dataBody, 
     });
-    console.log();
-    if (request.status == 200) {
-        //disparo mi alerta con la configuracion
+
+    const responseJson = await request.json();
+    if(responseJson.errors != undefined){
+        Swal.fire({
+            title: '¡Oh no! Ocurrió algo inesperado',
+            text: 'Por favor revisa todos tus datos',
+            imageUrl: '/img/error-icon.png',
+            imageHeight: 100,
+            imageAlt: 'Custom image',
+            confirmButtonText: "Entendido!",
+            confirmButtonColor: "#FF452C", 
+            buttonsStyling:true,
+          })
+        return responseJson;
+    }else{
+         //disparo mi alerta con la configuracion
         Swal.fire({
             title: '¡Todo al día!',
             text: 'Tus datos fueron correctamente actualizados',
@@ -22,17 +35,6 @@ const editProfileProcess = async (dataBody)=>{
                     //redireccion 
                  window.location.href = "/";
                }
-          })
-    }else{
-        Swal.fire({
-            title: '¡Oh no! Ocurrió algo inesperado',
-            text: 'Por favor revisa todos tus datos',
-            imageUrl: '/img/error-icon.png',
-            imageHeight: 100,
-            imageAlt: 'Custom image',
-            confirmButtonText: "Entendido!",
-            confirmButtonColor: "#FF452C", 
-            buttonsStyling:true,
-          })
+        })
     }
-    }
+}
