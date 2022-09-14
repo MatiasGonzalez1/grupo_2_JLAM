@@ -1,5 +1,5 @@
 const formAddToCart = document.querySelectorAll("form.cartForm");
-const inputCart = document.querySelector("input.inputForm").value;
+const inputCart = document.querySelectorAll("input.inputForm").value;
 
 
 formAddToCart.forEach((f)=>{

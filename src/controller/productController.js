@@ -105,7 +105,7 @@ const productController = {
         if (req.cookies.carrito != undefined){
             //asigno a una variable
             let carritoActual = JSON.parse(req.cookies.carrito);
-
+            let total = 0;
             let carritoFinal= await Promise.all(carritoActual.map(async function(element){
                 //busco el producto que tiene el mismo id que el de mi carrito
 
@@ -121,23 +121,22 @@ const productController = {
                     productImg: product.productImg,
                     productPrice: product.productPrice,
                 }
+                total = total + Number(product.productPrice * element.quantity);
                 return productData; 
             }));
-            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:carritoFinal, user: req.session.userLogged});
+            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:carritoFinal, user: req.session.userLogged, total});
         }else{
             res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:[], user: req.session.userLogged});
         }
     },
 
     addItem: (req, res) => {
-        //tomo el id
-        console.log(req);
         const idProducto = req.params.id;
         let cantidad = 0;
-        
+        console.log(req);
         //pregunto si existe re.body.cantidad
         if (req.body.cantidad) {
-            cantidad = cantidad + req.body.cantidad;
+            cantidad = cantidad + Number(req.body.cantidad);
         }else{
             cantidad = 1;
         }
