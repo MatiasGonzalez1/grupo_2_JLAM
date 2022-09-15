@@ -186,26 +186,6 @@
     <footer class="footer">
       <%- include('../partials/footer.ejs')%>
     </footer>
-    <script>// mostrar metodo de pago
-      const paymentVisible = document.getElementById('checkoutNext');
-      const shippingVisible = document.getElementById('checkoutPrev');
-      const paymentData = document.getElementById('paymentData');
-      const shippingForm = document.getElementById('shippingForm');
-      const paymentForm = document.getElementById('paymentForm');
-      
-      paymentVisible.addEventListener("click", () => {
-        paymentData.classList.toggle("disabled");
-        paymentData.classList.toggle("enabled");
-        shippingForm.classList.toggle("checkout-hidden");
-        paymentForm.classList.toggle("checkout-hidden");
-      });
-  
-      shippingVisible.addEventListener("click", () => {
-        paymentData.classList.toggle("disabled");
-        paymentData.classList.toggle("enabled");
-        shippingForm.classList.toggle("checkout-hidden");
-        paymentForm.classList.toggle("checkout-hidden");
-      });</script>
 
   <script src="/js/checkoutValidation.js"></script>
   </body>
