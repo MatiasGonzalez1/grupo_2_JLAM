@@ -49,18 +49,6 @@
           <!-- <li class="li-not submit"><button >Buscar</button></li> -->
       </ul>
       <ul class="">
-      <!-- <li><p>Variedad</p></li>
-      <div class="">
-        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="malbec"><p>Malbec</p></li>  
-        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="merlot"><p>Merlot</p></li>  
-        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="pinotNoir"><p>Pinot Noir</p></li>  
-        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="cabernet sauvignon"><p>Cabernet Sauvignon</p></li>  
-        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="syrah"><p>Syrah</p></li> 
-        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="tempranillo"><p>Tempranillo</p></li>
-        <li class="li-not"><input type="checkbox" id="filterVariety" name="variedad" value="chardonnay"><p>Chardonnay<p></li>
-
-        </div> -->
-        <!-- <li class="li-not submit"><button id="btnReset">Buscar</button></li> -->
       </ul>
     </div>
       </div>
@@ -71,8 +59,7 @@
           <p class="cataname__product"> <%= producto.productName %></p>
           <p class="cataprecio__product">$ <%= formatter.format(producto.productPrice)%></p>
           
-          <form class="cartForm" action="/product/product-cart/<%= producto.idProduct%>" method="post">
-            <input class="inputForm" type="hidden" value="<%= producto.idProduct%>">
+          <form class="cartForm" id="<%= producto.idProduct%>" action="" method="post">
               <div class="container__buttons">
                 <button type="submit" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i></button>
                 <a class="cata__eye" id="add-item" href="/product/product-detail/<%= producto.idProduct%>" target=""><i class="fa-regular fa-eye"></i></a>
