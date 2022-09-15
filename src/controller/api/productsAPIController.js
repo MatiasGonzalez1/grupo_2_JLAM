@@ -19,28 +19,24 @@ const categoria = db.ProductCategory
 
 const productsAPIController = {
   
-loadProducts: async (req, res)=>{
-  const countBy = await sequelize.query("SELECT ProductCategory.productCategoryName, Products.productName FROM `ProductCategory` INNER JOIN `Products` ON ProductCategory.idProductCategory = Products.idProductCategory", {
-    type: QueryTypes.SELECT })
-    res.status(200).json({data:countBy});
-},
-
-    // loadProducts: (req, res)=>{ //listado de productos   
-    //     db.Product.findAll()
-    //         .then((products)=>{
-    //         // Creo un array que contendrá a cada usuario
-    //             let datos = [];
-    //             dataSet(products, datos);   
-    //              return res.json({
-    //                 status: 200,
-    //                 count: products.length,
-    //                 countByCategory: '', //raw query
-    //                 products:datos,
-    //             })
-    //         })
-    //         .catch(error => res.send(error));
-    //         ;
-//},  
+    loadProducts: async(req, res)=>{ //listado de productos 
+      const countBy = await sequelize.query("SELECT ProductCategory.productCategoryName, SUM(Products.productStock)FROM `ProductCategory` INNER JOIN `Products` ON ProductCategory.idProductCategory = Products.idProductCategory GROUP BY ProductCategory.productCategoryName", {
+        type: QueryTypes.SELECT })  
+        db.Product.findAll()
+            .then((products)=>{
+            // Creo un array que contendrá a cada usuario
+                let datos = [];
+                dataSet(products, datos);   
+                 return res.json({
+                    status: 200,
+                    count: products.length,
+                    countByCategory: countBy, //raw query
+                    products:datos,
+                })
+            })
+            .catch(error => res.send(error));
+            ;
+},  
 
     'ProductData': (req, res)=>{ //datos de producto por id
         db.Product.findByPk(Number(req.params.id))
