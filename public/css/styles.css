@@ -1776,14 +1776,16 @@ li datalist option {
     justify-content: space-between;
     color: #fbf2e0;
     text-transform: capitalize;
+    font-size: 14px
 }
 .checkout-items-text p{
-    font-size: 14px;
+    font-size: 15px;
     margin-top: 10px;
+    font-weight: bold;
 }
 .checkout-items-text span{
-    font-size: 12px;
     margin-top: 10px;
+    font-weight: normal;
 }
 .checkout-items{
     max-height: 60%;
@@ -2501,7 +2503,7 @@ li datalist option {
     .input__section label{
         padding-bottom: 10px;
         color: #FBF2E0;
-        font-size: 12px;
+        font-size: 15px;
     }
     .input__group{
        display: flex;
