@@ -101,8 +101,7 @@ const productController = {
             }
         })
         .then(productos =>{
-            console.log(productos);
-            res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {user: req.session.userLogged, productos: productos});
+            res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {user: req.session.userLogged, productos: productos, searchQuery});
         })
         .catch(error => res.send(error))
         

@@ -1185,6 +1185,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .catalogo__conteiner {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 10px 10px;
@@ -1306,6 +1307,21 @@ input[type=number]::-webkit-outer-spin-button {
     color: #333333;
 }
 
+.nav-alert{
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    padding: 20px 5% ;
+    text-align: center;
+}
+.nav-alert h1{
+    font-size: 12px;
+    color: #fbf2e0;
+}
+.nav-alert span{
+    font-style: italic;
+    font-weight: normal;
+}
 /*Fin Catalogo*/
 
 /*Seccion filtro*/
@@ -2396,6 +2412,7 @@ li datalist option {
     }
 
     .catalogo__conteiner {
+        position: relative;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         width: 100%;
@@ -2411,7 +2428,21 @@ li datalist option {
         width: 100%;
         display: grid;
     }
-
+    .nav-alert{
+        position: absolute;
+        width: 100%;
+        margin: auto;
+        padding: 50px 5%;
+        text-align: center;
+    }
+    .nav-alert h1{
+        font-size: 16px;
+        color: #fbf2e0;
+    }
+    .nav-alert span{
+        font-style: italic;
+        font-weight: normal;
+    }
     /*Fin catalogo*/
 
     /************ seccion all-blogs ************/
@@ -3042,7 +3073,7 @@ li datalist option {
 
     .catalogo__title {
         text-align: start;
-        padding-left: 10px;
+        padding-left: 40px;
         padding-top: 30px;
     }
 
@@ -3532,6 +3563,9 @@ li datalist option {
         height: 600px;
     }
     /*Comienzo catalogo*/
+    .catalogo__title {
+        padding-left: 10px;
+    }
     .catalogo__queries {
         width: 85%;
         margin: auto;
@@ -3551,8 +3585,12 @@ li datalist option {
     .catalogo__headertitle {
         width: 84%;
     }
-
-
+    .nav-alert{
+        text-align: left;
+    }
+    .nav-alert h1{
+        font-size: 18px;
+    }
     /*Fin catalogo*/
 
     /*Filtro*/
@@ -3570,8 +3608,6 @@ li datalist option {
 }
 
 @media screen and (min-width: 1440px) {
-
-
     /*Inicio Filosofia*/
     .philosophy .text-content {
         width: 60%;
@@ -3618,7 +3654,6 @@ li datalist option {
     .catalogo__headertitle {
         width: 82%;
     }
-
 
     /*Footer*/
     .footer ul {
@@ -3692,8 +3727,6 @@ li datalist option {
         font-size: 20px;
 
     }
-
-
 }
 
 
