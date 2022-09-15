@@ -1,24 +1,43 @@
 const db = require('../../database/models');
-const {Op} = require('sequelize');
+const {Op, QueryTypes} = require('sequelize');
+const { sequelize } = require('../../database/models'); //se requiere sequelize para operaciones con raw queries
 
-let dataProduct = (respuesta, array) => {
+//se crea función para setear datos
+let dataSet = (respuesta, array) => {
     respuesta.forEach((producto) => {
-      array.push({
+      array.push({  
         id: producto.idProduct,
-        productName: producto.productName,
-        productHarvest: producto.productHarvest,
-        productVariety: producto.productVariety,
-        productPrice: producto.productPrice,
+        name:producto.productName,
+        description:producto.productDescription,
+        category: producto.idProductCategory,
+        include: [{association: 'category'}],
         detail: `http://localhost:3001/api/product/${producto.idProduct}`,
       });
     });
   };
 
-const productAPIController = {
 
-    'loadProducts': (req, res)=>{ //listado de productos
-
-    },
+const productsAPIController = {
+  
+    loadProducts: async(req, res)=>{ //listado de productos | el cb debe ser asíncrono para usar raw queries
+      const countBy = await sequelize.query("SELECT ProductCategory.productCategoryName, SUM(Products.productStock) AS Stock FROM `ProductCategory` INNER JOIN `Products` ON ProductCategory.idProductCategory = Products.idProductCategory GROUP BY ProductCategory.productCategoryName", {
+        type: QueryTypes.SELECT })  
+        db.Product.findAll()
+            .then((products)=>{
+            // Creo un array que contendrá a cada usuario
+                let datos = [];
+                dataSet(products, datos);   
+                //se pasan los datos finales al objeto para la respuesta
+                 return res.json({
+                    status: 200,
+                    count: products.length,
+                    countByCategory: countBy, //se usa la consulta de la raw query
+                    products:datos,
+                })
+            })
+            .catch(error => res.send(error));
+            ;
+},  
 
     'ProductData': (req, res)=>{ //datos de producto por id
         db.Product.findByPk(Number(req.params.id))
@@ -70,4 +89,4 @@ const productAPIController = {
     }
 };
 
-module.exports = productAPIController
+module.exports = productsAPIController
