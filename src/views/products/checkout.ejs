@@ -154,15 +154,27 @@
             <div class="checkout-items">
               <div class="checkout-items-text">
                 <p>subtotal:</p>
-                <p>5000</p>
+                <% if(subtotal >0){%>
+                  <p>$ <%= formatter.format(subtotal)%></p>
+                <% }else{%>
+                  <p>$ 0</p>
+                <% }%>
               </div>
               <div class="checkout-items-text">
                 <p><span>costo de envio:</span></p>
-                <p><span>+ 1000</span></p>
+                <% city.forEach(city => { %>
+                  <% if (city.idCity == user.idCity) {%>
+                    <p class="shippingCost"><span>+ <%= city.shippingCost%></span></p>
+                  <%}%>
+                <% })%>
               </div>
               <div class="checkout-items-text">
                 <p>total:</p>
-                <p>6000</p>
+                <% if(subtotal >0){%>
+                  <p>$ <%= formatter.format(subtotal)%></p>
+                <% }else{%>
+                  <p>$ 0</p>
+                <% }%>
               </div>
             </div>
           </div>
