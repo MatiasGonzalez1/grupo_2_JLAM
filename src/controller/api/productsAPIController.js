@@ -1,7 +1,8 @@
 const db = require('../../database/models');
-const {Op, Sequelize, QueryTypes} = require('sequelize');
-const { sequelize } = require('../../database/models');
+const {Op, QueryTypes} = require('sequelize');
+const { sequelize } = require('../../database/models'); //se requiere sequelize para operaciones con raw queries
 
+//se crea función para setear datos
 let dataSet = (respuesta, array) => {
     respuesta.forEach((producto) => {
       array.push({  
@@ -15,11 +16,10 @@ let dataSet = (respuesta, array) => {
     });
   };
 
-const categoria = db.ProductCategory
 
 const productsAPIController = {
   
-    loadProducts: async(req, res)=>{ //listado de productos 
+    loadProducts: async(req, res)=>{ //listado de productos | el cb debe ser asíncrono para usar raw queries
       const countBy = await sequelize.query("SELECT ProductCategory.productCategoryName, SUM(Products.productStock) AS Stock FROM `ProductCategory` INNER JOIN `Products` ON ProductCategory.idProductCategory = Products.idProductCategory GROUP BY ProductCategory.productCategoryName", {
         type: QueryTypes.SELECT })  
         db.Product.findAll()
@@ -27,10 +27,11 @@ const productsAPIController = {
             // Creo un array que contendrá a cada usuario
                 let datos = [];
                 dataSet(products, datos);   
+                //se pasan los datos finales al objeto para la respuesta
                  return res.json({
                     status: 200,
                     count: products.length,
-                    countByCategory: countBy, //raw query
+                    countByCategory: countBy, //se usa la consulta de la raw query
                     products:datos,
                 })
             })
