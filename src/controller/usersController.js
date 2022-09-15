@@ -54,6 +54,14 @@ const usersController = {
     admin: (req, res) =>{
         res.render(path.join(__dirname, '../views/adminArea.ejs'), {userLog: req.session.userLogged});
     },
+    getShippingCost:async(req, res) =>{
+
+        let currentCity = await db.Cities.findByPk(Number(req.params.id),{
+        })
+        return res.json(currentCity);
+        // console.log(res.json(currentCity), currentCity);
+        
+    },
     registerView: (req, res)=>{
         res.render(path.join(__dirname, '../views/users/registro.ejs'))
     },

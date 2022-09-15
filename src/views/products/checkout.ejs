@@ -15,7 +15,7 @@
     style: "decimal",
     minimumFractionDigits: 2,
   }); 
-  %>
+   %>
     <!-- inicio -->
     <section class="margin__nav">
       <h1 class="cart__title">Finalizar Compra</h1>
@@ -153,27 +153,27 @@
             <div class="btn-back-cart"><a class="cart__btn--checkout" href="/product/product-cart">Volver al Carrito</a></div>
             <div class="checkout-items">
               <div class="checkout-items-text">
-                <p>subtotal:</p>
+                <p><span>subtotal:</span></p>
                 <% if(subtotal >0){%>
-                  <p>$ <%= formatter.format(subtotal)%></p>
+                  <p class="checkout-subtotal">$ <span><%= formatter.format(subtotal)%></span></p>
                 <% }else{%>
-                  <p>$ 0</p>
+                  <p class="checkout-subtotal">$ 0</p>
                 <% }%>
               </div>
               <div class="checkout-items-text">
                 <p><span>costo de envio:</span></p>
                 <% city.forEach(city => { %>
                   <% if (city.idCity == user.idCity) {%>
-                    <p class="shippingCost"><span>+ <%= city.shippingCost%></span></p>
+                    <p ><span class="shippingCost">+ <%= city.shippingCost%></span></p>
                   <%}%>
                 <% })%>
               </div>
               <div class="checkout-items-text">
                 <p>total:</p>
                 <% if(subtotal >0){%>
-                  <p>$ <%= formatter.format(subtotal)%></p>
+                  <p class="checkout-total">$ <%= formatter.format(subtotal)%></p>
                 <% }else{%>
-                  <p>$ 0</p>
+                  <p class="checkout-total">$ 0</p>
                 <% }%>
               </div>
             </div>
@@ -188,5 +188,6 @@
     </footer>
 
   <script src="/js/checkoutValidation.js"></script>
+  <script src="/js/shippingCost.js"></script>
   </body>
 </html>

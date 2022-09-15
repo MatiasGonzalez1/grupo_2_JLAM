@@ -1,5 +1,5 @@
 window.addEventListener('load', () => {
-    //formulario visible/invisible
+    //formulario visible/
     const paymentVisible = document.getElementById('checkoutNext');
     const shippingVisible = document.getElementById('checkoutPrev');
     const paymentData = document.getElementById('paymentData');
@@ -19,7 +19,7 @@ window.addEventListener('load', () => {
       shippingForm.classList.toggle("checkout-hidden");
       paymentForm.classList.toggle("checkout-hidden");
     });
-
+    
     //formulario
     let form = document.querySelector("form.form-checkout");
 
@@ -101,11 +101,9 @@ window.addEventListener('load', () => {
             cityCheck.classList.add('input-warning');
             errorWarning(cityCheck, errores.cityCheck);
         } else {
-
             delError(cityCheck);
         }
-    })
-
+    });
 
     //direccion
     addressCheck.addEventListener('input', () => {
