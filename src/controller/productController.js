@@ -80,9 +80,7 @@ const productController = {
     },
     searchProduct: (req, res) => {
         let searchQuery = req.query.searchValue;
-        
-        db.Product.findAll({
-            include: [{association: 'category'}],  
+        db.Product.findAll({  
             where: {
                 [Op.or] :[
                     {productName: {
@@ -91,10 +89,19 @@ const productController = {
                     {productVariety: {
                         [Op.like]: '%' + searchQuery + '%'
                     }},
+                    {'$category.productCategoryName$': {
+                        [Op.like]: '%' + searchQuery + '%'
+                    }}
                 ]
+            },
+            include:{
+                model: db.ProductCategory,
+                as: 'category',
+                required: true
             }
         })
         .then(productos =>{
+            console.log(productos);
             res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {user: req.session.userLogged, productos: productos});
         })
         .catch(error => res.send(error))
