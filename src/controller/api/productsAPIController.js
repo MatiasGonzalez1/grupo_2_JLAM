@@ -20,7 +20,7 @@ const categoria = db.ProductCategory
 const productsAPIController = {
   
     loadProducts: async(req, res)=>{ //listado de productos 
-      const countBy = await sequelize.query("SELECT ProductCategory.productCategoryName, SUM(Products.productStock)FROM `ProductCategory` INNER JOIN `Products` ON ProductCategory.idProductCategory = Products.idProductCategory GROUP BY ProductCategory.productCategoryName", {
+      const countBy = await sequelize.query("SELECT ProductCategory.productCategoryName, SUM(Products.productStock) AS Stock FROM `ProductCategory` INNER JOIN `Products` ON ProductCategory.idProductCategory = Products.idProductCategory GROUP BY ProductCategory.productCategoryName", {
         type: QueryTypes.SELECT })  
         db.Product.findAll()
             .then((products)=>{
