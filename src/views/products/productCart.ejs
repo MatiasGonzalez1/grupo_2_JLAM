@@ -68,14 +68,26 @@
             <div class="container__total">
               <div class="total__detail">
                 <p>subtotal:</p>
-                  <p>$ 00,00</p>
+                <% if(total >0){%>
+                  <p>$ <%= formatter.format(total)%></p>
+                <% }else{%>
+                  <p>$ 0</p>
+                <% }%>
+              </div>
+              <div class="total__detail">
+                <p>Descuento:</p>
+                  <p>$ 0</p>
               </div>
               <div class="total__detail">
                 <p><span>total:</span></p>
                 <div>
-                  <p>$ 00,00</p>
+                  <% if(total > 0){%>
+                    <p>$ <%= formatter.format(total)%></p>
+                  <% }else{%>
+                    <p>$ 0</p>
+                  <% }%>
                   <div class="total__message">
-                    <p>iva no incluido</p>
+                    <p>No incluye costos de envío</p>
                   </div>
                 </div>
               </div>

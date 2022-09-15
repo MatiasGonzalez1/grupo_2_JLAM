@@ -60,8 +60,6 @@ const usersController = {
     register: async (req,res) =>{
 
         let errors = validationResult(req);
-        console.log(errors);
-        
         if(!errors.isEmpty()){
         // si existe un archivo con propiedad filename
         if (req.file) {

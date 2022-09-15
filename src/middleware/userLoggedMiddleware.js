@@ -12,7 +12,6 @@ async function userLoggedMiddleware (req, res, next) {
             let userMatch = await db.Users.findOne({
                 where:  {userEmail: req.cookies.recordarme}
             })
-            console.log(userMatch);
             delete userMatch.password;
             
             req.session.userLogged = userMatch; // coloca al usuario en session
