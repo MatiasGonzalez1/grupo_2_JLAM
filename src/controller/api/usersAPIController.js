@@ -6,10 +6,11 @@ const userAPIController = {
     //listado de usuarios
 
     // Dicha paginacion sera determinada por la query 'page'
-    // al siguiente endpoint "http://localhost:3001/api/users?page=1"
-    // Por defecto (sin query) traera los primeros 10 usuarios "http://localhost:3001/api/users"
+    // al siguiente endpoint "http://localhost:3001/api/users?page=0"
+    // Por defecto (sin query) traera todos los usuarios regustrados "http://localhost:3001/api/users"
     let page = 0;
-    req.query.page? page = Number(req.query.page) * 10: '';
+    let limit = 10
+    req.query.page? page = Number(req.query.page) * 10: limit = undefined;
 
     db.Users.findAll({
       attributes: [
@@ -19,7 +20,7 @@ const userAPIController = {
         ["userEmail", "email"],
       ], //Determinacion de columnas a traer de la DB
       offset: page,
-      limit: 10,
+      limit: limit,
     })
       .then((users) => {
         //Recorro los usuarios de la consulta y agrego la propiedad detalle
