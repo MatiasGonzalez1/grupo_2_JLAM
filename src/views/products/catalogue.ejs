@@ -53,23 +53,28 @@
     </div>
       </div>
       <div class="catalogo__conteiner" id="divSearch">
-        <% productos.forEach(producto => { %>
-          <article class="cata__products">
-          <img class="cataimg__product" src="/img/productImg/<%= producto.productImg%>" alt="aqui va la foto">
-          <p class="cataname__product"> <%= producto.productName %></p>
-          <p class="cataprecio__product">$ <%= formatter.format(producto.productPrice)%></p>
-          
-          <form class="cartForm" id="<%= producto.idProduct%>" action="" method="post">
-              <div class="container__buttons">
-                <button type="submit" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i></button>
-                <a class="cata__eye" id="add-item" href="/product/product-detail/<%= producto.idProduct%>" target=""><i class="fa-regular fa-eye"></i></a>
-              </div>
-            </form>
-        </article>
-       <% })   %>
+        <% if (Object.keys(productos).length > 0) {%>
+          <% productos.forEach(producto => { %>
+            <article class="cata__products">
+            <img class="cataimg__product" src="/img/productImg/<%= producto.productImg%>" alt="aqui va la foto">
+            <p class="cataname__product"> <%= producto.productName %></p>
+            <p class="cataprecio__product">$ <%= formatter.format(producto.productPrice)%></p>
+            
+              <form class="cartForm" id="<%= producto.idProduct%>" action="" method="post">
+                <div class="container__buttons">
+                  <button type="submit" class="add-to-cart"><i class="fa-solid fa-cart-shopping"></i></button>
+                  <a class="cata__eye" id="add-item" href="/product/product-detail/<%= producto.idProduct%>" target=""><i class="fa-regular fa-eye"></i></a>
+                </div>
+              </form>
+            </article>
+          <% })   %>
+        <%}else{ %>
+          <div class="nav-alert">
+            <h1 class=""><strong>No se encontraron resultados para su búsqueda <span>"<%=searchQuery%>"</span></strong></h1>
+          </div>
+        <% }%>
       </div>
     </div>
-
   </section>
   <footer class="footer">
     <%- include('../partials/footer.ejs')%>
