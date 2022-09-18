@@ -1,10 +1,12 @@
-
-import './App.css';
+import Sidebar from "./Components/Sidebar/Sidebar";
+import './Assets/css/App.css';
 
 function App() {
   return (
     <div>
-      <h1>Acá va nuestro Dashboard</h1>
+       {/* <!-- Sidebar -->  */}
+       <Sidebar />
+       {/* <!-- End of Sidebar --> */}
     </div>
   );
 }
