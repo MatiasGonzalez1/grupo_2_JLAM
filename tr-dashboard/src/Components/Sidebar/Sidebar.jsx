@@ -3,12 +3,15 @@ import Logo from "../../Assets/images/logo-w.png";
 import Img from "../../Assets/images/admin@admin.com_1657413736084.png";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { faWineBottle } from "@fortawesome/free-solid-svg-icons";
-import { faWineGlass } from "@fortawesome/free-solid-svg-icons";
+import {faBars,faUser,faWineBottle,faWineGlass} from "@fortawesome/free-solid-svg-icons";
+import Get from "../../utils/Request.js";
+
 
 function Sidebar() {
+
+    /*fetch(`http://localhost:3001/api/users/`)
+    .then(response => response.json())
+    .then(usuarios => console.log(usuarios.data)) */
 
     return (
 
@@ -28,7 +31,7 @@ function Sidebar() {
             <div className="user__sidebar_img">
                 <img src={Img} className="img_user" alt="imagen de usuario" /></div>
             </div>
-
+            <div className="container__paneles">
             <li className="container__panel">
                 <Link className="panel" to="/usuarios">
                 <FontAwesomeIcon className="icon__user" icon={faUser} />
@@ -46,7 +49,7 @@ function Sidebar() {
                 <FontAwesomeIcon className="icon__user" icon={faWineGlass} />
                 <span className="name__panel">Categorias</span></Link>
             </li>
-
+            </div>
         </ul>
         
     )
