@@ -3,18 +3,13 @@ import Sidebar from "../Components/Sidebar/Sidebar";
 
 function home() {
 
-    return (
-        <>
+    return <>
         {/* <!-- Sidebar -->  */}
         
         {/* <!-- End of Sidebar --> */}
 
         {/* <!-- Main Content --> */}
-
-        
-</>
-      
-    )
+    </>
   }
-
+  
 export default home ;
