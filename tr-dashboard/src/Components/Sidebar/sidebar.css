@@ -111,7 +111,8 @@
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
     .container__sidebar {
-        width: 35%;
+        width: 10%;
+        height: 100vh;
     }
 
     .icon__hamburguer {
@@ -142,7 +143,7 @@
 @media (min-width: 1200px) {
 
     .container__sidebar {
-        width: 29%;
+        width: 15%;
     }
     .icon__hamburguer {
         left: 25%;
