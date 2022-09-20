@@ -6,7 +6,10 @@
 }
 
 .content__nav {
-    width: 50%;
+    width: 100%;
+    height: 18%;
+    z-index: 10;
+    background-color: rgba(129, 127, 127, 0.2);
 }
 
 .icon__hamburguer {
@@ -33,9 +36,11 @@
     margin-top: 20px;
     box-sizing: content-box;
 }
+
 .container__paneles {
     padding-top: 40px;
 }
+
 .data_content {
     margin-top: 40px;
     text-align: center;
@@ -79,13 +84,14 @@
 
 .container__sidebar li {
     height: 50px;
-    text-align: center;
     transition: all 0.4s ease;
     border-radius: 12px;
     width: 100%;
     display: inline-block;
     line-height: 2;
     padding: 10px;
+    padding-left: 85px;
+    margin-top: 8px;
 }
 
 .container__sidebar li:hover {
@@ -99,21 +105,55 @@
     width: 100%;
 }
 
-.container__panel {
-    margin-right: 20px;
-}
 
 /*fin sidebar*/
 
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
     .container__sidebar {
-        width: 35%;
+        width: 10%;
+        height: 100vh;
     }
+
     .icon__hamburguer {
         left: 29%;
+    }
+
+    .logo_terra {
+        padding-left: 9vw;
+    }
+
+    .container__sidebar li {
+        padding-left: 60px;
+        margin-top: 10px;
+    }
+}
+
+/* Seccion Barra de navegacion laptop */
+@media (min-width: 913px) {
+    .container__sidebar li {
+        padding-left: 85px;
+        margin-top: 12px;
+    }
+
+    .logo_terra {
+        padding-left: 10vw;
+    }
+}
+@media (min-width: 1200px) {
+
+    .container__sidebar {
+        width: 15%;
+    }
+    .icon__hamburguer {
+        left: 25%;
     }
     .logo_terra {
         padding-left: 9vw;
     }
+    .container__sidebar li{
+        padding-left: 106px;
+        margin-top: 13px;
+    }
+    
 }
