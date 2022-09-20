@@ -1,4 +1,4 @@
-import React from "react";
+import React, {Component} from "react";
 import Logo from "../../Assets/images/logo-w.png";
 import Img from "../../Assets/images/admin@admin.com_1657413736084.png";
 import { Link } from "react-router-dom";
@@ -6,19 +6,31 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faBars,faUser,faWineBottle,faWineGlass} from "@fortawesome/free-solid-svg-icons";
 import Get from "../../utils/Request.js";
 
+class Sidebar extends Component {
 
-function Sidebar() {
+    constructor() {
+        super();
+        this.state = {
+            showSidebar: false,
+        }
+    }
+    handleShow=() => {
+        let side = document.querySelector(".container__sidebar")
+        console.log("soy el boton")
+        this.setState({  showSidebar: !this.state.showSidebar });
+    }
 
+    render() {
     /*fetch(`http://localhost:3001/api/users/`)
     .then(response => response.json())
     .then(usuarios => console.log(usuarios.data)) */
-
+    const {showSidebar} = this.state
     return (
 
         <ul className="container__sidebar">
 
             <div className="content__nav">
-                <button className="icon__content">
+                <button onClick={() => this.handleShow (showSidebar)} className="icon__content">
                     <FontAwesomeIcon className="icon__hamburguer" icon={faBars} />
                 </button>
                 <div className="logo__content">
@@ -53,6 +65,7 @@ function Sidebar() {
         </ul>
         
     )
+ }
 }
 
 export default Sidebar;
