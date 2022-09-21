@@ -4,3 +4,7 @@ body{
 .main-wrapper{
     display: flex;
 }
+
+.main-wrapper--info{
+    width: 100%;
+}
