@@ -1,4 +1,5 @@
 /*comienzo sidebar*/
+
 .container__sidebar {
     background-color: #2B2B2B;
     width: 100%;
@@ -20,12 +21,7 @@
     font-size: 25px;
     color: #FBF2E0;
     margin-right: 5px;
-    transition: all .4s ease-in-out;
-}
-
-.icon__hamburguer.active {
-    transition-delay: 0.8s;
-    transform: rotate(45deg);
+    
 }
 
 .logo_terra {
@@ -110,6 +106,10 @@
 
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
+    .body {
+        transition: transform 0.5s ease;
+    }
+    
     .container__sidebar {
         width: 35%;
     }
