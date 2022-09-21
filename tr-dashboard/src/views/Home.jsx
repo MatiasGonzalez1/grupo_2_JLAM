@@ -6,7 +6,7 @@ function home() {
 
     return <div className="content-wrapper">
         <div className="color">
-          <p>sda</p>
+          
         </div>
         <div className="card-content">
           {/* tarjetas total usuarios, productos, etc  */}

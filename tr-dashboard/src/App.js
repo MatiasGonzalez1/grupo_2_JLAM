@@ -2,7 +2,7 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import './Components/Sidebar/sidebar.css';
 import { Switch, Route, Redirect } from "react-router-dom";
 import Usuarios from "./Components/Usuarios/Usuarios";
-import Productos from "./Components/Productos/Productos";
+import Products from "./Components/Productos/Products";
 import Categorias from "./Components/Categorias/Categorias";
 import Index from "./views/Home"
 import "./App.css";
@@ -17,7 +17,7 @@ function App() {
         <Switch>
           <Route exact path="/" component={Index} />
           <Route path="/usuarios" component={Usuarios} />
-          <Route path="/productos" component={Productos} />
+          <Route path="/products" component={Products} />
           <Route path="/categorias" component={Categorias} />
           
           <Route>
