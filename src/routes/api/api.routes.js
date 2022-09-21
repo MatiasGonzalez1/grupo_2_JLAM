@@ -9,6 +9,7 @@ routes.get('/users/:id', usersAPIController.userData);
 
 //API productos
 routes.get('/product', productsAPIController.loadProducts);
+routes.get('/last-added', productsAPIController.lastAdded);
 routes.get('/product/page', productsAPIController.ProductPage);
 routes.get('/product/:id', productsAPIController.ProductData);
 

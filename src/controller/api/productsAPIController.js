@@ -86,7 +86,18 @@ const productsAPIController = {
         res.json(response);
       })
       .catch(error => res.send(error));
-    }
+    },
+    lastAdded: (req, res)=>{
+      db.Product.findAll({
+        attributes:['idProduct', 'productName', 'productPrice', 'productStock'], 
+        order: [['idProduct', 'DESC']],
+        limit: 7
+      })
+      .then(lastProducts =>{
+        res.json(lastProducts);
+      })
+      .catch(error => res.send(error));
+    },
 };
 
 module.exports = productsAPIController
