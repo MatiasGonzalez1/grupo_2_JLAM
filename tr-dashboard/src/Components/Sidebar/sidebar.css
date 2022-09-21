@@ -7,6 +7,8 @@
 }
 
 .content__nav {
+    display: flex;
+    align-items: center;
     width: 100%;
     height: 18%;
     z-index: 10;
@@ -15,7 +17,6 @@
 
 .icon__hamburguer {
     position: absolute;
-    margin-top: 40px;
     cursor: pointer;
     left: 83%;
     font-size: 25px;
@@ -29,17 +30,11 @@
     height: 40px;
     padding-left: 30vw;
     margin: 0;
-    margin-top: 20px;
     box-sizing: content-box;
 }
 
 .container__paneles {
     padding-top: 40px;
-}
-
-.data_content {
-    margin-top: 40px;
-    text-align: center;
 }
 
 .user__sidebar {
@@ -86,8 +81,14 @@
     display: inline-block;
     line-height: 2;
     padding: 10px;
-    padding-left: 85px;
     margin-top: 8px;
+    text-align: center;
+}
+.container__sidebar .data_content {
+    text-align: center;
+    padding-left: 20px;
+    margin-top: 40px;
+
 }
 
 .container__sidebar li:hover {
@@ -124,7 +125,6 @@
     }
 
     .container__sidebar li {
-        padding-left: 60px;
         margin-top: 10px;
     }
 }
@@ -132,7 +132,6 @@
 /* Seccion Barra de navegacion laptop */
 @media (min-width: 913px) {
     .container__sidebar li {
-        padding-left: 85px;
         margin-top: 12px;
     }
 
@@ -143,16 +142,15 @@
 @media (min-width: 1200px) {
 
     .container__sidebar {
-        width: 15%;
+        width: 17%;
     }
     .icon__hamburguer {
-        left: 25%;
+        left: 14%;
     }
     .logo_terra {
-        padding-left: 9vw;
+        padding-left: 2vw;
     }
     .container__sidebar li{
-        padding-left: 106px;
         margin-top: 13px;
     }
     
