@@ -29,12 +29,7 @@
     flex-wrap: nowrap;
     gap: 8%;
 }
-.example{
-    width: 100%;
-    height: 50vh;
-    background-color:aquamarine;
-    border-radius: 10px;
-}
+
 .example2{
     width: 100%;
     height: 100px;
