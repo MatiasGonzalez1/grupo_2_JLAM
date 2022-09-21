@@ -1,13 +1,15 @@
 import React from "react";
+import Bienvenida from "../Components/Bienvenida/Bienvenida";
 import "./Home.css";
 // import Sidebar from "../Components/Sidebar/Sidebar";
 
 function home() {
 
     return <div className="content-wrapper">
-        <div className="color">
+        {/* <div className="color">
           <p>sda</p>
-        </div>
+        </div> */}
+        <Bienvenida/>
         <div className="card-content">
           <div className="example2">
           </div>

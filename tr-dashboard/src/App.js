@@ -1,18 +1,20 @@
 import Sidebar from "./Components/Sidebar/Sidebar";
 import './Components/Sidebar/sidebar.css';
 import { Switch, Route, Redirect } from "react-router-dom";
-import Usuarios from "./Components/Usuarios/Usuarios";
+import Usuarios from "./views/Usuarios";
 import Productos from "./Components/Productos/Productos";
 import Categorias from "./Components/Categorias/Categorias";
+import Bienvenida from "./Components/Bienvenida/Bienvenida";
 import Index from "./views/Home"
 import "./App.css";
 
 function App() {
   return (
     <div className="main-wrapper">
-       {/* <!-- Sidebar -->  */}
-       <Sidebar />
-       {/* <!-- End of Sidebar --> */}
+      {/* <!-- Sidebar -->  */}
+      <Sidebar />
+      {/* <!-- End of Sidebar --> */}
+      <Bienvenida/>
        
         <Switch>
           <Route exact path="/" component={Index} />
