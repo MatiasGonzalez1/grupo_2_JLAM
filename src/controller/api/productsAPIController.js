@@ -56,7 +56,7 @@ const productsAPIController = {
             productDescription: product.productDescription,
             productPrice: product.productPrice,
             productStock: product.productStock,
-            imgPath: `/img/productImg/${product.productImg}`,
+            productImg: product.productImg,
             detail: `http://localhost:3001/api/product/${product.productId}`,
           },
         };  

@@ -43,7 +43,6 @@
     transform: rotate(133.03deg);
 }
 .product-detail-data p{
-   margin: 0.5%;
    font-style: italic;
    color: #2b2b2b;
 }
@@ -100,7 +99,7 @@
         overflow-y: hidden;
     }
     .product-main-data {
-        margin-top: 3%;
+        margin-top: 1%;
     }
     .product-main-data p{
         font-size: 25px;

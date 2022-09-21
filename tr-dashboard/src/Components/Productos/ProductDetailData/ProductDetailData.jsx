@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
-import Img from "../../../Assets/images/ProductImg/blend.png";
+import { useParams } from "react-router-dom";
+// import Img from "../../../Assets/images/ProductImg/blend.png";
 import Formatter from '../../../utils/Formatter.js';
-import "./ProductDetail.css";
+import "./ProductDetailData.css";
 
-function ProductDetail() {
+function ProductDetailData() {
+    let idProduct = useParams();
+    console.log(idProduct);
     const [product, setProduct] = useState([]);
 
     const getItemDetail = async()=>{
         try {
-            const result = await fetch("http://localhost:3001/api/product/2")
+            const result = await fetch(`http://localhost:3001/api/product/${idProduct.id}`)
             const productJson = await result.json();
             setProduct(productJson);
         } catch (error) {
@@ -42,11 +45,11 @@ function ProductDetail() {
         </div>
         <div className="products-related-section">
             <div className="product-detail-img">
-                <img className="" src={Img} alt="" /> 
+                <img className="" src={require( `../../../Assets/images/ProductImg/${product.data.productImg}`)} alt="" /> 
             </div>
         </div>
         </>
         }
     </div>
 }
-export default ProductDetail ;
+export default ProductDetailData ;
