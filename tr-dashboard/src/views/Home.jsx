@@ -1,8 +1,8 @@
 import React from "react";
 import "./Home.css";
-import LastAddedProducts from "../Components/LastAddedProducts/LastAddedProducts";
+import LastAddedProducts from "../Components/Productos/LastAddedProducts/LastAddedProducts";
 
-function home() {
+function Home() {
 
     return <div className="content-wrapper">
         <div className="color">
@@ -45,4 +45,4 @@ function home() {
     </div>
   }
 
-export default home ;
+export default Home ;
