@@ -1,7 +1,7 @@
 /*comienzo sidebar*/
 
 .container__sidebar {
-    background-color: #2B2B2B;
+    background-color: rgb(43, 43, 43, 0.9);
     width: 100%;
     height: 600px;
 }
@@ -13,13 +13,15 @@
     height: 18%;
     z-index: 10;
     background-color: rgba(129, 127, 127, 0.2);
+    justify-content: center;
 }
 
-.icon__hamburguer {
-    position: absolute;
+.icon__content {
     cursor: pointer;
-    left: 83%;
+    left: 270px;
     font-size: 25px;
+    height: 0px;
+    background-color: transparent;
     color: #FBF2E0;
     margin-right: 5px;
     
@@ -28,9 +30,10 @@
 .logo_terra {
     width: 130px;
     height: 40px;
-    padding-left: 30vw;
     margin: 0;
     box-sizing: content-box;
+    padding-left: 50px;
+    padding-right: 30px;
 }
 
 .container__paneles {
@@ -38,7 +41,7 @@
 }
 
 .user__sidebar {
-    margin-top: 30px;
+    margin-top: 20px;
     color: #FBF2E0;
     font-size: 15px;
     margin-bottom: 15px;
@@ -81,14 +84,11 @@
     display: inline-block;
     line-height: 2;
     padding: 10px;
-    margin-top: 8px;
     text-align: center;
 }
 .container__sidebar .data_content {
     text-align: center;
     padding-left: 20px;
-    margin-top: 40px;
-
 }
 
 .container__sidebar li:hover {
@@ -107,23 +107,33 @@
 
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
-    .body {
-        transition: transform 0.5s ease;
+    .container__sidebar {
+        position: fixed;
+        width: 30%;
+        height: 100vh;
+        left:-24%;
+        transition: all 500ms linear;
+    }
+    .container__sidebar.active {
+        left:0;
+    }
+    .content__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
     
-    .container__sidebar {
-        width: 10%;
-        height: 100vh;
-    }
-
-    .icon__hamburguer {
-        left: 29%;
-    }
-
     .logo_terra {
-        padding-left: 9vw;
+        padding-left: 5vw;
     }
+    .icon__hamburguer {
+     padding-left: none
 
+     
+    }
+    .icon__content {
+        margin-right: 10px;
+    }
     .container__sidebar li {
         margin-top: 10px;
     }
@@ -134,15 +144,26 @@
     .container__sidebar li {
         margin-top: 12px;
     }
-
-    .logo_terra {
-        padding-left: 10vw;
+    .container__sidebar {
+        width: 29%;
     }
+    .content__nav {
+        justify-content: center;
+    }
+    .user__sidebar {
+        margin-top: 50px;
+    }
+    .logo_terra {
+        width: 140px;
+        height: 50px
+    }
+
 }
 @media (min-width: 1200px) {
 
     .container__sidebar {
-        width: 17%;
+        width: 18%;
+        left:-14.5%;
     }
     .icon__hamburguer {
         left: 14%;
@@ -152,6 +173,9 @@
     }
     .container__sidebar li{
         margin-top: 13px;
+    }
+    .icon__content {
+        margin-right: 2px;
     }
     
 }

@@ -8,12 +8,7 @@ import Get from "../../utils/Request.js";
 
 function Sidebar() {
     const [usuarios, setUsuarios] = useState([]);
-    /*handleShow=() => {
-        let side = document.querySelector(".container__sidebar")
-        console.log("soy el boton")
-        this.setState({ showSidebar: true });
-        console.log(this.state.showSidebar)
-    }*/
+    
     useEffect(() => {
         fetch(`http://localhost:3001/api/users/2`)
 		.then(function(response) {
@@ -26,29 +21,35 @@ function Sidebar() {
 		//le cambiamos el estado a movies
 	},[])
     console.log(usuarios)
+
+    const handleShow=() => {
+        let but = document.querySelector(".icon__hamburguer")
+        let sid = document.querySelector(".container__sidebar").classList.toggle('active')
+        
+    }
     return (
 
         <>
             <ul className="container__sidebar">
 
                 <div className="content__nav">
-                    <button className="icon__content">
-                        <FontAwesomeIcon className="icon__hamburguer" icon={faBars} />
-                    </button>
                     <Link className="logo__content" to="/">
                         <img src={Logo} className="logo_terra" alt="terraRossa logo" />
                     </Link>
+                    <button className="icon__content" onClick={()=>handleShow()} icon={faBars}>
+                        <FontAwesomeIcon className="icon__hamburguer" icon={faBars} />
+                    </button>
                 </div>
 
                 <div className="data_content">
                     {usuarios.map((usuario,i)=> {
                         return (
                             <ul key={i}>
-                                <li key={i}>
-                            <div className="user__sidebar">{usuario.firstName}</div>
-                            <div className="user__sidebar_correo">{usuario.email}</div>
+                                <ul key={i}>
+                            <div className="user__sidebar">{usuario.data.firstName}</div>
+                            <div className="user__sidebar_correo">{usuario.data.email}</div>
                             <div className="user__sidebar_img">
-                                <img src={Img} className="img_user" alt="imagen de usuario" /></div></li>
+                                <img src={Img} className="img_user" alt="imagen de usuario" /></div></ul>
                             </ul>
                         );
                         })}
