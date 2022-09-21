@@ -1,29 +1,31 @@
 import Sidebar from "./Components/Sidebar/Sidebar";
-import './Components/Sidebar/sidebar.css';
+import "./Components/Sidebar/sidebar.css";
 import { Switch, Route, Redirect } from "react-router-dom";
-import Usuarios from "./Components/Usuarios/Usuarios";
+import Usuarios from "./views/Usuarios";
 import Productos from "./Components/Productos/Productos";
 import Categorias from "./Components/Categorias/Categorias";
-import Index from "./views/Home"
+import Bienvenida from "./Components/Bienvenida/Bienvenida";
+import Index from "./views/Home";
 import "./App.css";
 
 function App() {
   return (
     <div className="main-wrapper">
-       {/* <!-- Sidebar -->  */}
-       <Sidebar />
-       {/* <!-- End of Sidebar --> */}
-       
+      {/* <!-- Sidebar -->  */}
+      <Sidebar />
+      {/* <!-- End of Sidebar --> */}
+      <div className="main-wrapper--info">
+        <Bienvenida />
         <Switch>
           <Route exact path="/" component={Index} />
           <Route path="/usuarios" component={Usuarios} />
           <Route path="/productos" component={Productos} />
           <Route path="/categorias" component={Categorias} />
-          
           <Route>
             <Redirect to="/?error=pagina_no_encontrada" />
           </Route>
         </Switch>
+      </div>
     </div>
   );
 }
