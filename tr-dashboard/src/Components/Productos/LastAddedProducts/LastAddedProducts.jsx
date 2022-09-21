@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'; 
-import Formatter from '../../utils/Formatter.js';
+import Formatter from '../../../utils/Formatter.js';
 import "./LastAddedProducts.css";
 
 const LastAddedProducts=()=>{
