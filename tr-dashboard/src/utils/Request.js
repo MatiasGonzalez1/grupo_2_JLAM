@@ -5,8 +5,8 @@ const Get = async (url) => {
         return res;
 
     }catch(error){
-        console.error(error)
+        return error;
     }
 } 
 
-export default Get
+export default Get;

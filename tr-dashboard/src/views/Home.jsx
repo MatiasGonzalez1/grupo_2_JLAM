@@ -1,6 +1,6 @@
 import React from "react";
 import "./Home.css";
-// import Sidebar from "../Components/Sidebar/Sidebar";
+import LastAddedProducts from "../Components/LastAddedProducts/LastAddedProducts";
 
 function home() {
 
@@ -9,6 +9,7 @@ function home() {
           <p>sda</p>
         </div>
         <div className="card-content">
+          {/* tarjetas total usuarios, productos, etc  */}
           <div className="example2">
           </div>
           <div className="example2">
@@ -17,10 +18,10 @@ function home() {
           </div>
         </div>
         <div className="other-content">
-          <div className="example">
-          
-          </div>
+          {/* ultimos productos */}
+          <LastAddedProducts/>
           <div className="categories-cards">
+            {/* tarjetas categorias con total productos */}
             <div className="example3">
             
             </div>
