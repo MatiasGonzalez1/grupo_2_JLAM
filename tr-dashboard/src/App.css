@@ -4,3 +4,9 @@ body{
 .main-wrapper{
     display: flex;
 }
+
+@media screen and (max-width: 768px){
+    .main-wrapper{
+        display: block;
+    }
+}

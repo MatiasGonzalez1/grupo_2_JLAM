@@ -8,6 +8,8 @@ let dataSet = (respuesta, array) => {
       array.push({  
         id: producto.idProduct,
         name:producto.productName,
+        price:producto.productPrice,
+        stock:producto.productStock,
         description:producto.productDescription,
         category: producto.idProductCategory,
         include: [{association: 'category'}],
