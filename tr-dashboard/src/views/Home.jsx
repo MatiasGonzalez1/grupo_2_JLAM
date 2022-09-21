@@ -5,9 +5,7 @@ import LastAddedProducts from "../Components/Productos/LastAddedProducts/LastAdd
 function Home() {
 
     return <div className="content-wrapper">
-        <div className="color">
-          
-        </div>
+        
         <div className="card-content">
           {/* tarjetas total usuarios, productos, etc  */}
           <div className="example2">

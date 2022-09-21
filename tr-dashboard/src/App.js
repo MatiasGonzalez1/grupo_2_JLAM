@@ -1,5 +1,5 @@
 import Sidebar from "./Components/Sidebar/Sidebar";
-import './Components/Sidebar/sidebar.css';
+import Bienvenida from "./Components/Bienvenida/Bienvenida";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Usuarios from "./Components/Usuarios/Usuarios";
 import ProductDetail from "./Components/Productos/ProductDetail";
@@ -10,10 +10,11 @@ import "./App.css";
 function App() {
   return (
     <div className="main-wrapper">
-       {/* <!-- Sidebar -->  */}
-       <Sidebar />
-       {/* <!-- End of Sidebar --> */}
-       
+      {/* <!-- Sidebar -->  */}
+      <Sidebar />
+      {/* <!-- End of Sidebar --> */}
+      <div className="main-wrapper--info">
+        <Bienvenida />
         <Switch>
           <Route exact path="/" component={Home} />
           {/* react tira warnings en consola si los componentes estan vacios, no descomentar hasta que se utilicen */}
@@ -26,6 +27,7 @@ function App() {
             <Redirect to="/?error=pagina_no_encontrada" />
           </Route>
         </Switch>
+      </div>
     </div>
   );
 }

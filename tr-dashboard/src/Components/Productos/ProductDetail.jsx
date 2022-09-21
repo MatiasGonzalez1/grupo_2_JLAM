@@ -4,9 +4,6 @@ import "./ProductDetail.css";
 
 function ProductDetail() {
     return <div className="content-wrapper">
-        {/* banner con los datos del admin */}
-        <div className="color">
-        </div>
 
         {/* componente con los detalles */}
         <ProductDetailData/>
