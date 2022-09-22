@@ -20,25 +20,25 @@ let dataSet = (respuesta, array) => {
 
 const productsAPIController = {
   
-  loadProducts: async(req, res)=>{ //listado de productos | el cb debe ser asíncrono para usar raw queries
-    const countBy = await sequelize.query("SELECT ProductCategory.productCategoryName, SUM(Products.productStock) AS Stock FROM `ProductCategory` INNER JOIN `Products` ON ProductCategory.idProductCategory = Products.idProductCategory GROUP BY ProductCategory.productCategoryName", {
-      type: QueryTypes.SELECT })  
-      db.Product.findAll()
-      .then((products)=>{
-      // Creo un array que contendrá a cada usuario
-          let datos = [];
-          dataSet(products, datos);   
-          //se pasan los datos finales al objeto para la respuesta
-            return res.json({
-              status: 200,
-              count: products.length,
-              countByCategory: countBy, //se usa la consulta de la raw query
-              products:datos,
-          })
-      })
-      .catch(error => res.send(error));
-      ;
-  },  
+    loadProducts: async(req, res)=>{ //listado de productos | el cb debe ser asíncrono para usar raw queries
+      const countBy = await sequelize.query("SELECT ProductCategory.productCategoryName, COUNT(Products.idProductCategory) AS quantity FROM `ProductCategory` INNER JOIN `Products` ON ProductCategory.idProductCategory = Products.idProductCategory GROUP BY ProductCategory.productCategoryName", {
+        type: QueryTypes.SELECT })  
+        db.Product.findAll()
+            .then((products)=>{
+            // Creo un array que contendrá a cada usuario
+                let datos = [];
+                dataSet(products, datos);   
+                //se pasan los datos finales al objeto para la respuesta
+                 return res.json({
+                    status: 200,
+                    count: products.length,
+                    countByCategory: countBy, //se usa la consulta de la raw query
+                    products:datos,
+                })
+            })
+            .catch(error => res.send(error));
+            ;
+},  
 
   'ProductData': (req, res)=>{ //datos de producto por id
       db.Product.findByPk(Number(req.params.id))
