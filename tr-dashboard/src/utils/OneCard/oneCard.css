@@ -1,0 +1,45 @@
+.productCard{
+    width: 300px;
+    height: 15vh;
+    background-color: #333333;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
+}
+
+.wineBotleIco{
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    background-color: #f53117;
+    position: relative;
+    top: -20px;
+    left: 20px;
+    border-radius: 10px;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
+}
+
+.productCard h2{
+    position: relative;
+    left: 180px;
+    bottom: 30px;
+    color: aliceblue;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.productCard p{
+    position: relative;
+    left: 220px;
+    bottom: 20px;
+    color: aliceblue;
+    font-size: 35px;
+}
+
+.productCard div{
+    width: 80%;
+    border: 1px solid #f53117;
+    position: relative;
+    bottom: 10px;
+    left: 30px;
+}
