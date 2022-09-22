@@ -22,7 +22,7 @@ let dataSet = (respuesta, array) => {
 const productsAPIController = {
   
     loadProducts: async(req, res)=>{ //listado de productos | el cb debe ser asíncrono para usar raw queries
-      const countBy = await sequelize.query("SELECT ProductCategory.productCategoryName, SUM(Products.productStock) AS Stock FROM `ProductCategory` INNER JOIN `Products` ON ProductCategory.idProductCategory = Products.idProductCategory GROUP BY ProductCategory.productCategoryName", {
+      const countBy = await sequelize.query("SELECT ProductCategory.productCategoryName, COUNT(Products.idProductCategory) AS quantity FROM `ProductCategory` INNER JOIN `Products` ON ProductCategory.idProductCategory = Products.idProductCategory GROUP BY ProductCategory.productCategoryName", {
         type: QueryTypes.SELECT })  
         db.Product.findAll()
             .then((products)=>{
