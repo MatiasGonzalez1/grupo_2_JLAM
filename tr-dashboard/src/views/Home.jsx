@@ -1,8 +1,10 @@
 import React from "react";
 import "./Home.css";
-import LastAddedProducts from "../Components/LastAddedProducts/LastAddedProducts";
+import LastAddedProducts from "../Components/Productos/LastAddedProducts/LastAddedProducts";
 import CategoriesCards from "../Components/Categorias/CategoriesCards/CategoriesCards";
-function home() {
+
+
+function Home() {
 
     return <div className="content-wrapper">
         
