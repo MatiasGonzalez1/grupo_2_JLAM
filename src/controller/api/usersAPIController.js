@@ -2,7 +2,7 @@ const db = require("../../database/models");
 const { Op } = require("sequelize");
 
 const userAPIController = {
-  loadUsers: (req, res) => {
+  loadUsers: async(req, res) => {
     //listado de usuarios
 
     // Dicha paginacion sera determinada por la query 'page'
@@ -11,7 +11,11 @@ const userAPIController = {
     let page = 0;
     let limit = 10
     req.query.page? page = Number(req.query.page) * 10: limit = undefined;
-
+    const lastUser = await db.Users.findOne({
+      include: [{association: 'userCategory'}],
+      attributes: ["userId", "userImg","firstName","lastName","userEmail","createAt"],
+      order: [ [ 'createAt', 'DESC' ]]                     
+    });
     db.Users.findAll({
       attributes: [
         ["userId", "id"],
@@ -32,6 +36,7 @@ const userAPIController = {
           status: 200,
           count: users.length,
           data: users,
+          lastUser: lastUser,
         };
 
         res.json(usuarios);
