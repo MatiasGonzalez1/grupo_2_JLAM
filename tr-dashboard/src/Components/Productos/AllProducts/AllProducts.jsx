@@ -2,15 +2,13 @@ import React, { useState, useEffect } from "react";
 import './allProducts.css';
 import Formatter from '../../../utils/Formatter'
 
-  export const AllProducts = () => {
+export const AllProducts = () => {
     const [products, setProducts] = useState(null);
   
     useEffect(() => {
       fetch(`http://localhost:3001/api/product`)
         .then((response) => response.json())
         .then((products) => {
-          console.log(products.products);
-  
           setProducts(products.products);
         });
     }, []);
@@ -43,3 +41,4 @@ import Formatter from '../../../utils/Formatter'
     );
   };
   
+export default AllProducts ;

@@ -1,4 +1,5 @@
 import Sidebar from "./Components/Sidebar/Sidebar";
+import AllProducts from "./Components/Productos/AllProducts/AllProducts";
 import Bienvenida from "./Components/Bienvenida/Bienvenida";
 import { Switch, Route, Redirect } from "react-router-dom";
 import Usuarios from "./Components/Usuarios/Usuarios";
@@ -19,7 +20,7 @@ function App() {
           <Route exact path="/" component={Home} />
           {/* react tira warnings en consola si los componentes estan vacios, no descomentar hasta que se utilicen */}
           {/* <Route path="/usuarios" component={Usuarios} /> */}
-          {/* <Route path="/products" component={AllProducts} /> */}
+          <Route path="/products" component={AllProducts} />
           <Route path="/product-detail/:id" component={ProductDetail} />
           {/* <Route path="/categorias" component={Categorias} /> */}
           
