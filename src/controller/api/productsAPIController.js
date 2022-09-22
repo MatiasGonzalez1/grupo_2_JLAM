@@ -18,7 +18,6 @@ let dataSet = (respuesta, array) => {
     });
   };
 
-
 const productsAPIController = {
   
     loadProducts: async(req, res)=>{ //listado de productos | el cb debe ser asíncrono para usar raw queries
@@ -41,40 +40,39 @@ const productsAPIController = {
             ;
 },  
 
-    'ProductData': (req, res)=>{ //datos de producto por id
-        db.Product.findByPk(Number(req.params.id))
-        .then((product) => {
-          // creo un objeto para la response con los datos finales
-          let producto = {
-            status: 200,
-            data: {
-              id: product.productId,
-              productName: product.productName,
-              include: [{association: 'category'}],
-              idProductCategory: product.idProductCategory,
-              productHarvest: product.productHarvest,
-              productVariety: product.productVariety,
-              productBreeding: product.productBreeding,
-              productGuard: product.productGuard,
-              productDescription: product.productDescription,
-              productPrice: product.productPrice,
-              productStock: product.productStock,
-              imgPath: `/img/productImg/${product.productImg}`,
-              detail: `http://localhost:3001/api/product/${product.productId}`,
-            },
-          };
-  
-          res.json(producto);
-        })
-        .catch((error) => {
-          // En caso de error respondo con un status 500
-          let errores = {
-            status: 500,
-            error: error,
-          };
-          res.json(errores);
-        });
-    },
+  'ProductData': (req, res)=>{ //datos de producto por id
+      db.Product.findByPk(Number(req.params.id))
+      .then((product) => {
+        // creo un objeto para la response con los datos finales
+        let producto = {
+          status: 200,
+          data: {
+            id: product.productId,
+            productName: product.productName,
+            include: [{association: 'category'}],
+            idProductCategory: product.idProductCategory,
+            productHarvest: product.productHarvest,
+            productVariety: product.productVariety,
+            productBreeding: product.productBreeding,
+            productGuard: product.productGuard,
+            productDescription: product.productDescription,
+            productPrice: product.productPrice,
+            productStock: product.productStock,
+            productImg: product.productImg,
+            detail: `http://localhost:3001/api/product/${product.productId}`,
+          },
+        };  
+        res.json(producto);
+      })
+      .catch((error) => {
+        // En caso de error respondo con un status 500
+        let errores = {
+          status: 500,
+          error: error,
+        };
+        res.json(errores);
+      });
+  },
     ProductPage: (req, res)=>{
       let page = Number(req.query.page);
       let currentOffSet = (page - 1) * 5;

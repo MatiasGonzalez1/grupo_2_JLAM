@@ -5,7 +5,7 @@ import CategoriesCards from "../Components/Categorias/CategoriesCards/Categories
 function home() {
 
     return <div className="content-wrapper">
-
+        
         <div className="card-content">
           {/* tarjetas total usuarios, productos, etc  */}
           <div className="example2">
@@ -26,4 +26,4 @@ function home() {
     </div>
   }
 
-export default home ;
+export default Home ;
