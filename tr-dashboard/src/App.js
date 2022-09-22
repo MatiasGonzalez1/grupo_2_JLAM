@@ -4,6 +4,7 @@ import Home from "./views/Home"
 import Usuarios from "./views/Usuarios";
 
 import Sidebar from "./Components/Sidebar/Sidebar";
+import AllProducts from "./Components/Productos/AllProducts/AllProducts";
 import Bienvenida from "./Components/Bienvenida/Bienvenida";
 import ProductDetail from "./Components/Productos/ProductDetail";
 import Categorias from "./Components/Categorias/Categorias";

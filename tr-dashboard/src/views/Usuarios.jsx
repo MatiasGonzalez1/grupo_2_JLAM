@@ -1,4 +1,5 @@
 import React from "react";
+import LastUserDetail from "../Components/Usuarios/LastUserDetail/LastUserDetail";
 import './Usuarios.css';
 
 function Usuarios() {
@@ -16,9 +17,7 @@ function Usuarios() {
         </div>
         <div className="last-users-container">
             <div className="recent-users"></div>
-            <div className="last-user">
-
-            </div>
+            <LastUserDetail/>
         </div>
     </div>
   )

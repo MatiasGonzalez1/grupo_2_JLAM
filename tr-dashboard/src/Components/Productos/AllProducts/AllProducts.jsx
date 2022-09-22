@@ -42,4 +42,5 @@ import Formatter from '../../../utils/Formatter'
       </>
     );
   };
-  
+
+export default AllProducts;

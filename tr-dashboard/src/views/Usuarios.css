@@ -29,8 +29,10 @@
         margin: 2%;
     }
     .last-users-container{
+        width: 90%;
         display: grid;
         grid-template-columns: 2fr 3fr;
-        gap: 10px;
+        gap: 20px;
+        padding: 2% 0%;
     }
 }
