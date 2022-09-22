@@ -1,0 +1,38 @@
+
+@media screen and (min-width: 768px) {
+    .users-main-container{
+        display: flex;
+        flex-direction: column;
+        padding: 0% 2% 0% 2%;
+        margin: auto;
+        align-items: center;
+    }
+    .all-users{
+        width: 90%;
+        height: 400px;
+        background-color: aqua;
+        border-radius: 20px;
+        overflow-y: auto;
+    }
+    .user-card-container{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .user-card{
+        width: 200px;
+        height: 300px;
+        background-color:crimson ;
+        border-radius: 20px;
+        margin: 2%;
+    }
+    .last-users-container{
+        width: 90%;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 20px;
+        padding: 2% 0%;
+    }
+}

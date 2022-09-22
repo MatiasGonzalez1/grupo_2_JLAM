@@ -40,5 +40,5 @@ export const AllProducts = () => {
       </>
     );
   };
-  
-export default AllProducts ;
+
+export default AllProducts;
