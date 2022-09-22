@@ -1,8 +1,8 @@
 import React from "react";
 import "./Home.css";
-import LastAddedProducts from "../Components/Productos/LastAddedProducts/LastAddedProducts";
-
-function Home() {
+import LastAddedProducts from "../Components/LastAddedProducts/LastAddedProducts";
+import CategoriesCards from "../Components/Categorias/CategoriesCards/CategoriesCards";
+function home() {
 
     return <div className="content-wrapper">
         
@@ -18,24 +18,7 @@ function Home() {
         <div className="other-content">
           {/* ultimos productos */}
           <LastAddedProducts/>
-          <div className="categories-cards">
-            {/* tarjetas categorias con total productos */}
-            <div className="example3">
-            
-            </div>
-            <div className="example3">
-            
-            </div>
-            <div className="example3">
-            
-            </div>
-            <div className="example3">
-            
-            </div>
-            <div className="example3">
-            
-            </div>
-          </div>
+          <CategoriesCards/>
         </div>
     
         {/* <!-- Main Content --> */}
