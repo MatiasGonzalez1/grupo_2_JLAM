@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.css";
 import LastAddedProducts from "../Components/Productos/LastAddedProducts/LastAddedProducts";
 import { AllProductsCard } from "../Components/AllProductsCard/AllProductsCard";
+import CardTotalUsers from "../Components/Usuarios/CartTotalUsers/CardTotalUsers"
 import CategoriesCards from "../Components/Categorias/CategoriesCards/CategoriesCards";
 
 function Home() {
