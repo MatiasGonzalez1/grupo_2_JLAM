@@ -6,8 +6,6 @@ import "./Usuarios.css";
 
 
 function Usuarios() {
-  let edadPromedio
-  const anoActual = new Date().getFullYear()
   const [lastCreated, setLastCreated] = useState({});
   const [users, setUsers] = useState([]);
 
@@ -30,8 +28,6 @@ function Usuarios() {
   return (
     <div className="users-main-container">
       <div className="card-content">
-        {/* tarjetas total usuarios, productos, etc  */}
-        
           <UserInfoCard title={'Total registros'} quantity = {users.count} icon = {faUsers}/>
         
           <UserInfoCard title = {'Esta semana'} quantity = {'20'} icon = {faUserClock}/>
