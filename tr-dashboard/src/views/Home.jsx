@@ -2,6 +2,7 @@ import React from "react";
 import "./Home.css";
 import LastAddedProducts from "../Components/Productos/LastAddedProducts/LastAddedProducts";
 import { AllProductsCard } from "../Components/AllProductsCard/AllProductsCard";
+import AllCategoriesCard from "../Components/Categorias/AllCategoriesCard/AllCategoriesCard";
 import CategoriesCards from "../Components/Categorias/CategoriesCards/CategoriesCards";
 
 function Home() {
@@ -12,9 +13,9 @@ function Home() {
           {/* tarjetas total usuarios, productos, etc  */}
           <div className="example2">
           </div>
-          <div className="example2">
+          
           <AllProductsCard/>
-          </div>
+          <AllCategoriesCard/>
           <div className="example2">
           </div>
         </div>
