@@ -14,7 +14,6 @@
 .card-content{
     display: grid;
     grid-template-columns: repeat(3, 2fr);
-    gap: 60px;
     margin: 2% 10%;
 }
 .other-content{
