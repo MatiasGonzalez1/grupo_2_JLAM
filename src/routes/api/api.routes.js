@@ -14,7 +14,7 @@ routes.get('/product/page', productsAPIController.ProductPage);
 routes.get('/product/:id', productsAPIController.ProductData);
 
 //API categorias
-
+routes.get('/product-category', productsAPIController.getCategories);
 
 
 module.exports = routes;

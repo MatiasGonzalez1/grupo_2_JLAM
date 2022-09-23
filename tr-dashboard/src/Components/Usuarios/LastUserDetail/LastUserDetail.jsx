@@ -19,7 +19,7 @@ function LastUserDetail(props) {
           <p>nombre: <span>{props.lastUser.firstName ? props.lastUser.firstName : ''}</span></p>
           <p>apellido: <span>{props.lastUser.lastName ? props.lastUser.lastName : ''}</span></p>
           <p>email: <span>{props.lastUser.userEmail ? props.lastUser.userEmail : ''}</span></p>
-          <p>email: <span>{props.lastUser.userCategory ? props.lastUser.userCategory.userCategoryName : ''}</span></p>
+          <p>categoría: <span>{props.lastUser.userCategory ? props.lastUser.userCategory.userCategoryName : ''}</span></p>
           <p>fecha de registro: <span>{props.lastUser.createAt? dateFormat(props.lastUser.createAt) : ''}</span></p>
         </div>
         </div>

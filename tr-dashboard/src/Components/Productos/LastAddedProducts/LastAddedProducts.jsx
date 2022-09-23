@@ -22,7 +22,7 @@ const LastAddedProducts=()=>{
         <div className='last-main-groups last-added-title'>
             <h3>Últimos productos agregados</h3>
             <select className='last-added-select' name="" id="">
-                <option selected value="">Categorias</option>
+                <option defaultValue value="">Categorias</option>
             </select>
         </div>
         <div className='last-main-groups last-added-columns'>
