@@ -2,22 +2,19 @@ import React from "react";
 import "./Home.css";
 import LastAddedProducts from "../Components/Productos/LastAddedProducts/LastAddedProducts";
 import { AllProductsCard } from "../Components/AllProductsCard/AllProductsCard";
-import CardTotalUsers from "../Components/Usuarios/CartTotalUsers/CardTotalUsers"
+import AllCategoriesCard from "../Components/Categorias/AllCategoriesCard/AllCategoriesCard";
+import AllUsersCard from "../Components/Usuarios/AllUsersCard/AllUsersCard"
 import CategoriesCards from "../Components/Categorias/CategoriesCards/CategoriesCards";
+
 
 function Home() {
 
     return <div className="content-wrapper">
         
         <div className="card-content">
-          {/* tarjetas total usuarios, productos, etc  */}
-          <div className="example2">
-          </div>
-          <div className="example2">
           <AllProductsCard/>
-          </div>
-          <div className="example2">
-          </div>
+          <AllCategoriesCard/>
+          <AllUsersCard/>
         </div>
         <div className="other-content">
           {/* ultimos productos */}

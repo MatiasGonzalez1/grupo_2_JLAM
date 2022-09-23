@@ -98,6 +98,15 @@ const productsAPIController = {
       })
       .catch(error => res.send(error));
     },
+    getCategories: (req, res)=>{
+      db.ProductCategory.findAll({
+      })
+      .then(categorias =>{
+        res.json({categorías:categorias.length});
+      })
+      .catch(error => res.send(error));
+    },
+
 };
 
 module.exports = productsAPIController

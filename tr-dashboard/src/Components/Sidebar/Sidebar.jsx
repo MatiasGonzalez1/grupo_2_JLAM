@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faUser, faWineBottle, faWineGlass } from "@fortawesome/free-solid-svg-icons";
 import Img from "../../Assets/images/admin@admin.com_1657413736084.png";
-import Get from "../../utils/Request.js";
 
 function Sidebar() {
     const [usuarios, setUsuarios] = useState([]);
@@ -37,9 +36,9 @@ function Sidebar() {
                     <Link className="logo__content" to="/">
                         <img src={Logo} className="logo_terra" alt="terraRossa logo" />
                     </Link>
-                    <button className="icon__content" onClick={()=>handleShow()} icon={faBars}>
+                    <div className="icon__content" onClick={()=>handleShow()} icon={faBars}>
                         <FontAwesomeIcon className="icon__hamburguer" icon={faBars} />
-                    </button>
+                    </div>
                 </div>
 
                 <div className="data_content">
@@ -58,13 +57,13 @@ function Sidebar() {
 
                 <div className="container__paneles">
                     <li className="container__panel">
-                        <Link className="panel" to="/usuarios">
+                        <Link className="panel" to="/users">
                             <FontAwesomeIcon className="icon__user" icon={faUser} />
                             <span className="name__panel">Usuarios</span></Link>
                     </li>
 
                     <li className="container__panel">
-                        <Link className="panel" to="/productos">
+                        <Link className="panel" to="/products">
                             <FontAwesomeIcon className="icon__user" icon={faWineBottle} />
                             <span className="name__panel">Productos</span></Link>
                     </li>

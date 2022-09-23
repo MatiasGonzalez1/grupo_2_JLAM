@@ -16,15 +16,12 @@ export const AllProductsCard = () => {
     <>
       {products ? (
         <OneCard title={'Productos'} quantity={products.length} icon={faWineBottle}/>
-        // <div className="productCard">
-        //   <FontAwesomeIcon className="wineBotleIco" icon={faWineBottle} />
-        //   <h2>Productos</h2>
-        //   <p>{products.length}</p>
-        //   <div></div>
-        // </div>
+        
       ) : (
         "Cargando"
       )}
     </>
   );
 };
+
+export default AllProductsCard ;
