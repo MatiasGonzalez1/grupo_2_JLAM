@@ -39,5 +39,5 @@ inputValue.addEventListener('change', async()=>{
         },
     });
     
-    
+
 })

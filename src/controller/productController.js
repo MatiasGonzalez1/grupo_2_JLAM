@@ -140,7 +140,7 @@ const productController = {
         let cantidad = 0;
         //pregunto si existe re.body.cantidad
         if (req.body.cantidad) {
-            cantidad = cantidad + Number(req.body.cantidad);
+            cantidad = Number(req.body.cantidad);
         }else{
             cantidad = 1;
         }
@@ -154,7 +154,11 @@ const productController = {
             })
 
             if (existe) {
-                existe.quantity = cantidad + existe.quantity;
+                if (req.body.cantidad) {
+                    existe.quantity = Number(req.body.cantidad);
+                }else{
+                    existe.quantity = cantidad + existe.quantity;
+                }
                 carritoActual = carritoActual.map(function(elemento){
                     //si el id conincide con el id que recibo
                     if (elemento.id == idProducto) {
