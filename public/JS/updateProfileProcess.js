@@ -1,5 +1,5 @@
 const editProfileProcess = async (dataBody)=>{
-    const request = await fetch("http://localhost:3001/users/edit-user", {
+    const request = await fetch("https://grupo2jlam-production-8382.up.railway.app/users/edit-user", {
         method: "PUT",
         //envio los datos que recibo desde editProfileValidator.js
         body:dataBody, 

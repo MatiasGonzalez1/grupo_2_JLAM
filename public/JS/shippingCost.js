@@ -18,7 +18,7 @@ cityCheck.addEventListener('change', async(e) => {
         minimumFractionDigits: 2,
     }); 
 
-    let response =  await fetch("http://localhost:3001/users/shipping-cost/"+ currentIdCity, {
+    let response =  await fetch("https://grupo2jlam-production-8382.up.railway.app/users/shipping-cost/"+ currentIdCity, {
         method:"GET"
     });
     let resJson = await response.json();

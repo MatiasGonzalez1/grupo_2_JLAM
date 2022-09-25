@@ -1,6 +1,7 @@
 const db = require("../../database/models");
 const { Op } = require("sequelize");
 const Sequelize = require("sequelize");
+const prefix = require("../../utils/prefix");
 
 const userAPIController = {
   loadUsers: async (req, res) => {
@@ -59,7 +60,7 @@ const userAPIController = {
         //Recorro los usuarios de la consulta y agrego la propiedad detalle y edad
         users.forEach((usuario) => {
           usuario.dataValues.edad = anoActual - usuario.dataValues.edad;
-          usuario.dataValues.detail = `http://localhost:3001/api/users/${usuario.dataValues.id}`;
+          usuario.dataValues.detail = `${prefix}api/users/${usuario.dataValues.id}`;
         });
 
         // Genero array para obtener las edades y las ordeno para calculo de mediana
@@ -109,7 +110,7 @@ const userAPIController = {
     })
       .then((user) => {
         // agrego datos necesarios de usuario requerido
-        user.dataValues.detail = `http://localhost:3001/api/users/${user.dataValues.id}`;
+        user.dataValues.detail = `${prefix}api/users/${user.dataValues.id}`;
         user.dataValues.imgPath = `/img/profileImages/${user.dataValues.userImg}`;
         // creo un objeto para la response con los datos finales
         let usuario = {

@@ -1,6 +1,7 @@
 const db = require("../../database/models");
 const { Op, QueryTypes } = require("sequelize");
 const { sequelize } = require("../../database/models"); //se requiere sequelize para operaciones con raw queries
+const prefix = require('../../utils/prefix');
 
 //se crea función para setear datos
 // let dataSet = (respuesta, array) => {
@@ -47,7 +48,7 @@ const productsAPIController = {
     })
       .then((products) => {
         products.forEach(producto => {
-          producto.dataValues.detail = `http://localhost:3001/api/product/${producto.dataValues.id}`
+          producto.dataValues.detail = `${prefix}api/product/${producto.dataValues.id}`
         });
         // Creo un array que contendrá a cada usuario
         // let datos = [];
@@ -83,7 +84,7 @@ const productsAPIController = {
             productPrice: product.productPrice,
             productStock: product.productStock,
             productImg: product.productImg,
-            detail: `http://localhost:3001/api/product/${product.productId}`,
+            detail: `${prefix}api/product/${product.productId}`,
           },
         };
         res.json(producto);

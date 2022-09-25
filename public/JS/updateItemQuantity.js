@@ -30,7 +30,7 @@ inputValue.addEventListener('change', async()=>{
         quantity: inputValue.value
     };
 
-    let response =  await fetch("http://localhost:3001/product/update-cart/"+inputId, {
+    let response =  await fetch("https://grupo2jlam-production-8382.up.railway.app/product/update-cart/"+inputId, {
         method: "POST",
         body: JSON.stringify(newBody),
         headers: {
