@@ -9,8 +9,8 @@
     let birthDate = document.querySelector("input.fechaNacimiento");
     let profileImg = document.querySelector("input.profileImageUser");
 
-
     let errores = {};
+    let inputs = [firstName, lastName, address, floor, city, password, email, birthDate, profileImg];
     
 
     //funcion que quita mi clase cuando pasa la validacion y elimina el mensaje de error
@@ -107,6 +107,8 @@
             else{
                 delError(password);
             }
+        }else{
+            delError(password);
         }
     })
     
@@ -157,8 +159,8 @@
             delError(profileImg);
         }
     })
-
-    form.addEventListener('submit', (e)=>{
+    let resFetch;
+    form.addEventListener('submit', async(e)=>{
         e.preventDefault();
        if (Object.keys(errores).length < 1) {
            
@@ -185,7 +187,18 @@
                 bodyInputs.set("departamento", floor.value);;
              }
              //ejecuto la funcion que llama a mi fetch y le envio mi objeto con los datos del body
-             editProfileProcess(bodyInputs);
-       }    
+            resFetch = await editProfileProcess(bodyInputs);
+       }
+
+        if (resFetch.errors != undefined) {
+            resFetch.errors.errors.forEach((error) => {
+                inputs.forEach((input) => {
+                    if (input.name == error.param) {
+                        input.classList.add('input-warning');
+                        errorWarning(input, error.msg);
+                    }
+                });
+            });
+        }
     })
 

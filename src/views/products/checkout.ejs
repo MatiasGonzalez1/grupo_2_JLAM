@@ -15,7 +15,7 @@
     style: "decimal",
     minimumFractionDigits: 2,
   }); 
-  %>
+   %>
     <!-- inicio -->
     <section class="margin__nav">
       <h1 class="cart__title">Finalizar Compra</h1>
@@ -153,16 +153,28 @@
             <div class="btn-back-cart"><a class="cart__btn--checkout" href="/product/product-cart">Volver al Carrito</a></div>
             <div class="checkout-items">
               <div class="checkout-items-text">
-                <p>subtotal:</p>
-                <p>5000</p>
+                <p><span>subtotal:</span></p>
+                <% if(subtotal >0){%>
+                  <p class="checkout-subtotal">$ <span><%= formatter.format(subtotal)%></span></p>
+                <% }else{%>
+                  <p class="checkout-subtotal">$ 0</p>
+                <% }%>
               </div>
               <div class="checkout-items-text">
                 <p><span>costo de envio:</span></p>
-                <p><span>+ 1000</span></p>
+                <% city.forEach(city => { %>
+                  <% if (city.idCity == user.idCity) {%>
+                    <p ><span class="shippingCost">+ <%= city.shippingCost%></span></p>
+                  <%}%>
+                <% })%>
               </div>
               <div class="checkout-items-text">
                 <p>total:</p>
-                <p>6000</p>
+                <% if(subtotal >0){%>
+                  <p class="checkout-total">$ <%= formatter.format(subtotal)%></p>
+                <% }else{%>
+                  <p class="checkout-total">$ 0</p>
+                <% }%>
               </div>
             </div>
           </div>
@@ -174,27 +186,8 @@
     <footer class="footer">
       <%- include('../partials/footer.ejs')%>
     </footer>
-    <script>// mostrar metodo de pago
-      const paymentVisible = document.getElementById('checkoutNext');
-      const shippingVisible = document.getElementById('checkoutPrev');
-      const paymentData = document.getElementById('paymentData');
-      const shippingForm = document.getElementById('shippingForm');
-      const paymentForm = document.getElementById('paymentForm');
-      
-      paymentVisible.addEventListener("click", () => {
-        paymentData.classList.toggle("disabled");
-        paymentData.classList.toggle("enabled");
-        shippingForm.classList.toggle("checkout-hidden");
-        paymentForm.classList.toggle("checkout-hidden");
-      });
-  
-      shippingVisible.addEventListener("click", () => {
-        paymentData.classList.toggle("disabled");
-        paymentData.classList.toggle("enabled");
-        shippingForm.classList.toggle("checkout-hidden");
-        paymentForm.classList.toggle("checkout-hidden");
-      });</script>
 
   <script src="/js/checkoutValidation.js"></script>
+  <script src="/js/shippingCost.js"></script>
   </body>
 </html>

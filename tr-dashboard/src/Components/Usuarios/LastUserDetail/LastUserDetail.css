@@ -1,0 +1,44 @@
+.last-user{
+    width: 90%;
+    height: auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
+    justify-content: space-between;
+    padding: 1% 2%;
+    margin-left: 8%;
+    overflow: hidden;
+}
+.last-user-line{
+    margin-left: 60%;
+    width: 100%;
+    border-bottom: 1px solid #F53117;
+    transform: rotate(133.03deg);
+}
+.last-user h2{
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #333333;
+    margin-bottom: 10px;
+}
+.last-user img{
+    width: 100%;
+    border-radius: 10px;
+}
+.last-user-card{
+    display: grid;
+    grid-template-columns: 2fr 5fr;
+    gap: 50px;
+    padding: 10px;
+}
+.last-user-data p{
+    color: #333333;
+    text-transform: capitalize;
+    font-weight:600;
+    margin: 10px 0px;
+}
+.last-user-data span{
+    text-transform:capitalize;
+    font-weight: normal;
+}

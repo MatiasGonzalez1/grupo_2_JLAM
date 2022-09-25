@@ -1,0 +1,104 @@
+.productSquare{
+    height:auto;
+    width: 90%;
+    position: relative;
+    margin: auto;
+    padding: 15px 0;
+    /* background-color: inherit; */
+    background-color: #fff;
+    box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
+    border-radius: 10px; 
+}
+
+.productSquare h2{
+    position: relative;
+    top: 30px;
+    left: 50px;
+    margin-bottom: 6vh;
+    width: 80%;
+    height: 32px;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+.subTitle{
+    position: relative;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin:auto;
+    border-bottom: 1px solid #f53117;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.subTitle p{
+    width: 33%;
+    /* margin-right: -5%; */
+}
+
+ .subTitle p:nth-child(2){
+    width: 10%;
+    text-align: center;
+}
+
+.subTitle p:last-child{
+    text-align: center;
+    position: relative;
+    left: -9%;
+}
+
+/*
+.subTitle p:last-child{
+    margin-right: -6%;
+} */
+ 
+.productSquare li{
+    padding: 5px 10px;
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: space-between;
+    color: #000;
+    margin: 20px auto;
+    font-size: 13px;
+
+}
+
+.productSquare h3{
+    width: 28%;
+}
+
+.productSquare li:hover{
+    background-color: #f53117c3;
+}
+
+.productSquare li:hover p, 
+.productSquare li:hover h3,
+.productSquare li:hover .linkTo{
+color: aliceblue;}
+
+.productSquare ul li a h3{
+    width: 20%;
+    font-weight: 300 !important;
+}
+
+.buttonPages{
+display: flex;
+justify-content: center;
+align-items: flex-end;
+margin-top: 5%;
+cursor: pointer;
+}
+
+.buttonPages p{
+    margin: 0 15px;
+    cursor: auto;
+}
+
+.linkTo{
+    text-decoration: none;
+    color: #f53117;
+}

@@ -1,12 +1,12 @@
 const formAddToCart = document.querySelectorAll("form.cartForm");
-const inputCart = document.querySelector("input.inputForm").value;
+const inputCart = document.querySelectorAll("input.inputForm").value;
 
 
 formAddToCart.forEach((f)=>{
     f.addEventListener("submit", async(e)=>{
             e.preventDefault();
-            
-            const response =  await fetch("http://localhost:3000/product/product-cart/"+ inputCart, {
+            let currentId = e.target.id;
+            const response =  await fetch("http://localhost:3001/product/product-cart/"+ currentId, {
                 method:"POST"
             });
             if (response.status == 200) {

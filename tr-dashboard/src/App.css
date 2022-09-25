@@ -1,0 +1,16 @@
+body{
+    background-color: #FBF2E0; ;
+}
+.main-wrapper{
+    display: flex;
+}
+
+.main-wrapper--info{
+    width: 100%;
+}
+
+@media screen and (max-width: 768px){
+    .main-wrapper{
+        display: block;
+    }
+}

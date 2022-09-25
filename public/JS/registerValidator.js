@@ -17,7 +17,6 @@ let campoProfileImage = document.querySelector("input.profileImage");
 let errores = {};
 let arrayCampos = [campoNombre, campoApellido, campoEmail, campoDate, campoPassword, campoRepassword, campoProfileImage];
 
-
 //funciones 
 let crearError = (input, error)=>{
     input.classList.add('is-invalid');
@@ -174,16 +173,15 @@ formRegister.addEventListener('submit', async (e)=>{
     }
 
     await envioForm(isEmpty)
-
     
     if (resFetch.errors != undefined) {
         resFetch.errors.errors.forEach((error) => {
-                arrayCampos.forEach((input) => {
-                    if (input.name == error.param) {
-                        input.nextElementSibling.innerHTML = error.msg;
-                    }
-                });
+            arrayCampos.forEach((input) => {
+                if (input.name == error.param) {
+                    input.nextElementSibling.innerHTML = error.msg;
+                }
             });
-        }
+        });
+    }
 })
 

@@ -80,9 +80,7 @@ const productController = {
     },
     searchProduct: (req, res) => {
         let searchQuery = req.query.searchValue;
-        
-        db.Product.findAll({
-            include: [{association: 'category'}],  
+        db.Product.findAll({  
             where: {
                 [Op.or] :[
                     {productName: {
@@ -91,11 +89,19 @@ const productController = {
                     {productVariety: {
                         [Op.like]: '%' + searchQuery + '%'
                     }},
+                    {'$category.productCategoryName$': {
+                        [Op.like]: '%' + searchQuery + '%'
+                    }}
                 ]
+            },
+            include:{
+                model: db.ProductCategory,
+                as: 'category',
+                required: true
             }
         })
         .then(productos =>{
-            res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {user: req.session.userLogged, productos: productos});
+            res.render(path.join(__dirname, "../views/products/catalogue.ejs"), {user: req.session.userLogged, productos: productos, searchQuery});
         })
         .catch(error => res.send(error))
         
@@ -105,14 +111,14 @@ const productController = {
         if (req.cookies.carrito != undefined){
             //asigno a una variable
             let carritoActual = JSON.parse(req.cookies.carrito);
-
+            let total = 0;
             let carritoFinal= await Promise.all(carritoActual.map(async function(element){
                 //busco el producto que tiene el mismo id que el de mi carrito
 
                 let product = await db.Product.findOne( {where: {
                     idProduct : element.id
                 }});
-                
+                total = total + Number(product.productPrice * element.quantity);
                 //genero un objeto con los datos que necesito de mi producto
                 let productData = {
                     quantity: element.quantity,
@@ -123,21 +129,18 @@ const productController = {
                 }
                 return productData; 
             }));
-            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:carritoFinal, user: req.session.userLogged});
+            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal, user: req.session.userLogged, total});
         }else{
-            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:[], user: req.session.userLogged});
+            res.render(path.join(__dirname, "../views/products/productCart.ejs"), {carritoFinal:[], user: req.session.userLogged, total:[]});
         }
     },
 
     addItem: (req, res) => {
-        //tomo el id
-        console.log(req);
         const idProducto = req.params.id;
         let cantidad = 0;
-        
         //pregunto si existe re.body.cantidad
         if (req.body.cantidad) {
-            cantidad = cantidad + req.body.cantidad;
+            cantidad = Number(req.body.cantidad);
         }else{
             cantidad = 1;
         }
@@ -151,7 +154,11 @@ const productController = {
             })
 
             if (existe) {
-                existe.quantity = cantidad + existe.quantity;
+                if (req.body.cantidad) {
+                    existe.quantity = Number(req.body.cantidad);
+                }else{
+                    existe.quantity = cantidad + existe.quantity;
+                }
                 carritoActual = carritoActual.map(function(elemento){
                     //si el id conincide con el id que recibo
                     if (elemento.id == idProducto) {
@@ -184,6 +191,26 @@ const productController = {
             response:true
         });
     },
+    updateFromCart: (req, res) =>{
+        const cantidad = req.body.quantity;
+
+        const idProducto = req.params.id;
+        let carritoActual = JSON.parse(req.cookies.carrito);
+
+        carritoActual = carritoActual.map(function(producto){
+            if (producto.id == idProducto) {
+                producto.quantity = cantidad;
+                
+            }
+            return producto;
+        })
+
+        res.cookie('carrito', JSON.stringify(carritoActual),{maxAge:21600000}); 
+        res.json({
+            response:true
+        });
+
+    },
     deleteCart: (req, res) =>{
         const idProducto = req.params.id;
 
@@ -198,19 +225,20 @@ const productController = {
     checkout: async (req, res) => {
         //toma el usuario segun la session
        let userData =  req.session.userLogged;
-        //si existe la cookie carrito
-        if (req.cookies.carrito != undefined && req.session.userLogged){
-            //asigno a una variable
-            let carritoActual = JSON.parse(req.cookies.carrito);
-
-            let city = await db.Cities.findAll({});
+       //si existe la cookie carrito
+       if (req.cookies.carrito != undefined && req.session.userLogged){
+           //asigno a una variable
+           let carritoActual = JSON.parse(req.cookies.carrito);
+           let subtotal = 0;
+           let city = await db.Cities.findAll({});
             const getProds = async(carritoActual) => {
                 const carritoFinal = await Promise.all(carritoActual.map(async function(cartItem){
                     let producto = await db.Product.findOne({
                         where: {
                             idProduct: cartItem.id 
-                          },
+                        },
                     });
+                    subtotal = subtotal + Number(producto.productPrice * cartItem.quantity);
                     let finalItem = { 
                         productName:producto.productName,
                         productImg:producto.productImg,
@@ -223,7 +251,7 @@ const productController = {
             let carritoFinal = await getProds(carritoActual);
         
             res.render(path.join(__dirname, "../views/products/checkout.ejs"), {
-                carritoFinal:carritoFinal, user:userData, city:city
+                carritoFinal, user:userData, city, subtotal
             });
            
         }else{
@@ -293,19 +321,8 @@ const productController = {
     },
 
     updateProductSubmit: (req, res) =>{
-
-        // db.Product.findByPk(req.body.id, {
-        //     include: [{association: 'category'}]
-        // })
-        // .then(coincidencia =>{
-        //     return coincidencia
-        //     res.render(path.join(__dirname, '../views/products/updateProduct.ejs'), {userLog: req.session.userLogged, coincidencia: coincidencia, categories:categories});
-        // })
-
         let errors = validationResult(req);
 
-        console.log(errors);
-    
             if(!errors.isEmpty()) {
                 db.ProductCategory.findAll({
                 })

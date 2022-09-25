@@ -25,6 +25,7 @@ routes.get('/logout',usersController.logout)
 routes.get('/all-users', adminMid,usersController.cargarUsuarios);
 routes.delete('/all-users/:id', [adminMid], usersController.delete);
 routes.get('/admin', adminMid, usersController.admin);
+routes.get('/shipping-cost/:id',usersController.getShippingCost);
 
 
 
