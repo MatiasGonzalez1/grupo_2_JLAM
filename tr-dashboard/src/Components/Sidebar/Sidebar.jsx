@@ -58,20 +58,20 @@ function Sidebar() {
                 <div className="container__paneles">
                     <li className="container__panel">
                         <Link className="panel" to="/users">
-                            <FontAwesomeIcon className="icon__user" icon={faUser} />
-                            <span className="name__panel">Usuarios</span></Link>
+                            <span className="name__panel">Usuarios</span>
+                            <FontAwesomeIcon className="icon__user" icon={faUser} /></Link>
                     </li>
 
                     <li className="container__panel">
                         <Link className="panel" to="/products">
-                            <FontAwesomeIcon className="icon__user" icon={faWineBottle} />
-                            <span className="name__panel">Productos</span></Link>
+                            <span className="name__panel">Productos</span>
+                            <FontAwesomeIcon className="icon__user" icon={faWineBottle} /></Link>
                     </li>
 
                     <li className="container__panel">
                         <Link className="panel" to="/categorias">
-                            <FontAwesomeIcon className="icon__user" icon={faWineGlass} />
-                            <span className="name__panel">Categorias</span></Link>
+                            <span className="name__panel">Categorias</span>
+                            <FontAwesomeIcon className="icon__user" icon={faWineGlass} /></Link>
                     </li>
                 </div>
             </ul>
