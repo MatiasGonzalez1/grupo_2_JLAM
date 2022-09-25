@@ -37,7 +37,7 @@
 @media screen and (min-width: 768px) {
     .welcomeComp{
         height: 70px;
-        margin: 3% 6%;
+        margin: 2% 6%;
     }
 
     .welcome-bg{
@@ -57,7 +57,7 @@
 @media screen and (min-width: 1024px) {
     .welcomeComp{
         height: 100px;
-        margin: 3% 6%;
+        margin: 2% 6%;
     }
 
     .welcome-bg{
