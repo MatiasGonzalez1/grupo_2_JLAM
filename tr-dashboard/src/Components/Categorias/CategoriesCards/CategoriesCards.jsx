@@ -20,11 +20,10 @@ const CategoriesCards=()=>{
     return <div className="categories-cards">
             {/* tarjetas categorias con total productos */}
             {categories.map((category, i) => (
-                    
-                    <div className="card">
+                    <div className="card" key={i}>
                         <div className='line'></div>
                         <div className='categoy-content'>
-                            <p className='category-name' key={i}>{category.productCategoryName}</p>
+                            <p className='category-name'>{category.productCategoryName}</p>
                             <p className='category-amount'><span>{category.quantity}</span></p>
                         </div>
                     </div>  

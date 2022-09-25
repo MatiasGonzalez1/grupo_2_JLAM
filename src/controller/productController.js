@@ -192,13 +192,11 @@ const productController = {
         });
     },
     updateFromCart: (req, res) =>{
-        console.log(req.params.id);
-
         const cantidad = req.body.quantity;
-
         const idProducto = req.params.id;
         let carritoActual = JSON.parse(req.cookies.carrito);
         let carritoActualizado;
+
         carritoActualizado = carritoActual.map(function(producto){
             if (producto.id == idProducto) {
                 producto.quantity = cantidad;                
