@@ -188,6 +188,23 @@ const productController = {
         });
     },
     updateFromCart: (req, res) =>{
+        const cantidad = req.body.quantity;
+
+        const idProducto = req.params.id;
+        let carritoActual = JSON.parse(req.cookies.carrito);
+
+        carritoActual = carritoActual.map(function(producto){
+            if (producto.id == idProducto) {
+                producto.quantity = cantidad;
+                
+            }
+            return producto;
+        })
+
+        res.cookie('carrito', JSON.stringify(carritoActual),{maxAge:21600000}); 
+        res.json({
+            response:true
+        });
 
     },
     deleteCart: (req, res) =>{

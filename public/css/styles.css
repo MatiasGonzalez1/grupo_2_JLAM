@@ -591,7 +591,7 @@ form #input-wrap {
     padding: 0px;
 }
 
-input#number {
+#inputValue {
     text-align: center;
     border: none;
     border: 1px solid white;
@@ -2219,7 +2219,7 @@ li datalist option {
         padding: 0px;
     }
 
-    input#number {
+    #inputValue {
         text-align: center;
         border: none;
         border: 2px solid white;
@@ -3043,7 +3043,7 @@ li datalist option {
         padding: 0px;
     }
 
-    input#number {
+   #inputValue {
         text-align: center;
         border: none;
         border: 2px solid white;
@@ -3509,7 +3509,7 @@ li datalist option {
         padding: 0px;
     }
 
-    input#number {
+    input#inputValue {
         text-align: center;
         border: none;
         border: 2px solid white;
