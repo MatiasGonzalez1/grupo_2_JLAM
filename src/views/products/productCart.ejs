@@ -35,12 +35,13 @@
                 <p><span><%=product.productName%></span></p>
                 <div class="cart__buttons">
                   <p>$<%= formatter.format(product.productPrice)%></p>
-                  <div>
-                    <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                    <input type="number" id="number" value="<%=product.quantity%>" name="cantidad"/>
-                    <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                  <div class="update-quantity-container">
+                    <div class="value-button" id="decrease" value="decrease">-</div>
+                    <input id="cart-id-product" type="hidden" value="<%=product.idProduct%>">
+                    <input type="number" id="inputValue" value="<%=product.quantity%>" name="cantidad"/>
+                    <div class="value-button" id="increase" value="increase">+</div>
                   </div>
-                  <form method="POST" action="/product/product-cart/<%=product.idProduct%>?_method=DELETE">
+                  <form class="delete-cart" method="POST" action="/product/product-cart/<%=product.idProduct%>?_method=DELETE">
                   <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
                   </form>
                 </div>
@@ -102,5 +103,6 @@
     <footer class="footer">
       <%- include('../partials/footer.ejs')%>
     </footer>
+    <script src="/js/updateItemQuantity.js"></script>
   </body>
 </html>
