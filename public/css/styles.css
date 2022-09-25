@@ -550,14 +550,15 @@ main {
 }
 
 /* selector cantidad*/
+
 .value-button {
     display: inline-block;
     margin: 0px;
-    width: 35px;
-    height: 25px;
+    width: 20px;
+    height: 20px;
     text-align: center;
     vertical-align: middle;
-    padding: 2px 0;
+    padding: 1px 0;
     background: white;
     color: #2B2B2B;
     font-size: 20px;
@@ -568,7 +569,11 @@ main {
     -ms-user-select: none;
     user-select: none;
 }
-
+.update-quantity-container{
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
 .value-button:hover {
     cursor: pointer;
 }
@@ -589,11 +594,10 @@ form #input-wrap {
 input#number {
     text-align: center;
     border: none;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
-    margin: 0px;
-    width: 46px;
-    height: 25px;
+    border: 1px solid white;
+    margin: -4px;
+    width: 40px;
+    height: 20px;
     color: white;
     background-color: #2B2B2B;
 }
@@ -687,10 +691,15 @@ input[type=number]::-webkit-outer-spin-button {
 .cart__buttons {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    position: relative;
 }
-
+.delete-cart{
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+}
 .cart__buttons select {
     width: 100%;
     border: 1px solid #fbf2e0;
@@ -2172,11 +2181,11 @@ li datalist option {
     .value-button {
         display: inline-block;
         margin: 0px;
-        width: 35px;
+        width: 25px;
         height: 25px;
         text-align: center;
         vertical-align: middle;
-        padding: 2px 0;
+        padding: 1px 0;
         background: white;
         color: #2B2B2B;
         font-size: 20px;
@@ -2186,6 +2195,11 @@ li datalist option {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+    }
+    .update-quantity-container{
+        display: flex;
+        align-items: center;
+        height: 30px;
     }
 
     .value-button:hover {
@@ -2208,10 +2222,9 @@ li datalist option {
     input#number {
         text-align: center;
         border: none;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
-        margin: 0px;
-        width: 46px;
+        border: 2px solid white;
+        margin: -4px;
+        width: 38px;
         height: 25px;
         color: white;
         background-color: #2B2B2B;
@@ -2274,7 +2287,7 @@ li datalist option {
     }
 
     .cart__product p {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .cart__product span {
@@ -2301,9 +2314,15 @@ li datalist option {
 
     .cart__buttons {
         width: 75%;
-        justify-content: space-between;
+        justify-content: space-around;
+        flex-direction: row;
+        position: relative;
     }
-
+    .delete-cart{
+        position: absolute;
+        bottom: 0%;
+        right: 4%;
+    }
     .cart__minisection {
         padding: 5px;
         justify-content: center;
@@ -2976,15 +2995,21 @@ li datalist option {
         color: #fbf2e0;
     }
 
+
     /* selector cantidad*/
+    .delete-cart{
+        position: absolute;
+        bottom: 0%;
+        right: 10%;
+    }
     .value-button {
         display: inline-block;
         margin: 0px;
-        width: 35px;
+        width: 25px;
         height: 25px;
         text-align: center;
         vertical-align: middle;
-        padding: 2px 0;
+        padding: 1px 0;
         background: white;
         color: #2B2B2B;
         font-size: 20px;
@@ -2994,6 +3019,11 @@ li datalist option {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+    }
+    .update-quantity-container{
+        display: flex;
+        align-items: center;
+        height: 30px;
     }
 
     .value-button:hover {
@@ -3016,9 +3046,8 @@ li datalist option {
     input#number {
         text-align: center;
         border: none;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
-        margin: 0px;
+        border: 2px solid white;
+        margin: -4px;
         width: 46px;
         height: 25px;
         color: white;
@@ -3354,13 +3383,6 @@ li datalist option {
         padding: 20px;
     }
 
-    #zoomC {
-        background: url("../img/espumante.png");
-        background-position: center;
-        background-size: 220px auto;
-        background-repeat: no-repeat;
-    }
-
     .pd__info {
         width: 500px;
     }
@@ -3441,6 +3463,11 @@ li datalist option {
     }
 
     /* selector cantidad*/
+    .update-quantity-container{
+        display: flex;
+        align-items: center;
+        height: 30px;
+    }
     .value-button {
         display: inline-block;
         margin: 0px;
@@ -3448,7 +3475,7 @@ li datalist option {
         height: 25px;
         text-align: center;
         vertical-align: middle;
-        padding: 2px 0;
+        padding: 1px 0;
         background: white;
         color: #2B2B2B;
         font-size: 20px;
@@ -3462,6 +3489,11 @@ li datalist option {
 
     .value-button:hover {
         cursor: pointer;
+    }
+    .delete-cart{
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
     }
 
     form #decrease {
@@ -3480,9 +3512,8 @@ li datalist option {
     input#number {
         text-align: center;
         border: none;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
-        margin: 0px;
+        border: 2px solid white;
+        margin: -4px;
         width: 46px;
         height: 25px;
         color: white;
@@ -3629,20 +3660,22 @@ li datalist option {
 
     .cart__header {
         display: grid;
-        grid-template-columns: 54% 22% 24%;
-        padding: 10px 0px;
+        grid-template-columns: 40% 35% 15%;
+        padding: 10px 0px ;
         border-bottom: 1px solid #7B7B7B;
     }
 
     .cart__productdetail {
         justify-content: space-between;
     }
+    
 
     .cart__buttons {
-        width: 56%;
-        justify-content: space-around;
+        width: 70%;
+        justify-content: space-between;
+        padding-right: 30px;
     }
-
+   
     .cart__title {
         width: 90%;
         font-size: 20px;
@@ -3729,6 +3762,12 @@ li datalist option {
         font-size: 20px;
 
     }
+    .delete-cart{
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+    }
+    
 }
 
 

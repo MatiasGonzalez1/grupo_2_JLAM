@@ -187,6 +187,9 @@ const productController = {
             response:true
         });
     },
+    updateFromCart: (req, res) =>{
+
+    },
     deleteCart: (req, res) =>{
         const idProducto = req.params.id;
 
