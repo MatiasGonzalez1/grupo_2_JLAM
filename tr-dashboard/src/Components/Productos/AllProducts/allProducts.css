@@ -46,7 +46,7 @@
 .subTitle p:last-child{
     text-align: center;
     position: relative;
-    left: -8%;
+    left: -9%;
 }
 
 /*
@@ -65,6 +65,10 @@
     margin: 20px auto;
     font-size: 13px;
 
+}
+
+.productSquare h3{
+    width: 28%;
 }
 
 .productSquare li:hover{
