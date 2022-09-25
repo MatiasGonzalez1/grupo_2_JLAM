@@ -1,14 +1,13 @@
 .productSquare{
-     
-    height:480px;
-    width: 55vw;
-    position: absolute;
-    margin: 30px 50px 0;
+    height:auto;
+    width: 90%;
+    position: relative;
+    margin: auto;
+    padding: 15px;
     /* background-color: inherit; */
     background-color: #fff;
     box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
     border-radius: 10px; 
-    overflow-y: scroll; 
 }
 
 .productSquare h2{
@@ -24,10 +23,10 @@
 
 .subTitle{
     position: relative;
-    width: 90%;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
     margin: 20px auto;
     border-bottom: 1px solid #f53117;
     margin-bottom: 30px;
@@ -42,7 +41,7 @@
  .subTitle p:nth-child(2){
     width: 20%;
     text-align: end;
-    margin-right: -27%;
+    margin-right: -28%;
 }
 
 .subTitle p:last-child{
@@ -72,13 +71,32 @@
     background-color: #f53117;
 }
 
-.productSquare ul li p{
+.productSquare ul li a{
+    width: 100%;
+    text-decoration: none;
+    color: #000;
+    display: flex;
+    justify-content: space-evenly;
+
+}
+.productSquare ul li a p{
     width: 20%;
     text-align: center;
     margin-right: -5%
 ;}
 
-.productSquare ul li h3{
+.productSquare ul li a  h3{
     width: 45%;
     font-weight: normal;
+}
+
+.buttonPages{
+display: flex;
+justify-content: center;
+align-items: flex-end;
+margin-top: 10%;
+}
+
+.buttonPages p{
+    margin: 0 15px;
 }
