@@ -36,10 +36,10 @@
                 <div class="cart__buttons">
                   <p>$<%= formatter.format(product.productPrice)%></p>
                   <div class="update-quantity-container">
-                    <div class="value-button" id="decrease" value="decrease">-</div>
+                    <div class="value-button" id="decrease" value="decrease" data-divProducto="<%=product.idProduct%>">-</div>
                     <input id="cart-id-product" type="hidden" value="<%=product.idProduct%>">
-                    <input type="number" id="inputValue" value="<%=product.quantity%>" name="cantidad"/>
-                    <div class="value-button" id="increase" value="increase">+</div>
+                    <input type="number" id="inputValue" value="<%=product.quantity%>" data-inputProducto="<%=product.idProduct%>" name="cantidad"/>
+                    <div class="value-button" id="increase" value="increase" data-divProducto="<%=product.idProduct%>">+</div>
                   </div>
                   <form class="delete-cart" method="POST" action="/product/product-cart/<%=product.idProduct%>?_method=DELETE">
                   <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
