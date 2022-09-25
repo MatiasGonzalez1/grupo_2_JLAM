@@ -28,8 +28,8 @@ const userAPIController = {
     // al siguiente endpoint "http://localhost:3001/api/users?page=0"
     // Por defecto (sin query) traera todos los usuarios regustrados "http://localhost:3001/api/users"
     let page = 0;
-    let limit = 10;
-    req.query.page ? (page = Number(req.query.page) * 10) : (limit = undefined);
+    let limit = 4;
+    req.query.page ? (page = Number(req.query.page) * 4) : (limit = undefined);
     const lastUser = await db.Users.findOne({
       include: [{ association: "userCategory" }],
       attributes: [
@@ -48,7 +48,8 @@ const userAPIController = {
         "firstName",
         "lastName",
         ["userEmail", "email"],
-        "createAt",
+        "userImg",
+        [Sequelize.fn("DATE", Sequelize.col("createAt")), "createAt"],
         "userBirthDate",
         [Sequelize.fn("YEAR", Sequelize.col("userBirthDate")), "edad"], // query para tarer el año de nacimiento y calcular edad
       ], //Determinacion de columnas a traer de la DB

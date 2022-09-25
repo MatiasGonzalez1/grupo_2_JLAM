@@ -63,8 +63,8 @@ campoEmail.addEventListener('input', function () {
         crearError(campoEmail,"El campo email no puede estar vacío")
         errores.campoEmail = "El campo email no puede estar vacío"
     } else if (!campoEmail.value.match(valido)) {
-        crearError(campoEmail,"La contraseña debe de tener un número, una mayúscula y un caracter especial")
-        errores.campoEmail = "La contraseña debe de tener un número, una mayúscula y un caracter especial"
+        crearError(campoEmail,"Debe ingresar un email valido")
+        errores.campoEmail = "Debe ingresar un email valido"
     } else {
         delError(campoEmail)
         delete errores.campoEmail

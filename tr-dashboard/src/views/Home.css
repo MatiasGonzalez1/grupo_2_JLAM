@@ -15,9 +15,10 @@
 
 .card-content {
     display: grid;
+    width: 80%;
     grid-template-columns: repeat(3, 2fr);
     gap: 15px;
-    margin: 6% 10%;
+    margin: 2% auto;
 }
 
 .other-content {

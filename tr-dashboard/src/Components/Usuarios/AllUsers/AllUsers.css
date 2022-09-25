@@ -1,0 +1,65 @@
+
+    .users-main-container{
+        display: flex;
+        flex-direction: column;
+        padding: 0% 2% 0% 2%;
+        margin: auto;
+        align-items: center;
+        width: 90%;
+        padding: 30px 0;
+    }
+    .all-users{
+        width: 100%;
+        height: fit-content;
+        border-radius: 20px;
+        background-color:#FBF2E0;
+        flex-wrap: wrap;
+    }
+    .user-card-container{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        gap: 1%;
+        justify-content: center;
+        
+    }
+    
+    .last-users-container{
+        width: 90%;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 20px;
+        padding: 2% 0%;
+    }
+
+    .button-prev{
+        width: 60px;
+        height: 20px;
+        margin: auto;
+    }
+    .button-next{
+        text-align: end;
+        width: 60px;
+        height: 20px;
+        margin: auto;
+    }
+
+    .title-container{
+        text-align: center;
+        margin: 1%;
+        font-weight: 600;
+        font-size: 20px;
+    }
+
+    .pagination-container{
+        display: flex;
+        width: 30%;
+        margin: auto;
+    }
+
+    @media screen and (min-width: 768px) {
+        .title-container{
+            font-size: 40px;
+        }
+    }
+

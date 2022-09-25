@@ -1,11 +1,12 @@
 .welcomeComp{
     height: 40px;
     background-color:#f53117;
-    margin: 3% 10%;
+    margin: 2% 10%;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .welcome-bg{
@@ -32,6 +33,15 @@
     width: 100%;
     text-align: left;
     font-size: 5px;
+}
+
+.title{
+    font-size: 47px;
+    font-weight: 600;
+    color: #FBF2E0;
+    position: absolute;
+    right: 20%;
+    top: 20%;
 }
 
 @media screen and (min-width: 768px) {
