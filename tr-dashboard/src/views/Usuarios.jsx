@@ -24,7 +24,7 @@ function Usuarios() {
 
   let datosInfo = [
     {
-      detalle: 'Edad Promedio de Usuarios',
+      detalle: 'Edad Promedio',
       dato: users.edadPromedio
     },
     {
