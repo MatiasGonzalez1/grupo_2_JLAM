@@ -43,11 +43,11 @@ export const AllProducts = () => {
             return (
               <ul key={i}>
                 <li>
-                  <Link to={`/product-detail/${product.id}`}>
+                  
                     <h3>{product.name}</h3>
                     <p>${Formatter.format(product.price)}</p>
                     <p>{product.stock}u.</p>
-                  </Link>
+                    <Link to={`/product-detail/${product.id}`} className='linkTo'>Detalle</Link>
                 </li>
               </ul>
             );

@@ -22,7 +22,7 @@ const { sequelize } = require("../../database/models"); //se requiere sequelize 
 const productsAPIController = {
   loadProducts: async (req, res) => {
     //listado de productos | el cb debe ser asíncrono para usar raw queries
-    let page = 0;
+    let page = 1;
     let limit = 5;
     req.query.page ? (page = Number(req.query.page) * 5) : (limit = undefined);
     const countBy = await sequelize.query(
