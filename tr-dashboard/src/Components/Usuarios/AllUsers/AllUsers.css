@@ -31,17 +31,51 @@
     }
 
     .button-prev{
-        width: 60px;
-        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
         margin: auto;
-        margin-top: 5px;
+        cursor: pointer;
+        background-color: #333333;
+        border-radius: 100%;
     }
+
     .button-next{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: end;
-        width: 60px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         margin: auto;
-        margin-top: 5px;
+        cursor: pointer;
+        background-color: #333333;
+        border-radius: 100%;
+    }
+    
+    .button-next:hover{
+        background-color: #f53117;
+        transition-property: all;
+        transition-duration: .2s;
+    }
+
+    .button-prev:hover{
+        background-color: #f53117;
+        transition-property: all;
+        transition-duration: .2s;
+    }
+
+    .arrow-icon{
+        color: #FBF2E0;
+    }
+
+    .page-container{
+        font-weight: bolder;
+        font-size: 150%;
     }
 
     .title-container{
@@ -62,15 +96,23 @@
         .title-container{
             font-size: 40px;
         }
+
+        .button-prev{
+            width: 40px;
+            height: 40px;
+        }
+        .button-next{
+            width: 40px;
+            height: 40px;
+        }
+    
+        .page-container{
+            font-weight: bolder;
+            font-size: 200%;
+        }
         .last-users-container{
             grid-template-columns: 2fr 3fr;
             padding: 2% 0%;
-        }
-        .button-prev{
-            margin-top: 0px;
-        }
-        .button-next{
-            margin-top: 0px;
         }
         .users-main-container{
             padding: 30px 0;
