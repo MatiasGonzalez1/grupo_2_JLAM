@@ -202,7 +202,7 @@ li.container__panel {
         height: 50px;
     }
     .icon__hamburguer {
-        margin-left: 40px;
+        margin-left: 22px;
     }
     .name__panel {
         font-size: 18px;
@@ -242,6 +242,7 @@ li.container__panel {
     }
     .icon__content {
         margin-right: 2px;
+        margin-left: 1px;
     }
     .name__panel {
         font-size: 19px;
@@ -254,11 +255,11 @@ li.container__panel {
 @media (min-width: 1400px) {
     .icon__hamburguer {
         margin-right: 0;
-        padding-left: 49px;
+       
     }
     .logo_terra {
         padding-left: 0;
-        margin-left: 40px;
+        margin-left: 70px;
         margin-right: 0;
     }
 
