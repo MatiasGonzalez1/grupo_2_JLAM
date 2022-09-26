@@ -20,6 +20,7 @@
     margin: 2% 5%;
 }
 
+
 @media screen and (min-width: 470px) {
     .other-content {
         grid-template-columns: 5fr 2fr;
