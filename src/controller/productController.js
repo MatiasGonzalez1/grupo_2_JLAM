@@ -191,22 +191,41 @@ const productController = {
             response:true
         });
     },
-    updateFromCart: (req, res) =>{
+    updateFromCart: async(req, res) =>{
         const cantidad = req.body.quantity;
         const idProducto = req.params.id;
         let carritoActual = JSON.parse(req.cookies.carrito);
         let carritoActualizado;
+        let productsId =[]; 
+        let subtotal= 0;
 
         carritoActualizado = carritoActual.map(function(producto){
             if (producto.id == idProducto) {
                 producto.quantity = cantidad;                
             }
+            productsId.push(producto.id);
             return producto;
         })
+        let prices = await db.Product.findAll({
+            attributes: ['idProduct', 'productPrice'],
+            where:{
+                idProduct: {[Op.in]:productsId}
+            },
+        })
+
+        prices.forEach(price =>{
+            carritoActualizado.forEach(producto =>{
+                if (price.idProduct == producto.id) {
+                    subtotal = subtotal +Number(price.productPrice) * producto.quantity;
+                }
+            });
+        });
+        console.log(subtotal);
 
         res.cookie('carrito', JSON.stringify(carritoActualizado),{maxAge:21600000}); 
         res.json({
-            response:true
+            response:true,
+            subtotal: subtotal
         });
 
     },

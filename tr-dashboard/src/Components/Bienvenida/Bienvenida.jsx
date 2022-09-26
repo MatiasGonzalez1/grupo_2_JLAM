@@ -4,11 +4,16 @@ import welcomeBg from '../../Assets/images/welcome-bg.png'
 
 function Bienvenida({welcomeTitle}) {
   return (
+    
     <div className='welcomeComp'>
         <div className='welcome'>
             <p className='userName'>Admin</p>
             <p className='welcome-msg'>Que bueno volver a verte!</p>
         </div>
+        <div>
+        <p className='title__welcome'>Usuarios</p>
+        </div>
+        
         <div>
           <span className='title'>{welcomeTitle}</span>
         </div>
