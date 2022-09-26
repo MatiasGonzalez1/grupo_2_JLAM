@@ -1,12 +1,13 @@
 .last-added-container{
     /* editar w & h */
-    width: 55vw;
+    width: 80vw;
     height: auto;
     background: #FFFFFF;
     box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
     padding: 5%;
     border-radius: 10px;
     margin: auto;
+    margin-top: 10px;
 }
 .last-main-groups{
     width: 100%;
@@ -19,8 +20,8 @@
     padding: 0% 2%;
 }
 .last-main-groups h3{
-    font-weight: normal;
-    font-size: 20px;
+    font-weight: border;
+    font-size: 14px;
     line-height: 16px;
     display: flex;
     align-items: center;
@@ -31,7 +32,7 @@
     color: #fbf2e0;
     background: #4b4b4b;
     border-radius: 10px;
-    font-size: 15px;
+    font-size: 13px;
     border: none ;
     padding: 1%;
 }
@@ -49,10 +50,10 @@
     border-bottom: 2px solid #F53117;
 }
 p.product-detail{
-    font-size: 18px;
+    font-size: 13px;
 }
 p.column-detail{
-    font-size: 20px;
+    font-size: 15px;
 }
 .border-none{
     border: none !important;
@@ -60,9 +61,12 @@ p.column-detail{
 @media screen and (min-width: 768px) {
     .last-added-container{
         padding: 1%;
+        width: 55vw;
+        margin-top: 0px;
     }
     .last-added-select{
         width: 250px;
+        font-size: 15px;
     }
     p.product-detail{
         font-size: 14px;
