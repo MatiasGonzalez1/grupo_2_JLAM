@@ -18,9 +18,8 @@ function Sidebar() {
 			setUsuarios([usuarios])
 		})
 		.catch(error => console.error(error));
-		//le cambiamos el estado a movies
+		
 	},[])
-    console.log(usuarios)
 
     const handleShow=() => {
         let but = document.querySelector(".icon__hamburguer")

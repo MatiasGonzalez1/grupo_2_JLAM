@@ -1,10 +1,11 @@
 import React from "react";
 import "./LastUserDetail.css";
+
 import Img from "../../../Assets/images/admin@admin.com_1657413736084.png";
 
 
 function LastUserDetail(props) {
-
+  const user = '../../../Assets/images/profileImages/'; 
   const dateFormat =(date)=>{
     var sqlDate = new Date(date); 
     return sqlDate.toLocaleString(); 
@@ -14,7 +15,7 @@ function LastUserDetail(props) {
       <div className="last-user-line"></div>
         <h2>último usuario creado</h2>
         <div className="last-user-card">
-        <img src={Img} alt="" />
+        <img src={props? `${user}${props.lastUser.userImg}`: Img} alt="user img" />
         <div className="last-user-data">
           <p>nombre: <span>{props.lastUser.firstName ? props.lastUser.firstName : ''}</span></p>
           <p>apellido: <span>{props.lastUser.lastName ? props.lastUser.lastName : ''}</span></p>

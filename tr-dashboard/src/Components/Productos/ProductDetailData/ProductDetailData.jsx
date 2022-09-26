@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-// import Img from "../../../Assets/images/ProductImg/blend.png";
 import Formatter from '../../../utils/Formatter.js';
 import "./ProductDetailData.css";
 
 function ProductDetailData() {
     let idProduct = useParams();
-    console.log(idProduct);
     const [product, setProduct] = useState([]);
 
     const getItemDetail = async()=>{
@@ -28,7 +26,6 @@ function ProductDetailData() {
             <div className="product-detail-section">
             <h1 key={product.data.idProduct}>{product.data.productName}</h1>
             <div className="product-detail-data">
-                <div className="line"></div>
                 <p><span>año cosecha: </span>{product.data.productHarvest}</p>
                 <p><span>variedad: </span>{product.data.productVariety}</p>
                 <p><span>crianza: </span>{product.data.productBreeding}</p>
@@ -39,7 +36,6 @@ function ProductDetailData() {
                 </div>
             </div>
             <div className="product-detail-data">
-                <div className="line"></div>
                 <p><span>descripción: </span>{product.data.productDescription}</p>
             </div>
         </div>

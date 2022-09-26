@@ -1,43 +1,60 @@
 const buttonValue = document.querySelectorAll('div.value-button');
-const inputValue = document.querySelector('input#inputValue');
-const inputId = document.querySelector('input#cart-id-product').value;
+const inputValue = document.querySelectorAll('input#inputValue');
+const pSubtotal = document.querySelector('p#subtotal');
+const pTotal = document.querySelector('p#total');
 
-let currentValue = Number(inputValue.value);
+let currentValue;
 
+const formatter = new Intl.NumberFormat("es-AR", { 
+    style: "decimal",
+    minimumFractionDigits: 2,
+}); 
 
 buttonValue.forEach(div => {
-    div.addEventListener('click', ()=>{
-
+    div.addEventListener('click', (e)=>{
+        let divProducto = e.target.getAttribute("data-divProducto");
         if (div.innerText == "-") {
-            currentValue = Number(inputValue.value)
-            if (currentValue>1) {
-                inputValue.value=currentValue-1;
-                var event = new Event('change');
-                inputValue.dispatchEvent(event);
-            }
-        }else if(div.innerText == "+"){
-            currentValue = Number(inputValue.value)
-            inputValue.value=currentValue+1;
-            var event = new Event('change');
-            inputValue.dispatchEvent(event);
-        };
-        
+            inputValue.forEach(input => {
+                currentValue = Number(input.value);
+                if(input.getAttribute("data-inputProducto") == divProducto && currentValue>1){
+                    input.value=currentValue-1;
+                    var event = new Event('change');
+                    input.dispatchEvent(event);
+                }
+            });
+        }
+        if (div.innerText == "+") {
+            inputValue.forEach(input => {
+                currentValue = Number(input.value);
+                if(input.getAttribute("data-inputProducto") == divProducto){
+                    input.value=currentValue+1;
+                    var event = new Event('change');
+                    input.dispatchEvent(event);
+                }
+            });
+        }
     });
 });
 
-inputValue.addEventListener('change', async()=>{
-    const newBody = {
-        quantity: inputValue.value
-    };
 
-    let response =  await fetch("https://grupo2jlam-production-8382.up.railway.app/product/update-cart/"+inputId, {
-        method: "POST",
-        body: JSON.stringify(newBody),
-        headers: {
-            'Accept': 'application/json',
-            'Content-Type': 'application/json'
-        },
-    });
-    
+inputValue.forEach(input => {
+    input.addEventListener('change', async()=>{
+        let idProduct = input.getAttribute("data-inputProducto");
 
-})
+        const newBody = {
+            quantity: input.value
+        };
+
+        let response =  await fetch("https://grupo2jlam-production-8382.up.railway.app/product/update-cart/"+idProduct, {
+            method: "POST",
+            body: JSON.stringify(newBody),
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+        });
+        const subtotalJson = await response.json();
+        pSubtotal.innerHTML = formatter.format(subtotalJson.subtotal);
+        pTotal.innerHTML = formatter.format(subtotalJson.subtotal);
+    })
+});

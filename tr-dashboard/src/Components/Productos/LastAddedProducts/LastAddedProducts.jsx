@@ -32,12 +32,12 @@ const LastAddedProducts=()=>{
         </div>
         <div className='last-main-groups'>
             <div className='last-added-columns border-none'>
-                {products.map(product => (
-                    <>
-                        <p className='product-detail'key={product.idProduct}>{product.productName}</p>
+                {products.map((product, i) => (
+                    <React.Fragment key={i}>
+                        <p className='product-detail'>{product.productName}</p>
                         <p className='product-detail'>${Formatter.format(product.productPrice)}</p>
                         <p className='product-detail'>{product.productStock}</p>
-                    </>
+                    </React.Fragment>
                 ))
                 }
             </div>

@@ -21,7 +21,7 @@ export const AllCategoriesCard = () => {
     getCategories();
   }, []);
 
-  return <OneCard title={categories? Object.keys(categories) : ''} quantity={categories? categories.categorías : ''} icon={faBoxesStacked}/>
+  return <OneCard title={'Categorías'} quantity={categories? categories.categorías : ''} icon={faBoxesStacked}/>
       
 };
 

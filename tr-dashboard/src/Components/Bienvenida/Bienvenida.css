@@ -1,16 +1,17 @@
 .welcomeComp{
-    height: 40px;
+    height: 60px;
     background-color:#f53117;
-    margin: 3% 10%;
+    margin: 5% 6%;
     border-radius: 10px;
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 }
 
 .welcome-bg{
     width: 50%;
-    height: 40px;
+    height: 60px;
 
 }
 
@@ -23,41 +24,73 @@
 
 .userName{
     color: #FBF2E0;
-    font-size: 10px;
+    font-size: 14px;
     text-align: left;
 }
 
 .welcome-msg{
     color: #FBF2E0;
-    width: 100%;
+    width: 114%;
     text-align: left;
-    font-size: 5px;
+    font-size: 10px;
+}
+
+.title{
+    font-size: 14px;
+    font-weight: 600;
+    color: #FBF2E0;
+    position: absolute;
+    right: 5%;
 }
 
 @media screen and (min-width: 768px) {
     .welcomeComp{
         height: 70px;
-        margin: 2% 6%;
+        margin: 2% 8%;
+        margin-right: 18px;
     }
 
     .welcome-bg{
         width: 50%;
         height: 70px;
     }
+    .title__welcome {
+        padding-left: 150px;
+        font-size: 20px;
+        font-weight: 600;
+    }
+    
 
     .userName{
         font-size: 20px;
     }
 
     .welcome-msg{
-        font-size: 10px;
+        font-size: 13px;
+    }
+    .title{
+        font-size: 19px;
+        right: 8%;
+    }
+}
+@media screen and (min-width: 913px) {
+    .title{
+        font-size: 20px;
+        right: 10%;
+    }
+    .welcomeComp {
+        height: 80px;
+    }
+    .welcome-msg {
+        font-size: 14px;
     }
 }
 
 @media screen and (min-width: 1024px) {
     .welcomeComp{
         height: 100px;
-        margin: 2% 6%;
+        margin: 2% 7%;
+        margin-right: 20px;
     }
 
     .welcome-bg{
@@ -72,4 +105,19 @@
     .welcome-msg{
         font-size: 17px;
     }
+}
+@media screen and (min-width: 1200px) {
+    .title {
+        font-size: 30px;
+    }
+}
+@media screen and (min-width: 1400px) {
+.title__welcome {
+    padding-left: 300px;
+    font-size: 30px;
+}
+.title{
+    font-size: 38px;
+    bottom: 20px;
+}
 }

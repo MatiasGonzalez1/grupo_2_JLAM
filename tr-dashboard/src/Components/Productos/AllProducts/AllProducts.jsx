@@ -4,23 +4,30 @@ import Formatter from "../../../utils/Formatter";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import Bienvenida from "../../Bienvenida/Bienvenida";
 
 export const AllProducts = () => {
   const [products, setProducts] = useState(null);
   const [page, setPage] = useState(0);
+  const [limit, setLimit] = useState(0);
+  
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/product?page=${page}`)
       .then((response) => response.json())
       .then((products) => {
         setProducts(products.products);
+        setLimit(products.count);
       });
   }, [page]);
 
-  function handleClickNext(){
-    setPage(page + 1)
-  }
+  let totalPages = Math.ceil(limit);
 
+  function handleClickNext(){
+    if (page < totalPages ) {
+      setPage(page + 1)
+    }
+  }
   function handleClickPrev(){
     if(page > 0){
       setPage(page - 1)
@@ -31,6 +38,7 @@ export const AllProducts = () => {
 
   return (
     <>
+    <Bienvenida welcomeTitle={"Productos"}/>
       {products ? (
         <div className="productSquare">
           <h2>Productos</h2>
@@ -47,15 +55,16 @@ export const AllProducts = () => {
                     <h3>{product.name}</h3>
                     <p>${Formatter.format(product.price)}</p>
                     <p>{product.stock}u.</p>
-                    <Link to={`/product-detail/${product.id}`} className='linkTo'>Detalle</Link>
+                    <Link to={`/product-detail/${product.id}`} className='linkTo'><button>Detalle</button></Link>
                 </li>
               </ul>
             );
           })}
           <div className="buttonPages">
-          <FontAwesomeIcon icon={faArrowLeft} onClick={handleClickPrev}/>
-          <p>{page}</p>
-          <FontAwesomeIcon icon={faArrowRight} onClick={handleClickNext}/></div>
+            <FontAwesomeIcon className="button-Icons" icon={faArrowLeft} onClick={handleClickPrev}/>
+            <p>{page+1}</p>
+            <FontAwesomeIcon  className="button-Icons" icon={faArrowRight} onClick={handleClickNext}/>
+          </div>
         </div>
       ) : (
         "Cargando"

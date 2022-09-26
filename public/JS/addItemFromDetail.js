@@ -22,7 +22,7 @@ buttonValue.forEach(div => {
             var event = new Event('change');
             inputValue.dispatchEvent(event);
         };
-        
+
     });
 });
 

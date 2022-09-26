@@ -5,7 +5,7 @@
     background-color: #333333;
     border-radius: 10px;
     margin: auto;
-    margin-top: 20px    ;
+    margin-top: 10px    ;
     box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -27,7 +27,7 @@
     top: 15px;
     color: #fbf2e0;
     font-weight: 400;
-    font-size: 7px;
+    font-size: 9px;
 }
 
 .productCard p {
@@ -50,6 +50,7 @@
 @media screen and (min-width: 470px) {
     .productCard {
         height: 90px;
+        margin-top: 20px 
     }
 
     .wineBotleIco {

@@ -1,21 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <%- include('../partials/head.ejs')%>
+
+<head>
+  <%- include('../partials/head.ejs')%>
     <title>Finalizar Compra - Terra Rossa</title>
-  </head>
-  <body>
-    <!-- seccion barra de navegacion -->
-    <header>
-      <%- include('../partials/nav.ejs')%>
-    </header>
-    <!-- fin seccion barra de navegacion -->
-    <% 
-  const formatter = new Intl.NumberFormat("es-AR", { 
-    style: "decimal",
-    minimumFractionDigits: 2,
-  }); 
-   %>
+</head>
+
+<body>
+  <!-- seccion barra de navegacion -->
+  <header>
+    <%- include('../partials/nav.ejs')%>
+  </header>
+  <!-- fin seccion barra de navegacion -->
+  <% const formatter=new Intl.NumberFormat("es-AR", { style: "decimal" , minimumFractionDigits: 2, }); %>
     <!-- inicio -->
     <section class="margin__nav">
       <h1 class="cart__title">Finalizar Compra</h1>
@@ -23,158 +20,214 @@
         <div class="checkout-grid">
           <div class="checkout-element-container">
             <div class="checkout-alignment">
-                <h4 class="enabled" id="shippingData">Datos de envío</h4>
-                <i class="fa-solid fa-arrow-right"></i>
-                <h4 class="disabled" id="paymentData">Método de Pago</h4>
+              <h4 class="enabled" id="shippingData">Datos de envío</h4>
+              <i class="fa-solid fa-arrow-right"></i>
+              <h4 class="disabled" id="paymentData">Método de Pago</h4>
             </div>
             <form class="form-checkout" action="/product/checkout" method="POST">
-              <div class="checkout-groups" id="shippingForm" >
-                  <div class="checkout-subgroups">
-                      <div class="input__section">
-                          <label>Nombre</label>
-                          <input type="text" name="checkoutName" class="checkoutName" value="<%= user.firstName%>"/>
-                          <% if(locals.errors && errors.checkoutName) { %> 
-                            <p class="form-warning"> <%= errors.checkoutName.msg %> </p>
-                          <%}else{%> 
-                            <p class="form-warning" style="display: none;"></p>
-                          <%}%>  
-                        </div>
-                      <div class="input__section">
-                          <label>Apellido</label>
-                          <input type="text" name="checkoutLastName"  class="checkoutLastName" value="<%= user.lastName%>"/>
-                          <% if(locals.errors && errors.checkoutLastName) { %> 
-                            <p class="form-warning"> <%= errors.checkoutLastName.msg %> </p>
-                          <%}else{%> 
-                            <p class="form-warning" style="display: none;"></p>
-                          <%}%>  
-                        </div>
-                      <div class="input__section">
-                          <label>Email</label>
-                          <input type="text" name="checkoutEmail" class="checkoutEmail" value="<%= user.userEmail%>"/>
-                          <% if(locals.errors && errors.checkoutEmail) { %> 
-                            <p class="form-warning"> <%= errors.checkoutEmail.msg %> </p>
-                          <%}else{%> 
-                            <p class="form-warning" style="display: none;"></p>
-                          <%}%>  
-                        </div>
-                      <div class="input__section">
-                          <label>Ciudad</label>
-                          <select name="city" class="checkoutCity">
-                            <option selected disabled value="">-- seleccione su ciudad --</option>
-                            <% city.forEach(city => { %>
-                              <% if (city.idCity == user.idCity) {%>
-                                <option selected value="<%= city.idCity%>"><%= city.cityName%></option>
-                              <%}else {%>
-                                <option  value="<%= city.idCity%>"><%= city.cityName%></option>
-                              <% }%>
-                            <% })%> 
-                          </select>
-                          <% if(locals.errors && errors.checkoutCity) { %> 
-                            <p class="form-warning"> <%= errors.checkoutCity.msg %> </p>
-                          <%}else{%> 
-                            <p class="form-warning" style="display: none;"></p>
-                          <%}%>
-                      </div>
-                      <div class="input__section">
-                          <label>Dirección</label>
-                          <input type="text" name="checkoutAddress" class="checkoutAddress" value="<%= user.userAddress%>"/>
-                          <% if(locals.errors && errors.checkoutAddress) { %> 
-                            <p class="form-warning"> <%= errors.checkoutAddress.msg %> </p>
-                          <%}else{%> 
-                            <p class="form-warning" style="display: none;"></p>
-                          <%}%>  
-                        </div>
-                      <div class="input__section">
-                          <label>Piso</label>
-                          <input type="text" name="checkoutFloor" class="checkoutFloor" value="<%= user.userFloor%>"/>
-                          <% if(locals.errors && errors.checkoutFloor) { %> 
-                            <p class="form-warning"> <%= errors.checkoutFloor.msg %> </p>
-                          <%}else{%> 
-                            <p class="form-warning" style="display: none;"></p>
-                          <%}%>  
-                        </div>
-                      <div class="input__section center-checkout">
-                        <input type="button" class="cart__btn--checkout" id="checkoutNext" value="Siguente paso">
-                      </div>
+              <div class="checkout-groups" id="shippingForm">
+                <div class="checkout-subgroups">
+                  <div class="input__section">
+                    <label>Nombre</label>
+                    <input type="text" name="checkoutName" class="checkoutName" value="<%= user.firstName%>" />
+                    <% if(locals.errors && errors.checkoutName) { %>
+                      <p class="form-warning">
+                        <%= errors.checkoutName.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
                   </div>
+                  <div class="input__section">
+                    <label>Apellido</label>
+                    <input type="text" name="checkoutLastName" class="checkoutLastName" value="<%= user.lastName%>" />
+                    <% if(locals.errors && errors.checkoutLastName) { %>
+                      <p class="form-warning">
+                        <%= errors.checkoutLastName.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
+                  </div>
+                  <div class="input__section">
+                    <label>Email</label>
+                    <input type="text" name="checkoutEmail" class="checkoutEmail" value="<%= user.userEmail%>" />
+                    <% if(locals.errors && errors.checkoutEmail) { %>
+                      <p class="form-warning">
+                        <%= errors.checkoutEmail.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
+                  </div>
+                  <div class="input__section">
+                    <label>Ciudad</label>
+                    <select name="city" class="checkoutCity">
+                      <option selected disabled value="">-- seleccione su ciudad --</option>
+                      <% city.forEach(city=> { %>
+                        <% if (city.idCity==user.idCity) {%>
+                          <option selected value="<%= city.idCity%>">
+                            <%= city.cityName%>
+                          </option>
+                          <%}else {%>
+                            <option value="<%= city.idCity%>">
+                              <%= city.cityName%>
+                            </option>
+                            <% }%>
+                              <% })%>
+                    </select>
+                    <% if(locals.errors && errors.checkoutCity) { %>
+                      <p class="form-warning">
+                        <%= errors.checkoutCity.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
+                  </div>
+                  <div class="input__section">
+                    <label>Dirección</label>
+                    <input type="text" name="checkoutAddress" class="checkoutAddress" value="<%= user.userAddress%>" />
+                    <% if(locals.errors && errors.checkoutAddress) { %>
+                      <p class="form-warning">
+                        <%= errors.checkoutAddress.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
+                  </div>
+                  <div class="input__section">
+                    <label>Piso</label>
+                    <input type="text" name="checkoutFloor" class="checkoutFloor" value="<%= user.userFloor%>" />
+                    <% if(locals.errors && errors.checkoutFloor) { %>
+                      <p class="form-warning">
+                        <%= errors.checkoutFloor.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
+                  </div>
+                  <div class="input__section center-checkout">
+                    <input type="button" class="cart__btn--checkout" id="checkoutNext" value="Siguente paso">
+                  </div>
+                </div>
               </div>
               <div class="checkout-groups checkout-hidden" id="paymentForm">
                 <div class="checkout-subgroups">
                   <div class="input__section">
-                      <label>datos de facturación</label>
-                      <input type="text" name="facturacion" value=""/>
+                    <label>Número de tarjeta</label>
+                    <input type="number" name="facturacion" value="" class="card__number" />
+                    <% if(locals.errors && errors.facturacion) { %>
+                      <p class="form-warning">
+                        <%= errors.facturacion.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
                   </div>
                   <div class="input__section">
-                    <label>datos de facturación</label>
-                    <input type="text" name="facturacion" value=""/>
+                    <label>Nombre y apellido que figure en la tarjeta </label>
+                    <input type="text" name="facturacionName" value="" class="name__user" />
+                    <% if(locals.errors && errors.facturacionName) { %>
+                      <p class="form-warning">
+                        <%= errors.facturacionName.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
                   </div>
                   <div class="input__section">
-                  <label>datos de facturación</label>
-                  <input type="text" name="facturacion" value=""/>
+                    <label>Fecha de expiración</label>
+                    <input type="date" name="facturacionDate" value="" class="date__card" />
+                    <% if(locals.errors && errors.facturacionDate) { %>
+                      <p class="form-warning">
+                        <%= errors.facturacionDate.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
                   </div>
                   <div class="input__section">
-                    <label>datos de facturación</label>
-                    <input type="text" name="facturacion" value=""/>
-                    </div>
-                  <div class="input__section">
-                    <label>datos de facturación</label>
-                    <input type="text" name="facturacion" value=""/>
+                    <label>Código de seguridad</label>
+                    <input type="number" name="facturacionCode" value="" class="code__segurity" />
+                    <% if(locals.errors && errors.facturacionCode ) { %>
+                      <p class="form-warning">
+                        <%= errors.facturacionCode.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
                   </div>
                   <div class="input__section">
-                    <label>datos de facturación</label>
-                    <input type="text" name="facturacion" value=""/>
+                    <label>DNI del titular de la tarjeta</label>
+                    <input type="number" name="facturacionDni" value="" class="dni__user" />
+                    <% if(locals.errors && errors.facturacionDni) { %>
+                      <p class="form-warning">
+                        <%= errors.facturacionDni.msg %>
+                      </p>
+                      <%}else{%>
+                        <p class="form-warning" style="display: none;"></p>
+                        <%}%>
+                  </div>
+                  <div class="input__section center-checkout btn__checkout">
+                    <input type="button" class="cart__btn--checkout" id="checkoutPrev" value="Paso Anterior">
+                    <input type="submit" class="cart__btn--checkout" id="checkoutPay" value="Realizar Pago">
+                  </div>
                 </div>
-                <div class="input__section center-checkout btn__checkout">
-                  <input type="button" class="cart__btn--checkout" id="checkoutPrev" value="Paso Anterior">
-                  <input type="submit" class="cart__btn--checkout" id="checkoutPay" value="Realizar Pago">
-                </div>
-                 </div>
               </div>
             </form>
           </div>
           <div class="checkout-element-container">
             <div class="checkout-items">
               <% if(Array.isArray(carritoFinal) && carritoFinal.length){%>
-                <% carritoFinal.forEach(producto => { %>
+                <% carritoFinal.forEach(producto=> { %>
                   <div class="checkout-items-grid">
                     <img src="/img/productImg/<%= producto.productImg%>" alt="" style="width: 20px;">
-                    <p><%=producto.productName%></p>
-                    <p>$<%= formatter.format(producto.productPrice)%></p>
-                    <p><%=producto.quantity%> ud.</p>
+                    <p>
+                      <%=producto.productName%>
+                    </p>
+                    <p>$<%= formatter.format(producto.productPrice)%>
+                    </p>
+                    <p>
+                      <%=producto.quantity%> ud.
+                    </p>
                   </div>
-                <% })%> 
-              <%} else{%>
-                <div class="cart__productdetail cart__empty">
-                  <p>No hay productos en tu carrito de compras :c</p>
-                </div>
-              <%}%>
-              
+                  <% })%>
+                    <%} else{%>
+                      <div class="cart__productdetail cart__empty">
+                        <p>No hay productos en tu carrito de compras :c</p>
+                      </div>
+                      <%}%>
+
             </div>
-            <div class="btn-back-cart"><a class="cart__btn--checkout" href="/product/product-cart">Volver al Carrito</a></div>
+            <div class="btn-back-cart"><a class="cart__btn--checkout" href="/product/product-cart">Volver al Carrito</a>
+            </div>
             <div class="checkout-items">
               <div class="checkout-items-text">
                 <p><span>subtotal:</span></p>
-                <% if(subtotal >0){%>
-                  <p class="checkout-subtotal">$ <span><%= formatter.format(subtotal)%></span></p>
-                <% }else{%>
-                  <p class="checkout-subtotal">$ 0</p>
-                <% }%>
+                <% if(subtotal>0){%>
+                  <p class="checkout-subtotal">$ <span>
+                      <%= formatter.format(subtotal)%>
+                    </span></p>
+                  <% }else{%>
+                    <p class="checkout-subtotal">$ 0</p>
+                    <% }%>
               </div>
               <div class="checkout-items-text">
                 <p><span>costo de envio:</span></p>
-                <% city.forEach(city => { %>
-                  <% if (city.idCity == user.idCity) {%>
-                    <p ><span class="shippingCost">+ <%= city.shippingCost%></span></p>
-                  <%}%>
-                <% })%>
+                <% city.forEach(city=> { %>
+                  <% if (city.idCity==user.idCity) {%>
+                    <p><span class="shippingCost">+ <%= city.shippingCost%></span></p>
+                    <%}%>
+                      <% })%>
               </div>
               <div class="checkout-items-text">
                 <p>total:</p>
-                <% if(subtotal >0){%>
-                  <p class="checkout-total">$ <%= formatter.format(subtotal)%></p>
-                <% }else{%>
-                  <p class="checkout-total">$ 0</p>
-                <% }%>
+                <% if(subtotal>0){%>
+                  <p class="checkout-total">$ <%= formatter.format(subtotal)%>
+                  </p>
+                  <% }else{%>
+                    <p class="checkout-total">$ 0</p>
+                    <% }%>
               </div>
             </div>
           </div>
