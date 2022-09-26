@@ -155,7 +155,7 @@ window.addEventListener('load', () => {
             numberCheck.classList.add('input-warning');
             errorWarning(numberCheck, errores.numberCheck);
         } else if (numberCheck.value.length < 7) {
-            errores.numberCheck = "El nombre debe contener al menos 3 carácteres"
+            errores.numberCheck = "El campo debe tener al menos 8 números"
             numberCheck.classList.add('input-warning');
             errorWarning(numberCheck, errores.numberCheck);
         } else {

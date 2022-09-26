@@ -18,7 +18,7 @@ function Sidebar() {
 			setUsuarios([usuarios])
 		})
 		.catch(error => console.error(error));
-		//le cambiamos el estado a movies
+		
 	},[])
 
     const handleShow=() => {
