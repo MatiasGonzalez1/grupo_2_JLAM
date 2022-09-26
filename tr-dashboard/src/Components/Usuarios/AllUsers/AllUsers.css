@@ -123,6 +123,13 @@
         .all-users {
             margin-left: 0px;
         }
-        
+       
     }
+
+    @media screen and (min-width: 1400px){
+    .users-main-container {
+    padding-top: 0px;
+     }    
+    }
+   
 

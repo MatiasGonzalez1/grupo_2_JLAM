@@ -47,7 +47,7 @@
     .welcomeComp{
         height: 70px;
         margin: 2% 8%;
-        margin-right: 18px;
+        margin-right: 14px;
     }
 
     .welcome-bg{
@@ -89,7 +89,7 @@
 @media screen and (min-width: 1024px) {
     .welcomeComp{
         height: 100px;
-        margin: 2% 7%;
+        margin: 2% 8%;
         margin-right: 20px;
     }
 
@@ -110,6 +110,7 @@
     .title {
         font-size: 30px;
     }
+    
 }
 @media screen and (min-width: 1400px) {
 .title__welcome {
@@ -119,5 +120,9 @@
 .title{
     font-size: 38px;
     bottom: 20px;
+}
+.welcomeComp {
+   
+    margin-right: 25px;
 }
 }

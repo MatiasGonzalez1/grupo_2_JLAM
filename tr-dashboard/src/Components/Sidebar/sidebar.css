@@ -84,7 +84,7 @@
 
 
 .container__panel .icon__user {
-    min-width: 20px;
+    min-width: 2px;
 }
 
 .container__sidebar li {
@@ -255,6 +255,7 @@ li.container__panel {
 @media (min-width: 1400px) {
     .icon__hamburguer {
         margin-right: 0;
+        margin-left: 19px;
        
     }
     .logo_terra {
