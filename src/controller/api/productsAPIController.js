@@ -2,27 +2,10 @@ const db = require("../../database/models");
 const { Op, QueryTypes } = require("sequelize");
 const { sequelize } = require("../../database/models"); //se requiere sequelize para operaciones con raw queries
 
-//se crea función para setear datos
-// let dataSet = (respuesta, array) => {
-//     respuesta.forEach((producto) => {
-//       array.push({
-//         id: producto.idProduct,
-//         name:producto.productName,
-//         price:producto.productPrice,
-//         stock:producto.productStock,
-//         description:producto.productDescription,
-//         category: producto.idProductCategory,
-//         productImg: producto.productImg,
-//         include: [{association: 'category'}],
-//         detail: `http://localhost:3001/api/product/${producto.idProduct}`,
-//       });
-//     });
-//   };
-
 const productsAPIController = {
   loadProducts: async (req, res) => {
     //listado de productos | el cb debe ser asíncrono para usar raw queries
-    let page = 1;
+    let page = 0;
     let limit = 5;
     req.query.page ? (page = Number(req.query.page) * 5) : (limit = undefined);
     const countBy = await sequelize.query(
@@ -32,7 +15,6 @@ const productsAPIController = {
       }
     );
     db.Product.findAll({
-      // include: [{ association: "category" }],
       attributes: [
         ["idProduct", "id"],
         ["productName", "name"],
@@ -62,7 +44,6 @@ const productsAPIController = {
       })
       .catch((error) => res.send(error));
   },
-
   ProductData: (req, res) => {
     //datos de producto por id
     db.Product.findByPk(Number(req.params.id))

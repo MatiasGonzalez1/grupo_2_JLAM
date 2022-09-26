@@ -32,7 +32,6 @@ function AllUsers() {
     pageUsers();
   },[page])
 
-  console.log(userPage);
   return (
     <>
 

@@ -2,7 +2,7 @@
     height: auto;
     width: 95%;
     position: relative;
-    margin: auto;
+    margin:auto;
     padding: 5px 0;
     background-color: #fff;
     box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
@@ -54,18 +54,25 @@
     font-weight: 500;
 }
 
-
 .buttonPages{
 display: flex;
 justify-content: center;
-align-items: flex-end;
+align-items: center;
 margin-top: 5%;
 cursor: pointer;
-}
 
+}
+.button-Icons{
+    background-color: #333;
+    padding: 10px 20px;
+    color: #fff;
+    border-radius: 5px;
+}
 .buttonPages p{
     margin: 0 15px;
     cursor: auto;
+    font-weight: bold;
+    color: #333;
 }
 
 .linkTo button{
@@ -74,19 +81,18 @@ cursor: pointer;
     padding: 2px 8px;
     border-radius: 5px;
     border: none;
-cursor: pointer;
+    cursor: pointer;
 }
 
 .linkTo button:hover{
     background-color: #d92912;
-
 }
-
 
 @media screen and (min-width: 768px) {
     .productSquare{
         width: 90%;
         padding: 15px 0;
+        margin:0 0 5% 8% ;
     }
 
     .productSquare h2{
@@ -114,27 +120,24 @@ cursor: pointer;
         padding: 5px 5px;
         width: 90%;
         font-size: 13px;
-    
     }
 
 }
 
 @media (min-width: 913px){
-    
-.subTitle{
-    font-size: 16px;
-}
+    .subTitle{
+        font-size: 16px;
+    }
 
-.productSquare h2{
-    right: 37%;
-}
+    .productSquare h2{
+        right: 37%;
+    }
 
-.linkTo button{
-    background-color: #f53117;
-    color: aliceblue;
-    padding: 5px 15px;
-    
-}
+    .linkTo button{
+        background-color: #f53117;
+        color: aliceblue;
+        padding: 5px 15px; 
+    }
 }
 
 @media (min-width: 1200px){
@@ -144,6 +147,7 @@ cursor: pointer;
 }
 
 @media (min-width: 1400px){
+
     .productSquare h2{
         right: 40%;
     }

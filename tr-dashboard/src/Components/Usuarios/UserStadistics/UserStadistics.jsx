@@ -2,7 +2,6 @@ import React from 'react'
 
 function UserStadistics(datos) {
 
-    console.log(datos);
   return (
     
     <div className="categories-cards">
