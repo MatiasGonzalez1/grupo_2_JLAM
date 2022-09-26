@@ -13,12 +13,12 @@
 .productSquare h2{
     position: relative;
     top: 30px;
-    left: 50px;
-    margin-bottom: 6vh;
+    left: 68px;
+    margin-bottom: 8vh;
     width: 80%;
     height: 32px;
-    font-size: 20px;
-    font-weight: 400;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 .subTitle{
@@ -46,7 +46,7 @@
 .subTitle p:last-child{
     text-align: center;
     position: relative;
-    left: -9%;
+    left: -11%;
 }
 
 /*
@@ -69,16 +69,8 @@
 
 .productSquare h3{
     width: 28%;
+    font-weight: 400;
 }
-
-.productSquare li:hover{
-    background-color: #f53117c3;
-}
-
-.productSquare li:hover p, 
-.productSquare li:hover h3,
-.productSquare li:hover .linkTo{
-color: aliceblue;}
 
 .productSquare ul li a h3{
     width: 20%;
@@ -98,7 +90,16 @@ cursor: pointer;
     cursor: auto;
 }
 
-.linkTo{
-    text-decoration: none;
-    color: #f53117;
+.linkTo button{
+    background-color: #f53117;
+    color: aliceblue;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: none;
+cursor: pointer;
+}
+
+.linkTo button:hover{
+    background-color: #d92912;
+
 }

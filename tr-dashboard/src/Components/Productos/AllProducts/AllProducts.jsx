@@ -47,7 +47,7 @@ export const AllProducts = () => {
                     <h3>{product.name}</h3>
                     <p>${Formatter.format(product.price)}</p>
                     <p>{product.stock}u.</p>
-                    <Link to={`/product-detail/${product.id}`} className='linkTo'>Detalle</Link>
+                    <Link to={`/product-detail/${product.id}`} className='linkTo'><button>Detalle</button></Link>
                 </li>
               </ul>
             );
