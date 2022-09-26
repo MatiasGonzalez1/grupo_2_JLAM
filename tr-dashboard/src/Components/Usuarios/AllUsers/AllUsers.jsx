@@ -34,11 +34,7 @@ function AllUsers(totalUser) {
     pageUsers();
   },[page])
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> develop
   return (
     <>
       <div className="all-users">
