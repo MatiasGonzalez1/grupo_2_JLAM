@@ -1,12 +1,19 @@
 /*comienzo sidebar*/
 
 .container__sidebar {
+    position: fixed;
     background-color: rgb(43, 43, 43, 10);
     width: 100%;
-    height: 600px;
+    height: 100%;
     z-index: 20;
     border-radius: 8px;
     box-shadow: 6px 6px 4px rgb(0 0 0 / 30%);
+    left:-90%;
+    transition: all 500ms linear;
+    top: 0px;
+}
+.container__sidebar.active {
+    left:0;
 }
 
 .content__nav {
@@ -22,20 +29,21 @@
 .icon__content {
     cursor: pointer;
     left: 270px;
-    font-size: 25px;
+    font-size: 20px;
     height: 0px;
     background-color: transparent;
     color: #FBF2E0;
     margin-right: 5px;
-    
+    margin-left: 30px;
+    font-weight: 500;
 }
 
 .logo_terra {
     width: 130px;
-    height: 40px;
+    height: 45px;
     margin: 0;
     box-sizing: content-box;
-    padding-left: 50px;
+    padding-left: 100px;
     padding-right: 30px;
 }
 
@@ -70,13 +78,13 @@
 .panel {
     text-decoration: none;
     color: #FBF2E0;
-    font-size: 15px;
-    font-weight: 100;
+    font-size: 18px;
+    font-weight: 500;
 }
 
 
 .container__panel .icon__user {
-    min-width: 60px;
+    min-width: 20px;
 }
 
 .container__sidebar li {
@@ -85,9 +93,10 @@
     border-radius: 12px;
     width: 100%;
     display: inline-block;
-    line-height: 3;
+    line-height: 4;
     padding: 10px;
     text-align: center;
+    text-align: end;
 }
 .container__sidebar .data_content {
     text-align: center;
@@ -108,8 +117,12 @@ li.container__panel {
     height: 70px;
     padding-left: 50px;
 }
-
-
+.name__panel {
+    margin-right: 80px;
+   }
+li.container__panel {
+    height: 90px;
+}
 /*fin sidebar*/
 
 /*************MEDIA QUERY**************/
@@ -122,9 +135,7 @@ li.container__panel {
         transition: all 500ms linear;
         top: 0px;
     }
-    .container__sidebar.active {
-        left:0;
-    }
+   
     .content__nav {
         display: flex;
         align-items: center;
@@ -141,6 +152,8 @@ li.container__panel {
     }
     .icon__content {
         margin-right: 10px;
+        font-size: 25px;
+        margin-left: 20px
     }
     .container__sidebar li {
         margin-top: 10px;
