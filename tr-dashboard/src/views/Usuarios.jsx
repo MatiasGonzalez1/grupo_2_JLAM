@@ -36,7 +36,7 @@ function Usuarios() {
   return (
     <>
       <div className="users-main-container">
-        <AllUsers />
+        <AllUsers totalUser = {users.count} />
         <div className="last-users-container">
           <div className="recent-users">
           <UserStadistics datos={datosInfo} />
