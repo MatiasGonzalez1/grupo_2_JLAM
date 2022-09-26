@@ -11,10 +11,6 @@ function Bienvenida({welcomeTitle}) {
             <p className='welcome-msg'>Que bueno volver a verte!</p>
         </div>
         <div>
-        <p className='title__welcome'>Usuarios</p>
-        </div>
-        
-        <div>
           <span className='title'>{welcomeTitle}</span>
         </div>
         <img src={welcomeBg} className="welcome-bg" alt="terraRossa logo" />

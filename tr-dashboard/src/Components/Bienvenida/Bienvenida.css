@@ -8,14 +8,6 @@
     align-items: center;
     position: relative;
 }
-.title__welcome {
-    color:#FBF2E0;
-    justify-content: end;
-    z-index: 3px;
-    position: absolute;
-    padding-left: 50px;
-    font-size: 15px;
-}
 
 .welcome-bg{
     width: 50%;
@@ -44,12 +36,11 @@
 }
 
 .title{
-    font-size: 47px;
+    font-size: 14px;
     font-weight: 600;
     color: #FBF2E0;
     position: absolute;
-    right: 20%;
-    top: 20%;
+    right: 5%;
 }
 
 @media screen and (min-width: 768px) {
@@ -75,7 +66,23 @@
     }
 
     .welcome-msg{
-        font-size: 10px;
+        font-size: 13px;
+    }
+    .title{
+        font-size: 19px;
+        right: 8%;
+    }
+}
+@media screen and (min-width: 913px) {
+    .title{
+        font-size: 20px;
+        right: 10%;
+    }
+    .welcomeComp {
+        height: 80px;
+    }
+    .welcome-msg {
+        font-size: 14px;
     }
 }
 
@@ -99,10 +106,18 @@
         font-size: 17px;
     }
 }
-@media screen and (min-width: 1024px) {
-    .title__welcome {
-        padding-left: 250px;
-        font-size: 27px;
-        font-weight: 600;
+@media screen and (min-width: 1200px) {
+    .title {
+        font-size: 30px;
     }
+}
+@media screen and (min-width: 1400px) {
+.title__welcome {
+    padding-left: 300px;
+    font-size: 30px;
+}
+.title{
+    font-size: 38px;
+    bottom: 20px;
+}
 }

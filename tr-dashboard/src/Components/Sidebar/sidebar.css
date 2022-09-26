@@ -120,6 +120,7 @@ li.container__panel {
         height: 100vh;
         left:-24%;
         transition: all 500ms linear;
+        top: 0px;
     }
     .container__sidebar.active {
         left:0;

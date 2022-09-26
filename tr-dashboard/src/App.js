@@ -19,12 +19,12 @@ function App() {
       <Sidebar />
       {/* <!-- End of Sidebar --> */}
       <div className="main-wrapper--info">
-        <Bienvenida />
+        {/*<Bienvenida/>*/}
         <Switch>
           <Route exact path="/" component={Home} />
           {/* react tira warnings en consola si los componentes estan vacios, no descomentar hasta que se utilicen */}
           <Route path="/users" component={Usuarios} />
-          <Route path="/products" component={AllProducts} />
+          <Route path="/products" component={AllProducts}/>
           <Route path="/product-detail/:id" component={ProductDetail} />
           <Route path="/error=pagina_no_encontrada" component={NotFound} />
           {/* <Route path="/categorias" component={Categorias} /> */}
