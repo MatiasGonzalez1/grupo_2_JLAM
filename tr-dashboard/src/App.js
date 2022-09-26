@@ -6,9 +6,7 @@ import NotFound from "./views/NotFound";
 
 import Sidebar from "./Components/Sidebar/Sidebar";
 import AllProducts from "./Components/Productos/AllProducts/AllProducts";
-import Bienvenida from "./Components/Bienvenida/Bienvenida";
 import ProductDetail from "./Components/Productos/ProductDetail";
-import Categorias from "./Components/Categorias/Categorias";
 
 import "./App.css";
 
@@ -19,7 +17,7 @@ function App() {
       <Sidebar />
       {/* <!-- End of Sidebar --> */}
       <div className="main-wrapper--info">
-        {/*<Bienvenida/>*/}
+        
         <Switch>
           <Route exact path="/" component={Home} />
           {/* react tira warnings en consola si los componentes estan vacios, no descomentar hasta que se utilicen */}
