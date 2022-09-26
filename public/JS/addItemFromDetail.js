@@ -33,7 +33,7 @@ form.addEventListener('submit', async(e)=>{
         cantidad: inputValue.value
     };
 
-    let response =  await fetch("http://localhost:3001/product/product-cart/"+inputId, {
+    let response =  await fetch("https://grupo2jlam-production-8382.up.railway.app/product/product-cart/"+inputId, {
         method: "POST",
         body: JSON.stringify(newBody),
         headers: {

@@ -6,7 +6,7 @@ formAddToCart.forEach((f)=>{
     f.addEventListener("submit", async(e)=>{
             e.preventDefault();
             let currentId = e.target.id;
-            const response =  await fetch("http://localhost:3001/product/product-cart/"+ currentId, {
+            const response =  await fetch("https://grupo2jlam-production-8382.up.railway.app/product/product-cart/"+ currentId, {
                 method:"POST"
             });
             if (response.status == 200) {
