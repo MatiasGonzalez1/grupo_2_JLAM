@@ -7,19 +7,23 @@
 
 .card-content {
     display: grid;
+    width: 80%;
     grid-template-columns: repeat(3, 2fr);
     gap: 15px;
-    margin: 2% 10%;
+    margin: 2% auto;
 }
 
 .other-content {
     display: grid;
-    grid-template-columns: 5fr 2fr;
+   
     gap: 30px;
     margin: 2% 5%;
 }
 
 @media screen and (min-width: 470px) {
+    .other-content {
+        grid-template-columns: 5fr 2fr;
+    }
     .card-content {
         gap: 30px;
     }
