@@ -8,7 +8,8 @@ import {
 import "./AllUsers.css";
 import UserCard from "../UserCard/UserCard";
 
-function AllUsers() {
+function AllUsers(totalUser) {
+  const limitPage = Math.floor(totalUser.totalUser / 4)
   const [userPage, setUserPage] = useState([]);
   const [page, setPage] = useState(0);
 
@@ -28,13 +29,18 @@ function AllUsers() {
     pageUsers();
   }, []);
 
+  
   useEffect(()=>{
     pageUsers();
   },[page])
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> develop
   return (
     <>
-
       <div className="all-users">
         <h2 className="title-container">
           Usuarios registrados
@@ -55,11 +61,11 @@ function AllUsers() {
         </div>
         <div className="pagination-container">
              <div className="button-prev" onClick={()=> page>0? setPage(page-1): setPage(page-0) }>
-              <FontAwesomeIcon icon={faArrowLeftLong} />
+              <FontAwesomeIcon className="arrow-icon" icon={faArrowLeftLong} />
             </div> 
-          <span>{page}</span>
-          <div className="button-next" onClick={()=> setPage(page + 1)}>
-            <FontAwesomeIcon icon={faArrowRightLong} />
+          <span className="page-container">{page}</span>
+          <div className="button-next" onClick={()=> page !== limitPage ?setPage(page + 1):setPage(page + 0)}>
+            <FontAwesomeIcon className="arrow-icon" icon={faArrowRightLong} />
           </div>
         </div>
       </div>

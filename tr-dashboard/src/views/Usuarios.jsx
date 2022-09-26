@@ -3,6 +3,7 @@ import "./Usuarios.css";
 import AllUsers from "../Components/Usuarios/AllUsers/AllUsers";
 import LastUserDetail from "../Components/Usuarios/LastUserDetail/LastUserDetail";
 import UserStadistics from "../Components/Usuarios/UserStadistics/UserStadistics";
+import Bienvenida from "../Components/Bienvenida/Bienvenida";
 
 function Usuarios() {
   const [lastCreated, setLastCreated] = useState({});
@@ -35,8 +36,9 @@ function Usuarios() {
 
   return (
     <>
+    <Bienvenida welcomeTitle={"Usuarios"}/>
       <div className="users-main-container">
-        <AllUsers />
+        <AllUsers totalUser = {users.count} />
         <div className="last-users-container">
           <div className="recent-users">
           <UserStadistics datos={datosInfo} />

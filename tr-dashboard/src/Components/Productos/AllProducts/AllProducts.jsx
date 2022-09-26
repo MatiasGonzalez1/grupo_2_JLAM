@@ -4,6 +4,7 @@ import Formatter from "../../../utils/Formatter";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import Bienvenida from "../../Bienvenida/Bienvenida";
 
 export const AllProducts = () => {
   const [products, setProducts] = useState(null);
@@ -37,6 +38,7 @@ export const AllProducts = () => {
 
   return (
     <>
+    <Bienvenida welcomeTitle={"Productos"}/>
       {products ? (
         <div className="productSquare">
           <h2>Productos</h2>

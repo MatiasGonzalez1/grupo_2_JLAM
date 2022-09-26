@@ -6,7 +6,6 @@
         margin: auto;
         align-items: center;
         width: 90%;
-        padding: 30px 0;
     }
     .all-users{
         width: 100%;
@@ -21,27 +20,62 @@
         flex-direction: row;
         gap: 1%;
         justify-content: center;
-        
+        padding-bottom: 5px;
     }
     
     .last-users-container{
         width: 90%;
         display: grid;
-        grid-template-columns: 2fr 3fr;
-        gap: 20px;
-        padding: 2% 0%;
+        gap: 10px;
+        padding: 5% 0%;
     }
 
     .button-prev{
-        width: 60px;
-        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 30px;
+        height: 30px;
         margin: auto;
+        cursor: pointer;
+        background-color: #333333;
+        border-radius: 100%;
     }
+
     .button-next{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         text-align: end;
-        width: 60px;
-        height: 20px;
+        width: 30px;
+        height: 30px;
         margin: auto;
+        cursor: pointer;
+        background-color: #333333;
+        border-radius: 100%;
+    }
+    
+    .button-next:hover{
+        background-color: #f53117;
+        transition-property: all;
+        transition-duration: .2s;
+    }
+
+    .button-prev:hover{
+        background-color: #f53117;
+        transition-property: all;
+        transition-duration: .2s;
+    }
+
+    .arrow-icon{
+        color: #FBF2E0;
+    }
+
+    .page-container{
+        font-weight: bolder;
+        font-size: 150%;
     }
 
     .title-container{
@@ -49,6 +83,7 @@
         margin: 1%;
         font-weight: 600;
         font-size: 20px;
+        margin-bottom: 7px;
     }
 
     .pagination-container{
@@ -61,5 +96,27 @@
         .title-container{
             font-size: 40px;
         }
+
+        .button-prev{
+            width: 40px;
+            height: 40px;
+        }
+        .button-next{
+            width: 40px;
+            height: 40px;
+        }
+    
+        .page-container{
+            font-weight: bolder;
+            font-size: 200%;
+        }
+        .last-users-container{
+            grid-template-columns: 2fr 3fr;
+            padding: 2% 0%;
+        }
+        .users-main-container{
+            padding: 30px 0;
+        }
+        
     }
 
