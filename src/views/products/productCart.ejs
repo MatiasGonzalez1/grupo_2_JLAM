@@ -50,7 +50,7 @@
             <% })%> 
           <%} else{%>
             <div class="cart__productdetail cart__empty">
-              <p>No hay productos en tu carrito de compras :c</p>
+              <p>No hay productos en tu carrito de compras</p>
             </div>
           <%}%>
         </div>
@@ -59,10 +59,11 @@
           <div class="cart__minisection">
             <p>¿Tenés un código de descuento?</p>
             <div class="cart__code">
-              <form action="">
+              <form action="" class="form-discount">
                 <input type="text" maxlength="8" value="Ingrese su código" />
+                <button class="cart__btn--checkout" type="submit">aplicar</button>
+                <!-- <a class="cart__btn--checkout" href="">aplicar</a> -->
               </form>
-              <a class="cart__btn--checkout" href="">aplicar</a>
             </div>
           </div>
           <div class="cart__minisection">
