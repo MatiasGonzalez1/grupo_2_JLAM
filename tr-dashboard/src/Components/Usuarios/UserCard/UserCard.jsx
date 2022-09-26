@@ -1,8 +1,7 @@
 import {React} from 'react'
 import './UserCard.css'
 
-function UserCard({id, firsName, lastName, email, fechaRegistro, imgPath, detailLink}) {
-    
+function UserCard({id, firsName, lastName, email, fechaRegistro, imgPath, detailLink}) {  
     const pathPrefix = 'http://localhost:3001/img/profileImages/'
 
   return (

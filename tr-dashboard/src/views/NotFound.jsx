@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import "./NotFound.css";
 
 function NotFound() {
-
     return <div className="not-found-wrapper">
         <h1>pagina no encontrada</h1>
         <img src={logoNotFound} alt="pagina no encontrada" />

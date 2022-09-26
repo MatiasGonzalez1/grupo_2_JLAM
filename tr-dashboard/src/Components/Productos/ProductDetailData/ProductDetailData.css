@@ -1,6 +1,6 @@
 .product-detail-section{
     width: 100%;
-    height: 75vh;
+    height: 100vh;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
@@ -27,22 +27,16 @@
 }
 .product-detail-data{
     width: 100%;
-    height: 35%;
+    height: auto;
     margin: auto;
     background-color: #FFFFFF;
     border-radius: 10px;
     box-shadow: 6px 6px 4px rgba(0, 0, 0, 0.3);
     padding: 2%;
-    overflow: hidden;
     position: relative;
     text-transform: capitalize;
 }
-.line{
-    margin-left: 40%;
-    width: 100%;
-    border-bottom: 1px solid #F53117;
-    transform: rotate(133.03deg);
-}
+
 .product-detail-data p{
     font-size: 13px;
    font-style: italic;
@@ -55,13 +49,13 @@
 }
 .product-main-data{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     text-align: left;
     margin-top: 3%;
     justify-content: left;
 }
 .product-main-data p{
-    font-size: 15px;
+    font-size: 18px;
     margin: 1% 5% 0% 0%;
     border-radius: 10px;
     color: #2b2b2b;
@@ -78,22 +72,37 @@
     height: auto;
 }
 @media (min-width: 768px) {
+    .product-detail-section{
+        height: 100vh;
+    }
     .product-detail-section h1{
         font-size: 35px;
         text-align: start;
     }
+    .product-detail-data{
+        height: auto;
+        line-height: 1.5;
+        margin: 2% 0%;
+    }
     .product-detail-img{
-        width: 25vw;
+        width: 33vw;
+    }
+    .product-detail-data p{
+        font-size: 15px;
+    }
+    .product-main-data{
+        flex-direction: row;
     }
     .product-main-data p{
-        font-size: 20px;
+        font-size: 18px;
     }
    
 }
 @media (min-width: 913px) {
     .product-detail-data{
         padding: 2% 3%;
-        overflow-y: hidden;
+        margin: 2% 0%;
+        height: auto;
     }
     .product-main-data {
         margin-top: 5%;
@@ -102,8 +111,11 @@
         font-size: 20px;
     }
     .product-detail-img{
-        width: 20vw;
+        width: 26vw;
         height: auto;
+    }
+    .product-detail-section{
+        height: 100vh;
     }
     .product-detail-section h1{
         width: 90%;
@@ -113,9 +125,10 @@
 }
 
 @media (min-width: 1024px) {
+    
     .product-detail-data{
         padding: 2%;
-        overflow-y: hidden;
+        height: 35%;
     }
     .product-main-data {
         margin-top: 1%;
@@ -124,11 +137,16 @@
         font-size: 25px;
     }
     .product-detail-img{
-        width: 18vw;
+        width: 25vw;
     }
 }
 @media (min-width: 1200px) {
+
+    .product-detail-img img{
+        width: 100%;
+        height: auto;
+    }
     .product-detail-img{
-        width: 15vw;
+        width: 20vw;
     }
 }

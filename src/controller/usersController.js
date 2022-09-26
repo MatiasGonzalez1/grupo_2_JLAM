@@ -140,7 +140,7 @@ const usersController = {
 
             //si hay una imagen la cambio
             if(req.file){
-                fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", userLogged.userImg));
+                fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.session.userLogged.userImg));
                 userData.userImg = req.file.filename;
             }
             db.Users.update(userData,

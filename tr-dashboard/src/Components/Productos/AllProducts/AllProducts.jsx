@@ -9,19 +9,25 @@ import Bienvenida from "../../Bienvenida/Bienvenida";
 export const AllProducts = () => {
   const [products, setProducts] = useState(null);
   const [page, setPage] = useState(0);
+  const [limit, setLimit] = useState(0);
+  
 
   useEffect(() => {
     fetch(`http://localhost:3001/api/product?page=${page}`)
       .then((response) => response.json())
       .then((products) => {
         setProducts(products.products);
+        setLimit(products.count);
       });
   }, [page]);
 
-  function handleClickNext(){
-    setPage(page + 1)
-  }
+  let totalPages = Math.ceil(limit);
 
+  function handleClickNext(){
+    if (page < totalPages ) {
+      setPage(page + 1)
+    }
+  }
   function handleClickPrev(){
     if(page > 0){
       setPage(page - 1)
@@ -55,9 +61,10 @@ export const AllProducts = () => {
             );
           })}
           <div className="buttonPages">
-          <FontAwesomeIcon icon={faArrowLeft} onClick={handleClickPrev}/>
-          <p>{page}</p>
-          <FontAwesomeIcon icon={faArrowRight} onClick={handleClickNext}/></div>
+            <FontAwesomeIcon className="button-Icons" icon={faArrowLeft} onClick={handleClickPrev}/>
+            <p>{page+1}</p>
+            <FontAwesomeIcon  className="button-Icons" icon={faArrowRight} onClick={handleClickNext}/>
+          </div>
         </div>
       ) : (
         "Cargando"

@@ -35,7 +35,6 @@ function AllUsers(totalUser) {
   },[page])
 
 
-
   return (
     <>
       <div className="all-users">
