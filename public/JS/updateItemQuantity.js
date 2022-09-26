@@ -1,7 +1,14 @@
 const buttonValue = document.querySelectorAll('div.value-button');
 const inputValue = document.querySelectorAll('input#inputValue');
+const pSubtotal = document.querySelector('p#subtotal');
+const pTotal = document.querySelector('p#total');
 
 let currentValue;
+
+const formatter = new Intl.NumberFormat("es-AR", { 
+    style: "decimal",
+    minimumFractionDigits: 2,
+}); 
 
 buttonValue.forEach(div => {
     div.addEventListener('click', (e)=>{
@@ -37,7 +44,7 @@ inputValue.forEach(input => {
         const newBody = {
             quantity: input.value
         };
-        
+
         let response =  await fetch("http://localhost:3001/product/update-cart/"+idProduct, {
             method: "POST",
             body: JSON.stringify(newBody),
@@ -46,5 +53,8 @@ inputValue.forEach(input => {
                 'Content-Type': 'application/json'
             },
         });
+        const subtotalJson = await response.json();
+        pSubtotal.innerHTML = formatter.format(subtotalJson.subtotal);
+        pTotal.innerHTML = formatter.format(subtotalJson.subtotal);
     })
 });

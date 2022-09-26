@@ -1,6 +1,5 @@
 let cityCheck = document.querySelector("select.checkoutCity");
 
-
 // 
 cityCheck.addEventListener('change', async(e) => {
     let currentIdCity = Number(e.target.value);
@@ -11,7 +10,6 @@ cityCheck.addEventListener('change', async(e) => {
     let regex = (/[$.\s]/g);
     var finalSubtotal = Number(subtotal.replace(regex, '').split(',')[0]);
 
-    console.log(finalSubtotal);
 
     const formatter = new Intl.NumberFormat("es-AR", { 
         style: "decimal",

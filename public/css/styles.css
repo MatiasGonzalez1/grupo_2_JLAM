@@ -76,7 +76,7 @@ main {
 }
 #sign{
     position: absolute;
-    top: 18px;
+    top: 0px;
     right: 15px;
     transition: all .5s .3s ease;
 }
@@ -84,6 +84,7 @@ main {
     cursor: pointer;
 }
 #sign.active-search{
+    opacity: 0;
     transition: all .5s .3s ease;
 }
 .search-area input[type=text].active-search{
@@ -458,13 +459,6 @@ main {
 
 }
 
-#zoomC {
-    background: url("../img/espumante.png");
-    background-position: center;
-    background-size: 150px auto;
-    background-repeat: no-repeat;
-}
-
 .pd__info {
     width: 200px;
 }
@@ -554,7 +548,7 @@ main {
 .value-button {
     display: inline-block;
     margin: 0px;
-    width: 20px;
+    width: 30px;
     height: 20px;
     text-align: center;
     vertical-align: middle;
@@ -579,11 +573,11 @@ main {
 }
 
 form #decrease {
-    margin-right: -4px;
+    margin-right: -1px;
 }
 
 form #increase {
-    margin-left: -4px;
+    margin-left: -1px;
 }
 
 form #input-wrap {
@@ -606,6 +600,13 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+.cart-submit{
+    color: #fbf2e0;
+    border: none;
+    background-color: #ff452c;
+    cursor: pointer;
+    padding: 5px;
 }
 
 /*  fin detalle producto */
@@ -649,6 +650,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .cart__section p {
     font-size: 13px;
+    font-weight: bold;
 }
 
 .cart__header {
@@ -706,6 +708,10 @@ input[type=number]::-webkit-outer-spin-button {
     color: #fbf2e0;
     background-color: #333333;
 }
+.form-discount{
+    height: 60px;
+}
+
 
 /* boton descuento */
 .cart__code {
@@ -731,6 +737,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     color: #ff452c;
     padding: 5px 8px;
+    border: none;
     border-radius: 3px;
     margin: 5px 0px;
 }
@@ -1886,6 +1893,7 @@ li datalist option {
 
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
+
     .slider__text {
         position: absolute;
         width: 100%;
@@ -2602,7 +2610,11 @@ li datalist option {
         margin-right: 5%;
         align-items: center;
     }
-
+    #sign{
+        position: absolute;
+        top: 20px;
+        
+    }
     .logo {
         width: 180px;
         height: 63px;
@@ -2905,6 +2917,7 @@ li datalist option {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin: 150px 0px 40px;
     }
 
     .pd__img {
