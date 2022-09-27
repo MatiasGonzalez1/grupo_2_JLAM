@@ -1,6 +1,6 @@
 const registerProcess = async (dataBody)=>{
 
-    const request = await fetch("http://localhost:3000/users/register", {
+    const request = await fetch("http://localhost:3001/users/register", {
         method: "POST",
         //envio los datos que recibo desde registerValidator.js
         body:dataBody, 

@@ -22,8 +22,6 @@ window.addEventListener('load',()=>{
         if(Object.keys(errores).length >= 1){
             e.preventDefault()
         }
-
-        console.log(errores);
     })
 
 

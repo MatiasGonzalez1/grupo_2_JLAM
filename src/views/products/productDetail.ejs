@@ -31,18 +31,19 @@
             <p><%= coincidencia.productDescription%></p>
           </article>
             
-            <form class="pd_buysection">
+            <form class="pd_buysection" method="POST">
                 <p><span>$ <%= formatter.format(coincidencia.productPrice)%></span></p>
                 <!-- seleccion de producto- incremento y decremento -->
-                <div>
-                  <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                  <input type="number" id="number" value="0" />
-                  <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                <div class="update-quantity-container">
+                  <div class="value-button" id="decrease" value="decrease">-</div>
+                  <input id="cart-id-product" type="hidden" value="<%=coincidencia.idProduct%>">
+                  <input type="number" id="inputValue" value="1" name="cantidad"/>
+                  <div class="value-button" id="increase" value="increase">+</div>
                 </div>
                 <!-- fin seleccion de producto- incremento y decremento -->
                 <div class="cart__btn">
                   <i class="fa-solid fa-cart-shopping"></i>
-                  <a href="/product/product-cart/<%= coincidencia.idProduct%>">agregar al carrito</a>
+                  <button class="cart-submit" type="submit">agregar al carrito</button>
                 </div>
             </form>
         </div>
@@ -55,5 +56,6 @@
       <%- include('../partials/footer.ejs')%>
     </footer>
   <!--  finfooter -->
+  <script src="/js/addItemFromDetail.js"></script>
 </body>
 </html>

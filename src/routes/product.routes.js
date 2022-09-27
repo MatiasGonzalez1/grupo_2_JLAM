@@ -18,6 +18,7 @@ routes.get('/product-detail/:id', productController.detalle);
 //carrito de compras
 routes.get('/product-cart', productController.cart);
 routes.post('/product-cart/:id', productController.addItem);
+routes.post('/update-cart/:id', productController.updateFromCart);
 
 //checkout
 routes.get('/checkout', [authMid] ,productController.checkout);

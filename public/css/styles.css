@@ -76,7 +76,7 @@ main {
 }
 #sign{
     position: absolute;
-    top: 18px;
+    top: 0px;
     right: 15px;
     transition: all .5s .3s ease;
 }
@@ -84,6 +84,7 @@ main {
     cursor: pointer;
 }
 #sign.active-search{
+    opacity: 0;
     transition: all .5s .3s ease;
 }
 .search-area input[type=text].active-search{
@@ -458,13 +459,6 @@ main {
 
 }
 
-#zoomC {
-    background: url("../img/espumante.png");
-    background-position: center;
-    background-size: 150px auto;
-    background-repeat: no-repeat;
-}
-
 .pd__info {
     width: 200px;
 }
@@ -550,14 +544,15 @@ main {
 }
 
 /* selector cantidad*/
+
 .value-button {
     display: inline-block;
     margin: 0px;
-    width: 35px;
-    height: 25px;
+    width: 30px;
+    height: 20px;
     text-align: center;
     vertical-align: middle;
-    padding: 2px 0;
+    padding: 1px 0;
     background: white;
     color: #2B2B2B;
     font-size: 20px;
@@ -568,17 +563,21 @@ main {
     -ms-user-select: none;
     user-select: none;
 }
-
+.update-quantity-container{
+    display: flex;
+    align-items: center;
+    height: 30px;
+}
 .value-button:hover {
     cursor: pointer;
 }
 
 form #decrease {
-    margin-right: -4px;
+    margin-right: -1px;
 }
 
 form #increase {
-    margin-left: -4px;
+    margin-left: -1px;
 }
 
 form #input-wrap {
@@ -586,14 +585,13 @@ form #input-wrap {
     padding: 0px;
 }
 
-input#number {
+#inputValue {
     text-align: center;
     border: none;
-    border-top: 2px solid white;
-    border-bottom: 2px solid white;
-    margin: 0px;
-    width: 46px;
-    height: 25px;
+    border: 1px solid white;
+    margin: -4px;
+    width: 40px;
+    height: 20px;
     color: white;
     background-color: #2B2B2B;
 }
@@ -602,6 +600,13 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
+}
+.cart-submit{
+    color: #fbf2e0;
+    border: none;
+    background-color: #ff452c;
+    cursor: pointer;
+    padding: 5px;
 }
 
 /*  fin detalle producto */
@@ -645,6 +650,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .cart__section p {
     font-size: 13px;
+    font-weight: bold;
 }
 
 .cart__header {
@@ -687,16 +693,25 @@ input[type=number]::-webkit-outer-spin-button {
 .cart__buttons {
     width: 100%;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
+    position: relative;
 }
-
+.delete-cart{
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+}
 .cart__buttons select {
     width: 100%;
     border: 1px solid #fbf2e0;
     color: #fbf2e0;
     background-color: #333333;
 }
+.form-discount{
+    height: 60px;
+}
+
 
 /* boton descuento */
 .cart__code {
@@ -722,8 +737,10 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     color: #ff452c;
     padding: 5px 8px;
+    border: none;
     border-radius: 3px;
     margin: 5px 0px;
+    cursor: pointer;
 }
 
 
@@ -921,6 +938,8 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 40px;
     z-index: 0;
     align-items: center;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory
 
 }
 
@@ -946,6 +965,7 @@ input[type=number]::-webkit-outer-spin-button {
     width: 175px;
     height: 300px;
     border-radius: 3px;
+    scroll-snap-align: center;
 }
 
 .selection__title h1 {
@@ -1015,17 +1035,22 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .selection__nextbuttonLeft {
+    height: 0px;
     align-items: flex-start;
-    font-size: 50px;
+    font-size: 31px;
     color: white;
     margin-top: 160px;
+    background: transparent;
+    border: 2px solid transparent;
 }
 
 .selection__nextbuttonRight {
-    height: 60px;
-    font-size: 50px;
+    height: 0px;
+    font-size: 31px;
     color: white;
+    background-color:#2B2B2B;
     margin-top: 160px;
+    border: 2px solid transparent;
 }
 
 /*************************FOOTER************************/
@@ -1177,6 +1202,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .catalogo__conteiner {
+    position: relative;
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     gap: 10px 10px;
@@ -1298,6 +1324,21 @@ input[type=number]::-webkit-outer-spin-button {
     color: #333333;
 }
 
+.nav-alert{
+    position: absolute;
+    width: 100%;
+    margin: auto;
+    padding: 20px 5% ;
+    text-align: center;
+}
+.nav-alert h1{
+    font-size: 12px;
+    color: #fbf2e0;
+}
+.nav-alert span{
+    font-style: italic;
+    font-weight: normal;
+}
 /*Fin Catalogo*/
 
 /*Seccion filtro*/
@@ -1714,7 +1755,8 @@ li datalist option {
     color: #FBF2E0;
     padding-bottom: 10px;
     margin: auto;
-    font-size: 13px;
+    font-size: 15px;
+    font-weight: bold;
     text-align: center;
     align-items: center;
 }
@@ -1749,18 +1791,18 @@ li datalist option {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    color: #fbf2e0;
+    text-transform: capitalize;
+    font-size: 14px
 }
 .checkout-items-text p{
-    color: #fbf2e0;
-    font-size: 13px;
-    text-transform: capitalize;
-    margin-top: 5px;
+    font-size: 15px;
+    margin-top: 10px;
+    font-weight: bold;
 }
 .checkout-items-text span{
-    color: #fbf2e0;
-    font-size: 10px;
-    text-transform: capitalize;
-    margin-top: 5px;
+    margin-top: 10px;
+    font-weight: normal;
 }
 .checkout-items{
     max-height: 60%;
@@ -1815,7 +1857,6 @@ li datalist option {
 
 .input-warning{
     border: 3px solid #FF452C !important; 
-    background-color: #ffd3cd  !important;
 }
 /*sweetAlert en el ingreso al home*/
 .alertFooter {
@@ -1844,7 +1885,6 @@ li datalist option {
     font-size: 13px;
 }
 
-
 .horizontal-alert{
     display: flex !important;
     justify-content: space-around !important;
@@ -1854,6 +1894,7 @@ li datalist option {
 
 /*************MEDIA QUERY**************/
 @media screen and (min-width: 768px) {
+
     .slider__text {
         position: absolute;
         width: 100%;
@@ -2009,6 +2050,7 @@ li datalist option {
 
     .container__block {
         width: 290px;
+        padding: 18px;
     }
 
     .container__buttonarrow {
@@ -2018,12 +2060,12 @@ li datalist option {
 
     .selection__nextbuttonLeft {
         margin-left: 80px;
-
+        font-size: 37px;
     }
 
     .selection__nextbuttonRight {
         margin-right: 80px;
-
+        font-size: 37px;
     }
 
     .container__block {
@@ -2148,11 +2190,11 @@ li datalist option {
     .value-button {
         display: inline-block;
         margin: 0px;
-        width: 35px;
+        width: 25px;
         height: 25px;
         text-align: center;
         vertical-align: middle;
-        padding: 2px 0;
+        padding: 1px 0;
         background: white;
         color: #2B2B2B;
         font-size: 20px;
@@ -2162,6 +2204,11 @@ li datalist option {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+    }
+    .update-quantity-container{
+        display: flex;
+        align-items: center;
+        height: 30px;
     }
 
     .value-button:hover {
@@ -2181,13 +2228,12 @@ li datalist option {
         padding: 0px;
     }
 
-    input#number {
+    #inputValue {
         text-align: center;
         border: none;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
-        margin: 0px;
-        width: 46px;
+        border: 2px solid white;
+        margin: -4px;
+        width: 38px;
         height: 25px;
         color: white;
         background-color: #2B2B2B;
@@ -2250,7 +2296,7 @@ li datalist option {
     }
 
     .cart__product p {
-        font-size: 15px;
+        font-size: 13px;
     }
 
     .cart__product span {
@@ -2277,9 +2323,15 @@ li datalist option {
 
     .cart__buttons {
         width: 75%;
-        justify-content: space-between;
+        justify-content: space-around;
+        flex-direction: row;
+        position: relative;
     }
-
+    .delete-cart{
+        position: absolute;
+        bottom: 0%;
+        right: 4%;
+    }
     .cart__minisection {
         padding: 5px;
         justify-content: center;
@@ -2390,6 +2442,7 @@ li datalist option {
     }
 
     .catalogo__conteiner {
+        position: relative;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         width: 100%;
@@ -2405,7 +2458,21 @@ li datalist option {
         width: 100%;
         display: grid;
     }
-
+    .nav-alert{
+        position: absolute;
+        width: 100%;
+        margin: auto;
+        padding: 50px 5%;
+        text-align: center;
+    }
+    .nav-alert h1{
+        font-size: 16px;
+        color: #fbf2e0;
+    }
+    .nav-alert span{
+        font-style: italic;
+        font-weight: normal;
+    }
     /*Fin catalogo*/
 
     /************ seccion all-blogs ************/
@@ -2464,7 +2531,7 @@ li datalist option {
     .input__section label{
         padding-bottom: 10px;
         color: #FBF2E0;
-        font-size: 12px;
+        font-size: 15px;
     }
     .input__group{
        display: flex;
@@ -2491,7 +2558,7 @@ li datalist option {
     }
     .checkout-alignment h4{
         margin: 0% 5%;
-        font-weight: normal;
+        font-weight: bold;
     }
     .checkout-alignment i{
         color: #2b2b2b;
@@ -2544,7 +2611,11 @@ li datalist option {
         margin-right: 5%;
         align-items: center;
     }
-
+    #sign{
+        position: absolute;
+        top: 20px;
+        
+    }
     .logo {
         width: 180px;
         height: 63px;
@@ -2847,6 +2918,7 @@ li datalist option {
         display: flex;
         flex-direction: row;
         justify-content: center;
+        margin: 150px 0px 40px;
     }
 
     .pd__img {
@@ -2937,15 +3009,21 @@ li datalist option {
         color: #fbf2e0;
     }
 
+
     /* selector cantidad*/
+    .delete-cart{
+        position: absolute;
+        bottom: 0%;
+        right: 10%;
+    }
     .value-button {
         display: inline-block;
         margin: 0px;
-        width: 35px;
+        width: 25px;
         height: 25px;
         text-align: center;
         vertical-align: middle;
-        padding: 2px 0;
+        padding: 1px 0;
         background: white;
         color: #2B2B2B;
         font-size: 20px;
@@ -2955,6 +3033,11 @@ li datalist option {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+    }
+    .update-quantity-container{
+        display: flex;
+        align-items: center;
+        height: 30px;
     }
 
     .value-button:hover {
@@ -2974,12 +3057,11 @@ li datalist option {
         padding: 0px;
     }
 
-    input#number {
+   #inputValue {
         text-align: center;
         border: none;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
-        margin: 0px;
+        border: 2px solid white;
+        margin: -4px;
         width: 46px;
         height: 25px;
         color: white;
@@ -3036,7 +3118,7 @@ li datalist option {
 
     .catalogo__title {
         text-align: start;
-        padding-left: 10px;
+        padding-left: 40px;
         padding-top: 30px;
     }
 
@@ -3219,7 +3301,7 @@ li datalist option {
 
     .selection__botomver {
         font-size: 13px;
-        padding: 5px 10px;
+        padding: 10px 30px;
     }
 
     .block {
@@ -3315,13 +3397,6 @@ li datalist option {
         padding: 20px;
     }
 
-    #zoomC {
-        background: url("../img/espumante.png");
-        background-position: center;
-        background-size: 220px auto;
-        background-repeat: no-repeat;
-    }
-
     .pd__info {
         width: 500px;
     }
@@ -3402,6 +3477,11 @@ li datalist option {
     }
 
     /* selector cantidad*/
+    .update-quantity-container{
+        display: flex;
+        align-items: center;
+        height: 30px;
+    }
     .value-button {
         display: inline-block;
         margin: 0px;
@@ -3409,7 +3489,7 @@ li datalist option {
         height: 25px;
         text-align: center;
         vertical-align: middle;
-        padding: 2px 0;
+        padding: 1px 0;
         background: white;
         color: #2B2B2B;
         font-size: 20px;
@@ -3423,6 +3503,11 @@ li datalist option {
 
     .value-button:hover {
         cursor: pointer;
+    }
+    .delete-cart{
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
     }
 
     form #decrease {
@@ -3438,12 +3523,11 @@ li datalist option {
         padding: 0px;
     }
 
-    input#number {
+    input#inputValue {
         text-align: center;
         border: none;
-        border-top: 2px solid white;
-        border-bottom: 2px solid white;
-        margin: 0px;
+        border: 2px solid white;
+        margin: -4px;
         width: 46px;
         height: 25px;
         color: white;
@@ -3526,6 +3610,9 @@ li datalist option {
         height: 600px;
     }
     /*Comienzo catalogo*/
+    .catalogo__title {
+        padding-left: 10px;
+    }
     .catalogo__queries {
         width: 85%;
         margin: auto;
@@ -3545,8 +3632,12 @@ li datalist option {
     .catalogo__headertitle {
         width: 84%;
     }
-
-
+    .nav-alert{
+        text-align: left;
+    }
+    .nav-alert h1{
+        font-size: 18px;
+    }
     /*Fin catalogo*/
 
     /*Filtro*/
@@ -3564,8 +3655,6 @@ li datalist option {
 }
 
 @media screen and (min-width: 1440px) {
-
-
     /*Inicio Filosofia*/
     .philosophy .text-content {
         width: 60%;
@@ -3585,20 +3674,22 @@ li datalist option {
 
     .cart__header {
         display: grid;
-        grid-template-columns: 54% 22% 24%;
-        padding: 10px 0px;
+        grid-template-columns: 40% 35% 15%;
+        padding: 10px 0px ;
         border-bottom: 1px solid #7B7B7B;
     }
 
     .cart__productdetail {
         justify-content: space-between;
     }
+    
 
     .cart__buttons {
-        width: 56%;
-        justify-content: space-around;
+        width: 70%;
+        justify-content: space-between;
+        padding-right: 30px;
     }
-
+   
     .cart__title {
         width: 90%;
         font-size: 20px;
@@ -3612,7 +3703,6 @@ li datalist option {
     .catalogo__headertitle {
         width: 82%;
     }
-
 
     /*Footer*/
     .footer ul {
@@ -3686,8 +3776,12 @@ li datalist option {
         font-size: 20px;
 
     }
-
-
+    .delete-cart{
+        position: absolute;
+        bottom: 0%;
+        right: 0%;
+    }
+    
 }
 
 

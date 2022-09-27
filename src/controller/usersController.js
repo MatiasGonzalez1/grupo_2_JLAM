@@ -54,14 +54,20 @@ const usersController = {
     admin: (req, res) =>{
         res.render(path.join(__dirname, '../views/adminArea.ejs'), {userLog: req.session.userLogged});
     },
+    getShippingCost:async(req, res) =>{
+
+        let currentCity = await db.Cities.findByPk(Number(req.params.id),{
+        })
+        return res.json(currentCity);
+        // console.log(res.json(currentCity), currentCity);
+        
+    },
     registerView: (req, res)=>{
         res.render(path.join(__dirname, '../views/users/registro.ejs'))
     },
     register: async (req,res) =>{
 
         let errors = validationResult(req);
-        console.log(errors);
-        
         if(!errors.isEmpty()){
         // si existe un archivo con propiedad filename
         if (req.file) {
@@ -95,7 +101,6 @@ const usersController = {
 
         }
     },
-
     userData: async (req, res) =>{
         let userData = await db.Users.findByPk(Number( req.session.userLogged.userId),{
             include: [{association: 'city'}]
@@ -107,14 +112,14 @@ const usersController = {
 
     userEdit: (req, res) =>{
         let errors = validationResult(req);
-        console.log(req, errors);
         if(!errors.isEmpty()){
             // // si existe un archivo con propiedad filename
             if (req.file) {
             //     //lo borramos 
             fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.file.filename));
         }
-        res.render(path.join(__dirname,'../views/users/edit-user'), {user: userActual, errors:errors.mapped()});
+        return res.json({errors});
+        
         }else{
             let userData = {
                 firstName: req.body.nombre,
@@ -122,9 +127,9 @@ const usersController = {
                 userEmail: req.body.email,
                 userBirthDate: req.body.fechaNacimiento,
                 userPassword: req.body.password,
-                idCity: req.body.codigoPostal,
-                userAddress: req.body.direccion,
-                userFloor: req.body.departamento,
+                idCity: req.body.codigoPostal ? req.body.codigoPostal : null,
+                userAddress: req.body.direccion ? req.body.direccion : null,
+                userFloor: req.body.departamento ? req.body.departamento : null,
             }
             //si hay una pass nueva la cambio
             if(req.body.password != undefined){
@@ -132,29 +137,12 @@ const usersController = {
             }else{
                 delete userData.userPassword;
             }
-            // si agrego ciudad
-            if(req.body.codigoPostal != undefined){
-                userData.idCity= req.body.codigoPostal;
-            }else{
-                delete userData.idCity;
-            }
-            // si agrego direccion
-            if(req.body.direccion != undefined){
-                userData.userAddress= req.body.direccion;
-            }else{
-                delete userData.userAddress;
-            }
-            if(req.body.departamento != undefined){
-                userData.userFloor = req.body.departamento;
-            }else{
-                delete userData.userFloor;
-            }
+
             //si hay una imagen la cambio
             if(req.file){
-                fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", userLogged.userImg));
+                fs.unlinkSync(path.join(__dirname, "../../public/img/profileImages", req.session.userLogged.userImg));
                 userData.userImg = req.file.filename;
             }
-
             db.Users.update(userData,
             {
                 where:{
@@ -166,7 +154,6 @@ const usersController = {
             })
             .catch(error => res.send(error))
         }
-
     },
     userPermissions:(req, res) =>{
         let user = db.Users.findByPk(Number(req.params.id),{

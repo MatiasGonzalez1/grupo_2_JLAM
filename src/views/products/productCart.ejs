@@ -35,12 +35,13 @@
                 <p><span><%=product.productName%></span></p>
                 <div class="cart__buttons">
                   <p>$<%= formatter.format(product.productPrice)%></p>
-                  <div>
-                    <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
-                    <input type="number" id="number" value="<%=product.quantity%>" name="cantidad"/>
-                    <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
+                  <div class="update-quantity-container">
+                    <div class="value-button" id="decrease" value="decrease" data-divProducto="<%=product.idProduct%>">-</div>
+                    <input id="cart-id-product" type="hidden" value="<%=product.idProduct%>">
+                    <input type="number" id="inputValue" value="<%=product.quantity%>" data-inputProducto="<%=product.idProduct%>" name="cantidad"/>
+                    <div class="value-button" id="increase" value="increase" data-divProducto="<%=product.idProduct%>">+</div>
                   </div>
-                  <form method="POST" action="/product/product-cart/<%=product.idProduct%>?_method=DELETE">
+                  <form class="delete-cart" method="POST" action="/product/product-cart/<%=product.idProduct%>?_method=DELETE">
                   <button type="submit"><i class="fa-regular fa-trash-can"></i></button>
                   </form>
                 </div>
@@ -49,7 +50,7 @@
             <% })%> 
           <%} else{%>
             <div class="cart__productdetail cart__empty">
-              <p>No hay productos en tu carrito de compras :c</p>
+              <p>No hay productos en tu carrito de compras</p>
             </div>
           <%}%>
         </div>
@@ -58,24 +59,37 @@
           <div class="cart__minisection">
             <p>¿Tenés un código de descuento?</p>
             <div class="cart__code">
-              <form action="">
+              <form action="" class="form-discount">
                 <input type="text" maxlength="8" value="Ingrese su código" />
+                <button class="cart__btn--checkout" type="submit">aplicar</button>
+                <!-- <a class="cart__btn--checkout" href="">aplicar</a> -->
               </form>
-              <a class="cart__btn--checkout" href="">aplicar</a>
             </div>
           </div>
           <div class="cart__minisection">
             <div class="container__total">
               <div class="total__detail">
                 <p>subtotal:</p>
-                  <p>$ 00,00</p>
+                <% if(total >0){%>
+                  <p id="subtotal">$ <%= formatter.format(total)%></p>
+                <% }else{%>
+                  <p>$ 0</p>
+                <% }%>
+              </div>
+              <div class="total__detail">
+                <p>Descuento:</p>
+                  <p>$ 0</p>
               </div>
               <div class="total__detail">
                 <p><span>total:</span></p>
                 <div>
-                  <p>$ 00,00</p>
+                  <% if(total > 0){%>
+                    <p id="total">$ <%= formatter.format(total)%></p>
+                  <% }else{%>
+                    <p>$ 0</p>
+                  <% }%>
                   <div class="total__message">
-                    <p>iva no incluido</p>
+                    <p>No incluye costos de envío</p>
                   </div>
                 </div>
               </div>
@@ -90,5 +104,6 @@
     <footer class="footer">
       <%- include('../partials/footer.ejs')%>
     </footer>
+    <script src="/js/updateItemQuantity.js"></script>
   </body>
 </html>

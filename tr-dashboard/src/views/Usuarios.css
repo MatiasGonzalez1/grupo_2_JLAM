@@ -1,0 +1,13 @@
+.recent-users{
+    margin-top: 5%;
+}
+
+@media screen and (min-width: 768px) {
+
+    .last-users-container {
+        width: 90%;
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+    }
+    
+}

@@ -17,7 +17,6 @@ let campoProfileImage = document.querySelector("input.profileImage");
 let errores = {};
 let arrayCampos = [campoNombre, campoApellido, campoEmail, campoDate, campoPassword, campoRepassword, campoProfileImage];
 
-
 //funciones 
 let crearError = (input, error)=>{
     input.classList.add('is-invalid');
@@ -64,8 +63,8 @@ campoEmail.addEventListener('input', function () {
         crearError(campoEmail,"El campo email no puede estar vacío")
         errores.campoEmail = "El campo email no puede estar vacío"
     } else if (!campoEmail.value.match(valido)) {
-        crearError(campoEmail,"La contraseña debe de tener un número, una mayúscula y un caracter especial")
-        errores.campoEmail = "La contraseña debe de tener un número, una mayúscula y un caracter especial"
+        crearError(campoEmail,"Debe ingresar un email valido")
+        errores.campoEmail = "Debe ingresar un email valido"
     } else {
         delError(campoEmail)
         delete errores.campoEmail
@@ -174,16 +173,15 @@ formRegister.addEventListener('submit', async (e)=>{
     }
 
     await envioForm(isEmpty)
-
     
     if (resFetch.errors != undefined) {
         resFetch.errors.errors.forEach((error) => {
-                arrayCampos.forEach((input) => {
-                    if (input.name == error.param) {
-                        input.nextElementSibling.innerHTML = error.msg;
-                    }
-                });
+            arrayCampos.forEach((input) => {
+                if (input.name == error.param) {
+                    input.nextElementSibling.innerHTML = error.msg;
+                }
             });
-        }
+        });
+    }
 })
 
