@@ -48,7 +48,6 @@ module.exports = (sequelize, DataTypes) => {
         }
      }, 
         {
-        tableName: "products",
         paranoid:true,
         deletedAt: 'softDelete',
         createdAt: 'createAt',
